@@ -1,36 +1,27 @@
-// App.js
-import React, { useState } from 'react';
-import SignIn from './components/SignIn';
-import SignOut from './components/SignOut';
-import UserProfile from './components/UserProfile';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/Header';
+import LoginPage from './pages/login';
+import Dashboard from './pages/dashboard';
 
 function App() {
-  const [user, setUser] = useState({});
-
-  function handleSignIn(userObject) {
-    setUser(userObject);
-    document.getElementById('signInDiv').hidden = true;
-  }
-
-  function handleSignOut() {
-    setUser({});
-    document.getElementById('signInDiv').hidden = false;
-  }
+  // You can implement authentication logic here
+  const isAuthenticated = /* Your authentication logic here */ false;
 
   return (
-    <div className="App">
+    <>
       <Header />
-      <div id="signInDiv"></div>
-      {Object.keys(user).length !== 0 ? (
-        <div>
-          <SignOut onSignOut={handleSignOut} />
-          <UserProfile user={user} />
-        </div>
-      ) : (
-        <SignIn onSignIn={handleSignIn} />
-      )}
-    </div>
+      <Routes>
+        <Route path='/' element={<h1>Welcome to your App</h1>} />
+        <Route
+          path='/login'
+          element={isAuthenticated ? <Navigate to='/dashboard' /> : <LoginPage />}
+        />
+        <Route
+          path='/dashboard'
+          element={isAuthenticated ? <Dashboard /> : <Navigate to='/login' />}
+        />
+      </Routes>
+    </>
   );
 }
 

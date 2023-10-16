@@ -1,4 +1,3 @@
-// user.js
 const express = require('express');
 const router = express.Router();
 
@@ -6,14 +5,13 @@ const router = express.Router();
 router.get('/', (req, res) => {
   // Check if the user is authenticated
   if (req.isAuthenticated()) {
-    // Return user profile data or render a user profile page
+    // Return user profile data as JSON
     const userProfile = req.user;
     res.json(userProfile);
   } else {
     // Redirect to the login page if the user is not authenticated
-    res.redirect('/login');
+    res.status(401).json({ error: 'Unauthorized' });
   }
 });
 
 module.exports = router;
-

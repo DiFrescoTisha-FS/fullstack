@@ -11,7 +11,7 @@ function Header() {
         <div className="menu">
           <ul>
             <li>
-              <a href="/">Home</a>
+              <a href="/login">Log In</a>
             </li>
             <li>
               <a href="/about">About</a>
