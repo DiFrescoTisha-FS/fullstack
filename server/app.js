@@ -6,11 +6,12 @@ require('dotenv').config();
 const path = require('path');
 const User = require('./models/user');
 const morgan = require('morgan');
+const cors = require('cors');
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const bodyParser = require('body-parser'); // Add this line
 
 app.use(bodyParser.json());
-
+// SignIn.j
 app.use(morgan('dev')); // Use body parser before your routes
 
 app.set('view engine', 'ejs');
@@ -19,8 +20,16 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(session({
   resave: false,
   saveUninitialized: true,
-  secret: 'SECRET',
+  secret: 'SESSION_SECRET',
 }));
+
+// Enable CORS for specific origin (your frontend)
+const corsOptions = {
+  origin: 'http://localhost:3000', // Allow requests from your client's origin
+};
+
+app.use(cors(corsOptions));
+
 
 // Connect to MongoDB
 mongoose.set('strictQuery', false);
@@ -35,19 +44,23 @@ const passport = require('passport');
 app.use(passport.initialize());
 app.use(passport.session());
 
-passport.serializeUser(function (user, cb) {
-  cb(null, user);
+passport.serializeUser(function (user, done) {
+  done(null, user.id);
 });
 
-passport.deserializeUser(function (obj, cb) {
-  cb(null, obj);
+passport.deserializeUser(function (obj, done) {
+  done(null, obj);
 });
+
+const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
+const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
+const REDIRECT_URL = process.env.REDIRECT_URL;
 
 // Google OAuth Strategy
 passport.use(new GoogleStrategy({
-  clientID: '287299510870-78cld8ed4ih7vedf85vhmu9j1jglinpa.apps.googleusercontent.com',
-  clientSecret: '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',
-  callbackURL: 'http://localhost:4000/auth/google/callback',
+  clientID: GOOGLE_CLIENT_ID,
+  clientSecret: GOOGLE_CLIENT_SECRET,
+  callbackURL: REDIRECT_URL,
   scope: ['profile', 'email'],
 }, function (accessToken, refreshToken, profile, done) {
   // Check if the user already exists in the database
@@ -55,6 +68,7 @@ passport.use(new GoogleStrategy({
     .then((existingUser) => {
       if (existingUser) {
         // Return the existing user if they exist in the database
+        console.log('Existing user found:', existingUser);
         return done(null, existingUser);
       } else {
         // Create a new user if they don't exist in the database
@@ -65,17 +79,24 @@ passport.use(new GoogleStrategy({
         });
         return newUser.save()
           .then((user) => {
+            console.log('New user created:', user);
             return done(null, user);
           })
           .catch((err) => {
+            console.error('Error saving new user:', err);
             return done(err);
           });
       }
     })
     .catch((err) => {
+      console.error('Error querying user:', err);
       return done(err);
     });
+
+  // Log the received userObject here
+  console.log('Received userObject:', profile);
 }));
+
 
 // Routes
 
@@ -84,15 +105,18 @@ app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'em
 
 app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/error' }), (req, res) => {
   // Successful authentication, redirect to success page.
-  res.redirect('/success');
+  res.redirect('/dashboard');
 });
 
 // Example login route (you can customize this according to your needs)
 app.post('/login', (req, res) => {
-  // Your authentication logic goes here
-  // Check if the user data sent from the frontend is valid
 
-  const userObject = req.body.userObject; // Assuming the user data is sent as JSON in the request body
+  console.log('Received userObject from client:', req.body.userObject);
+
+  // Your authentication logic goes here
+
+  const userObject = req.body.userObject;
+  console.log('Received userObject:', userObject);  // Assuming the user data is sent as JSON in the request body
 
   // Check if userObject contains valid authentication data
   if (userObject && userObject.googleId) {
@@ -110,6 +134,11 @@ app.post('/login', (req, res) => {
     // Authentication failed, respond with JSON error
     res.status(401).json({ message: 'Authentication failed', error: 'Invalid credentials' });
   }
+});
+
+app.get('/logout', function (req, res) {
+  req.logout();
+  res.redirect('/dashboard');
 });
 
 // Start the server

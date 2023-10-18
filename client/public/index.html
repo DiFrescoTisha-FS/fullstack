@@ -16,7 +16,6 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
     <title>React App</title>
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
   </head>
   <body>
     <div class="g-signin2" data-onsuccess="onSignIn"></div>
@@ -40,8 +39,13 @@
       }
     </script>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
 
+    <div id="root"></div>
+    <Script src="https://accounts.google.com/gsi/client"
+    id="gsi-client"
+    async
+    defer
+  />
 
   </body>
 </html>

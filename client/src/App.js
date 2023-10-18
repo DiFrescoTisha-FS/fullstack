@@ -2,6 +2,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/Header';
 import LoginPage from './pages/login';
 import Dashboard from './pages/dashboard';
+import TestPage from './pages/test';
 
 function App() {
   // You can implement authentication logic here
@@ -12,6 +13,7 @@ function App() {
       <Header />
       <Routes>
         <Route path='/' element={<h1>Welcome to your App</h1>} />
+        <Route path='/test' element={ <TestPage />} />
         <Route
           path='/login'
           element={isAuthenticated ? <Navigate to='/dashboard' /> : <LoginPage />}
