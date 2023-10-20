@@ -1,29 +1,29 @@
-// Header.js
-import React from 'react';
+// // Header.js
+// import React from 'react';
 
-function Header() {
-  return (
-    <header>
-      <nav>
-        <div className="logo">
-          <h1>Your Logo</h1>
-        </div>
-        <div className="menu">
-          <ul>
-            <li>
-              <a href="/login">Log In</a>
-            </li>
-            <li>
-              <a href="/about">About</a>
-            </li>
-            <li>
-              <a href="/contact">Contact</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </header>
-  );
-}
+// function Header() {
+//   return (
+//     <header>
+//       <nav>
+//         <div className="logo">
+//           <h1>Your Logo</h1>
+//         </div>
+//         <div className="menu">
+//           <ul>
+//             <li>
+//               <a href="/login">Log In</a>
+//             </li>
+//             <li>
+//               <a href="/about">About</a>
+//             </li>
+//             <li>
+//               <a href="/contact">Contact</a>
+//             </li>
+//           </ul>
+//         </div>
+//       </nav>
+//     </header>
+//   );
+// }
 
-export default Header;
+// export default Header;

@@ -5,7 +5,7 @@
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <meta name="google-signin-client_id" content="287299510870-78cld8ed4ih7vedf85vhmu9j1jglinpa.apps.googleusercontent.com">
+    <!-- <meta name="google-signin-client_id" content="287299510870-78cld8ed4ih7vedf85vhmu9j1jglinpa.apps.googleusercontent.com"> -->
 
     <meta
       name="description"
@@ -16,36 +16,16 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
     <title>React App</title>
+
   </head>
   <body>
-    <div class="g-signin2" data-onsuccess="onSignIn"></div>
 
-    <script>
-      // Define the callback function for a successful sign-in
-      function onSignIn(googleUser) {
-        // You can handle the user data here, e.g., send it to your server for authentication
-        var profile = googleUser.getBasicProfile();
-        console.log('ID: ' + profile.getId());
-        console.log('Name: ' + profile.getName());
-        console.log('Email: ' + profile.getEmail());
-        
-        // You can also send the user's ID token to your server for verification
-        var id_token = googleUser.getAuthResponse().id_token;
-        console.log('ID Token: ' + id_token);
-        
-        // Redirect or perform any other action after successful login
-        // For example, you can redirect to another page:
-        // window.location.href = '/dashboard';
-      }
-    </script>
+
+
     <noscript>You need to enable JavaScript to run this app.</noscript>
 
     <div id="root"></div>
-    <Script src="https://accounts.google.com/gsi/client"
-    id="gsi-client"
-    async
-    defer
-  />
 
+    <script src="https://accounts.google.com/gsi/client" id="gsi-client" async defer></script>
   </body>
 </html>

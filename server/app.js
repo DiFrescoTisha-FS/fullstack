@@ -1,146 +1,144 @@
-const express = require('express');
-const app = express();
-const session = require('express-session');
-const mongoose = require('mongoose');
-require('dotenv').config();
-const path = require('path');
-const User = require('./models/user');
-const morgan = require('morgan');
 const cors = require('cors');
-const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
-const bodyParser = require('body-parser'); // Add this line
-
-app.use(bodyParser.json());
-// SignIn.j
-app.use(morgan('dev')); // Use body parser before your routes
-
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
-
-app.use(session({
-  resave: false,
-  saveUninitialized: true,
-  secret: 'SESSION_SECRET',
-}));
-
-// Enable CORS for specific origin (your frontend)
-const corsOptions = {
-  origin: 'http://localhost:3000', // Allow requests from your client's origin
-};
-
-app.use(cors(corsOptions));
+const express = require('express');
+const createError = require("http-errors");
+const morgan = require('morgan');
+require('dotenv').config();
+const mongoose = require('mongoose');
+const { OAuth2Client } = require('google-auth-library');
+const axios = require('axios');
+const tokensRouter = require('./api/routes/tokens');
+const Token = require('./api/models/token'); // Make sure the path is correct
 
 
-// Connect to MongoDB
-mongoose.set('strictQuery', false);
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
-const db = mongoose.connection;
-db.on('error', error => console.error(error));
-db.once('open', () => console.log('Database Connection Established'));
 
-// Passport Initialization
-const passport = require('passport');
+const app = express();
 
-app.use(passport.initialize());
-app.use(passport.session());
+app.use(cors()); // Place cors middleware at the top
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(morgan("dev"));
 
-passport.serializeUser(function (user, done) {
-  done(null, user.id);
-});
+// Apply the tokensRouter for the '/api/tokens' path
+app.use('/api/tokens', tokensRouter);
 
-passport.deserializeUser(function (obj, done) {
-  done(null, obj);
-});
 
-const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
-const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
-const REDIRECT_URL = process.env.REDIRECT_URL;
+const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID, process.env.GOOGLE_CLIENT_SECRET)
 
-// Google OAuth Strategy
-passport.use(new GoogleStrategy({
-  clientID: GOOGLE_CLIENT_ID,
-  clientSecret: GOOGLE_CLIENT_SECRET,
-  callbackURL: REDIRECT_URL,
-  scope: ['profile', 'email'],
-}, function (accessToken, refreshToken, profile, done) {
-  // Check if the user already exists in the database
-  User.findOne({ googleId: profile.id })
-    .then((existingUser) => {
-      if (existingUser) {
-        // Return the existing user if they exist in the database
-        console.log('Existing user found:', existingUser);
-        return done(null, existingUser);
-      } else {
-        // Create a new user if they don't exist in the database
-        const newUser = new User({
-          googleId: profile.id,
-          name: profile.displayName,
-          email: profile.emails[0].value,
-        });
-        return newUser.save()
-          .then((user) => {
-            console.log('New user created:', user);
-            return done(null, user);
-          })
-          .catch((err) => {
-            console.error('Error saving new user:', err);
-            return done(err);
-          });
-      }
-    })
-    .catch((err) => {
-      console.error('Error querying user:', err);
-      return done(err);
+async function verifyToken(token) {
+  try {
+    console.log('Received token:', token); // Debugging line
+    const ticket = await client.verifyIdToken({
+      idToken: token,
+      audience: process.env.GOOGLE_CLIENT_ID,
     });
 
-  // Log the received userObject here
-  console.log('Received userObject:', profile);
-}));
+    const payload = ticket.getPayload();
+    const userId = payload.sub;
+
+    // Now you can use the payload data as needed
+    console.log('Payload:', payload); // Debugging line
+
+    // Return user ID or other relevant data
+    return userId;
+  } catch (error) {
+    console.error('Google OAuth verification error:', error);
+    throw error;
+  }
+}
 
 
-// Routes
+// Example usage:
+const googleToken = process.env.GOOGLE_TOKEN;
 
-// Google OAuth authentication route
-app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
+verifyToken(googleToken)
+  .then((userId) => {
+    // Handle successful verification
+    console.log('Verified user ID:', userId);
+  })
+  .catch((error) => {
+    // Handle verification error
+    console.error('Verification error:', error);
+  });
 
-app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/error' }), (req, res) => {
-  // Successful authentication, redirect to success page.
-  res.redirect('/dashboard');
+app.get("/", async (req, res, next) => { 
+  res.send({ message: "Awesome it works" })
+})
+
+const verify = async (req, res, next) => {
+  const authHeader = req.headers.authorization;
+  const token = authHeader ? authHeader.split(' ')[1] : undefined;
+
+  if (!token) {
+    return res.status(401).json({ message: 'Unauthorized' });
+  }
+
+  try {
+    const userId = await verifyToken(token);
+    // If the token is valid, store user information in the request for later use
+    req.user = userId;
+    next();
+  } catch (error) {
+    console.error('Verification error:', error);
+    return res.status(401).json({ message: 'Unauthorized' });
+  }
+};
+
+
+app.get("/protected", verify, async (req, res, next) => {
+  // If you reach here, the token is valid, and req.user contains the user ID
+  res.send({ message: 'Access granted' });
 });
 
-// Example login route (you can customize this according to your needs)
-app.post('/login', (req, res) => {
+// ... Other middleware and route setups ...
 
-  console.log('Received userObject from client:', req.body.userObject);
+// Handle the route for creating a new token
+app.post('/api/tokens', async (req, res) => {
+  try {
+    // In a real scenario, you would get these values from the client or generate them dynamically
+    const { userId, accessToken, refreshToken, expiration } = req.body;
 
-  // Your authentication logic goes here
+    // Create a new token document
+    const newToken = new Token({
+      userId,
+      accessToken,
+      refreshToken,
+      expiration: new Date(expiration),
+    });
 
-  const userObject = req.body.userObject;
-  console.log('Received userObject:', userObject);  // Assuming the user data is sent as JSON in the request body
+    // Save the new token document
+    await newToken.save();
 
-  // Check if userObject contains valid authentication data
-  if (userObject && userObject.googleId) {
-    // You can perform further checks here, such as verifying the user's Google ID
-    // If the user is authenticated, you can send back user data
-
-    const userData = {
-      username: userObject.name,
-      email: userObject.email,
-      // Other user data as needed
-    };
-
-    res.json({ message: 'Authentication successful', user: userData });
-  } else {
-    // Authentication failed, respond with JSON error
-    res.status(401).json({ message: 'Authentication failed', error: 'Invalid credentials' });
+    res.status(201).json({ message: 'Token created successfully' });
+  } catch (error) {
+    console.error('Error saving token:', error);
+    res.status(500).json({ error: 'Error creating token' });
   }
 });
 
-app.get('/logout', function (req, res) {
-  req.logout();
-  res.redirect('/dashboard');
-});
+// ... Rest of your code ...
 
-// Start the server
-const port = process.env.PORT || 4000;
-app.listen(port, () => console.log('App listening on port ' + port));
+
+// Use the MONGO_URI environment variable or a default connection string
+const mongoURI = process.env.MONGO_URI || 'mongodb://localhost:27017/fullstack';
+
+mongoose.set('strictQuery', false);
+mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => {
+    console.log('Database Connection Established');
+    
+    // Now you can define the 'db' variable
+    const db = mongoose.connection;
+
+    db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+    db.once('open', () => {
+      console.log('Connected to MongoDB');
+    });
+
+    const port = process.env.PORT || 4000;
+    app.listen(port, () => console.log('App listening on port ' + port));
+  })
+  .catch((error) => {
+    console.error('MongoDB Connection Error:', error);
+  });
+
+
