@@ -1,56 +1,43 @@
-import React, { useState } from 'react';
-// import SignIn from '../components/SignIn';
-import GoogleSignInButton from '../components/GoogleSigninButton';
-import UserProfile from '../components/UserProfile';
-import SignOutButton from '../components/SignOutButton';
+import { useGoogleOneTapLogin } from "@react-oauth/google";
+import { decodeJwt } from "jose";
+import axios from "axios";
 
-function LoginPage() {
-  const [user, setUser] = useState(null);
+const LoginPage = () => {
+  const login = useGoogleOneTapLogin({
+    onSuccess: async (credentialResponse) => {
+      try {
+        console.log(credentialResponse);
+        const { credential } = credentialResponse;
+        const payload = credential ? decodeJwt(credential) : undefined;
+        if (payload) {
+          console.log(payload);
 
-  // Function to handle Google sign-in and authentication
-  async function handleGoogleSignIn(response) {
-    try {
-      const serverResponse = await fetch('http://localhost:4000/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ userObject: response }), // Send the userObject to the server
-      });
-  
-      if (serverResponse.ok) {
-        // Handle successful authentication on the client-side
-        console.log('Authentication successful on the client side');
-        // Redirect or perform other actions here
-      } else {
-        // Authentication failed on the client-side
-        console.error('Authentication failed on the client side');
-        // Display an error message to the user
+          // Remove the "Bearer " prefix from the token
+          const token = credential.replace('Bearer ', '');
+
+          // Make an Axios GET request on successful login
+          const response = await axios.get("http://localhost:4000/protected", {
+            headers: {
+              Authorization: token, // Send the token without the "Bearer" prefix
+            },
+          });
+
+          console.log(response.data);
+        }
+      } catch (error) {
+        console.error(error);
       }
-    } catch (error) {
-      // Handle other errors (e.g., network errors)
-      console.error('Error during authentication:', error);
-    }
-  }
-  
+    },
+    onError: (error) => console.log(error),
+  });
 
   return (
-    <div>
-      <h2>Login</h2>
-      {user ? (
-        <div>
-          {/* Display user profile if logged in */}
-          <UserProfile user={user} />
-          <SignOutButton />
-        </div>
-      ) : (
-        <div>
-          {/* Render Google sign-in component */}
-          <GoogleSignInButton onSignIn={handleGoogleSignIn} />
-        </div>
-      )}
+    <div className="Login">
+      <div className="card">
+        <h3>React Google Oauth Authentication (Client &amp; Server)</h3>
+      </div>
     </div>
   );
-}
+};
 
 export default LoginPage;
