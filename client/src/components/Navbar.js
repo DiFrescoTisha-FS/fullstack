@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom'
-import '../navbar.css'
+import "../index.css"
+import GoogleSignIn from './GoogleSignIn';
 
 const Navbar = () => {
   return (
@@ -21,6 +22,9 @@ const Navbar = () => {
             </li>
             <li>
               <NavLink to="/contact">Contact</NavLink>
+            </li>
+            <li>
+              <GoogleSignIn />
             </li>
           </ul>
         </div>
