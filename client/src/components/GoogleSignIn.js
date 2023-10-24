@@ -18,9 +18,18 @@ function GoogleSignIn() {
             code,
           }
         );
-
+  
         if (tokensResponse.status === 200) {
-          const { userData } = tokensResponse.data;
+          const { access_token, userData } = tokensResponse.data;
+  
+          // Add the access token to the Axios request headers
+          axios.defaults.headers.common["Authorization"] = `Bearer ${access_token}`;
+  
+          // Now, you can make authenticated requests to other APIs or services using Axios.
+          // Example:
+          const response = await axios.get("https://api.example.com/resource");
+          console.log("Response from authenticated request:", response.data);
+  
           setUserData(userData);
         } else {
           console.error("Failed to exchange code for tokens");
@@ -38,6 +47,7 @@ function GoogleSignIn() {
 
   const handleLogout = () => {
     // Clear user data and close the dropdown
+    console.log("Logging out"); // Log that logout is happening
     setUserData(null);
     setIsDropdownOpen(false);
     // You can also send a request to your backend to invalidate the session or tokens

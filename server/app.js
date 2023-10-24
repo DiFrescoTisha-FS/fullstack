@@ -4,6 +4,8 @@ const axios = require('axios');
 const { OAuth2Client } = require('google-auth-library');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const Token = require('./api/models/token'); // Adjust the path as needed
+const User = require('./api/models/user');
 
 const app = express();
 
@@ -24,7 +26,7 @@ const oAuth2Client = new OAuth2Client(
 async function verifyIdToken(idToken) {
   try {
     // Verify the ID token using the OAuth2Client instance
-    const ticket = await client.verifyIdToken({
+    const ticket = await oAuth2Client.verifyIdToken({
       idToken: idToken,
       audience: process.env.GOOGLE_CLIENT_ID, // Specify your client ID
     });
@@ -56,7 +58,7 @@ async function verifyIdToken(idToken) {
 // Usage example:
 async function main() {
   try {
-    const idToken = 'eyJhbGciOiJSUzI1NiIsImtpZCI6IjdkMzM0NDk3NTA2YWNiNzRjZGVlZGFhNjYxODRkMTU1NDdmODM2OTMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI2MzA0NjkwNDk5NzAtMTYxaWloZjVtamg5NnJ0Nm1qOTYzYXNldG0yY3Y2NjUuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI2MzA0NjkwNDk5NzAtMTYxaWloZjVtamg5NnJ0Nm1qOTYzYXNldG0yY3Y2NjUuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMDI1NjE5NjgxNzQ2MDM2MDk2OTMiLCJlbWFpbCI6InRzaGRmcnNjN0BnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibmJmIjoxNjk4MDkzMzk1LCJuYW1lIjoiVGlzaGEgRGkgRnJlc2NvIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FDZzhvY0l3UHpXM1UzWTYzcGVsRm53SUN2U2FHam1leE44cVFWWWdMTXY3ZVhrcWpnPXM5Ni1jIiwiZ2l2ZW5fbmFtZSI6IlRpc2hhIiwiZmFtaWx5X25hbWUiOiJEaSBGcmVzY28iLCJsb2NhbGUiOiJlbiIsImlhdCI6MTY5ODA5MzY5NSwiZXhwIjoxNjk4MDk3Mjk1LCJqdGkiOiJkZmQwMDdmY2ZjMjYyYWNhYWZjNzc4NjQ4ZTc4NDQ5YmI3YzJmNjhlIn0.QTY6g_GftMIIpP0oo5u5kKQjKdBdBCbpLngm3vS1QVFmwgHrU0T4GjRaM1G7aZZ_om-Fr6YZ4GXNHCrNvxnZeOWrrZw9Aw0hBie7uC00F4n3xZmID04BU3VNHl0rEyycagabR3IPdOXHKHwTFYdBNn_PjlQzGiO10gQ-drXfQicPeaoeY9OOpbDF9rp-oaQnhaQ4faD322YrqdgKv292rjXOqmgkhnxnZVmx8WxTrPd10Aia_6RKXMPD7YFkv1ZSfGYm-ygkZGBKiiNhEgGsytDitv2T7iKz2BOBPxksiqdhFem8S5MqiiPtjAv6b5SoxysKKMMm7v815k9OxV_pRA';
+    const idToken = 'eyJhbGciOiJSUzI1NiIsImtpZCI6ImEwNmFmMGI2OGEyMTE5ZDY5MmNhYzRhYmY0MTVmZjM3ODgxMzZmNjUiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI2MzA0NjkwNDk5NzAtMTYxaWloZjVtamg5NnJ0Nm1qOTYzYXNldG0yY3Y2NjUuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI2MzA0NjkwNDk5NzAtMTYxaWloZjVtamg5NnJ0Nm1qOTYzYXNldG0yY3Y2NjUuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMDI1NjE5NjgxNzQ2MDM2MDk2OTMiLCJlbWFpbCI6InRzaGRmcnNjN0BnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiYXRfaGFzaCI6IjB0bDJPb3VfX0hpbjFEbVVmTkpqTmciLCJuYW1lIjoiVGlzaGEgRGkgRnJlc2NvIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FDZzhvY0l3UHpXM1UzWTYzcGVsRm53SUN2U2FHam1leE44cVFWWWdMTXY3ZVhrcWpnPXM5Ni1jIiwiZ2l2ZW5fbmFtZSI6IlRpc2hhIiwiZmFtaWx5X25hbWUiOiJEaSBGcmVzY28iLCJsb2NhbGUiOiJlbiIsImlhdCI6MTY5ODExNDk5MiwiZXhwIjoxNjk4MTE4NTkyfQ.v_eQ33IhXWIM2BrXQQQbimpRlpDeBtaaNsCwAlKm3y1chbo3mR9eyQCIo1Hde0eCQn2VC6xpOsp1uNV0K1T6fqdn0g1ZWBV5bLOtsQ04BySu9WWNyWAbl3Yu95HqkHLZmf-G-PICKQpGZaiBpScBV_k__g9m_QFujfNvfsEWfL9s_Nk00xJSKWI6Yq1C_sg8VohLeT8XOJ34R9P79D7GvCF2CMd_zsK9HJ__aPV_wNSTj8eD47Oc9D4faAhP-7Aca2pBmEMVCedgo5OqePJSgLYb3hUDYRafJqIJSqslk5UrhUnKEWI5HrAS8-SyqdpikwwTB8IaOaT-2GSnQfTVpQ'; // Replace with your ID token
     const claims = await verifyIdToken(idToken);
     console.log('Decoded claims:', claims);
   } catch (error) {
@@ -66,40 +68,45 @@ async function main() {
 
 main();
 
-// Authentication route (initiates Google OAuth2 flow)
-app.post('/auth/google', async (req, res) => {
-  const { code } = req.body;
-
+// Function to exchange authorization code for ID token
+async function exchangeCodeForIdToken(authorizationCode) {
   try {
-    // Exchange the authorization code for tokens
-    const { tokens } = await oAuth2Client.getToken(code);
-
-    // Use the access_token to fetch user data from Google
-    const { access_token } = tokens;
-
-    // Make a GET request to Google's userinfo endpoint
-    const userDataResponse = await axios.get('https://www.googleapis.com/oauth2/v1/userinfo', {
-      headers: {
-        Authorization: `Bearer ${access_token}`,
-      },
+    const response = await axios.post("https://oauth2.googleapis.com/token", {
+      code: authorizationCode,
+      client_id: process.env.GOOGLE_CLIENT_ID, // Replace with your client ID
+      client_secret: process.env.GOOGLE_CLIENT_SECRET, // Replace with your client secret
+      redirect_uri: process.env.REDIRECT_URL, // Replace with your redirect URI
+      grant_type: "authorization_code",
     });
 
-    // Extract relevant user data
-    const userData = {
-      name: userDataResponse.data.name,
-      email: userDataResponse.data.email,
-      picture: userDataResponse.data.picture,
-      // Add more user data fields as needed
-    };
+    if (response.status === 200) {
+      const { id_token } = response.data;
+      return id_token;
+    } else {
+      console.error("Failed to exchange code for ID token");
+      return null;
+    }
+  } catch (error) {
+    console.error("An error occurred:", error);
+    return null;
+  }
+}
 
-    // Respond with both tokens and user data
-    res.json({ tokens, userData });
-  } catch (err) {
-    console.error('Token exchange error:', err);
-    res.status(500).json({ error: 'Token exchange error' });
+// Usage in your route handler
+app.post("/auth/google", async (req, res) => {
+  const { code } = req.body;
+  
+  // Exchange the code for an ID token
+  const idToken = await exchangeCodeForIdToken(code);
+
+  if (idToken) {
+    // Verify the ID token and proceed with authentication
+    // Replace this part with your actual verification logic
+    // Example: verifyIdToken(idToken).then(user => res.json({ user }));
+  } else {
+    res.status(500).json({ error: "Failed to exchange code for ID token" });
   }
 });
-
 
 // Refresh token route (if needed)
 app.post('/auth/google/refresh-token', (req, res) => {
@@ -108,6 +115,30 @@ app.post('/auth/google/refresh-token', (req, res) => {
   // You can use the provided UserRefreshClient logic or another method
   res.status(501).json({ error: 'Not Implemented' });
 });
+
+const saveTokenToDatabase = (accessToken, refreshToken, expiration) => {
+  const tokenData = new Token({
+    accessToken: accessToken,
+    refreshToken: refreshToken,
+    expiration: expiration,
+  });
+
+  tokenData.save()
+    .then(() => {
+      console.log('Token saved to the database');
+    })
+    .catch((error) => {
+      console.error('Error saving token to the database:', error);
+    });
+};
+
+// Define variables with token data (replace these with your actual data)
+const accessToken = '...'; // Replace with your access token
+const refreshToken = '...'; // Replace with your refresh token
+const expiration = new Date(1698118590427); 
+
+// Call the function to save token data after receiving the relevant data
+saveTokenToDatabase(accessToken, refreshToken, expiration);
 
 // ... Other middleware and route setups ...
 
