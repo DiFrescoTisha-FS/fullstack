@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom'
-import "../index.css"
-import GoogleSignIn from './GoogleSignIn';
+import "../index.css";
+import GoogleSignIn from './GoogleSignIn'
+
 
 const Navbar = () => {
   return (
