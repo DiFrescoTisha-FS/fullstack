@@ -23,7 +23,6 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Internal Server Error' });
 });
 
-
 app.use(cors());
 app.use(express.json());
 
@@ -45,110 +44,54 @@ mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
     db.on('error', error => {
       logger.error('MongoDB connection error:', error);
     });
-    db.once('open', async () => {
+
+    // Define the startServer function
+    function startServer() {
       logger.info('Connected to MongoDB');
 
-      // Define the authentication route
-      app.post('/auth/google', async (req, res) => {
-        try {
-          const { code, idToken } = req.body;
-          logger.info('Received code:', code);
-          logger.info('Received idToken:', idToken);
-
-          const { tokens } = await oAuth2Client.getToken(code);
-          logger.info('Tokens:', tokens);
-
-          const { sub, email, name, picture } = await verifyIdToken(idToken);
-          logger.info('User Information:', sub, email, name, picture);
-
-          logger.info('Authentication request received.');
-          logger.error('An error occurred during authentication.');
-          logger.warn('Unexpected data received in the request.');
-
-          // Save the tokens and user information to the database
-          const token = new Token({
-            accessToken: tokens.access_token,
-            refreshToken: tokens.refresh_token,
-            expiresAt: tokens.expiry_date,
-            userId: sub,
-          });
-          await token.save();
-
-          const user = new User({
-            userId: sub,
-            email,
-            name,
-            picture,
-          });
-          await user.save();
-
-          // Process the tokens
-          const result = await processTokens(tokens, idToken); // Pass idToken instead of tokens.access_token
-
-          res.status(200).json(result);
-        } catch (error) {
-          logger.error('Error during authentication:', error);
-          res.status(500).json({ error: 'Internal server error' });
-        }
+      app.post('/tokensignin', async (req, res) => {
+        const { idToken } = req.body;
+        
+        // Verify the ID token
+        const ticket = await oAuth2Client.verifyIdToken({
+          idToken: idToken,
+          audience: process.env.GOOGLE_CLIENT_ID,
+        });
+      
+        const payload = ticket.getPayload();
+        
+        // Get the user data from the payload
+        const { sub, name, email, picture } = payload;
+      
+        // Find a user with this Google ID and update their data,
+        // or create a new user if no user with that Google ID exists
+        const user = await User.findOneAndUpdate(
+          { googleId: sub },
+          {
+            googleId: sub,
+            name: name,
+            email: email,
+            picture: picture,
+          },
+          { upsert: true, new: true }
+        );
+        
+        res.json({ message: 'User signed in successfully' });
       });
-    });
-  })
-  .catch((error) => {
-    console.error('MongoDB Connection Error:', error);
-  });
+      
+      
 
-async function verifyIdToken(idToken) {
-  try {
-    const ticket = await oAuth2Client.verifyIdToken({
-      idToken,
-      audience: process.env.GOOGLE_CLIENT_ID,
-    });
-    const payload = ticket.getPayload();
-    const { sub, email, name, picture } = payload;
-    return { sub, email, name, picture };
-  } catch (error) {
-    console.error('Error verifying ID token:', error);
-    throw error;
-  }
-}
+      const port = process.env.PORT || 4000;
 
-async function processTokens(tokens, idToken) {
-  try {
-    console.log('Processing tokens. Access token:', tokens.access_token);
-    const payload = await verifyIdToken(idToken);
-    const { sub, email, name, picture } = payload;
+      app.listen(port, () => {
+        console.log(`App listening on port ${port}`);
+      });
+    }
 
-    // Use the access token in your code
-    console.log(tokens.access_token);
-
-    // Example: Save the user information to the database
-    const user = new User({
-      sub,
-      email,
-      name,
-      picture,
-    });
-    await user.save();
-
-    // Example: Make an API call using the access token
-    const response = await axios.get('http://localhost:4000/auth/google', {
-      headers: {
-        Authorization: `Bearer ${tokens.access_token}`,
-      },
-    });
-    const responseData = response.data;
-
-    // Example: Send a response back to the client
-    return { message: 'Tokens processed successfully' };
-
-  } catch (error) {
-    console.error('Error processing tokens:', error);
-    throw error;
-  }
-}
-
-const port = process.env.PORT || 4000;
-
-app.listen(port, () => {
-  console.log(`App listening on port ${port}`);
+    // Check if the connection is already open
+    if (db.readyState === 1) {
+      startServer();
+    } else {
+      db.once('open', startServer);
+    }
 });

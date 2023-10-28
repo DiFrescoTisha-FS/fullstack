@@ -1,6 +1,8 @@
+// import { GoogleLogin } from '@react-oauth/google';
 import { NavLink } from 'react-router-dom'
 import "../index.css";
-import GoogleSignIn from './GoogleSignIn'
+import Login from "./Login"
+// import GoogleSignIn from './GoogleSignIn'
 
 
 const Navbar = () => {
@@ -25,8 +27,9 @@ const Navbar = () => {
               <NavLink to="/contact">Contact</NavLink>
             </li>
             <li>
-              <GoogleSignIn />
+              <Login />
             </li>
+
           </ul>
         </div>
       </div>
