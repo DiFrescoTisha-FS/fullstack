@@ -1,12 +1,22 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { loadGapiInsideDOM } from 'gapi-script';
 
-const Login = () => {
+const Login = ({ setUser }) => {
+  const [user, setUserState] = useState(null);
+
   useEffect(() => {
     const initGapi = async () => {
       const gapi = await loadGapiInsideDOM();
 
       const onSuccess = (googleUser) => {
+        const profile = googleUser.getBasicProfile();
+        const userData = {
+          name: profile.getName(),
+          email: profile.getEmail(),
+          imageUrl: profile.getImageUrl(),
+        };
+        setUserState(userData);
+        setUser(userData); 
         console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
         const id_token = googleUser.getAuthResponse().id_token; // Define id_token here
       
@@ -54,7 +64,7 @@ const Login = () => {
     };
 
     initGapi();
-  }, []);
+  }, [setUser]);
 
   const handleSignOut = () => {
     const auth2 = window.gapi.auth2.getAuthInstance();
@@ -67,7 +77,18 @@ const Login = () => {
   return (
     <div>
       <div id="google-signin-button"></div>
-      <button onClick={handleSignOut}>Sign Out</button>
+      {user && (
+        <div className="user-dropdown">
+          <div className="user-info">
+            <img className="user-profile-pic" src={user.imageUrl} alt="User profile" />
+            <div>
+              <div className="user-name">{user.name}</div>
+              <div>{user.email}</div>
+            </div>
+          </div>
+          <button className="user-logout-button" onClick={handleSignOut}>Sign Out</button>
+        </div>
+      )}
     </div>
   );
 };
