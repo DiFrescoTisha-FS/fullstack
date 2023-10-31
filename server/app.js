@@ -78,9 +78,41 @@ mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
         
         res.json({ message: 'User signed in successfully' });
       });
-      
-      
 
+      app.post('/auth/google', async (req, res) => {
+        try {
+          const { tokens } = await oAuth2Client.getToken(req.body.code); // Exchange code for tokens
+          console.log(tokens);
+      
+          // Fetch user data from Google using tokens (if needed)
+          const { id_token } = tokens;
+          const ticket = await oAuth2Client.verifyIdToken({
+            idToken: id_token,
+            audience: process.env.CLIENT_ID,
+          });
+          const payload = ticket.getPayload();
+          // Extract user data from the payload (sub, name, email, picture)
+      
+          // Store tokens and user data in your MongoDB database
+          const user = await User.findOneAndUpdate(
+            { googleId: payload.sub },
+            {
+              googleId: payload.sub,
+              name: payload.name,
+              email: payload.email,
+              picture: payload.picture,
+              // Add other user data as needed
+            },
+            { upsert: true, new: true }
+          );
+      
+          res.json({ tokens, user });
+        } catch (error) {
+          console.error('Error handling /auth/google POST request:', error);
+          res.status(500).json({ error: 'Internal Server Error' });
+        }
+      });      
+      
       const port = process.env.PORT || 4000;
 
       app.listen(port, () => {

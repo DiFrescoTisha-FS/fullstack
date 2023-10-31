@@ -1,10 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { jwtDecode } from "jwt-decode";
-import { FaBars, FaChevronDown } from "react-icons/fa";
+import React, { useState } from "react";
+// import { useNavigate } from "react-router-dom";
+// import * as jwtDecode from "jwt-decode";
+// import Login from "../Login";
+import { FaBars } from "react-icons/fa";
 import { IconContext } from "react-icons/lib";
 import { animateScroll as scroll } from "react-scroll";
 import { motion } from "framer-motion";
+import logo from "../../images/logo.jpg";
+import GoogleLoginButton from "../GoogleLoginButton"; // Import the GoogleLoginButton component
+
 import {
   Nav,
   NavbarContainer,
@@ -15,164 +19,110 @@ import {
   NavItem,
   NavBtn,
   NavLinks,
-  NavBtnLink,
 } from "./NavbarElements";
 
 const Navbar = ({ toggle }) => {
-  const [scrollNav, setScrollNav] = useState(false);
-  const navigate = useNavigate();
   const [user, setUser] = useState(null);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
-  const handleSignOut = () => {
-    window.google.accounts.id.disableAutoSelect();
-    setUser(null);
-    navigate("/login");
-  };
-
-  const handleCredentialResponse = (response) => {
-    const decodedToken = jwtDecode(response.credential);
-    const userData = {
-      name: decodedToken.name,
-      email: decodedToken.email,
-      imageUrl: decodedToken.picture,
-    };
-    setUser(userData);
-    setIsDropdownOpen(false);
-  };
-
-  useEffect(() => {
-    const initializeGoogleSignIn = () => {
-      window.google.accounts.id.initialize({
-        client_id:
-          "630469049970-161iihf5mjh96rt6mj963asetm2cv665.apps.googleusercontent.com",
-        callback: handleCredentialResponse,
-      });
-      window.google.accounts.id.renderButton(
-        document.getElementById("google-signin-button"),
-        { theme: "outline", size: "large" }
-      );
-    };
-
-    if (window.google && window.google.accounts) {
-      initializeGoogleSignIn();
-    } else {
-      // Wait for the Google Sign-In library to load.
-      window.onload = initializeGoogleSignIn;
-    }
-  }, []);
 
   const toggleHome = () => {
     scroll.scrollToTop();
   };
 
-  const handleToggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
+  // Define the handleSignOut function
+  const handleSignOut = () => {
+    // Implement your sign-out logic here
+    // For example, clear user data from state or local storage
+    setUser(null);
   };
 
   return (
     <>
       <IconContext.Provider value={{ color: "#e1affd" }}>
-        <Nav scrollNav={scrollNav}>
+        <Nav>
           <NavbarContainer>
-            <NavLogo to="/" onClick={toggleHome}>
-              <NavIcon />
-            </NavLogo>
+            <motion.div
+              initial={{
+                x: -100, // Initial X position
+                opacity: 0,
+              }}
+              animate={{
+                x: 0, // Final X position
+                opacity: 1,
+              }}
+              transition={{
+                duration: 0.8, // Animation duration
+                delay: 0.2, // Delay before animation starts
+              }}
+            >
+              <NavLogo to="/" onClick={toggleHome}>
+                <NavIcon as={motion.img} src={logo} /> {/* Animate the logo */}
+              </NavLogo>
+            </motion.div>
             <MobileIcon onClick={toggle}>
               <FaBars />
             </MobileIcon>
             <NavMenu>
+                                        {/* Conditionally render the GoogleLoginButton */}
               <NavItem>
-                <NavLinks
-                  to="bio"
-                  smooth={true}
-                  duration={500}
-                  spy={true}
-                  exact="true"
-                  offset={-80}
-                >
-                  Bio
-                </NavLinks>
+                <GoogleLoginButton user={user} setUser={setUser} />
               </NavItem>
+              {/* Add a conditional rendering for the GoogleLoginButton */}
               <NavItem>
-                <NavLinks
-                  to="music"
-                  smooth={true}
-                  duration={500}
-                  spy={true}
-                  exact="true"
-                  offset={-80}
-                >
-                  Music
-                </NavLinks>
-              </NavItem>
+                    <NavLinks 
+                      to='bio'
+                      smooth={true}
+                      duration={500}
+                      spy={true}
+                      exact='true'
+                      offset={-80} 
+                    >
+                      Bio</NavLinks>
+                  </NavItem>
+                  <NavItem>
+                  <NavLinks 
+                      to='music'
+                      smooth={true}
+                      duration={500}
+                      spy={true}
+                      exact='true'
+                      offset={-80} 
+                    >
+                      Music</NavLinks>
+                  </NavItem>
+                  <NavItem>
+                    <NavLinks 
+                    to='new'
+                    smooth={true}
+                    duration={500}
+                    spy={true}
+                    exact='true'
+                    offset={-80}
+                  >
+                    New</NavLinks>
+                  </NavItem>
+                  <NavItem>
+                    <NavLinks 
+                    to='thoughts'
+                    smooth={true}
+                    duration={500}
+                    spy={true}
+                    exact='true'
+                    offset={-80}
+                    >
+                      Thoughts</NavLinks>
+                  </NavItem>
+
               <NavItem>
-                <NavLinks
-                  to="new"
-                  smooth={true}
-                  duration={500}
-                  spy={true}
-                  exact="true"
-                  offset={-80}
-                >
-                  New
-                </NavLinks>
+                {/* Conditionally render the GoogleLoginButton */}
+                {!user ? <GoogleLoginButton /> : null}
               </NavItem>
-              <NavItem>
-                <NavLinks
-                  to="thoughts"
-                  smooth={true}
-                  duration={500}
-                  spy={true}
-                  exact="true"
-                  offset={-80}
-                >
-                  Thoughts
-                </NavLinks>
-              </NavItem>
-              <NavItem>
-                <NavLinks
-                  to="feedback"
-                  smooth={true}
-                  duration={500}
-                  spy={true}
-                  exact="true"
-                  offset={-80}
-                >
-                  Feedback
-                </NavLinks>
-              </NavItem>
+              {/* Add more menu items */}
             </NavMenu>
             <NavBtn>
-              {user && (
-                <div className="relative">
-                  <button
-                    className="flex items-center bg-black space-x-4 opacity-90 hover:opacity-80 cursor-pointer rounded-full p-1 pr-2"
-                    onClick={handleToggleDropdown}
-                  >
-                    <img
-                      className="rounded-full w-8 h-8"
-                      src={user.imageUrl}
-                      alt=""
-                    />
-                    <h3 className="text-gray-400">{user.name}</h3>
-                    <FaChevronDown
-                      className="h-3"
-                      style={{ color: "rgb(128, 128, 128)" }}
-                    />
-                  </button>
-                  {isDropdownOpen && (
-                    <div className="absolute right-0 mt-2 py-2 w-38 bg-gray-300 rounded-lg shadow-lg z-10">
-                      <button
-                        className="block px-2 py-1 text-gray-800 hover:bg-gray-100 hover:text-gray-900 w-full text-left"
-                        onClick={handleSignOut}
-                      >
-                        Sign out
-                      </button>
-                    </div>
-                  )}
-                </div>
-              )}
+              {user ? (
+                /* Show user profile and sign out button when user is logged in */
+                <div onClick={handleSignOut}>Sign Out</div>
+              ) : null}
             </NavBtn>
           </NavbarContainer>
         </Nav>
