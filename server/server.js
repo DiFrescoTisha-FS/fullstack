@@ -9,6 +9,7 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const User = require('./api/models/user');
 const Token = require('./api/models/token');
+const CommentRating = require('./api/models/commentRating');
 
 
 const app = express();
@@ -151,6 +152,33 @@ app.use((err, req, res, next) => {
 app.get('/', (req, res) => {
   res.send('Server is up and running!');
 });
+
+// A POST route to submit a comment and rating
+app.post('/api/comment-rating', async (req, res, next) => {
+  // Ensure the user is authenticated
+  if (!req.isAuthenticated()) {
+    return res.status(401).send('User not authenticated');
+  }
+
+  try {
+    // Create a new CommentRating and save it to the database
+    const newCommentRating = new CommentRating({
+      user: req.user._id, // Assuming req.user is the authenticated user
+      comment: req.body.comment,
+      rating: req.body.rating
+    });
+
+    const savedCommentRating = await newCommentRating.save();
+    
+    // Optionally, you might want to save the reference of the commentRating to the User model
+    // by pushing the savedCommentRating._id into the user's comments array if you have such a field.
+
+    res.status(201).json(savedCommentRating);
+  } catch (error) {
+    next(error);
+  }
+});
+
 
 
 // Use the MONGO_URI environment variable or a default connection string
