@@ -90,11 +90,14 @@
     -webkit-animation:move-background 150s linear infinite;
     animation:move-background 150s linear infinite;
   }
-  img{
-    height: 40vh;
-    width:40vh;
-    position: absolute;
-    z-index: 3;
-    right: 20px;
-  }
+  /* img {
+  height: 40vh;
+  width: 40vh;
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+} */
+
   

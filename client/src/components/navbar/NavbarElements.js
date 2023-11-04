@@ -5,7 +5,7 @@ import { Link as LinkS } from 'react-scroll';
 export const Nav = styled.nav`
     background: #000;
     height: 80px;
-    margin-top: -80px;
+    /* margin-top: -80px; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -88,10 +88,19 @@ export const NavLinks = styled(LinkS)`
     }
 `;
 
-export const NavBtn = styled.nav`
+export const NavGoogleBtn = styled.nav`
+    justify-self: flex-end;
+    cursor: pointer;
+    font-size: 16px;
     display: flex;
     align-items: center;
-    margin-top: 20px;
+    margin-left: 24px;
+    font-weight: medium;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    /* margin-bottom: 20px; */
+    /* margin-top: 20px; */
     @media screen and (max-width: 768px) {
         display: none;
     }
@@ -118,5 +127,6 @@ export const NavBtnLink = styled(LinkR)`
         outline: 1px solid #e1affd;
 }
 `;
+
 
 

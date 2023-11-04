@@ -7,7 +7,9 @@ import { IconContext } from "react-icons/lib";
 import { animateScroll as scroll } from "react-scroll";
 import { motion } from "framer-motion";
 import logo from "../../images/logo.jpg";
-import GoogleLoginButton from "../GoogleLoginButton"; // Import the GoogleLoginButton component
+import UserComponent from "../UserComponent";
+// import GoogleLoginButton from "../GoogleLoginButton";
+// import ProfileDropdown from "../ProfileDropdown";
 
 import {
   Nav,
@@ -17,22 +19,32 @@ import {
   MobileIcon,
   NavMenu,
   NavItem,
-  NavBtn,
+  // NavBtn,
   NavLinks,
+  NavGoogleBtn,
 } from "./NavbarElements";
 
-const Navbar = ({ toggle }) => {
-  const [user, setUser] = useState(null);
+const Navbar = ({ toggle, onSignIn, onSignOut }) => {
+  const [currentUser, setCurrentUser] = useState(null);
 
   const toggleHome = () => {
     scroll.scrollToTop();
   };
 
-  // Define the handleSignOut function
+  // Replace the 'user' prop with 'currentUser' for sign-in logic
+  const handleSignIn = (userData) => {
+    setCurrentUser(userData); // Set the user data to currentUser
+    if (onSignIn) {
+      onSignIn(userData); // If there is a sign-in handler passed as a prop, call it
+    }
+  };
+
+  // Update the sign-out logic to use 'setCurrentUser'
   const handleSignOut = () => {
-    // Implement your sign-out logic here
-    // For example, clear user data from state or local storage
-    setUser(null);
+    setCurrentUser(null); // Clear the currentUser state
+    if (onSignOut) {
+      onSignOut(); // If there is a sign-out handler passed as a prop, call it
+    }
   };
 
   return (
@@ -62,68 +74,71 @@ const Navbar = ({ toggle }) => {
               <FaBars />
             </MobileIcon>
             <NavMenu>
-                                        {/* Conditionally render the GoogleLoginButton */}
-              <NavItem>
+              {/* Conditionally render the GoogleLoginButton */}
+              {/* <NavItem>
                 <GoogleLoginButton user={user} setUser={setUser} />
-              </NavItem>
+              </NavItem> */}
               {/* Add a conditional rendering for the GoogleLoginButton */}
               <NavItem>
-                    <NavLinks 
-                      to='bio'
-                      smooth={true}
-                      duration={500}
-                      spy={true}
-                      exact='true'
-                      offset={-80} 
-                    >
-                      Bio</NavLinks>
-                  </NavItem>
-                  <NavItem>
-                  <NavLinks 
-                      to='music'
-                      smooth={true}
-                      duration={500}
-                      spy={true}
-                      exact='true'
-                      offset={-80} 
-                    >
-                      Music</NavLinks>
-                  </NavItem>
-                  <NavItem>
-                    <NavLinks 
-                    to='new'
-                    smooth={true}
-                    duration={500}
-                    spy={true}
-                    exact='true'
-                    offset={-80}
-                  >
-                    New</NavLinks>
-                  </NavItem>
-                  <NavItem>
-                    <NavLinks 
-                    to='thoughts'
-                    smooth={true}
-                    duration={500}
-                    spy={true}
-                    exact='true'
-                    offset={-80}
-                    >
-                      Thoughts</NavLinks>
-                  </NavItem>
-
-              <NavItem>
-                {/* Conditionally render the GoogleLoginButton */}
-                {!user ? <GoogleLoginButton /> : null}
+                <NavLinks
+                  to="bio"
+                  smooth={true}
+                  duration={500}
+                  spy={true}
+                  exact="true"
+                  offset={-80}
+                >
+                  Bio
+                </NavLinks>
               </NavItem>
+              <NavItem>
+                <NavLinks
+                  to="music"
+                  smooth={true}
+                  duration={500}
+                  spy={true}
+                  exact="true"
+                  offset={-80}
+                >
+                  Music
+                </NavLinks>
+              </NavItem>
+              <NavItem>
+                <NavLinks
+                  to="new"
+                  smooth={true}
+                  duration={500}
+                  spy={true}
+                  exact="true"
+                  offset={-80}
+                >
+                  New
+                </NavLinks>
+              </NavItem>
+              <NavItem>
+                <NavLinks
+                  to="thoughts"
+                  smooth={true}
+                  duration={500}
+                  spy={true}
+                  exact="true"
+                  offset={-80}
+                >
+                  Thoughts
+                </NavLinks>
+              </NavItem>
+
+
               {/* Add more menu items */}
             </NavMenu>
-            <NavBtn>
-              {user ? (
-                /* Show user profile and sign out button when user is logged in */
-                <div onClick={handleSignOut}>Sign Out</div>
-              ) : null}
-            </NavBtn>
+
+              <NavGoogleBtn>
+                <UserComponent
+                  currentUser={currentUser}
+                  onSignIn={handleSignIn}
+                  onSignOut={handleSignOut}
+                />
+              </NavGoogleBtn>
           </NavbarContainer>
         </Nav>
       </IconContext.Provider>

@@ -1,78 +1,85 @@
-import React, { useState } from 'react';
-import { useGoogleLogin } from '@react-oauth/google';
-import axios from 'axios'; // Import axios for making HTTP requests
+// import React from 'react';
+// import { FcGoogle } from 'react-icons/fc';
+// import axios from 'axios';
 
+// const GoogleLoginButton = () => {
+//   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+//   const [user, setUser] = React.useState(null); // Hold user data
+//   const [dropdownOpen, setDropdownOpen] = React.useState(false); // Control dropdown menu
 
-const GoogleLoginButton = () => {
-  const [userData, setUserData] = useState(null);
-  const [error, setError] = useState(null);
+//   // Toggle dropdown menu
+//   const toggleDropdown = () => {
+//     setDropdownOpen(!dropdownOpen);
+//   };
 
-  const login = useGoogleLogin({
-    flow: 'auth-code',
-    onSuccess: async (codeResponse) => {
-      try {
-        const response = await axios.post('/auth/google', {
-          code: codeResponse.code,
-        });
+//   // This function will redirect to your backend route for Google authentication
+//   const handleLogin = () => {
+//     window.location.href = `${process.env.REACT_APP_BACKEND_URL}/auth/google`;
+//   };
 
-        if (response.status === 200) {
-          const userDataResponse = response.data;
-          // Save user data in state
-          setUserData(userDataResponse);
+//   // This function will handle user logout
+//   const handleLogout = async () => {
+//     try {
+//       await axios.get('/auth/logout');
+//       setIsLoggedIn(false);
+//       setUser(null); // Reset user state
+//     } catch (error) {
+//       console.error('Error logging out:', error);
+//     }
+//   };
 
-          // Send user data to your backend for storage in your database
-          saveUserDataToDatabase(userDataResponse);
-        } else {
-          // Handle server-side errors
-          setError('Server error. Please try again later.');
-        }
-      } catch (error) {
-        // Handle network errors
-        setError('Network error. Please check your internet connection.');
-      }
-    },
-    onError: (errorResponse) => {
-      // Handle error from the useGoogleLogin hook
-      setError(`Google Login Error: ${errorResponse.message}`);
-    },
-  });
+//   // Fetch authentication status on component mount
+//   React.useEffect(() => {
+//     const fetchAuthStatus = async () => {
+//       try {
+//         const response = await axios.get('/api/auth/status');
+//         if (response.data.isAuthenticated) {
+//           setIsLoggedIn(true);
+//           setUser(response.data.user); // Set user data
+//         } else {
+//           setIsLoggedIn(false);
+//         }
+//       } catch (error) {
+//         console.error('Error fetching auth status:', error);
+//         setIsLoggedIn(false);
+//       }
+//     };
+//     fetchAuthStatus();
+//   }, []);
 
-  const saveUserDataToDatabase = async (userData) => {
-    try {
-      // Send userData to your backend for database storage
-      const response = await axios.post('/api/save-user-data', userData, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
+//   return (
+//     <div className="relative">
+//       {isLoggedIn ? (
+//         <div className="flex items-center space-x-4">
+//           <img className="rounded-full w-8 h-8" src={user.imageUrl} alt={user.name} />
+//           <span className="text-gray-700">{user.name}</span>
+//           {/* Dropdown Button */}
+//           <button onClick={toggleDropdown} className="focus:outline-none">
+//             {/* Icon or image for dropdown */}
+//           </button>
+//           {/* Dropdown Menu */}
+//           {dropdownOpen && (
+//             <div className="absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-xl z-20">
+//               <button 
+//                 onClick={handleLogout}
+//                 className="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white"
+//               >
+//                 Logout
+//               </button>
+//             </div>
+//           )}
+//         </div>
+//       ) : (
+//         <button
+//           className="flex items-center bg-[#e1affd] space-x-4 opacity-90 hover:opacity-80 cursor-pointer rounded-full p-1 pr-2"
+//           onClick={handleLogin}
+//         >
+//           <FcGoogle size={24} />
+//           <span className="text-gray-700">Sign in with Google</span>
+//         </button>
+//       )}
+//     </div>
+//   );
+// };
 
-      if (response.status !== 200) {
-        // Handle database save errors
-        setError('Failed to save user data to the database.');
-      }
-    } catch (error) {
-      // Handle network errors when saving to the database
-      setError('Network error while saving user data to the database.');
-    }
-  };
-
-  return (
-    <div>
-      {userData ? (
-        // Display user information if available
-        <div>
-          <p>Welcome, {userData.name}!</p>
-          <p>Email: {userData.email}</p>
-          {/* Add more user information fields as needed */}
-        </div>
-      ) : (
-        <button onClick={login}>Sign in with Google 🚀</button>
-      )}
-
-      {error && <p>Error: {error}</p>}
-    </div>
-  );
-};
-
-export default GoogleLoginButton;
-
+// export default GoogleLoginButton;
