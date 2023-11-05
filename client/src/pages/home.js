@@ -1,12 +1,18 @@
 import React from 'react'
+import CommentSection from '../components/commentsection/CommentSection'
+import HeroSection from '../components/hero/Hero'
+import Navbar from '../components/navbar/Navbar'
+import Twinkling from '../components/twinkling/Twinkling'
 
-function Home() {
-    return (
-      <div>
-        <h1>Welcome to Your App</h1>
-        <p>Some introductory text here.</p>
-      </div>
-    );
-  }
+const Home = () => {
+  return (
+    <div>
+      <Navbar />
+      <Twinkling />
+      <HeroSection />
+      <CommentSection />
+    </div>
+  )
+}
 
 export default Home

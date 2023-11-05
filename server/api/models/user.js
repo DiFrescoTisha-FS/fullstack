@@ -13,11 +13,17 @@ const userSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
+  },
+  picture: {
+    type: String,
+  },
+  // Add a field to store references to tokens
+  tokens: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Token',
     },
-    picture: {
-        type: String,
-  }, 
-  
+  ],
   // Add more fields as needed for your user data
 });
 
