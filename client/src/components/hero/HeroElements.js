@@ -44,7 +44,7 @@ export const VideoBg = styled.video`
 `;
 
 export const HeroContent = styled.div`
-    z-index: 3;
+    z-index: 5;
     max-width: 1200px;
     position: absolute;
     padding: 8px 24px;
@@ -75,6 +75,7 @@ export const HeroP = styled.p`
     letter-spacing: .1rem;
     text-align: center;
     max-width: 600px;
+    x-index: 5;
 
     @media screen and (max-width: 768px) {
         font-size: 22px;
@@ -83,6 +84,32 @@ export const HeroP = styled.p`
     @media screen and (max-width: 480px) {
         font-size: 18px;
     }
+`;
+
+export const SaturnImage = styled.img`
+  position: absolute;
+  top: 200px; /* Adjust the top position as needed */
+  left: 600px; /* Adjust the left position as needed */
+  z-index: -5; /* Set a higher z-index value to ensure it's above the twinkling stars */
+
+  /* Adjust the size of the Saturn image */
+  width: 400px; /* Adjust the width to make it larger */
+  height: auto; /* Automatically adjust the height to maintain aspect ratio */
+
+  /* Apply any other styling as needed */
+`;
+
+export const NeptuneImage = styled.img`
+  position: absolute;
+  top: -200px; /* Adjust the top position as needed */
+  left: -300px; /* Adjust the left position as needed */
+  z-index: -1; /* Set a higher z-index value to ensure it's above the twinkling stars */
+
+  /* Adjust the size of the Saturn image */
+  width: 500px; /* Adjust the width to make it larger */
+  height: auto; /* Automatically adjust the height to maintain aspect ratio */
+
+  /* Apply any other styling as needed */
 `;
 
 export const HeroBtnWrapper = styled.div`

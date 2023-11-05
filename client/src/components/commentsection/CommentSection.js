@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import Rating from "react-rating-stars-component";
 import axios from "axios";
-import Shirtless from "../../images/shirtless.png"; // Adjust based on the package you choose
+import October from "../../images/october.png"; // Adjust based on the package you choose
 import {
   CommentSectionContainer,
+  CommentsBg,
   CommentWrapper,
   CommentRow,
   ImgWrap,
@@ -15,7 +16,9 @@ import {
   Subtitle,
   TextArea,
   SubmitButton,
+  ComboImage
 } from "./CommentSectionElements"; // You'll need to define these styled components
+import CommentsTwinkling from "../commentsection/CommentsTwinkling";
 
 const CommentSection = ({ backgroundImage, lightText }) => {
   const [rating, setRating] = useState(0);
@@ -47,17 +50,22 @@ const CommentSection = ({ backgroundImage, lightText }) => {
     }
   };
 
+
+
   return (
-    <CommentSectionContainer backgroundImage="backgroundImage">
+    <CommentSectionContainer>
+      <CommentsBg>
+        <CommentsTwinkling />
+      </CommentsBg>
       <CommentWrapper onSubmit={handleCommentSubmit}>
         <CommentRow>
           <ImgWrap>
-            <Img src={Shirtless} alt="Artist wearing no shirt" />
+            <Img src={October} alt="Artist wearing no shirt" />
           </ImgWrap>
           <TextWrapper>
             <TopLine>Bam Fans</TopLine>
             <Heading>Before you go...</Heading>
-            <Subtitle>Bam fans can now leave a comment for Trapstar Bam.<br/>And don't forget to rate your galaxy tour!<br/>Thanks for stopping by.<br/>(You must me signed in to leave a comment.)</Subtitle>
+            <Subtitle>Leave a comment for Trapstar Bam, and<br/> rate your galaxy tour!<br/>Thanks for stopping by.<br/>(You must me signed in to leave a comment.)</Subtitle>
             <FormWrap onSubmit={handleCommentSubmit}>
               <Rating
                 value={rating}
@@ -72,6 +80,7 @@ const CommentSection = ({ backgroundImage, lightText }) => {
             </FormWrap>
           </TextWrapper>
         </CommentRow>
+        {/* <ComboImage src="https://i.imgur.com/O1Exmw2.png" alt="Neptune" /> */}
       </CommentWrapper>
     </CommentSectionContainer>
   );

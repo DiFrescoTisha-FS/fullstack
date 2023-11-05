@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 // import Video from '../../videos/video.mp4';
 import { Button } from '../ButtonElements';
-// import Twinkling from "../twinkling/Twinkling"
+import HeroTwinkling from '../hero/HeroTwinkling';
 import { 
     HeroContainer, 
     HeroBg, 
@@ -11,7 +11,9 @@ import {
     HeroP, 
     HeroBtnWrapper, 
     ArrowFilled, 
-    ArrowCircle 
+    ArrowCircle,
+    SaturnImage,
+    NeptuneImage
 } from './HeroElements';
 
 const HeroSection = () => {
@@ -21,9 +23,10 @@ const HeroSection = () => {
         setHover(!hover)
     }
   return (
-    <HeroContainer id='hero-section'>
+      <HeroContainer id='hero-section'>
+
         <HeroBg>
-         {/* <Twinkling /> */}
+        <HeroTwinkling />
         </HeroBg>
         <HeroContent>
             <HeroH1>Trapstar Bam</HeroH1>
@@ -47,7 +50,9 @@ const HeroSection = () => {
                 >
                     Take a Tour {hover ? <ArrowFilled /> : <ArrowCircle />}
                 </Button>
-            </HeroBtnWrapper>
+              </HeroBtnWrapper>
+              <SaturnImage src="https://i.imgur.com/HtFvzSy.png" alt="Saturn" />
+              <NeptuneImage src="https://i.imgur.com/XyBATJD.png" alt="Neptune" />
         </HeroContent>
     </HeroContainer>
         

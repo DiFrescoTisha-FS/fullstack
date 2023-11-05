@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { FaGoogle } from 'react-icons/fa';
-import { BiSolidChevronDown } from "react-icons/bi";
+import { FaGoogle, FaChevronDown } from 'react-icons/fa';
 import axios from 'axios';
 
 const UserComponent = ({ currentUser, onSignIn, onSignOut }) => {
@@ -74,7 +73,7 @@ const UserComponent = ({ currentUser, onSignIn, onSignOut }) => {
              onClick={toggleDropdown}>
           <img className="rounded-full w-8 h-8" src={user.avatar} alt={user.name} />
           <span className="text-[#e1affd]">{user.name}</span>
-          <BiSolidChevronDown />
+          <FaChevronDown />
           {dropdownOpen && (
             <div ref={dropdownRef} className="absolute top-10 right-0 mt-2 py-2 w-48 bg-[whitesmoke] rounded-md shadow-xl z-20">
               <button 

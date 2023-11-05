@@ -3,14 +3,28 @@ import styled from 'styled-components';
 // ... other components ...
 
 export const CommentSectionContainer = styled.div`
-    position: : relative;
-    z-index: 5;
+    position: relative;
+    /* z-index: 5; */
     color: ${({ lightText }) => (lightText ? '#fff' : '#010606')};
-    background: ${({ backgroundImage }) => (backgroundImage ? `url(${backgroundImage})` : '#010606')};
+    /* background: ${({ backgroundImage }) => (backgroundImage ? `url(${backgroundImage})` : '#010606')}; */
     background-size: cover; /* Adjust the background size as needed */
     background-position: center; /* Adjust the background position as needed */
     padding: 100px 0;
 `;
+
+export const CommentsBg = styled.div`
+    position: fixed; // changed from absolute to fixed
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: linear-gradient(180deg, rgba(169, 169, 169, 0.2) 0%, rgba(169, 169, 169, 0.2) 100%);
+    z-index: -1; // make sure this is less than content but above any other backgrounds
+`;
+
 
 export const CommentWrapper = styled.div`
   display: flex;
@@ -41,7 +55,7 @@ export const CommentRow = styled.div`
 `
 
 export const ImgWrap = styled.div`
-  max-width: 555px; // Adjust the width as necessary
+  max-width: 455px; // Adjust the width as necessary
   height: auto;
   @media screen and (max-width: 768px) {
     max-width: 100%;
@@ -96,6 +110,20 @@ export const Subtitle = styled.p`
     color: #fff;
     /* color: ${({ lightText }) => (lightText ? '#fff' : '#010606')}; */
     text-align: left; /* Add text-align property here */
+`;
+
+
+export const ComboImage = styled.img`
+  position: absolute;
+  top: 200px; /* Adjust the top position as needed */
+  left:400px; /* Adjust the left position as needed */
+  z-index: -1; /* Set a higher z-index value to ensure it's above the twinkling stars */
+
+  /* Adjust the size of the Saturn image */
+  width: 1000px; /* Adjust the width to make it larger */
+  height: auto; /* Automatically adjust the height to maintain aspect ratio */
+
+  /* Apply any other styling as needed */
 `;
 
 export const FormWrap = styled.form`
