@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 // import Video from '../../videos/video.mp4';
 import { Button } from '../ButtonElements';
-import HeroTwinkling from '../hero/HeroTwinkling';
+// import StarBackground2 from '../starbackground2/StarBackground2';
+// import HeroTwinkling from '../hero/HeroTwinkling';
 import { 
     HeroContainer, 
     HeroBg, 
@@ -25,8 +26,8 @@ const HeroSection = () => {
   return (
       <HeroContainer id='hero-section'>
 
-        <HeroBg>
-        <HeroTwinkling />
+          <HeroBg>
+              {/* <StarBackground2 /> */}
         </HeroBg>
         <HeroContent>
             <HeroH1>Trapstar Bam</HeroH1>
@@ -51,8 +52,8 @@ const HeroSection = () => {
                     Take a Tour {hover ? <ArrowFilled /> : <ArrowCircle />}
                 </Button>
               </HeroBtnWrapper>
-              <SaturnImage src="https://i.imgur.com/HtFvzSy.png" alt="Saturn" />
-              <NeptuneImage src="https://i.imgur.com/XyBATJD.png" alt="Neptune" />
+              {/* <SaturnImage src="https://i.imgur.com/HtFvzSy.png" alt="Saturn" /> */}
+              {/* <NeptuneImage src="https://i.imgur.com/XyBATJD.png" alt="Neptune" /> */}
         </HeroContent>
     </HeroContainer>
         

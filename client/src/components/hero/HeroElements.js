@@ -10,7 +10,7 @@ export const HeroContainer = styled.div`
     padding: 0px;
     height: 800px;
     position: relative;
-    z-index: 1;
+    z-index: 5;
 
     :before {
         content: '';
@@ -90,7 +90,7 @@ export const SaturnImage = styled.img`
   position: absolute;
   top: 200px; /* Adjust the top position as needed */
   left: 600px; /* Adjust the left position as needed */
-  z-index: -5; /* Set a higher z-index value to ensure it's above the twinkling stars */
+  z-index: 2; /* Set a higher z-index value to ensure it's above the twinkling stars */
 
   /* Adjust the size of the Saturn image */
   width: 400px; /* Adjust the width to make it larger */
@@ -103,7 +103,7 @@ export const NeptuneImage = styled.img`
   position: absolute;
   top: -200px; /* Adjust the top position as needed */
   left: -300px; /* Adjust the left position as needed */
-  z-index: -1; /* Set a higher z-index value to ensure it's above the twinkling stars */
+  z-index: -5; /* Set a higher z-index value to ensure it's above the twinkling stars */
 
   /* Adjust the size of the Saturn image */
   width: 500px; /* Adjust the width to make it larger */

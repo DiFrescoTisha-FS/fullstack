@@ -7,6 +7,7 @@ export const Nav = styled.nav`
     height: 80px;
     /* margin-top: -80px; */
     display: flex;
+    position: relative;
     justify-content: center;
     align-items: center;
     font-size: 1rem;
@@ -42,6 +43,7 @@ export const NavLogo = styled(LinkR)`
 export const NavIcon = styled.img`
     width: 75px;
     height: 75px;
+    position: relative;
 `;
 
 export const MobileIcon = styled.div`
@@ -64,7 +66,7 @@ export const NavMenu = styled.ul`
     list-style: none;
     text-align: center;
     margin-top: 50px;
-    margin-bottom: 40px;
+    /* margin-bottom: 50px; */
     @media screen and (max-width: 768px) {
         display: none;
     }
@@ -72,6 +74,7 @@ export const NavMenu = styled.ul`
 
 export const NavItem = styled.li`
     height: 80px;
+    margin-bottom: 50px;
 `;
 
 export const NavLinks = styled(LinkS)`
@@ -99,7 +102,7 @@ export const NavGoogleBtn = styled.nav`
     text-decoration: none;
     display: flex;
     align-items: center;
-    /* margin-bottom: 20px; */
+    margin-bottom: 20px;
     /* margin-top: 20px; */
     @media screen and (max-width: 768px) {
         display: none;

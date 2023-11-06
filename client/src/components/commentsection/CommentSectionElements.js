@@ -5,7 +5,7 @@ import styled from 'styled-components';
 export const CommentSectionContainer = styled.div`
     position: relative;
     /* z-index: 5; */
-    color: ${({ lightText }) => (lightText ? '#fff' : '#010606')};
+    color: #fff;
     /* background: ${({ backgroundImage }) => (backgroundImage ? `url(${backgroundImage})` : '#010606')}; */
     background-size: cover; /* Adjust the background size as needed */
     background-position: center; /* Adjust the background position as needed */
@@ -57,6 +57,8 @@ export const CommentRow = styled.div`
 export const ImgWrap = styled.div`
   max-width: 455px; // Adjust the width as necessary
   height: auto;
+  position: relative;
+  z-index: 1;
   @media screen and (max-width: 768px) {
     max-width: 100%;
   }
