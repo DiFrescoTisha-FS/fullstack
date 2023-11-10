@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import backgroundImage from "../../images/music6.jpg"
 
 // ... other components ...
 
@@ -13,16 +14,17 @@ export const CommentSectionContainer = styled.div`
 `;
 
 export const CommentsBg = styled.div`
-    position: fixed; // changed from absolute to fixed
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background: linear-gradient(180deg, rgba(169, 169, 169, 0.2) 0%, rgba(169, 169, 169, 0.2) 100%);
-    z-index: -1; // make sure this is less than content but above any other backgrounds
+  position: absolute; // Changed from fixed to absolute
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: url(${backgroundImage}) no-repeat center center;
+  background-size: cover;
+  z-index: -1; // Ensure this is behind the content of the ArtistInfoContainer
 `;
 
 

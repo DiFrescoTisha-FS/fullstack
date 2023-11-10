@@ -1,11 +1,12 @@
 import React from "react";
-// import Bio from "../../images/bio.jpg";
+import galaxy from "../../images/galaxy.jpg";
 import { Button } from "../ButtonElements";
 import { FaArrowAltCircleDown } from "react-icons/fa";
 // import { Twinkling, Stars, Clouds } from '../twinkling/TwinklingNightSkyElements';
 
 import {
   ArtistInfoContainer,
+  BioBg,
   ArtistInfoWrapper,
   ArtistInfoRow,
   TextWrapper,
@@ -17,7 +18,8 @@ import {
   Img,
 } from "./ArtistElements";
 // import TwinklingNightSky from "../twinkling/TwinklingNightSky";
-
+// import ArtistTwinkling from "./ArtistTwinkling";
+import TwinklingBackground from "../twinklingbackground/TwinklingBackground";
 const ArtistInfo = ({
   backgroundImage,
   id,
@@ -38,16 +40,16 @@ const ArtistInfo = ({
       {/* <Stars />
       <Twinkling />
       <Clouds /> */}
-      <ArtistInfoContainer backgroundImage={backgroundImage} id={id}>
-        {/* <BioBg>
-          <BioImg src={Bio} alt="celestial scene" />
-        </BioBg> */}
+      <ArtistInfoContainer>
+        <BioBg>
+          <TwinklingBackground />
+        </BioBg>
         <ArtistInfoWrapper>
-          <ArtistInfoRow imageStart={imgStart}>
+          <ArtistInfoRow imgStart={imgStart}>
             <TextWrapper>
-              <TopLine>{topline}</TopLine>
-              <Heading>{headline}</Heading>
-              <Subtitle darkText={darkText}>{description}</Subtitle>
+              <TopLine>Approved Bam Bio</TopLine>
+              <Heading>Gavin Di Fresco</Heading>
+              <Subtitle darkText={darkText}>Gavin Di Fresco, known professionally as Trapstar Bam, is an American rapper, singer, and songwriter who shares his life experiences in his lyrics, inspiring others who can relate to the issues of his generation. Career highlights include a live performance at Innovative Academy prom in Hendersonville, NC, and a sold-out show in his home town of Brevard, NC.'</Subtitle>
               <BtnWrap>
                 <Button
                   to="music"
@@ -56,9 +58,8 @@ const ArtistInfo = ({
                   spy={true}
                   exact="true"
                   offset={-80}
-                  primary={true ? "true" : "false"}
-                  dark={true ? "true" : "false"}
-                  dark2={true ? "true" : "false"}
+                  primary="true"
+                  dark="true"
                   //   primary={primary ? 1 : 0}
                   //   dark={dark ? 1 : 0}
                   //   dark2={dark2 ? 1 : 0}
@@ -68,7 +69,7 @@ const ArtistInfo = ({
               </BtnWrap>
             </TextWrapper>
             <ImgWrap>
-              <Img src={img} alt={alt} />
+              <Img src={galaxy} alt={alt} />
             </ImgWrap>
           </ArtistInfoRow>
         </ArtistInfoWrapper>

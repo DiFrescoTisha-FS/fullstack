@@ -1,5 +1,5 @@
 export const homeArtistOne = {
-    id: 'bio',
+    id: 'comments',
     backgroundImage: require('../../images/2.1.png'), // Use the backgroundImage property for the background image
     lightText: true,
     lightTextDesc: true,

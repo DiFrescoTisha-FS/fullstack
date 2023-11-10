@@ -2,7 +2,7 @@
 import React from 'react';
 import { Twinkling, Stars, Clouds, Title } from '../twinkling/TwinklingNightSkyElements';
 
-const HeroTwinkling = () => {
+const ArtistTwinkling = () => {
   return (
     <>
       <Stars />
@@ -13,4 +13,4 @@ const HeroTwinkling = () => {
   );
 };
 
-export default HeroTwinkling;
+export default ArtistTwinkling;

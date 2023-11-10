@@ -18,7 +18,8 @@ import {
   SubmitButton,
   ComboImage
 } from "./CommentSectionElements"; // You'll need to define these styled components
-import StarBackground2 from '../starbackground2/StarBackground2';
+// import StarBackground2 from '../starbackground2/StarBackground2';
+// import CommentsTwinkling from "./CommentsTwinkling"
 
 const CommentSection = ({ backgroundImage }) => {
   const [rating, setRating] = useState(0);
@@ -55,7 +56,7 @@ const CommentSection = ({ backgroundImage }) => {
   return (
     <CommentSectionContainer>
       <CommentsBg>
-        <StarBackground2 />
+        {/* <StarBackground2 /> */}
         {/* <CommentsTwinkling /> */}
       </CommentsBg>
       <CommentWrapper onSubmit={handleCommentSubmit}>

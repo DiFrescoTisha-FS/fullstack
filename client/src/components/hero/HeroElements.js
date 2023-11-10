@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { FaBus } from 'react-icons/fa'
+import { FaRocket } from 'react-icons/fa'
 import { FaArrowAltCircleDown } from 'react-icons/fa';
 
 export const HeroContainer = styled.div`
@@ -8,9 +8,9 @@ export const HeroContainer = styled.div`
     justify-content: center;
     align-items: center;
     padding: 0px;
-    height: 800px;
+    height: 860px;
     position: relative;
-    z-index: 5;
+    z-index: 1;
 
     :before {
         content: '';
@@ -32,19 +32,19 @@ export const HeroBg =styled.div`
     width: 100%;
     height: auto;
     overflow: hidden;
-    background: linear-gradient(180deg, rgb(169, 169, 169, 0.2))
+    background: linear-gradient(180deg, rgb(169, 169, 169, 0.2));
 `;
 
-export const VideoBg = styled.video`
-    width: 100%;
-    height: 100%;
-    -o-object-fit: cover;
-    object-fit: cover;
-    background: #232a34;
-`;
+// export const VideoBg = styled.video`
+//     width: 100%;
+//     height: 100%;
+//     -o-object-fit: cover;
+//     object-fit: cover;
+//     background: #232a34;
+// `;
 
 export const HeroContent = styled.div`
-    z-index: 5;
+    z-index: 10;
     max-width: 1200px;
     position: absolute;
     padding: 8px 24px;
@@ -88,12 +88,12 @@ export const HeroP = styled.p`
 
 export const SaturnImage = styled.img`
   position: absolute;
-  top: 200px; /* Adjust the top position as needed */
-  left: 600px; /* Adjust the left position as needed */
+  top: 500px; /* Adjust the top position as needed */
+  right: 300px; /* Adjust the left position as needed */
   z-index: 2; /* Set a higher z-index value to ensure it's above the twinkling stars */
 
   /* Adjust the size of the Saturn image */
-  width: 400px; /* Adjust the width to make it larger */
+  width: 250px; /* Adjust the width to make it larger */
   height: auto; /* Automatically adjust the height to maintain aspect ratio */
 
   /* Apply any other styling as needed */
@@ -101,16 +101,17 @@ export const SaturnImage = styled.img`
 
 export const NeptuneImage = styled.img`
   position: absolute;
-  top: -200px; /* Adjust the top position as needed */
-  left: -300px; /* Adjust the left position as needed */
-  z-index: -5; /* Set a higher z-index value to ensure it's above the twinkling stars */
+  top: 100px; // Adjust the top position as needed
+  left: 100px; // Adjust the left position as needed
+  z-index: 3; // Should be less than the clouds to appear beneath them
 
-  /* Adjust the size of the Saturn image */
-  width: 500px; /* Adjust the width to make it larger */
-  height: auto; /* Automatically adjust the height to maintain aspect ratio */
+  // Adjust the size of the Neptune image
+  width: 500px; // Adjust the width to make it larger
+  height: auto; // Automatically adjust the height to maintain aspect ratio
 
-  /* Apply any other styling as needed */
+  // Apply any other styling as needed
 `;
+
 
 export const HeroBtnWrapper = styled.div`
     margin-top: 32px;
@@ -119,7 +120,7 @@ export const HeroBtnWrapper = styled.div`
     align-items: center;
 `;
 
-export const ArrowFilled = styled(FaBus)`
+export const ArrowFilled = styled(FaRocket)`
     margin-left: 8px;
     font-size: 20px;
 `;

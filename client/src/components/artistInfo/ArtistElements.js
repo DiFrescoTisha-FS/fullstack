@@ -1,87 +1,104 @@
 import styled from "styled-components";
 import { FaArrowAltCircleDown, FaBusAlt } from 'react-icons/fa';
+import backgroundImage from "../../images/bio.jpg"
 
 export const ArtistInfoContainer = styled.div`
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    height: 860px;
     position: relative;
-    color: #fff;
-    /* background: ${({ backgroundImage }) => (backgroundImage ? `url(${backgroundImage})` : '#010606')}; */
-    background-size: cover; /* Adjust the background size as needed */
-    background-position: center;
-    margin: 0; /* Adjust the background position as needed */
-    /* z-index: 10; */
+    z-index: 1;
 
-    @media screen and (max-width: 768px) {
-        padding: 100px 0;
+    :before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 100%), linear-gradient(180deg, rgba(0,0,0,0.2) 0%, transparent 100%);
+        z-index: 2;
     }
 `;
 
 export const BioBg = styled.div`
-  position: fixed;
+  position: absolute; // Changed from fixed to absolute
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: auto;
-  z-index: -1;
+  height: 100%;
+  overflow: hidden;
+  background: url(${backgroundImage}) no-repeat center center;
+  background-size: cover;
+  z-index: -1; // Ensure this is behind the content of the ArtistInfoContainer
 `;
 
+
+
 export const BioImg = styled.img`
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  opacity: 1;
+  width: 100%; // Set width to be responsive
+  object-fit: cover; // Ensure the image covers the area without distorting aspect ratio
+  opacity: 0.5; // Set opacity to make text more readable if the image is a background
 `;
 
 export const ArtistInfoWrapper = styled.div`
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: space-between; // Use space-between to place children on opposite ends of the container
   height: 860px;
-  width: 100%;
   max-width: 1100px;
-  margin-right: auto;
-  margin-left: auto;
+  margin: 0 auto;
   padding: 0 24px;
-  justify-content: center;
+  
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto; // Allow the height to grow as needed on smaller screens
+  }
 `;
 
 export const ArtistInfoRow = styled.div`
-  display: flex; /* Change to flex */
-  flex-direction: ${({ imgStart }) => (imgStart ? 'row-reverse' : 'row')}; /* Adjust flex direction as needed */
+  display: flex;
   align-items: center;
-  justify-content: space-between;
-  /* margin: 10%; */
+  gap: 50px;
+  width: 100%;
 
   @media screen and (max-width: 768px) {
-    flex-direction: column; /* Adjust flex direction for smaller screens */
+    flex-direction: column;
   }
 `;
 
 export const TextWrapper = styled.div`
   max-width: 540px;
-  padding-top: 0;
   position: relative;
+  @media screen and (max-width: 768px) {
+    max-width: 100%;
+  }
 `;
 
 export const TopLine = styled.p`
-  font-size: 18px;
-  line-height: 16px;
-  font-weight: 700;
-  letter-spacing: 1.4px;
-  text-transform: uppercase;
-  margin-bottom: 16px;
-  color: #fff;
+    color: #fff;
+    font-size: 18px;
+    position: relative;
+    line-height: 16px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    text-align: left;
 `;
 
 export const Heading = styled.h1`
-  margin-bottom: 24px;
-  color: #e1affd;
-  font-size: 44px;
-  line-height: 1.1;
-  font-weight: 600;
+    margin-bottom: 24px;
+    color: #e1affd;
+    font-size: 44px;
+    line-height: 1.1;
+    font-weight: 600;
+    text-align: left; 
 
   @media screen and (max-width: 768) {
     font-size: 40px;
@@ -93,11 +110,13 @@ export const Heading = styled.h1`
 `;
 
 export const Subtitle = styled.p`
-  max-width: 440px;
-  margin-bottom: 35px;
-  font-size: 18px;
-  line-height: 28px;
-  color: ${({ darkText }) => (darkText ? '#010606' : '#fff')};
+    max-width: 440px;
+    margin-bottom: 35px;
+    font-size: 14px;
+    line-height: 26px;
+    color: #fff;
+    /* color: ${({ lightText }) => (lightText ? '#fff' : '#010606')}; */
+    text-align: left;
 `;
 
 export const BtnWrap = styled.div`
@@ -111,7 +130,7 @@ export const ImgWrap = styled.div`
   display: flex;
   /* flex-direction: row; */ /* No need to specify this, flex is row by default */
   position: relative;
-  z-index: 1;
+  z-index: 10;
   margin-left: 50px;
 `;
 
