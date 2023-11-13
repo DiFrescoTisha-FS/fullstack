@@ -11,6 +11,6 @@ export const homeArtistOne = {
     img: require('../../images/galaxy.jpg'), // Use the img property for the main image
     alt: 'galaxy',
     dark: true,
-    primary: true,
+    $primary: true,
     darkText: false,
 };

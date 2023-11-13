@@ -50,24 +50,33 @@ export const MobileIcon = styled.div`
     display: none;
 
     @media screen and (max-width: 768px) {
+        @media screen and (max-width: 768px) {
         display: block;
         position: absolute;
-        top: 0;
-        right: 0;
-        transform: translate(-100%, 60%);
+        top: 16px; // Adjust the value to give some space from the top
+        right: 16px; // Adjust the value to give some space from the right
         font-size: 1.8rem;
         cursor: pointer;
+        z-index: 21;
+    }
+
     }
 `;
 
 export const NavMenu = styled.ul`
-    display: flex;
-    align-items: center;
-    list-style: none;
-    text-align: center;
-    @media screen and (max-width: 768px) {
-        display: none;
-    }
+  display: flex;
+  align-items: center;
+  list-style: none;
+  text-align: center;
+
+  @media screen and (max-width: 768px) {
+    display: ${({ $isOpen }) => ($isOpen ? 'flex' : 'none')};
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 80px; // height of the Nav
+    left: 0;
+    background: #000; // or any color you want
 `;
 
 export const NavItem = styled.li`

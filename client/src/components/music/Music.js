@@ -4,7 +4,7 @@ import { Button } from '../ButtonElements';
 import { FaArrowAltCircleDown } from 'react-icons/fa';
 import { 
     MusicContainer, 
-    MusicBg,
+    // MusicBg,
     MusicWrapper, 
     MusicRow, 
     TextWrapper, 
@@ -25,7 +25,7 @@ const MusicSection = ({
   return (
     <>
           <MusicContainer backgroundImage={backgroundImage} id={id}>
-              <MusicBg />
+              {/* <MusicBg /> */}
             <MusicWrapper>
                 <MusicRow imgStart={imgStart}>
                     <TextWrapper>
@@ -39,8 +39,8 @@ const MusicSection = ({
                             spy={true}
                             exact='true'
                             offset={-80}
-                            primary={true}
-                            dark={true}
+                            $primary={true}
+                            $dark={true}
                             >
                             {'Continue'}&nbsp;&nbsp;{<FaArrowAltCircleDown size={20} />}
                             </Button>

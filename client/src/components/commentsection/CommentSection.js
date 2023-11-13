@@ -16,7 +16,6 @@ import {
   Subtitle,
   TextArea,
   SubmitButton,
-  ComboImage
 } from "./CommentSectionElements"; // You'll need to define these styled components
 // import StarBackground2 from '../starbackground2/StarBackground2';
 // import CommentsTwinkling from "./CommentsTwinkling"

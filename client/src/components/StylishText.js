@@ -6,16 +6,31 @@ const StylishText = styled.h1`
   text-align: center;
   color: transparent;
   text-shadow: 
-    1px 1px 2px rgba(0, 0, 0, 0.8), /* Black shadow for depth */
-    0 0 10px #e1affd, /* Purple glow for thicker shadow */
-    0 0 20px #e1affd, /* Larger purple glow for more pronounced effect */
-    0 0 30px #e1affd, /* Even larger purple glow for maximum effect */
-    0 0 40px #e1affd; /* Largest purple glow */
+    1px 1px 2px rgba(0, 0, 0, 0.8),
+    0 0 10px #e1affd,
+    0 0 20px #e1affd,
+    0 0 30px #e1affd,
+    0 0 40px #e1affd;
   background: linear-gradient(135deg, #e1affd, #e1affd, #e1affd);
   -webkit-background-clip: text;
   display: inline-block;
   margin: 0 auto;
+
+  @media screen and (max-width: 1024px) {
+    font-size: 68px; // Smaller size for tablet devices
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 66px; // Smaller size for medium devices
+    text-shadow: none; // Remove glow effect
+  }
+
+  @media screen and (max-width: 480px) {
+    font-size: 60px; // Smaller size for small devices
+    text-shadow: none; // Remove glow effect
+  }
 `;
+
 
 
 

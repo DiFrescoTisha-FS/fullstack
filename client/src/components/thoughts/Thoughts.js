@@ -3,7 +3,6 @@ import { Button } from "../ButtonElements";
 import tattooFingers from "../../images/tattoofingers.JPG"// Adjust the path as needed
 import {
   ThoughtsContainer,
-  ThoughtsBg,
   ThoughtsWrapper,
   ThoughtsRow,
   BtnWrap,
@@ -29,7 +28,6 @@ const Thoughts = ({
       backgroundImage={backgroundImage}
       id={id}
       >
-          <ThoughtsBg />
       <ThoughtsWrapper>
         <ThoughtsRow imgStart={imgStart}>
           <TextWrapper>
@@ -53,8 +51,8 @@ const Thoughts = ({
                 exact="true"
                 offset={-80}
                 textDecoration="none"
-                primary={true}
-                dark={true}
+                $primary={true}
+                $dark={true}
                 style={{ marginTop: "20px" }}
               >
                 {"Home"}&nbsp;&nbsp;{<ArrowFilled size={20} />}

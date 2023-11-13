@@ -20,8 +20,15 @@ import {
 
 const Navbar = ({ toggle, onSignIn, onSignOut }) => {
   const [currentUser, setCurrentUser] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleToggle = () => {
+    setIsOpen(!isOpen);
+    console.log("Toggling menu", !isOpen);
+  }
 
   const toggleHome = () => {
+    console.log("Toggle clicked")
     scroll.scrollToTop();
   };
 
@@ -84,11 +91,11 @@ const Navbar = ({ toggle, onSignIn, onSignOut }) => {
               </motion.div>
             </NavLogo>
 
-            <MobileIcon onClick={toggle}>
-              <FaBars />
+            <MobileIcon onClick={handleToggle}>
+            <FaBars onClick={() => console.log('test click')} />
             </MobileIcon>
 
-            <NavMenu>
+            <NavMenu $isOpen={isOpen}>
               {['bio', 'music', 'new', 'thoughts', 'comments'].map((item, index) => (
                 <motion.li key={index} {...navItemsAnimation}>
                   <NavLinks

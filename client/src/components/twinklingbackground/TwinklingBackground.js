@@ -23,7 +23,7 @@ const moveCloudsBack = keyframes`
 `;
 
 const BackgroundContainer = styled.div`
-  position: relative; /* Change to relative */
+  /* position: relative; */
   width: 100%; /* Full width */
   min-height: 100vh; /* Minimum height of viewport */
   overflow: hidden; /* Prevent overflow */

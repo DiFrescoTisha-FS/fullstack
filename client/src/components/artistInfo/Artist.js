@@ -6,7 +6,6 @@ import { FaArrowAltCircleDown } from "react-icons/fa";
 
 import {
   ArtistInfoContainer,
-  BioBg,
   ArtistInfoWrapper,
   ArtistInfoRow,
   TextWrapper,
@@ -17,9 +16,7 @@ import {
   ImgWrap,
   Img,
 } from "./ArtistElements";
-// import TwinklingNightSky from "../twinkling/TwinklingNightSky";
-// import ArtistTwinkling from "./ArtistTwinkling";
-import TwinklingBackground from "../twinklingbackground/TwinklingBackground";
+
 const ArtistInfo = ({
   backgroundImage,
   id,
@@ -40,10 +37,7 @@ const ArtistInfo = ({
       {/* <Stars />
       <Twinkling />
       <Clouds /> */}
-      <ArtistInfoContainer>
-        <BioBg>
-          <TwinklingBackground />
-        </BioBg>
+      <ArtistInfoContainer backgroundImage={backgroundImage} id={id}>
         <ArtistInfoWrapper>
           <ArtistInfoRow imgStart={imgStart}>
             <TextWrapper>
@@ -58,11 +52,8 @@ const ArtistInfo = ({
                   spy={true}
                   exact="true"
                   offset={-80}
-                  primary="true"
-                  dark="true"
-                  //   primary={primary ? 1 : 0}
-                  //   dark={dark ? 1 : 0}
-                  //   dark2={dark2 ? 1 : 0}
+                 $primary="true"
+                 $dark="true"
                 >
                   {"See More"}&nbsp;&nbsp;{<FaArrowAltCircleDown size={20} />}
                 </Button>

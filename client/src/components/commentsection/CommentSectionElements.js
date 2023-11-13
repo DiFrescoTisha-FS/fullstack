@@ -4,13 +4,28 @@ import backgroundImage from "../../images/music6.jpg"
 // ... other components ...
 
 export const CommentSectionContainer = styled.div`
-    position: relative;
-    /* z-index: 5; */
-    color: #fff;
-    /* background: ${({ backgroundImage }) => (backgroundImage ? `url(${backgroundImage})` : '#010606')}; */
-    background-size: cover; /* Adjust the background size as needed */
-    background-position: center; /* Adjust the background position as needed */
-    padding: 100px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  min-height: 860px;
+  position: relative;
+  z-index: 1;
+
+    /* :before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 100%), linear-gradient(180deg, rgba(0,0,0,0.2) 0%, transparent 100%);
+        z-index: 2;
+    } */
+
+    @media screen and (max-width: 768px) {
+    min-height: auto; // or some value smaller than 500px if that's too much space
+    padding: 50px 0; // Adjust as needed
+  }
 `;
 
 export const CommentsBg = styled.div`
@@ -32,7 +47,8 @@ export const CommentWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between; // Use space-between to place children on opposite ends of the container
-  height: 860px;
+  /* height: 860px; */
+  height: auto;
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 24px;
@@ -41,7 +57,8 @@ export const CommentWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: auto; // Allow the height to grow as needed on smaller screens
+    height: auto;
+    /* padding: 50px 0; // Reduced from 100px to 50px, adjust as needed */
   }
 `;
 
@@ -53,16 +70,18 @@ export const CommentRow = styled.div`
 
   @media screen and (max-width: 768px) {
     flex-direction: column;
-  }
-`
+`;
+
 
 export const ImgWrap = styled.div`
   max-width: 455px; // Adjust the width as necessary
   height: auto;
   position: relative;
   z-index: 1;
-  @media screen and (max-width: 768px) {
-    max-width: 100%;
+  margin-bottom: 16px;
+   // Add some space between the image and the text content
+   @media screen and (max-width: 768px) {
+    order: 2; // Will ensure the image is below the text/form
   }
 `;
 
@@ -80,8 +99,9 @@ export const Img = styled.img`
 export const TextWrapper = styled.div`
   max-width: 540px;
   position: relative;
+
   @media screen and (max-width: 768px) {
-    max-width: 100%;
+    order: 1; // Will ensure the text/form is above the image
   }
 `;
 
@@ -135,6 +155,11 @@ export const FormWrap = styled.form`
     /* border: 2px solid red; */
     /* background: lightblue; */
     z-index: 10;
+
+    @media screen and (max-width: 768px) {
+    order: 1; // Ensures that the form will be placed above the image
+  }
+
 `;
 
 export const TextArea = styled.textarea`

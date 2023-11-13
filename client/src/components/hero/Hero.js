@@ -9,7 +9,6 @@ import {
   HeroBg,
   // VideoBg,
   HeroContent,
-  HeroH1,
   HeroP,
   HeroBtnWrapper,
   ArrowFilled,
@@ -26,7 +25,7 @@ const HeroSection = () => {
     <HeroContainer id="hero-section">
       <HeroBg>
         <TwinklingBackground
-          title="Your Title Here"
+          // title="Your Title Here"
           saturnImage="https://i.imgur.com/yM3SlcH.png"
           neptuneImage="https://i.imgur.com/XyBATJD.png"
         />
@@ -35,25 +34,23 @@ const HeroSection = () => {
               <StylishText />
         {/* <HeroH1>Trapstar Bam</HeroH1> */}
         <HeroP>
-          'Trapstar brought the people of our community together like I have
-          never seen. The crowd kept growing as he gave them the performance of
-          his life. It was an amazing experience.'
+          'Witnessing Trapstar Bam's evolution as an artist has been truly inspiring. Since we first collaborated back in 2020, his unwavering dedication and love for music have propelled his growth tremendously. It's a privilege to watch him not just meet, but far exceed, every expectation.'
         </HeroP>
-        <HeroP>~Bray Kaizen</HeroP>
+        <HeroP style={{ marginTop: "20px" }}>~Bray Kaizen</HeroP>
         <HeroBtnWrapper>
           <Button
             to="bio"
             onMouseEnter={onHover}
             onMouseLeave={onHover}
-            primary="true"
-            dark="true"
+            $primary="true"
+            $dark="true"
             smooth={true}
             duration={500}
             spy={true}
             exact="true"
             offset={-80}
           >
-            Tour Bam's Galaxy {hover ? <ArrowFilled /> : <ArrowCircle />}
+            Bam's Galaxy {hover ? <ArrowFilled /> : <ArrowCircle />}
           </Button>
         </HeroBtnWrapper>
       </HeroContent>
