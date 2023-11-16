@@ -12,28 +12,22 @@ export const ThoughtsContainer = styled(SectionContainer)`
   align-items: center;
   position: relative;
   min-height: 860px;
+  height: 100vh;
+  
   padding: 0;
   z-index: 1;
-  background: url(${require("../../images/single.png")}) no-repeat center center;
+  background: #000 url(${require("../../images/alteredthoughts.png")}) no-repeat center center;
+
+  @media screen and (max-width: 768px) {
+    background: #000 url(${require("../../images/alteredthoughts.png")}) no-repeat center center;
+    background-size: 60% auto; 
+  }
   /* background-size: cover; */
 
-    /* :before {
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 100%), linear-gradient(180deg, rgba(0,0,0,0.2) 0%, transparent 100%);
-        z-index: 2;
-    } */
-
-    /* @media screen and (max-width: 768px) {
-     min-height: auto; // Remove fixed min-height
-    display: flex; // Added to ensure content dictates height
-    flex-direction: column; // Stack children vertically
-    justify-content: flex-start; // Align content to start, removing excess space
-    padding: 50px 0; // Adjust padding if needed // Reduced padding at the top and bottom
-    } */
+  @media screen and (max-width: 480px) {
+    background: #000 url(${require("../../images/mobileplanets.png")}) no-repeat center center;
+    background-size: cover; 
+  }
 `;
 
 export const ThoughtsWrapper = styled.div`
@@ -65,6 +59,7 @@ export const ThoughtsRow = styled(MusicRow)`
     &:first-child {
       margin-top: 0;
       padding-top: 0;
+      flex-direction: column;
     }
   }
 `;
@@ -78,11 +73,18 @@ text-align: left;
 `;
 
 export const TextWrapper = styled.div`
-  max-width: 540px;
+  max-width: 100%; /* Default max-width */
   position: relative;
 
+  @media screen and (max-width: 1024px) {
+    max-width: 100%; /* Increased width for medium screens */
+    padding: 0 24px;
+  }
+
   @media screen and (max-width: 768px) {
-    max-width: 100%;
+    max-width: 100%; /* Full width for smaller screens */
+    padding: 0 24px;
+    text-align: center; 
   }
 `;
 
@@ -104,14 +106,14 @@ export const ImgWrap = styled.div`
 `;
 
 export const Img = styled.img`
-  max-width: 100%;
-  height: auto;
-  position: relative;
-  z-index: 10;
-  margin: 0 0 10px 0;
-  padding-right: 0;
-  border-radius: 10px;
-  border: 1px solid #e1affd;
+  width: 70%; /* Ensure image takes up the width of its container */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 10px; /* Optional: if you want rounded corners */
+  border: 1px solid #e1affd; /* Optional: adds a purple border */
+  /* Optional: drop-shadow for visual depth (you can adjust or remove this) */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* Ensure the image is centered and scales down within its container */
+  object-fit: contain;
 `;
 
 export const BtnWrap = styled.div`
@@ -156,7 +158,7 @@ export const Heading = styled.h1`
 export const Subtitle = styled.p`
     max-width: 440px;
     margin-bottom: 35px;
-    font-size: 14px;
+    font-size: 18px;
     line-height: 26px;
     color: #fff;
     text-align: left; /* Add text-align property here */

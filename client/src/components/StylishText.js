@@ -17,16 +17,16 @@ const StylishText = styled.h1`
   margin: 0 auto;
 
   @media screen and (max-width: 1024px) {
-    font-size: 68px; // Smaller size for tablet devices
+    font-size: 66px; // Smaller size for tablet devices
   }
 
   @media screen and (max-width: 768px) {
-    font-size: 66px; // Smaller size for medium devices
+    font-size: 40px; // Smaller size for medium devices
     text-shadow: none; // Remove glow effect
   }
 
   @media screen and (max-width: 480px) {
-    font-size: 60px; // Smaller size for small devices
+    font-size: 32px; // Smaller size for small devices
     text-shadow: none; // Remove glow effect
   }
 `;

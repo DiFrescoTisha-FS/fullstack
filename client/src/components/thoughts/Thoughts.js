@@ -26,7 +26,7 @@ const Thoughts = ({
   return (
     <ThoughtsContainer
       backgroundImage={backgroundImage}
-      id={id}
+      id="thoughts"
       >
       <ThoughtsWrapper>
         <ThoughtsRow imgStart={imgStart}>
@@ -44,18 +44,18 @@ const Thoughts = ({
             <TrapstarText>~TrapstarBam</TrapstarText>
             <BtnWrap>
               <Button
-                to="home"
+                to="comments"
                 smooth={true}
                 duration={500}
                 spy={true}
                 exact="true"
                 offset={-80}
                 textDecoration="none"
-                $primary={true}
-                $dark={true}
+                $primary="true"
+                $dark="true"
                 style={{ marginTop: "20px" }}
               >
-                {"Home"}&nbsp;&nbsp;{<ArrowFilled size={20} />}
+                {"Continue"}&nbsp;&nbsp;{<ArrowFilled size={20} />}
               </Button>
             </BtnWrap>
           </TextWrapper>

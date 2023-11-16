@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import Rating from "react-rating-stars-component";
 import axios from "axios";
-import October from "../../images/october.png"; // Adjust based on the package you choose
+import Comments from "../../images/placeholder1.jpg";
+import { BsSendFill } from "react-icons/bs";
+import { Button } from "../ButtonElements"; // Adjust based on the package you choose
 import {
   CommentSectionContainer,
   CommentsBg,
@@ -16,6 +18,7 @@ import {
   Subtitle,
   TextArea,
   SubmitButton,
+  CommentBtnWrapper,
 } from "./CommentSectionElements"; // You'll need to define these styled components
 // import StarBackground2 from '../starbackground2/StarBackground2';
 // import CommentsTwinkling from "./CommentsTwinkling"
@@ -50,10 +53,8 @@ const CommentSection = ({ backgroundImage }) => {
     }
   };
 
-
-
   return (
-    <CommentSectionContainer>
+    <CommentSectionContainer id="comments">
       <CommentsBg>
         {/* <StarBackground2 /> */}
         {/* <CommentsTwinkling /> */}
@@ -61,12 +62,19 @@ const CommentSection = ({ backgroundImage }) => {
       <CommentWrapper onSubmit={handleCommentSubmit}>
         <CommentRow>
           <ImgWrap>
-            <Img src={October} alt="Artist wearing no shirt" />
+            <Img src={Comments} alt="Artist wearing no shirt" />
           </ImgWrap>
           <TextWrapper>
             <TopLine>Bam Fans</TopLine>
             <Heading>Before you go...</Heading>
-            <Subtitle>Leave a comment for Trapstar Bam, and<br/> rate your galaxy tour!<br/>Thanks for stopping by.<br/>(You must me signed in to leave a comment.)</Subtitle>
+            <Subtitle>
+              Leave a comment for Trapstar Bam, and
+              <br /> rate your galaxy tour!
+              <br />
+              Thanks for stopping by.
+              <br />
+              (You must me signed in to leave a comment.)
+            </Subtitle>
             <FormWrap onSubmit={handleCommentSubmit}>
               <Rating
                 value={rating}
@@ -77,7 +85,21 @@ const CommentSection = ({ backgroundImage }) => {
                 value={comment}
                 onChange={handleCommentChange}
               />
-              <SubmitButton type="submit">Submit</SubmitButton>
+              <CommentBtnWrapper>
+                <Button
+                  to=""
+                type="submit"
+                $primary="true"
+                $dark="true"
+                smooth={true}
+                duration={500}
+                spy={true}
+                exact="true"
+                offset={-80}
+              >
+                  {"Send"}&nbsp;&nbsp;{<BsSendFill size={20} />} 
+              </Button>
+              </CommentBtnWrapper>
             </FormWrap>
           </TextWrapper>
         </CommentRow>

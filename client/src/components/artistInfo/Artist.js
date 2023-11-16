@@ -37,7 +37,7 @@ const ArtistInfo = ({
       {/* <Stars />
       <Twinkling />
       <Clouds /> */}
-      <ArtistInfoContainer backgroundImage={backgroundImage} id={id}>
+      <ArtistInfoContainer backgroundImage={backgroundImage} id="bio">
         <ArtistInfoWrapper>
           <ArtistInfoRow imgStart={imgStart}>
             <TextWrapper>

@@ -9,5 +9,14 @@ export const SectionContainer = styled.div`
   min-height: 860px; // Ensures all sections have at least 860px height
   padding: 0;
   z-index: 1;
-  // Add any other common styles here
+
+  // Adjust background size on smaller screens
+  @media screen and (max-width: 768px) {
+    background-size: 70%; // Shrinks the image content to 70% of the container's size
+  }
+  
+  // Further adjustments for even smaller screens
+  @media screen and (max-width: 480px) {
+    background-size: 50%; // Shrinks the image content to 50% of the container's size
+  }
 `;

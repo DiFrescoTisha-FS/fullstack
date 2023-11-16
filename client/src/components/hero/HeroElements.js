@@ -29,7 +29,9 @@ export const HeroContainer = styled.div`
   }
 
   @media screen and (max-width: 480px) {
-    min-height: 400px; // Even smaller height for small screens
+    min-height: 400px;
+    background: #000 url(${require("../../images/mobileplanets.png")}) no-repeat center center; /* Replace 'mobile_image.png' with your mobile image's filename */
+    background-size: cover;
   }
 `;
 
@@ -58,10 +60,10 @@ export const HeroBg = styled.div`
 `;
 
 
-const maxWidth = '1100px';
+const maxWidth = '700px';
 
 export const HeroContent = styled.div`
-  z-index: 3; // Adjusted for stacking context
+  z-index: 22; // Adjusted for stacking context
   max-width: ${maxWidth}; // Use the max-width variable
   width: 100%; // Ensure it spans the full width of its parent
   margin: 0 auto; // Center the content
@@ -85,23 +87,27 @@ export const HeroP = styled.p`
   font-size: 18px;
   text-align: center;
   max-width: ${maxWidth}; // Ensure the max-width is consistent
-  width: 100%; // Ensure it spans the full width of its container
+  width: 100%; 
+  margin-top: 20px;// Ensure it spans the full width of its container
 
   @media screen and (max-width: 768px) {
     font-size: 16px; // Adjust font size for readability on smaller screens
   }
 
   @media screen and (max-width: 480px) {
-    font-size: 16px; // Further adjust font size for very small screens
+    font-size: 16px;
+
+    padding: 10px; // Add some padding
+    border-radius: 5px; // Optional: rounded corners // Further adjust font size for very small screens
   }
 `;
 
 export const SaturnImage = styled.img`
   position: absolute;
-  top: 500px; // Position for large screens
+  top: 300px; // Position for large screens
   right: 300px; // Position for large screens
   z-index: 2;
-  width: 150px; // Default width
+  width: 50px; // Default width
   height: auto;
 
   @media screen and (max-width: 768px) {
@@ -125,10 +131,24 @@ export const NeptuneImage = styled.img`
   }
 
   @media screen and (max-width: 480px) {
+    display: none;
     width: 350px; // Same size for small screens, adjust if necessary
     left: 50%; // Center horizontally
     transform: translateX(-50%); // Adjust for exact center
     right: auto; // Ensure right is not affecting the position
+  }
+`;
+
+export const EarthImage = styled.img`
+  position: absolute;
+  top: 500px; // Position for large screens
+  right:400px; // Position for large screens
+  z-index: 2;
+  width: 150px; // Default width
+  height: auto;
+
+  @media screen and (max-width: 768px) {
+    display: none;// Reset the top property
   }
 `;
 
@@ -138,6 +158,7 @@ export const HeroBtnWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 20px;
   margin-bottom: 0; // Set to 0 or a smaller value if necessary
 
   @media screen and (max-width: 768px) {

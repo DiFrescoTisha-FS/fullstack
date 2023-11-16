@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import backgroundImage from "../../images/music6.jpg"
+import backgroundImage from "../../images/velvet.png";
+import { SectionContainer } from '../SectionContainer';
 
 // ... other components ...
 
@@ -12,19 +13,9 @@ export const CommentSectionContainer = styled.div`
   position: relative;
   z-index: 1;
 
-    /* :before {
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 100%), linear-gradient(180deg, rgba(0,0,0,0.2) 0%, transparent 100%);
-        z-index: 2;
-    } */
-
     @media screen and (max-width: 768px) {
     min-height: auto; // or some value smaller than 500px if that's too much space
-    padding: 50px 0; // Adjust as needed
+    padding: 50px 0;
   }
 `;
 
@@ -37,9 +28,21 @@ export const CommentsBg = styled.div`
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background: url(${backgroundImage}) no-repeat center center;
-  background-size: cover;
+  background: #000 url(${require("../../images/sparklycomments.png")}) no-repeat center center;
+  /* background-size: cover; */
   z-index: -1; // Ensure this is behind the content of the ArtistInfoContainer
+
+  @media screen and (max-width: 768px) {
+    /* Update the background image for mobile devices */
+    background: #000 url(${require("../../images/mobilebackup.png")}) no-repeat center center; /* Replace 'mobile_image.png' with your mobile image's filename */
+    background-size: cover; /* This will cover the available area */
+  }
+
+  @media screen and (max-width: 480px) {
+    /* Update the background image for mobile devices */
+    background: #000 url(${require("../../images/mobilebackup.png")}) no-repeat center center; /* Replace 'mobile_image.png' with your mobile image's filename */
+    background-size: cover; /* This will cover the available area */
+  }
 `;
 
 
@@ -70,6 +73,7 @@ export const CommentRow = styled.div`
 
   @media screen and (max-width: 768px) {
     flex-direction: column;
+  }
 `;
 
 
@@ -79,10 +83,21 @@ export const ImgWrap = styled.div`
   position: relative;
   z-index: 1;
   margin-bottom: 16px;
+
+  @media screen and (max-width: 1024px) {
+    max-width: 350px; /* Adjusted max-width for medium screens */
+  }
    // Add some space between the image and the text content
    @media screen and (max-width: 768px) {
-    order: 2; // Will ensure the image is below the text/form
+    order: 2;
+     // Will ensure the image is below the text/form
   }
+
+  /* @media screen and (max-width: 768px) {
+    max-width: 300px; // Smaller max-width for mobile devices
+    width: 95%; // Optionally you can use percentage to be more responsive
+    height: auto; // Maintain aspect ratio
+  } */
 `;
 
 export const Img = styled.img`
@@ -94,6 +109,8 @@ export const Img = styled.img`
     border-radius: 10px;
     border: 2px solid #e1affd;
     z-index: 10;
+
+
 `;
 
 export const TextWrapper = styled.div`
@@ -101,7 +118,11 @@ export const TextWrapper = styled.div`
   position: relative;
 
   @media screen and (max-width: 768px) {
-    order: 1; // Will ensure the text/form is above the image
+    order: 1;
+
+    @media screen and (min-width: 769px) and (max-width: 1024px) {
+    max-width: 60%;
+  }
   }
 `;
 
@@ -124,12 +145,20 @@ export const Heading = styled.h1`
     line-height: 1.1;
     font-weight: 600;
     text-align: left; /* Add text-align property here */
+
+    @media screen and (max-width: 768) {
+    font-size: 40px;
+  }
+
+  @media screen and (max-width: 480px) {
+    font-size: 32px;
+  }
 `;
 
 export const Subtitle = styled.p`
     max-width: 440px;
     margin-bottom: 35px;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 26px;
     color: #fff;
     /* color: ${({ lightText }) => (lightText ? '#fff' : '#010606')}; */
@@ -171,14 +200,19 @@ export const TextArea = styled.textarea`
   resize: vertical; // Allows the user to resize the textarea vertically
 `;
 
-export const SubmitButton = styled.button`
-  padding: 10px 20px;
-  border-radius: 5px;
-  border: none;
-  background-color: #e1affd;
-  color: white;
-  cursor: pointer;
-  // add more styling as needed
+export const CommentBtnWrapper = styled.button`
+  display: flex;
+  background: #e1affd;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 0;
+  border-radius: 50%; // Set to 0 or a smaller value if necessary
+
+  @media screen and (max-width: 768px) {
+    margin-top: 40px;
+    margin-bottom: 20px; // Ensure it's also 0 for smaller screens
+  }
 `;
 
 // ... other components ...

@@ -19,12 +19,12 @@ import {
 const MusicSection = ({
     // lightBg, 
     backgroundImage,
-    id, 
+    id,
     imgStart, 
 }) => {
   return (
     <>
-          <MusicContainer backgroundImage={backgroundImage} id={id}>
+          <MusicContainer backgroundImage={backgroundImage} id="music">
               {/* <MusicBg /> */}
             <MusicWrapper>
                 <MusicRow imgStart={imgStart}>

@@ -1,8 +1,8 @@
 import styled from "styled-components";
 // import backgroundImage from "../../images/single.png";
-import { SectionContainer } from '../SectionContainer'; 
+// import { SectionContainer } from '../SectionContainer'; 
 
-export const MusicContainer = styled(SectionContainer)`
+export const MusicContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,22 +11,15 @@ export const MusicContainer = styled(SectionContainer)`
   height: 100%;
   padding: 0;
   z-index: 1;
-  background: #000 url(${require("../../images/single.png")}) no-repeat center center;
-  /* background-size: cover; */
-`;
+  background: #000 url(${require("../../images/single.png")}) no-repeat center center; */
+  /* background-size: cover;
 
-// export const MusicBg = styled.div`
-//   position: absolute;
-//   top: 0;
-//   right: 0;
-//   bottom: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100%;
-//   background: url(${backgroundImage}) no-repeat center center;
-//   background-size: cover;
-//   z-index: -1;
-// `;
+  @media screen and (max-width: 480px) {
+    /* Update the background image for mobile devices */
+    background: #000 url(${require("../../images/mobileplanets.png")}) no-repeat center center; /* Replace 'mobile_image.png' with your mobile image's filename */
+    background-size: cover; /* This will cover the available area */
+  }
+`;
 
 export const MusicWrapper = styled.div`
   display: flex;
@@ -47,16 +40,21 @@ export const MusicRow = styled.div`
   text-align: center;
   gap: 50px;
   width: 100%;
-  
+/*   
   @media screen and (max-width: 768px) {
     flex-direction: column;
-    gap: 20px; // Reduced gap for smaller screens
+    gap: 20px; // Reduced gap for smaller screens */
     
     // Select the last child of MusicRow and remove its bottom margin/padding
     &:last-child {
       margin-bottom: 0;
       padding-bottom: 0;
     }
+
+      /* Add a media query for mobile devices */
+  @media screen and (max-width: 768px) {
+    flex-direction: column; // Stack items vertically on mobile
+    gap: 20px; // Adjust gap for smaller screens
   }
 `;
 
@@ -85,12 +83,16 @@ export const Heading = styled.h1`
   line-height: 1.1;
   font-weight: 600;
   text-align: left;
+
+  @media screen and (max-width: 480px) {
+    font-size: 32px;
+  }
 `;
 
 export const Subtitle = styled.p`
   max-width: 440px;
   margin-bottom: 35px;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 26px;
   color: #fff;
   text-align: left;

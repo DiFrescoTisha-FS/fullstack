@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
-import { FaBars } from 'react-icons/fa';
-import { IconContext } from 'react-icons/lib';
-import { animateScroll as scroll } from 'react-scroll';
-import { motion } from 'framer-motion';
-import logo from '../../images/logo.jpg';
-import UserComponent from '../UserComponent';
+import React, { useState } from "react";
+import { FaBars } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
+import { IconContext } from "react-icons/lib";
+import { animateScroll as scroll } from "react-scroll";
+import { motion } from "framer-motion";
+import logo from "../../images/logo.jpg";
+import UserComponent from "../UserComponent";
+import { GoogleSignInIcon } from "../GoogleSignInIcon";
 
 import {
   Nav,
@@ -16,7 +18,7 @@ import {
   NavItem,
   NavLinks,
   NavGoogleBtn,
-} from './NavbarElements';
+} from "./NavbarElements";
 
 const Navbar = ({ toggle, onSignIn, onSignOut }) => {
   const [currentUser, setCurrentUser] = useState(null);
@@ -25,10 +27,10 @@ const Navbar = ({ toggle, onSignIn, onSignOut }) => {
   const handleToggle = () => {
     setIsOpen(!isOpen);
     console.log("Toggling menu", !isOpen);
-  }
+  };
 
   const toggleHome = () => {
-    console.log("Toggle clicked")
+    console.log("Toggle clicked");
     scroll.scrollToTop();
   };
 
@@ -44,6 +46,10 @@ const Navbar = ({ toggle, onSignIn, onSignOut }) => {
     if (onSignOut) {
       onSignOut();
     }
+  };
+
+  const closeMobileMenu = () => {
+    setIsOpen(false);
   };
 
   // Animation for the logo
@@ -82,7 +88,7 @@ const Navbar = ({ toggle, onSignIn, onSignOut }) => {
 
   return (
     <>
-      <IconContext.Provider value={{ color: '#e1affd' }}>
+      <IconContext.Provider value={{ color: "#e1affd" }}>
         <Nav>
           <NavbarContainer>
             <NavLogo to="/" onClick={toggleHome}>
@@ -92,27 +98,39 @@ const Navbar = ({ toggle, onSignIn, onSignOut }) => {
             </NavLogo>
 
             <MobileIcon onClick={handleToggle}>
-            <FaBars onClick={() => console.log('test click')} />
+              <FaBars onClick={() => console.log("test click")} />
             </MobileIcon>
 
             <NavMenu $isOpen={isOpen}>
-              {['bio', 'music', 'new', 'thoughts', 'comments'].map((item, index) => (
-                <motion.li key={index} {...navItemsAnimation}>
-                  <NavLinks
-                    to={item}
-                    smooth={true}
-                    duration={500}
-                    spy={true}
-                    exact='true'
-                    offset={-80}
-                  >
-                    {item.charAt(0).toUpperCase() + item.slice(1)}
-                  </NavLinks>
-                </motion.li>
-              ))}
+              {["bio", "music", "new", "thoughts", "comments"].map(
+                (item, index) => (
+                  <NavItem key={index}>
+                    <NavLinks
+                      to={item}
+                      smooth={true}
+                      duration={500}
+                      spy={true}
+                      exact="true"
+                      offset={-80}
+                      onClick={closeMobileMenu}
+                    >
+                      {item.charAt(0).toUpperCase() + item.slice(1)}
+                    </NavLinks>
+                  </NavItem>
+                )
+              )}
+              {/* Add the sign-in icon and text as a list item */}
+              {isOpen && (
+                <NavItem onClick={closeMobileMenu}>
+                  <GoogleSignInIcon onClick={handleSignIn}>
+                    <FcGoogle size="24" />
+                    Sign in with Google
+                  </GoogleSignInIcon>
+                </NavItem>
+              )}
             </NavMenu>
 
-            <NavGoogleBtn>
+            <NavGoogleBtn $isOpen={isOpen}>
               <motion.div {...navItemsAnimation}>
                 <UserComponent
                   currentUser={currentUser}

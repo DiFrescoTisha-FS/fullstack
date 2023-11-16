@@ -47,21 +47,19 @@ export const NavIcon = styled.img`
 `;
 
 export const MobileIcon = styled.div`
-    display: none;
+  display: none;
 
-    @media screen and (max-width: 768px) {
-        @media screen and (max-width: 768px) {
-        display: block;
-        position: absolute;
-        top: 16px; // Adjust the value to give some space from the top
-        right: 16px; // Adjust the value to give some space from the right
-        font-size: 1.8rem;
-        cursor: pointer;
-        z-index: 21;
-    }
-
-    }
+  @media screen and (max-width: 768px) {
+    display: block;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    z-index: 21;
+  }
 `;
+
 
 export const NavMenu = styled.ul`
   display: flex;
@@ -74,15 +72,21 @@ export const NavMenu = styled.ul`
     flex-direction: column;
     width: 100%;
     position: absolute;
-    top: 80px; // height of the Nav
+    top: 80px; // Adjust if needed
     left: 0;
-    background: #000; // or any color you want
+    background: #000;
+    z-index: 10;
+    padding-top: 20px; // Add padding to prevent sticking to the top
+  }
 `;
 
 export const NavItem = styled.li`
-    height: 80px;
-    margin-bottom: 50px;
+  @media screen and (max-width: 768px) {
+    width: 100%; // Make sure the item takes full width
+    margin-bottom: 10px; // Adjust spacing between menu items
+  }
 `;
+
 
 export const NavLinks = styled(LinkS)`
     color: #fff;
@@ -98,23 +102,26 @@ export const NavLinks = styled(LinkS)`
     }
 `;
 
-export const NavGoogleBtn = styled.nav`
-    justify-self: flex-end;
-    cursor: pointer;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    margin-left: 24px;
-    font-weight: medium;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    /* margin-top: 20px; */
-    @media screen and (max-width: 768px) {
-        display: none;
-    }
+export const NavGoogleBtn = styled.div`
+  justify-self: flex-end;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  margin-left: 24px;
+  font-weight: medium;
+  text-decoration: none;
+  margin-bottom: 14px;
+
+  @media screen and (max-width: 768px) {
+    display: ${({ $isOpen }) => ($isOpen ? 'flex' : 'none')};
+    width: 100%;
+    justify-content: center;
+    padding: 1rem 0; // Add padding for spacing
+  }
 `;
+
+
 
 export const NavBtnLink = styled(LinkR)`
     border-radius: 50px;

@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { FaArrowAltCircleDown, FaBusAlt } from 'react-icons/fa';
+// import { SectionContainer } from "../SectionContainer";
+// import MobileImg from "../../images/mobileplanets.png"
 // import backgroundImage from "../../images/bio.jpg"
 
 export const ArtistInfoContainer = styled.div`
@@ -14,43 +16,12 @@ export const ArtistInfoContainer = styled.div`
   background: url(${require("../../images/bio.jpg")}) no-repeat center center;
   background-size: cover;
 
-    /* :before {
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 100%), linear-gradient(180deg, rgba(0,0,0,0.2) 0%, transparent 100%);
-        z-index: 2;
-    } */
-
-    /* @media screen and (max-width: 768px) {
-        min-height: 500px; // Adjusted from 860px to a smaller height
-        padding: 50px 0; // Reduced padding at the top and bottom
-    } */
+  @media screen and (max-width: 768px) {
+    /* Update the background image for mobile devices */
+    background: #000 url(${require("../../images/mobileflipped.png")}) no-repeat center center; /* Replace 'mobile_image.png' with your mobile image's filename */
+    background-size: cover;
+  }
 `;
-
-// export const BioBg = styled.div`
-//   position: absolute; // Changed from fixed to absolute
-//   top: 0;
-//   right: 0;
-//   bottom: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100%;
-//   overflow: hidden;
-//   background: url(${backgroundImage}) no-repeat center center;
-//   background-size: cover;
-//   z-index: -1; // Ensure this is behind the content of the ArtistInfoContainer
-// `;
-
-
-
-// export const BioImg = styled.img`
-//   width: 100%; // Set width to be responsive
-//   object-fit: cover; // Ensure the image covers the area without distorting aspect ratio
-//   opacity: 0.5; // Set opacity to make text more readable if the image is a background
-// `;
 
 export const ArtistInfoWrapper = styled.div`
   display: flex;
@@ -61,13 +32,6 @@ export const ArtistInfoWrapper = styled.div`
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 24px;
-  
-  /* @media screen and (max-width: 768px) {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: auto; // Allow the height to grow as needed on smaller screens
-  } */
 `;
 
 export const ArtistInfoRow = styled.div`
@@ -77,20 +41,64 @@ export const ArtistInfoRow = styled.div`
   width: 100%;
 
   @media screen and (max-width: 768px) {
-    flex-direction: column;
+    // Select the first child of ThoughtsRow and remove its top margin/padding
+    &:first-child {
+      margin-top: 0;
+      padding-top: 0;
+      flex-direction: column; 
+    }
+  }
+
+    /* Add a media query for mobile devices */
+    @media screen and (max-width: 480px) {
+    flex-direction: column; // Stack items vertically on mobile
+    gap: 20px; // Adjust gap for smaller screens
+  }
+`;
+
+export const ImgWrap = styled.div`
+  max-width: 455px;
+  width: 100%; // Ensures it takes the full width of its parent
+  display: flex;
+  justify-content: center; // This will center the child Img horizontally
+  align-items: center; // This will center the child Img vertically
+  position: relative;
+  z-index: 10;
+  margin-left: 50px; // You might want to adjust this for different screen sizes
+
+  @media screen and (max-width: 768px) {
+    margin-left: 0; // Remove the margin to allow for proper centering
+    justify-content: center; // Ensure the image stays centered
+    max-width: none; // Allow the image to take up the necessary space
   }
 `;
 
 export const TextWrapper = styled.div`
-  max-width: 540px;
+  max-width: 100%; /* Default max-width */
   position: relative;
 
-  @media screen and (max-width: 768px) {
-  max-width: 100%; // Adjust this to match the desired width
-  padding-left: 24px; // Or any padding that matches the design
-  padding-right: 24px;
-}
+  @media screen and (max-width: 1024px) {
+    max-width: 100%; /* Increased width for medium screens */
+    padding: 0 24px;
+  }
 
+  @media screen and (max-width: 768px) {
+    max-width: 100%; /* Full width for smaller screens */
+    padding: 0 24px;
+    text-align: center; 
+  }
+`;
+
+
+export const Img = styled.img`
+  width: 60%; /* Ensure image takes up the width of its container */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 10px; /* Optional: if you want rounded corners */
+  border: 1px solid #e1affd; /* Optional: adds a purple border */
+  /* Optional: drop-shadow for visual depth (you can adjust or remove this) */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* Ensure the image is centered and scales down within its container */
+  object-fit: contain;
 `;
 
 export const TopLine = styled.p`
@@ -102,6 +110,7 @@ export const TopLine = styled.p`
     letter-spacing: 1.4px;
     text-transform: uppercase;
     margin-bottom: 16px;
+    margin-top: 16px;
     text-align: left;
 `;
 
@@ -125,7 +134,7 @@ export const Heading = styled.h1`
 export const Subtitle = styled.p`
     max-width: 440px;
     margin-bottom: 35px;
-    font-size: 16px;
+    font-size: 18px;
     line-height: 26px;
     color: #fff;
     /* color: ${({ lightText }) => (lightText ? '#fff' : '#010606')}; */
@@ -133,7 +142,7 @@ export const Subtitle = styled.p`
 
 
   @media screen and (max-width: 768px) {
-    font-size: 16px; // Smaller font size for medium screens
+    font-size: 22px; // Smaller font size for medium screens
   }
 
   @media screen and (max-width: 480px) {
@@ -147,36 +156,6 @@ export const BtnWrap = styled.div`
   display: flex;
   justify-content: flex-start;
   text-decoration: none;
-`;
-
-export const ImgWrap = styled.div`
-  max-width: 455px;
-  width: 100%; // Ensures it takes the full width of its parent
-  display: flex;
-  justify-content: center; // This will center the child Img horizontally
-  align-items: center; // This will center the child Img vertically
-  position: relative;
-  z-index: 10;
-  margin-left: 50px; // You might want to adjust this for different screen sizes
-
-  @media screen and (max-width: 768px) {
-    margin-left: 0; // Remove the margin to allow for proper centering
-    justify-content: center; // Ensure the image stays centered
-    max-width: none; // Allow the image to take up the necessary space
-  }
-`;
-
-
-export const Img = styled.img`
-  max-width: 100%;
-  height: auto;
-  position: relative;
-  z-index: 10;
-  margin: 0 0 10px 0;
-  padding-right: 0;
-  border-radius: 10px;
-  border: 1px solid #e1affd;
-  /* box-shadow: 10px 35px 30px -25px #e1affd; */
 `;
 
 export const ArrowFilled = styled(FaBusAlt)`

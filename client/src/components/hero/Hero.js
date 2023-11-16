@@ -2,7 +2,7 @@ import React, { useState } from "react";
 // import Video from '../../videos/video.mp4';
 import { Button } from "../ButtonElements";
 import TwinklingBackground from "../twinklingbackground/TwinklingBackground";
-import StylishText from "../StylishText"
+import StylishText from "../StylishText";
 // import HeroTwinkling from '../hero/HeroTwinkling';
 import {
   HeroContainer,
@@ -22,24 +22,29 @@ const HeroSection = () => {
     setHover(!hover);
   };
   return (
-    <HeroContainer id="hero-section">
+    <HeroContainer id="hero">
       <HeroBg>
         <TwinklingBackground
           // title="Your Title Here"
           saturnImage="https://i.imgur.com/yM3SlcH.png"
           neptuneImage="https://i.imgur.com/XyBATJD.png"
+          earthImage="https://i.imgur.com/qTwsepd.png"
         />
       </HeroBg>
-          <HeroContent>
-              <StylishText />
+      <HeroContent>
+        <StylishText />
         {/* <HeroH1>Trapstar Bam</HeroH1> */}
         <HeroP>
-          'Witnessing Trapstar Bam's evolution as an artist has been truly inspiring. Since we first collaborated back in 2020, his unwavering dedication and love for music have propelled his growth tremendously. It's a privilege to watch him not just meet, but far exceed, every expectation.'
+          'Witnessing Trapstar Bam's evolution as an artist has been truly
+          inspiring. Since we first collaborated back in 2020, his unwavering
+          dedication and love for music have propelled his growth tremendously.
+          It's a privilege to watch him not just meet, but far exceed, every
+          expectation.'
         </HeroP>
         <HeroP style={{ marginTop: "20px" }}>~Bray Kaizen</HeroP>
         <HeroBtnWrapper>
           <Button
-            to="bio"
+            to="bio" // the target id to scroll to
             onMouseEnter={onHover}
             onMouseLeave={onHover}
             $primary="true"
@@ -49,6 +54,10 @@ const HeroSection = () => {
             spy={true}
             exact="true"
             offset={-80}
+            onClick={(e) => {
+              e.stopPropagation();
+              // Other click handling logic
+            }}
           >
             Bam's Galaxy {hover ? <ArrowFilled /> : <ArrowCircle />}
           </Button>

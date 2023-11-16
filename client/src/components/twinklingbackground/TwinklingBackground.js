@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import starsImage from '../../images/stars.png';
 import twinklingImage from '../../images/twinkling.png';
-import { SaturnImage, NeptuneImage } from '../hero/HeroElements';
+import { SaturnImage, NeptuneImage, EarthImage } from '../hero/HeroElements';
 
 const moveTwinkBack = keyframes`
   from {
@@ -73,12 +73,13 @@ const Clouds = styled.div`
 `;
 
 // The main component
-const TwinklingBackground = ({ title, saturnImage, neptuneImage }) => (
+const TwinklingBackground = ({ saturnImage, neptuneImage, earthImage }) => (
   <BackgroundContainer>
     <Stars />
     <Twinkling />
     {saturnImage && <SaturnImage src={saturnImage} alt="Saturn" />}
     {neptuneImage && <NeptuneImage src={neptuneImage} alt="Neptune" />}
+    {earthImage && <EarthImage src={earthImage} alt="Earth" />}
     <Clouds />
     {/* {title && <Title>{title}</Title>} */}
   </BackgroundContainer>
