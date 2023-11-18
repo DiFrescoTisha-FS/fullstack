@@ -6,64 +6,86 @@ export const MusicContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
+  padding: 0px;
   min-height: 860px;
-  height: 100%;
-  padding: 0;
+  position: relative;
   z-index: 1;
-  background: #000 url(${require("../../images/single.png")}) no-repeat center center; */
-  /* background-size: cover;
+
+  @media screen and (max-width: 768px) {
+    min-height: auto;
+    padding: 50px 0;
+  }
+`;
+
+export const MusicBg = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #000 url(${require("../../images/single.png")}) no-repeat center center;
+  z-index: -1;
+
+  @media screen and (max-width: 768px) {
+    background: #000 url(${require("../../images/mobilesingle.png")}) no-repeat center center;
+    background-size: cover; 
+  }
 
   @media screen and (max-width: 480px) {
     /* Update the background image for mobile devices */
-    background: #000 url(${require("../../images/mobileplanets.png")}) no-repeat center center; /* Replace 'mobile_image.png' with your mobile image's filename */
+    background: #000 url(${require("../../images/mobilereverse.png")}) no-repeat center center; /* Replace 'mobile_image.png' with your mobile image's filename */
     background-size: cover; /* This will cover the available area */
   }
 `;
 
 export const MusicWrapper = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: space-between; // Use space-between to place children on opposite ends of the container
+  align-items: center; // Vertically aligns children in the middle
+  justify-content: center; // Horizontally centers children
   height: auto;
-  /* height: 860px; */
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 24px;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    align-items: center; // Keeps content centered horizontally
+    justify-content: center; // Keeps content centered vertically
+    height: 100%; // Takes full height of the parent container
+    padding: 50px 0; // Adds padding to the top and bottom
+  }
 `;
+
 
 export const MusicRow = styled.div`
   display: flex;
-  flex-direction: ${({ imgStart }) => (imgStart ? "row-reverse" : "row")};
-  justify-content: center;
   align-items: center;
-  text-align: center;
   gap: 50px;
   width: 100%;
-/*   
+
   @media screen and (max-width: 768px) {
     flex-direction: column;
-    gap: 20px; // Reduced gap for smaller screens */
-    
-    // Select the last child of MusicRow and remove its bottom margin/padding
-    &:last-child {
-      margin-bottom: 0;
-      padding-bottom: 0;
-    }
-
-      /* Add a media query for mobile devices */
-  @media screen and (max-width: 768px) {
-    flex-direction: column; // Stack items vertically on mobile
-    gap: 20px; // Adjust gap for smaller screens
   }
 `;
 
 export const TextWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  max-width: 540px;
+  max-width: 100%; // Allows it to fill the container on larger screens
+  position: relative;
+
+  @media screen and (max-width: 1024px) {
+    max-width: 100%; // Full width on medium screens
+  }
+
+  @media screen and (max-width: 768px) {
+    max-width: 100%; // Full width on smaller medium screens
+    order: 1;
+    padding: 0 24px; // Add padding to maintain some space around the text
+  }
 `;
+
 
 export const TopLine = styled.p`
   font-size: 18px;
@@ -84,30 +106,52 @@ export const Heading = styled.h1`
   font-weight: 600;
   text-align: left;
 
+  @media screen and (max-width: 768px) {
+    font-size: 40px;
+  }
+
   @media screen and (max-width: 480px) {
     font-size: 32px;
   }
 `;
 
 export const Subtitle = styled.p`
+margin-top: 30px;
   max-width: 440px;
-  margin-bottom: 35px;
-  font-size: 16px;
+  margin-bottom: 25px;
+
+  font-size: 20px;
   line-height: 26px;
   color: #fff;
   text-align: left;
+  font-family: "Open Sans", sans-serif;
+
+
+  @media screen and (max-width: 768px) {
+    font-size: 20px;
+  }
+
+  @media screen and (max-width: 480px) {
+    font-size: 16px;
+  }
 `;
 
 export const BtnWrap = styled.div`
   display: flex;
   justify-content: flex-start;
+  margin-bottom: 28px;
 `;
 
 export const MusicDiv = styled.div`
-  max-width: 455px;
+  max-width: 455px; // Allows it to be as wide as possible on larger screens
   width: 100%;
   display: flex;
   justify-content: center;
+
+  @media screen and (max-width: 768px) {
+    max-width: 100%; // Full width on smaller medium screens
+    order: 2;
+  }
 `;
 
 export const Music = styled.div`
@@ -118,4 +162,9 @@ export const Music = styled.div`
   border-radius: 10px;
   border: 2px solid #e1affd;
 
+  @media screen and (max-width: 768px) {
+    max-width: 100%; /* Full width for smaller screens */
+    /* padding: 0 24px; */
+    text-align: center; 
+  }
 `;

@@ -55,16 +55,13 @@ const CommentSection = ({ backgroundImage }) => {
 
   return (
     <CommentSectionContainer id="comments">
-      <CommentsBg>
-        {/* <StarBackground2 /> */}
-        {/* <CommentsTwinkling /> */}
-      </CommentsBg>
+      <CommentsBg />
       <CommentWrapper onSubmit={handleCommentSubmit}>
         <CommentRow>
-          <ImgWrap>
+        <ImgWrap>
             <Img src={Comments} alt="Artist wearing no shirt" />
           </ImgWrap>
-          <TextWrapper>
+        <TextWrapper>
             <TopLine>Bam Fans</TopLine>
             <Heading>Before you go...</Heading>
             <Subtitle>
@@ -102,8 +99,8 @@ const CommentSection = ({ backgroundImage }) => {
               </CommentBtnWrapper>
             </FormWrap>
           </TextWrapper>
+
         </CommentRow>
-        {/* <ComboImage src="https://i.imgur.com/O1Exmw2.png" alt="Neptune" /> */}
       </CommentWrapper>
     </CommentSectionContainer>
   );

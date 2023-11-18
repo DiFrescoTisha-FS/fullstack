@@ -102,7 +102,7 @@ const Navbar = ({ toggle, onSignIn, onSignOut }) => {
             </MobileIcon>
 
             <NavMenu $isOpen={isOpen}>
-              {["bio", "music", "new", "thoughts", "comments"].map(
+              {["home", "bio", "music", "new", "thoughts", "comments"].map(
                 (item, index) => (
                   <NavItem key={index}>
                     <NavLinks

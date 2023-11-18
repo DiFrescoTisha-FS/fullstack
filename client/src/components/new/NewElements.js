@@ -13,14 +13,16 @@ export const NewContainer = styled.div`
   height: 100%;
   padding: 0;
   z-index: 1;
-  background: url(${require("../../images/music6.jpg")}) no-repeat center center;
+  background: url(${require("../../images/circleplanets.png")}) no-repeat center center;
   background-size: cover;
   background-position: center;
   height: 100vh;
 
   @media screen and (max-width: 768px) {
     padding: 100px 0;
-  }
+    background: #000 url(${require("../../images/newmobilevertical.png")}) no-repeat center center; /* Replace 'mobile_image.png' with your mobile image's filename */
+    background-size: cover; 
+
 
   @media screen and (max-width: 480px) {
     /* Update the background image for mobile devices */
@@ -96,12 +98,23 @@ export const Heading = styled.h1`
 `;
 
 export const Subtitle = styled.p`
-  max-width: 100%; /* Set the maximum width to 100% to take up the full width of the video */
-  margin-top: 15px;
-  font-size: 18px;
-  line-height: 28px;
-  color: ${({ darkText }) => (darkText ? "#010606" : "#fff")};
-  text-align: center; /* Center-align the text horizontally */
+margin-top: 30px;
+  max-width: 440px;
+  margin-bottom: 25px;
+  font-size: 20px;
+  line-height: 26px;
+  color: #fff;
+  text-align: center;
+  /* font-family: "Open Sans", sans-serif; */
+
+
+  @media screen and (max-width: 768px) {
+    font-size: 20px;
+  }
+
+  @media screen and (max-width: 480px) {
+    font-size: 16px;
+  }
 `;
 
 export const BtnWrap = styled.div`

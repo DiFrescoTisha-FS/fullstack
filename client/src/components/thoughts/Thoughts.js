@@ -3,6 +3,7 @@ import { Button } from "../ButtonElements";
 import tattooFingers from "../../images/tattoofingers.JPG"// Adjust the path as needed
 import {
   ThoughtsContainer,
+  ThoughtsBg,
   ThoughtsWrapper,
   ThoughtsRow,
   BtnWrap,
@@ -24,10 +25,8 @@ const Thoughts = ({
   lightText, // Add the lightText prop
 }) => {
   return (
-    <ThoughtsContainer
-      backgroundImage={backgroundImage}
-      id="thoughts"
-      >
+    <ThoughtsContainer backgroundImage={backgroundImage} id="thoughts">
+      <ThoughtsBg />
       <ThoughtsWrapper>
         <ThoughtsRow imgStart={imgStart}>
           <TextWrapper>

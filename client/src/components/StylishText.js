@@ -21,7 +21,7 @@ const StylishText = styled.h1`
   }
 
   @media screen and (max-width: 768px) {
-    font-size: 40px; // Smaller size for medium devices
+    font-size: 48px; // Smaller size for medium devices
     text-shadow: none; // Remove glow effect
   }
 

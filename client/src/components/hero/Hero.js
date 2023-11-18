@@ -22,7 +22,7 @@ const HeroSection = () => {
     setHover(!hover);
   };
   return (
-    <HeroContainer id="hero">
+    <HeroContainer id="home">
       <HeroBg>
         <TwinklingBackground
           // title="Your Title Here"

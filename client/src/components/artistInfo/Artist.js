@@ -6,6 +6,7 @@ import { FaArrowAltCircleDown } from "react-icons/fa";
 
 import {
   ArtistInfoContainer,
+  ArtistBg,
   ArtistInfoWrapper,
   ArtistInfoRow,
   TextWrapper,
@@ -38,6 +39,7 @@ const ArtistInfo = ({
       <Twinkling />
       <Clouds /> */}
       <ArtistInfoContainer backgroundImage={backgroundImage} id="bio">
+        <ArtistBg />
         <ArtistInfoWrapper>
           <ArtistInfoRow imgStart={imgStart}>
             <TextWrapper>

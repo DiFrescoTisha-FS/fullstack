@@ -1,41 +1,31 @@
-import styled from "styled-components";
-import { FaRocket } from 'react-icons/fa'
-import { FaArrowAltCircleDown } from 'react-icons/fa';
+import styled from 'styled-components';
+import { FaRocket, FaArrowAltCircleDown } from 'react-icons/fa';
 
+const maxWidth = '700px'; // Common max-width for various components
+
+// Hero Container
 export const HeroContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0;
   position: relative;
+  width: 100%;
+  min-height: 860px;
+  padding: 0;
   z-index: 1;
-  width: 100%; // Full width
-  min-height: 860px; // Minimum height for larger screens
 
-  /* Center content vertically */
-  :before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 2;
-  }
-
-  /* Reduce the min-height on smaller screens */
   @media screen and (max-width: 768px) {
-    min-height: 600px; // Smaller height for medium screens
+    min-height: 600px;
   }
 
   @media screen and (max-width: 480px) {
     min-height: 400px;
-    background: #000 url(${require("../../images/mobileplanets.png")}) no-repeat center center; /* Replace 'mobile_image.png' with your mobile image's filename */
+    background: #000 url(${require("../../images/mobileplanets.png")}) no-repeat center center;
     background-size: cover;
   }
 `;
 
-
+// Hero Background
 export const HeroBg = styled.div`
   position: absolute;
   top: 0;
@@ -46,72 +36,62 @@ export const HeroBg = styled.div`
   height: 100%;
   overflow: hidden;
   background: url(${props => props.backgroundImage}) no-repeat center center;
-  background-size: cover; // This will cover the entire area
+  background-size: cover;
   z-index: -1;
 
-  /* Adjust background-size on smaller screens */
   @media screen and (max-width: 768px) {
-    background-size: contain; // Contain the background within the available space without cutting off
-  }
-
-  @media screen and (max-width: 480px) {
-    background-size: contain; // Adjust as needed for very small screens
+    background-size: contain;
   }
 `;
 
-
-const maxWidth = '700px';
-
+// Hero Content
 export const HeroContent = styled.div`
-  z-index: 22; // Adjusted for stacking context
-  max-width: ${maxWidth}; // Use the max-width variable
-  width: 100%; // Ensure it spans the full width of its parent
-  margin: 0 auto; // Center the content
-  padding-bottom: 0; // Set to 0 or a smaller value if necessary
+  z-index: 22;
+  max-width: ${maxWidth};
+  width: 100%;
+  margin: 0 auto;
+  padding-bottom: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; // This centers the content vertically
+  justify-content: center;
 
   @media screen and (max-width: 768px) {
-    padding: 0 50px; // Increase padding for smaller screens
-  }
-
-  @media screen and (max-width: 480px) {
-    padding-bottom: 0; // Adjust padding for very small screens
+    padding: 0 50px;
   }
 `;
 
+// Paragraph within Hero Content
 export const HeroP = styled.p`
   color: #fff;
-  font-size: 18px;
+  font-size: 20px;
   text-align: center;
-  max-width: ${maxWidth}; // Ensure the max-width is consistent
-  width: 100%; 
-  margin-top: 20px;// Ensure it spans the full width of its container
+  max-width: ${maxWidth};
+  width: 100%;
+  font-family: "Open Sans", sans-serif;
 
   @media screen and (max-width: 768px) {
-    font-size: 16px; // Adjust font size for readability on smaller screens
+    font-size: 20px;
   }
 
   @media screen and (max-width: 480px) {
-    font-size: 16px;
-
-    padding: 10px; // Add some padding
-    border-radius: 5px; // Optional: rounded corners // Further adjust font size for very small screens
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 5px;
   }
 `;
 
+// Styled images for Saturn, Neptune, Earth
 export const SaturnImage = styled.img`
   position: absolute;
-  top: 300px; // Position for large screens
-  right: 300px; // Position for large screens
+  top: 300px;
+  right: 300px;
   z-index: 2;
-  width: 50px; // Default width
+  width: 50px;
   height: auto;
 
   @media screen and (max-width: 768px) {
-    display: none;// Reset the top property
+    display: none;
   }
 `;
 
@@ -120,60 +100,54 @@ export const NeptuneImage = styled.img`
   top: 50px;
   left: 100px;
   z-index: 3;
-  width: 500px; // Default size for larger screens
+  width: 500px;
   height: auto;
 
   @media screen and (max-width: 768px) {
-    width: 350px; // Smaller size for medium screens
-    left: 50%; // Center horizontally
-    transform: translateX(-50%); // Adjust for exact center
-    right: auto; // Remove any previously set right value
+    width: 350px;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   @media screen and (max-width: 480px) {
     display: none;
-    width: 350px; // Same size for small screens, adjust if necessary
-    left: 50%; // Center horizontally
-    transform: translateX(-50%); // Adjust for exact center
-    right: auto; // Ensure right is not affecting the position
   }
 `;
 
 export const EarthImage = styled.img`
   position: absolute;
-  top: 500px; // Position for large screens
-  right:400px; // Position for large screens
+  top: 500px;
+  right: 400px;
   z-index: 2;
-  width: 150px; // Default width
+  width: 150px;
   height: auto;
 
   @media screen and (max-width: 768px) {
-    display: none;// Reset the top property
+    display: none;
   }
 `;
 
-
-
+// Hero Button Wrapper
 export const HeroBtnWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 20px;
-  margin-bottom: 0; // Set to 0 or a smaller value if necessary
+  margin-top: 10px;
+  margin-bottom: 0;
 
   @media screen and (max-width: 768px) {
-    margin-top: 40px;
-    margin-bottom: 20px; // Ensure it's also 0 for smaller screens
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
 `;
 
-
+// Icons
 export const ArrowFilled = styled(FaRocket)`
-    margin-left: 8px;
-    font-size: 20px;
+  margin-left: 8px;
+  font-size: 20px;
 `;
 
 export const ArrowCircle = styled(FaArrowAltCircleDown)`
-    margin-left: 8px;
-    font-size: 20px;
+  margin-left: 8px;
+  font-size: 20px;
 `;
