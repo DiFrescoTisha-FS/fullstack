@@ -41,10 +41,12 @@ export const NavLogo = styled(LinkR)`
 `;
 
 export const NavIcon = styled.img`
-    width: 75px;
-    height: 75px;
+    width: auto; // Adjust to maintain aspect ratio
+    max-width: 75px; // Set max width to prevent stretching
+    max-height: 75px; // Set max height to prevent stretching
     position: relative;
 `;
+
 
 export const MobileIcon = styled.div`
   display: none;
@@ -52,9 +54,9 @@ export const MobileIcon = styled.div`
   @media screen and (max-width: 768px) {
     display: block;
     position: absolute;
-    top: 16px;
-    right: 16px;
-    font-size: 1.8rem;
+    top: 20px;
+    right: 40px;
+    font-size: 2.5rem;
     cursor: pointer;
     z-index: 21;
   }
@@ -94,13 +96,26 @@ export const NavLinks = styled(LinkS)`
     align-items: center;
     justify-content: space-evenly;
     text-decoration:none;
-    padding: 0 2rem;
+    padding: 0 2rem; // Adjust padding for larger screens
     height: 100%;
     cursor: pointer;
+
     &.active {
         border-bottom: 3px solid #e1affd;
+        border-bottom: 3px solid #e1affd; // or other styles for the line
+
+    @media screen and (max-width: 768px) {
+      border-bottom-width: 2px; // Make the line thinner on smaller screens
+      width: 50%; // Adjust width to desired length on smaller screens
+      margin-left: auto; // Center the line under the text
+      margin-right: auto; // Center the line under the text
+    }
+
+    @media screen and (max-width: 768px) {
+        padding: 0 1rem; // Reduce padding for smaller screens
     }
 `;
+
 
 export const NavGoogleBtn = styled.div`
   justify-self: flex-end;
@@ -109,9 +124,9 @@ export const NavGoogleBtn = styled.div`
   display: flex;
   align-items: center;
   margin-left: 24px;
-  font-weight: medium;
+  font-weight: 500; // Corrected from 'medium' to '500'
   text-decoration: none;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 
   @media screen and (max-width: 768px) {
     display: ${({ $isOpen }) => ($isOpen ? 'flex' : 'none')};
@@ -123,18 +138,19 @@ export const NavGoogleBtn = styled.div`
 
 
 
+
 export const NavBtnLink = styled(LinkR)`
-    border-radius: 50px;
-    background: #e1affd;
-    white-space: nowrap;
-    padding: 10px 22px;
+    /* border-radius: 50px; */
+    /* background: #e1affd; */
+    /* white-space: nowrap; */
+    /* padding: 10px 22px;
     color: #010606;
     font-size: 16px;
     outline: none;
     border: none;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
-    text-decoration: none;
+    text-decoration: none; */
 
     &:hover {
         transition: all 0.2s ease-in-out;

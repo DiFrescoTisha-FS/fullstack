@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 export const ButtonBaseStyles = css`
   border-radius: 50px;
   background: #e1affd; // Default background
-  padding: 5px 10px;
+  padding: 5px 5px;
   color: #010606;
   font-size: 16px;
   outline: none;
@@ -26,13 +26,14 @@ export const ButtonBaseStyles = css`
 // Custom button with specific overrides
 export const CustomButton = styled.button`
   ${ButtonBaseStyles} // Apply base styles
-  background-color: #e1affd; // Custom background color
-  color: #010606;
+  background-color: #010606; // Custom background color: ;
+  color: #e1affd;
+  border: 2px solid #e1affd;
 
   &:hover {
-    background-color: #010606; // Custom hover background color
-    color: #e1affd; // Custom hover text color
-    border: 1px solid #e1affd;
+    background-color: #e1affd; // Custom hover background color
+    color: #010606; // Custom hover text color: ;
+
   }
 `;
 

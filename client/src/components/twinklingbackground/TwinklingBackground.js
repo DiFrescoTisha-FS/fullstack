@@ -57,20 +57,20 @@ const Twinkling = styled.div`
   animation: ${moveTwinkBack} 200s linear infinite;
 `;
 
-const Clouds = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
-  background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/clouds_repeat.png") repeat top center;
-  z-index: 20;
-  opacity: 0.4;
-  animation: ${moveCloudsBack} 200s linear infinite;
-`;
+// const Clouds = styled.div`
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   right: 0;
+//   bottom: 0;
+//   width: 100%;
+//   height: 100%;
+//   display: block;
+//   background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/clouds_repeat.png") repeat top center;
+//   z-index: 20;
+//   opacity: 0.4;
+//   animation: ${moveCloudsBack} 200s linear infinite;
+// `;
 
 // The main component
 const TwinklingBackground = ({ saturnImage, neptuneImage, earthImage }) => (
@@ -80,7 +80,7 @@ const TwinklingBackground = ({ saturnImage, neptuneImage, earthImage }) => (
     {saturnImage && <SaturnImage src={saturnImage} alt="Saturn" />}
     {neptuneImage && <NeptuneImage src={neptuneImage} alt="Neptune" />}
     {earthImage && <EarthImage src={earthImage} alt="Earth" />}
-    <Clouds />
+    {/* <Clouds /> */}
     {/* {title && <Title>{title}</Title>} */}
   </BackgroundContainer>
 );

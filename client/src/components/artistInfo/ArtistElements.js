@@ -19,6 +19,7 @@ export const ArtistInfoContainer = styled.div`
   }
 `;
 
+
 export const ArtistBg = styled.div`
   position: absolute;
   top: 0;
@@ -31,32 +32,35 @@ export const ArtistBg = styled.div`
   background: #000 url(${require("../../images/bio.png")}) no-repeat center center;
   z-index: -1;
 
-  @media screen and (max-width: 768px) {
-    background: #000 url(${require("../../images/mediumbio.png")}) no-repeat center center; /* Replace 'mobile_image.png' with your mobile image's filename */
-    background-size: cover; /* This will cover the available area */
-  }
+@media screen and (max-width: 768px) {
+  background: #000 url(${require("../../images/cluster.png")}) no-repeat center center;
+  background-size: cover; 
+}
 
-  @media screen and (max-width: 480px) {
-    background: #000 url(${require("../../images/mobilereverse.png")}) no-repeat center center; /* Replace 'mobile_image.png' with your mobile image's filename */
-    background-size: cover; /* This will cover the available area */
-  }
+@media screen and (max-width: 480px) {
+  background: #000 url(${require("../../images/smnep.png")}) no-repeat center center;
+  background-size: cover; 
+}
 `;
 
 export const ArtistInfoWrapper = styled.div`
-display: flex;
-align-items: center;
-justify-content: space-between;
-height: auto;
-max-width: 1100px;
-margin: 0 auto;
-padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: auto;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 2; // Above the planet image
 
-@media screen and (max-width: 768px) {
-flex-direction: column;
-align-items: center;
-justify-content: center;
-}
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 `;
+
 
 export const ArtistInfoRow = styled.div`
 display: flex;
@@ -166,6 +170,26 @@ export const BtnWrap = styled.div`
   justify-content: flex-start;
   text-decoration: none;
 `;
+
+export const NeptuneImage = styled.img`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  max-width: 100%;
+  height: auto;
+  width: 80%; // Use a percentage of the width to make it responsive
+
+  @media screen and (max-width: 768px) {
+    width: 70%; // Adjust size for smaller screens if needed
+  }
+
+  @media screen and (max-width: 480px) {
+    display: none; // Hide on very small screens
+  }
+`;
+
 
 export const ArrowFilled = styled(FaBusAlt)`
   margin-left: 8px;

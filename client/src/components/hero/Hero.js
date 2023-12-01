@@ -7,7 +7,6 @@ import StylishText from "../StylishText";
 import {
   HeroContainer,
   HeroBg,
-  // VideoBg,
   HeroContent,
   HeroP,
   HeroBtnWrapper,

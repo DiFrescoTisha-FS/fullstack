@@ -2,6 +2,7 @@ import React from "react";
 import galaxy from "../../images/galaxy.jpg";
 import { Button } from "../ButtonElements";
 import { FaArrowAltCircleDown } from "react-icons/fa";
+
 // import { Twinkling, Stars, Clouds } from '../twinkling/TwinklingNightSkyElements';
 
 import {
@@ -35,13 +36,12 @@ const ArtistInfo = ({
 }) => {
   return (
     <>
-      {/* <Stars />
-      <Twinkling />
-      <Clouds /> */}
       <ArtistInfoContainer backgroundImage={backgroundImage} id="bio">
-        <ArtistBg />
+      {/* <ArtistInfoContainer  id="bio"> */}
+        <ArtistBg>
+        </ArtistBg>
         <ArtistInfoWrapper>
-          <ArtistInfoRow imgStart={imgStart}>
+          <ArtistInfoRow>
             <TextWrapper>
               <TopLine>Approved Bam Bio</TopLine>
               <Heading>Gavin Di Fresco</Heading>

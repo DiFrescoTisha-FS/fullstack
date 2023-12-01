@@ -91,7 +91,7 @@ const UserComponent = ({ currentUser, onSignIn, onSignOut }) => {
           onClick={handleLogin}
         >
           <FaGoogle size={24} />
-          <span className="text-[#e1affd]">Sign in with Google</span>
+          <span className="hidden lg:block text-[#e1affd]">Sign in with Google</span>
         </button>
       )}
     </div>

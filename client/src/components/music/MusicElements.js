@@ -55,7 +55,7 @@ export const MusicWrapper = styled.div`
     align-items: center; // Keeps content centered horizontally
     justify-content: center; // Keeps content centered vertically
     height: 100%; // Takes full height of the parent container
-    padding: 50px 0; // Adds padding to the top and bottom
+    padding: 50px 25px; // Adds padding to the top and bottom
   }
 `;
 
@@ -163,7 +163,7 @@ export const Music = styled.div`
   border: 2px solid #e1affd;
 
   @media screen and (max-width: 768px) {
-    max-width: 100%; /* Full width for smaller screens */
+    max-width: 85%; /* Full width for smaller screens */
     /* padding: 0 24px; */
     text-align: center; 
   }

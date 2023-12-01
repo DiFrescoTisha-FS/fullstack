@@ -13,20 +13,20 @@ export const NewContainer = styled.div`
   height: 100%;
   padding: 0;
   z-index: 1;
-  background: url(${require("../../images/circleplanets.png")}) no-repeat center center;
+  background: url(${require("../../images/newnew.png")}) no-repeat center center;
   background-size: cover;
   background-position: center;
   height: 100vh;
 
   @media screen and (max-width: 768px) {
     padding: 100px 0;
-    background: #000 url(${require("../../images/newmobilevertical.png")}) no-repeat center center; /* Replace 'mobile_image.png' with your mobile image's filename */
+    background: #000 url(${require("../../images/m5.png")}) no-repeat center center; /* Replace 'mobile_image.png' with your mobile image's filename */
     background-size: cover; 
 
 
   @media screen and (max-width: 480px) {
     /* Update the background image for mobile devices */
-    background: #000 url(${require("../../images/mobileflipped.png")}) no-repeat center center; /* Replace 'mobile_image.png' with your mobile image's filename */
+    background: #000 url(${require("../../images/m5.png")}) no-repeat center center; /* Replace 'mobile_image.png' with your mobile image's filename */
     background-size: cover; /* This will cover the available area */
   }
 `;

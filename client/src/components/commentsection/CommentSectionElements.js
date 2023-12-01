@@ -24,16 +24,16 @@ export const CommentsBg = styled.div`
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background: #000 url(${require("../../images/sparklycomments.png")}) no-repeat center center;
+  background: #000 url(${require("../../images/shiny.png")}) no-repeat center center;
   z-index: -1;
 
   @media screen and (max-width: 768px) {
-    background: #000 url(${require("../../images/newmobilecloudy.png")}) no-repeat center center;
+    background: #000 url(${require("../../images/cloudymoon.png")}) no-repeat center center;
     background-size: cover; 
   }
 
   @media screen and (max-width: 480px) {
-    background: #000 url(${require("../../images/mobilereverse.png")}) no-repeat center center;
+    background: #000 url(${require("../../images/m8.png")}) no-repeat center center;
     background-size: cover;
   }
 `;
@@ -76,6 +76,7 @@ export const ImgWrap = styled.div`
   @media screen and (max-width: 768px) {
     max-width: 100%; // Full width on smaller medium screens
     order: 2;
+    padding: 25px;
   }
 `;
 
