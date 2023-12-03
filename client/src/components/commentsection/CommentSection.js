@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Rating from "react-rating-stars-component";
 import axios from "axios";
 import Comments from "../../images/placeholder1.jpg";
+import TwinklingBackground from '../twinklingbackground/TwinklingBackground'
 import { BsSendFill } from "react-icons/bs";
 import { Button } from "../ButtonElements"; // Adjust based on the package you choose
 import {
@@ -17,7 +18,6 @@ import {
   Heading,
   Subtitle,
   TextArea,
-  SubmitButton,
   CommentBtnWrapper,
 } from "./CommentSectionElements"; // You'll need to define these styled components
 // import StarBackground2 from '../starbackground2/StarBackground2';
@@ -55,7 +55,11 @@ const CommentSection = ({ backgroundImage }) => {
 
   return (
     <CommentSectionContainer id="comments">
-      <CommentsBg />
+      <CommentsBg>     
+        <TwinklingBackground
+          commentsImage="https://i.imgur.com/ARKyhnW.png"
+         />
+      </CommentsBg>
       <CommentWrapper onSubmit={handleCommentSubmit}>
         <CommentRow>
         <ImgWrap>

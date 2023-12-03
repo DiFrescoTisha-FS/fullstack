@@ -7,11 +7,12 @@ export const NewContainer = styled.div`
   color: #fff;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   position: relative;
   min-height: 860px;
   height: 100%;
   padding: 0;
+  margin: 0;
   z-index: 1;
   background: url(${require("../../images/newnew.png")}) no-repeat center center;
   background-size: cover;
@@ -30,6 +31,18 @@ export const NewContainer = styled.div`
     background-size: cover; /* This will cover the available area */
   }
 `;
+
+export const NewBg = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+`
 
 export const NewWrapper = styled.div`
   display: flex;
@@ -146,6 +159,25 @@ export const VideoContainer = styled.div`
   border-radius: 10px;
   border: 1px solid #e1affd; /* Set the desired maximum width for the video */
 `;
+
+export const YouTubeImage = styled.img`
+    position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  max-width: 100%;
+  height: auto;
+  width: 80%; // Use a percentage of the width to make it responsive
+
+  @media screen and (max-width: 768px) {
+    width: 70%; // Adjust size for smaller screens if needed
+  }
+
+  @media screen and (max-width: 480px) {
+    display: none; // Hide on very small screens
+  }
+`
 
 // Define a styled component for the player wrapper
 export const PlayerWrapper = styled.div`

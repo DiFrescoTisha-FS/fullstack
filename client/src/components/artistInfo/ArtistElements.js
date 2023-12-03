@@ -29,7 +29,7 @@ export const ArtistBg = styled.div`
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background: #000 url(${require("../../images/bio.png")}) no-repeat center center;
+  background: #000 url(${require("../../images/bio20.png")}) no-repeat center center;
   z-index: -1;
 
 @media screen and (max-width: 768px) {
@@ -171,8 +171,15 @@ export const BtnWrap = styled.div`
   text-decoration: none;
 `;
 
-export const NeptuneImage = styled.img`
+export const SingleImage = styled.img`
   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  max-width: 100%;
+  height: auto;
+  width: 80%; // Use a percentage of the width to make it responsive  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -183,6 +190,10 @@ export const NeptuneImage = styled.img`
 
   @media screen and (max-width: 768px) {
     width: 70%; // Adjust size for smaller screens if needed
+  }
+
+  @media screen and (max-width: 480px) {
+    display: none; // Hide on very small screens
   }
 
   @media screen and (max-width: 480px) {

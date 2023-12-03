@@ -2,6 +2,7 @@ import React from "react";
 import galaxy from "../../images/galaxy.jpg";
 import { Button } from "../ButtonElements";
 import { FaArrowAltCircleDown } from "react-icons/fa";
+import TwinklingBackground from "../twinklingbackground/TwinklingBackground";
 
 // import { Twinkling, Stars, Clouds } from '../twinkling/TwinklingNightSkyElements';
 
@@ -36,9 +37,12 @@ const ArtistInfo = ({
 }) => {
   return (
     <>
-      <ArtistInfoContainer backgroundImage={backgroundImage} id="bio">
+      <ArtistInfoContainer id="bio">
       {/* <ArtistInfoContainer  id="bio"> */}
         <ArtistBg>
+          <TwinklingBackground
+            singleImage="https://i.imgur.com/jltuOqF.png"  
+          />
         </ArtistBg>
         <ArtistInfoWrapper>
           <ArtistInfoRow>

@@ -42,8 +42,7 @@ export const ThoughtsBg = styled.div`
   background: #000 url(${require("../../images/mobileplanets.png")}) no-repeat center center;
   background-size: cover; 
 }
-`
-  
+`;
 
 export const ThoughtsWrapper = styled.div`
 display: flex;
@@ -178,6 +177,25 @@ margin-top: 30px;
     font-size: 16px;
   }
 `;
+
+export const ThoughtsImage = styled.img`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  max-width: 100%;
+  height: auto;
+  width: 80%; // Use a percentage of the width to make it responsive
+
+  @media screen and (max-width: 768px) {
+    width: 70%; // Adjust size for smaller screens if needed
+  }
+
+  @media screen and (max-width: 480px) {
+    display: none; // Hide on very small screens
+  }
+`
 
 
 export const ArrowFilled = styled(MdFrontHand)`

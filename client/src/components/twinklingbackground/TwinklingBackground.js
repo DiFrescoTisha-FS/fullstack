@@ -3,6 +3,12 @@ import styled, { keyframes } from 'styled-components';
 import starsImage from '../../images/stars.png';
 import twinklingImage from '../../images/twinkling.png';
 import { SaturnImage, NeptuneImage, EarthImage } from '../hero/HeroElements';
+import { SingleImage } from '../artistInfo/ArtistElements';
+import { MusicImage } from '../music/MusicElements';
+import { YouTubeImage } from '../new/NewElements';
+import { ThoughtsImage } from '../thoughts/ThoughtsElements';
+import { CommentsImage } from '../commentsection/CommentSectionElements';
+
 
 const moveTwinkBack = keyframes`
   from {
@@ -23,11 +29,14 @@ const moveCloudsBack = keyframes`
 `;
 
 const BackgroundContainer = styled.div`
-  /* position: relative; */
-  width: 100%; /* Full width */
-  min-height: 100vh; /* Minimum height of viewport */
-  overflow: hidden; /* Prevent overflow */
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  background: url('https://i.imgur.com/1DkwMgN.png') no-repeat center center fixed;
+  background-size: cover;
+  z-index: -2;
 `;
+
 
 const Stars = styled.div`
   position: absolute;
@@ -54,7 +63,7 @@ const Twinkling = styled.div`
   background: transparent url(${twinklingImage}) repeat top center;
   z-index: 2;
   opacity: 1;
-  animation: ${moveTwinkBack} 200s linear infinite;
+  animation: ${moveTwinkBack} 600s linear infinite;
 `;
 
 // const Clouds = styled.div`
@@ -73,17 +82,24 @@ const Twinkling = styled.div`
 // `;
 
 // The main component
-const TwinklingBackground = ({ saturnImage, neptuneImage, earthImage }) => (
+const TwinklingBackground = ({ commentsImage, thoughtsImage, youTubeImage, singleImage, musicImage, saturnImage, neptuneImage, earthImage }) => (
   <BackgroundContainer>
     <Stars />
     <Twinkling />
     {saturnImage && <SaturnImage src={saturnImage} alt="Saturn" />}
     {neptuneImage && <NeptuneImage src={neptuneImage} alt="Neptune" />}
     {earthImage && <EarthImage src={earthImage} alt="Earth" />}
+    {singleImage && <SingleImage src={singleImage} alt="Planet" />}
+    {musicImage && <MusicImage src={musicImage} alt="Music" />}
+    {youTubeImage && <YouTubeImage src={youTubeImage} alt="Planets" />}
+    {thoughtsImage && <ThoughtsImage src={thoughtsImage} alt="Planets" />}
+    {commentsImage && <CommentsImage src={commentsImage} alt="Planets" />}
     {/* <Clouds /> */}
     {/* {title && <Title>{title}</Title>} */}
   </BackgroundContainer>
 );
+
+
 
 export default TwinklingBackground;
 

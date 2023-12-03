@@ -1,9 +1,11 @@
 import { useState } from "react";
 import ReactPlayer from "react-player";
 import { Button } from "../ButtonElements";
+import TwinklingBackground from "../twinklingbackground/TwinklingBackground";
 
 import {
   NewContainer,
+  NewBg,
   NewWrapper,
   TopLine,
   Heading,
@@ -39,7 +41,13 @@ export const NewSection = ({
   };
   return (
     <>
-      <NewContainer id="new" backgroundImage={backgroundImage}>
+      <NewContainer id="new">
+        <NewBg>
+          <TwinklingBackground
+            youTubeImage="https://i.imgur.com/IK1aeQQ.png"
+
+          />
+        </NewBg>
         <NewWrapper>
           <TopLine>New Release</TopLine>
           <Heading>Fear God</Heading>

@@ -18,5 +18,24 @@ body {
   padding: 0;
   font-family: 'Encode Sans Expanded', sans-serif;
   background-color: #fcfcfc;
+  scrollbar-width: thin; /* can be "auto", "thin", or "none" */
+  scrollbar-color: #e1affd white; /* thumb and track color */
 }
+
+/* Style the scrollbar itself (thumb) */
+::-webkit-scrollbar-thumb {
+  background-color: #e1affd; /* Thumb color */
+  border-radius: 10px; /* Roundness of the thumb */
+}
+
+/* Style the scrollbar track */
+::-webkit-scrollbar-track {
+  background: #010606; /* Track color */
+}
+
+/* Optional: Style the scrollbar width */
+::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
 

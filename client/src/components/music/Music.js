@@ -2,6 +2,7 @@ import React from "react";
 // import MusicImage from '../../images/music.jpg';
 import { Button } from "../ButtonElements";
 import { FaArrowAltCircleDown } from "react-icons/fa";
+import TwinklingBackground from "../twinklingbackground/TwinklingBackground";
 import {
   MusicContainer,
   MusicBg,
@@ -24,8 +25,12 @@ const MusicSection = ({
 }) => {
   return (
     <>
-      <MusicContainer backgroundImage={backgroundImage} id="music">
-        <MusicBg />
+      <MusicContainer id="music">
+        <MusicBg>
+          <TwinklingBackground
+            musicImage = "https://i.imgur.com/ilyfAPQ.png"           
+          />       
+        </MusicBg>
         <MusicWrapper>
           <MusicRow>
             <TextWrapper>

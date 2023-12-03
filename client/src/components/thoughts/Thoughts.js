@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "../ButtonElements";
-import tattooFingers from "../../images/tattoofingers.JPG"// Adjust the path as needed
+import tattooFingers from "../../images/tattoofingers.JPG";
+import TwinklingBackground from "../twinklingbackground/TwinklingBackground";
 import {
   ThoughtsContainer,
   ThoughtsBg,
@@ -25,8 +26,13 @@ const Thoughts = ({
   lightText, // Add the lightText prop
 }) => {
   return (
-    <ThoughtsContainer backgroundImage={backgroundImage} id="thoughts">
-      <ThoughtsBg />
+    <ThoughtsContainer id="thoughts">
+      <ThoughtsBg>
+        <TwinklingBackground
+          thoughtsImage="https://i.imgur.com/twbYyTg.png"
+
+        />
+      </ThoughtsBg>
       <ThoughtsWrapper>
         <ThoughtsRow imgStart={imgStart}>
           <TextWrapper>
