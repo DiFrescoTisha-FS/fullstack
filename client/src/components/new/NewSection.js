@@ -44,7 +44,7 @@ export const NewSection = ({
       <NewContainer id="new">
         <NewBg>
           <TwinklingBackground
-            youTubeImage="https://i.imgur.com/IK1aeQQ.png"
+            youTubeImage="https://i.imgur.com/J6WMyNn.png"
 
           />
         </NewBg>

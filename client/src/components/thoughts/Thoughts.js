@@ -29,7 +29,7 @@ const Thoughts = ({
     <ThoughtsContainer id="thoughts">
       <ThoughtsBg>
         <TwinklingBackground
-          thoughtsImage="https://i.imgur.com/twbYyTg.png"
+          thoughtsImage="https://i.imgur.com/sWxqVbY.png"
 
         />
       </ThoughtsBg>

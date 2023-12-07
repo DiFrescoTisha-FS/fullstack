@@ -57,7 +57,7 @@ const CommentSection = ({ backgroundImage }) => {
     <CommentSectionContainer id="comments">
       <CommentsBg>     
         <TwinklingBackground
-          commentsImage="https://i.imgur.com/ARKyhnW.png"
+          commentsImage="https://i.imgur.com/OD9Uj72.png"
          />
       </CommentsBg>
       <CommentWrapper onSubmit={handleCommentSubmit}>
