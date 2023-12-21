@@ -20,7 +20,7 @@ export const HeroContainer = styled.div`
 
   @media screen and (max-width: 480px) {
     min-height: 400px;
-    background: #000 url(${require("../../images/mobileplanets.png")}) no-repeat center center;
+    /* background: #000 url(${require("../../images/mobileplanets.png")}) no-repeat center center; */
     background-size: cover;
   }
 `;

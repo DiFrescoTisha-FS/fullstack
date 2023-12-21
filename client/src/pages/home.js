@@ -7,13 +7,11 @@ import Thoughts from '../components/thoughts/Thoughts'
 import Music from '../components/music/Music'
 import NewSection from '../components/new/NewSection'
 import Footer from '../components/footer/Footer'
-// import StarBackground2 from '../components/starbackground2/StarBackground2'
 
 const Home = () => {
   return (
     <div>
       <Navbar />
-      {/* <StarBackground2 /> */}
       <HeroSection />
       <ArtistInfo />
       <Music />

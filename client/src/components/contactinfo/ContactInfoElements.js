@@ -21,27 +21,53 @@ export const ButtonBaseStyles = css`
     background: #010606; // Hover background
     color: #e1affd; // Hover text color
   }
+
+  // Media query for tablet devices
+  @media screen and (max-width: 768px) {
+    padding: 2px 10px;
+    font-size: 14px;
+    min-width: 160px; 
+  }
+
+  // Media query for mobile devices
+  @media screen and (max-width: 480px) {
+    padding: 2px 8px;
+    font-size: 12px;
+    min-width: 140px; // Smaller width on mobile
+  }
 `;
 
-// Custom button with specific overrides
 export const CustomButton = styled.button`
   ${ButtonBaseStyles} // Apply base styles
-  background-color: #010606; // Custom background color: ;
+  background-color: #010606; // Custom background color
   color: #e1affd;
   border: 2px solid #e1affd;
 
   &:hover {
     background-color: #e1affd; // Custom hover background color
-    color: #010606; // Custom hover text color: ;
+    color: #010606; // Custom hover text color
+  }
 
+    // Media query for mobile devices
+    @media screen and (max-width: 480px) {
+    font-size: 12px; // Smaller font size on mobile
+    padding: 2px 2px; // Smaller padding on mobile
+    border: 1px solid #e1affd;
+    // Adjust min-width if necessary
   }
 `;
-
 
 export const Icon = styled.img`
 width: 40px; // Adjust size as needed
 height: 40px;
 border-radius: 50%; // Circular shape
+
+@media screen and (max-width: 480px) {
+    font-size: 12px; // Smaller font size on mobile
+    width: 30px; // Adjust size as needed
+    height: 30px;
+    /* padding: 8px 16px; // Smaller padding on mobile */
+  }
 `;
 
 export const ContactInfoContainer = styled.div`

@@ -9,7 +9,7 @@ import { BsSnapchat, BsSpotify } from "react-icons/bs";
 import { MdEmail } from "react-icons/md";
 import { animateScroll as scroll } from "react-scroll/modules";
 import { IconContext } from "react-icons/lib";
-import logo from "../../images/logo.jpg";
+import logo from "../../images/FINAL_LOGO.png";
 
 import {
   FooterContainer,
@@ -40,7 +40,7 @@ const Footer = () => {
                 <SocialMediaIcon src={logo} alt="logo" />
               </SocialMediaLogo>
 
-              {/* Contact info in the middle */}
+             <ContactInfo />
               <WebsiteRights>
                 Trapstar Bam © {new Date().getFullYear()} All rights reserved
               </WebsiteRights>

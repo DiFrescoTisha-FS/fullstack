@@ -1,6 +1,9 @@
 import React from "react";
 import { Button } from "../ButtonElements";
 import tattooFingers from "../../images/tattoofingers.JPG";
+import thoughtsDesktopImage from "../../images/thoughtsDesktop1.png"
+import thoughtsTabletImage from "../../images/thoughtsTablet1.png"
+import thoughtsMobileImage from "../../images/thoughtsMobile.png"
 import TwinklingBackground from "../twinklingbackground/TwinklingBackground";
 import {
   ThoughtsContainer,
@@ -22,17 +25,20 @@ const Thoughts = ({
   id,
   imgStart,
   img,
-  backgroundImage,
+  // backgroundImage,
   lightText, // Add the lightText prop
 }) => {
+
+  // const backgroundImage = thoughtsDesktop;
+
   return (
     <ThoughtsContainer id="thoughts">
-      <ThoughtsBg>
-        <TwinklingBackground
-          thoughtsImage="https://i.imgur.com/sWxqVbY.png"
-
+      <TwinklingBackground />
+        <ThoughtsBg
+          backgroundImageDesktop={thoughtsDesktopImage}
+          backgroundImageTablet={thoughtsTabletImage}
+          backgroundImageMobile={thoughtsMobileImage}
         />
-      </ThoughtsBg>
       <ThoughtsWrapper>
         <ThoughtsRow imgStart={imgStart}>
           <TextWrapper>

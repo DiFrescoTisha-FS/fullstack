@@ -78,45 +78,47 @@ export const SocialMedia = styled.section`
 `;
 
 export const SocialMediaWrap = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1100px;
-    margin: 40px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1100px;
+  margin: 40px auto;
 
-    @media screen and (max-width: 820px) {
-        flex-direction: column;
-    }
+  @media screen and (max-width: 820px) {
+    flex-direction: column;
+  }
 `;
 
 
 export const SocialMediaLogo = styled(Link)`
-    color: #e1affd;
-    justify-self: start;
+    justify-self: flex-start;
     cursor: pointer;
-    text-decoration: none;
     font-size: 1.5rem;
     display: flex;
     align-items: center;
-    margin-bottom: 16px;
     font-weight: bold;
+    text-decoration: none;
 `;
 
 export const SocialMediaIcon = styled.img`
-    width: 75px;
-    height: 75px;
-    color: #e1affd;
-    display: block;
-    justify-content: space-around;
-    
+    max-width: 65px;
+    max-height: 65px;
+    margin-bottom: 15px;
+    border-radius: 100%;
+    border: 2px solid #e1affd;
+
+    @media screen and (max-width: 480px) {
+    flex-direction: column;
+    max-width: 55px;
+  }
 `;
 
 export const WebsiteRights = styled.small`
     color: #fff;
-    margin-bottom: 16px;
+    margin: 16px 0;
     text-align: center;
+    display: block; // This will ensure it centers in its own line
 `;
-
 export const SocialIcons = styled.div`
     display: flex;
     justify-content: space-between;

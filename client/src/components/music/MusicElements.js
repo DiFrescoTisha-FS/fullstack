@@ -2,18 +2,23 @@ import styled from "styled-components";
 // import backgroundImage from "../../images/single.png";
 // import { SectionContainer } from '../SectionContainer'; 
 
+const tabletBreakpoint = '768px'; 
+
 export const MusicContainer = styled.div`
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0px;
-  min-height: 860px;
-  position: relative;
+  padding: 0;
+  min-height: 860px; // Adjust as needed
   z-index: 1;
 
   @media screen and (max-width: 768px) {
-    min-height: auto;
-    padding: 50px 0;
+    padding: 50px 0; // Adjust padding as needed
+    flex-direction: column;
+    justify-content: center; // Centers content vertically in the column
+    align-items: center; // Centers content horizontally in the column
+    min-height: auto; // Remove fixed height to allow content to determine height
   }
 `;
 
@@ -25,64 +30,68 @@ export const MusicBg = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
-  background: #000 url(${require("../../images/single.png")}) no-repeat center center;
-  z-index: -1;
+  background: url(${props => props.backgroundImageDesktop}) no-repeat center center;
+  background-size: cover;
+  z-index: 2; // Above the TwinklingBackground
 
   @media screen and (max-width: 768px) {
-    background: #000 url(${require("../../images/mobilesingle.png")}) no-repeat center center;
-    background-size: cover; 
+    background: url(${props => props.backgroundImageTablet}) no-repeat center center;
+    /* background: red; */
   }
 
   @media screen and (max-width: 480px) {
-    /* Update the background image for mobile devices */
-    background: #000 url(${require("../../images/mobilereverse.png")}) no-repeat center center; /* Replace 'mobile_image.png' with your mobile image's filename */
-    background-size: cover; /* This will cover the available area */
+    background: url(${props => props.backgroundImageMobile}) no-repeat center center;
   }
 `;
 
 export const MusicWrapper = styled.div`
   display: flex;
-  align-items: center; // Vertically aligns children in the middle
-  justify-content: center; // Horizontally centers children
+  align-items: center;
+  justify-content: space-between;
   height: auto;
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 24px;
+  position: relative;
+  z-index: 2; // Above the planet image
 
   @media screen and (max-width: 768px) {
     flex-direction: column;
-    align-items: center; // Keeps content centered horizontally
-    justify-content: center; // Keeps content centered vertically
-    height: 100%; // Takes full height of the parent container
-    padding: 50px 25px; // Adds padding to the top and bottom
+    align-items: center;
+    justify-content: center;
   }
 `;
-
 
 export const MusicRow = styled.div`
   display: flex;
   align-items: center;
-  gap: 50px;
   width: 100%;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: ${tabletBreakpoint}) {
     flex-direction: column;
+    justify-content: center; // Centers content vertically
+    align-items: center; // Centers content horizontally
+  }
+
+  @media screen and (max-width: 480px) {
+    flex-direction: column; /* Stack them on top of each other on mobile */
   }
 `;
 
-export const TextWrapper = styled.div`
-  max-width: 100%; // Allows it to fill the container on larger screens
-  position: relative;
 
-  @media screen and (max-width: 1024px) {
-    max-width: 100%; // Full width on medium screens
+export const TextWrapper = styled.div`
+  max-width: 100%; /* Default max-width */
+  position: relative;
+  margin-right: 28px; /* Adjust the value as needed */
+
+  @media screen and (max-width: ${tabletBreakpoint}) {
+    width: 100%; // To make the text take the full width of the container
+    margin-bottom: 50px;
   }
 
-  @media screen and (max-width: 768px) {
-    max-width: 100%; // Full width on smaller medium screens
-    order: 1;
-    padding: 0 24px; // Add padding to maintain some space around the text
+  @media screen and (max-width: 480px) {
+    order: 2; /* Text below the image for mobile */
+    margin-right: 0; 
   }
 `;
 
@@ -116,7 +125,7 @@ export const Heading = styled.h1`
 `;
 
 export const Subtitle = styled.p`
-margin-top: 30px;
+  margin-top: 30px;
   max-width: 440px;
   margin-bottom: 25px;
 
@@ -124,7 +133,6 @@ margin-top: 30px;
   line-height: 26px;
   color: #fff;
   text-align: left;
-  font-family: "Open Sans", sans-serif;
 
 
   @media screen and (max-width: 768px) {
@@ -143,35 +151,22 @@ export const BtnWrap = styled.div`
 `;
 
 export const MusicDiv = styled.div`
-  max-width: 455px; // Allows it to be as wide as possible on larger screens
-  width: 100%;
-  display: flex;
-  justify-content: center;
-
-  @media screen and (max-width: 768px) {
-    max-width: 100%; // Full width on smaller medium screens
-    order: 2;
-  }
-`;
-
-export const MusicImage = styled.img`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 3;
-  max-width: 100%;
+  max-width: 455px; // Set max-width to at least 455px
   height: auto;
-  width: 80%; // Use a percentage of the width to make it responsive
+  position: relative;
+  z-index: 1;
+  margin-bottom: 16px;
 
-  @media screen and (max-width: 768px) {
-    width: 70%; // Adjust size for smaller screens if needed
+  @media screen and (max-width: ${tabletBreakpoint}) {
+    width: 100%; // To make the image take the full width of the container
+    margin-bottom: 16px; // Add some space between the image and the next element
   }
 
   @media screen and (max-width: 480px) {
-    display: none; // Hide on very small screens
+    order: 2; /* Image on top for mobile */
   }
 `;
+
 
 export const Music = styled.div`
   width: 100%;
@@ -182,7 +177,7 @@ export const Music = styled.div`
   border: 2px solid #e1affd;
 
   @media screen and (max-width: 768px) {
-    max-width: 85%; /* Full width for smaller screens */
+    max-width: 100%; /* Full width for smaller screens */
     /* padding: 0 24px; */
     text-align: center; 
   }

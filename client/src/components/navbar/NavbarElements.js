@@ -35,16 +35,17 @@ export const NavLogo = styled(LinkR)`
     font-size: 1.5rem;
     display: flex;
     align-items: center;
-    margin-left: 24px;
     font-weight: bold;
     text-decoration: none;
 `;
 
 export const NavIcon = styled.img`
     width: auto; // Adjust to maintain aspect ratio
-    max-width: 75px; // Set max width to prevent stretching
-    max-height: 75px; // Set max height to prevent stretching
+    max-width: 65px; // Set max width to prevent stretching
+    max-height: 65px; // Set max height to prevent stretching
     position: relative;
+    border-radius: 100%;
+    border: 2px solid #e1affd;
 `;
 
 

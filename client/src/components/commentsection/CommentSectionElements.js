@@ -1,17 +1,23 @@
 import styled from 'styled-components';
+import { MusicWrapper } from "../music/MusicElements";
+
+const tabletBreakpoint = '768px'; 
 
 export const CommentSectionContainer = styled.div`
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0px;
-  min-height: 860px;
-  position: relative;
+  padding: 0;
+  min-height: 860px; // Adjust as needed
   z-index: 1;
 
   @media screen and (max-width: 768px) {
-    min-height: auto;
-    padding: 50px 0;
+    padding: 50px 0; // Adjust padding as needed
+    flex-direction: column;
+    justify-content: center; // Centers content vertically in the column
+    align-items: center; // Centers content horizontally in the column
+    min-height: auto; // Remove fixed height to allow content to determine height
   }
 `;
 
@@ -23,60 +29,69 @@ export const CommentsBg = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
-  background: #000 url(${require("../../images/shiny.png")}) no-repeat center center;
-  z-index: -1;
+  background: url(${props => props.backgroundImageDesktop}) no-repeat center center;
+  background-size: cover;
+  z-index: 2; // Above the TwinklingBackground
 
   @media screen and (max-width: 768px) {
-    background: #000 url(${require("../../images/cloudymoon.png")}) no-repeat center center;
-    background-size: cover; 
+    background: url(${props => props.backgroundImageTablet}) no-repeat center center;
+    /* background: red; */
   }
 
   @media screen and (max-width: 480px) {
-    background: #000 url(${require("../../images/m8.png")}) no-repeat center center;
-    background-size: cover;
+    background: url(${props => props.backgroundImageMobile}) no-repeat center center;
   }
 `;
 
+export const CommentWrapper = styled(MusicWrapper)`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: auto;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 2; // Above the planet image
 
-export const CommentWrapper = styled.div`
-display: flex;
-align-items: center;
-justify-content: space-between;
-height: auto;
-max-width: 1100px;
-margin: 0 auto;
-padding: 0 
-
-@media screen and (max-width: 768px) {
-flex-direction: column;
-align-items: center;
-justify-content: center;
-/* padding: 0 15px; */
-}
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 export const CommentRow = styled.div`
   display: flex;
   align-items: center;
-  gap: 50px;
   width: 100%;
 
-  @media screen and (max-width: 768px) {
-  flex-direction: column;
+  @media screen and (max-width: ${tabletBreakpoint}) {
+    flex-direction: column;
+    justify-content: center; // Centers content vertically
+    align-items: center; // Centers content horizontally
+  }
+
+  @media screen and (max-width: 480px) {
+    flex-direction: column; /* Stack them on top of each other on mobile */
   }
 `;
 
 export const ImgWrap = styled.div`
-  max-width: 100%; // Allows it to be as wide as possible on larger screens
-  width: 100%;
-  display: flex;
-  justify-content: center;
+  max-width: 455px; // Set max-width to at least 455px
+  height: auto;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 16px;
 
-  @media screen and (max-width: 768px) {
-    max-width: 100%; // Full width on smaller medium screens
-    order: 2;
-    padding: 25px;
+  @media screen and (max-width: ${tabletBreakpoint}) {
+    width: 100%; // To make the image take the full width of the container
+    margin-bottom: 16px;
+    order: 2; // Add some space between the image and the next element
+  }
+
+  @media screen and (max-width: 480px) {
+    order: 2; /* Image on top for mobile */
   }
 `;
 
@@ -87,19 +102,27 @@ export const Img = styled.img`
   border-radius: 10px;
   border: 2px solid #e1affd;
   z-index: 10;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    /* margin-right: 5px; */
+  }
 `;
 
 
 export const TextWrapper = styled.div`
-  max-width: 529px; // Explicitly setting the max-width
-  width: 100%; // Ensures it takes the full width of the parent
+  max-width: 100%; /* Default max-width */
   position: relative;
-  /* padding: 0 24px; */
 
-  @media screen and (max-width: 768px) {
-    max-width: 100%; // Full width on smaller medium screens
+  @media screen and (max-width: ${tabletBreakpoint}) {
+    width: 100%; // To make the text take the full width of the container
+    margin-bottom: 50px;
     order: 1;
-    padding: 0 24px;
+  }
+
+  @media screen and (max-width: 480px) {
+    order: 1; /* Text below the image for mobile */
+    margin-right: 0; 
   }
 `;
 
@@ -133,15 +156,14 @@ export const Heading = styled.h1`
 `;
 
 export const Subtitle = styled.p`
-margin-top: 15px;
-  /* max-width: 440px; */
-  margin-bottom: 15px;
-  
-  font-size: 18px;
+  margin-top: 20px;
+  max-width: 440px;
+  margin-bottom: 25px;
+
+  font-size: 20px;
   line-height: 26px;
   color: #fff;
   text-align: left;
-  font-family: "Open Sans", sans-serif;
 
 
   @media screen and (max-width: 768px) {
@@ -149,7 +171,7 @@ margin-top: 15px;
   }
 
   @media screen and (max-width: 480px) {
-    font-size: 20px;
+    font-size: 16px;
   }
 `;
 
@@ -170,41 +192,16 @@ margin-top: 15px;
   border-radius: 5px;
   margin-bottom: 10px;
   resize: vertical;
+
+  @media screen and (max-width: 768px) {
+    width: 90%;
+    margin-right: 35px;
+  }
 `;
 
 export const CommentBtnWrapper = styled.button`
   display: flex;
   justify-content: flex-start;
   margin-bottom: 28px;
-`;
-
-export const CommentsImage = styled.img`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 3;
-  max-width: 100%;
-  height: auto;
-  width: 80%; // Use a percentage of the width to make it responsive  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 3;
-  max-width: 100%;
-  height: auto;
-  width: 80%; // Use a percentage of the width to make it responsive
-
-  @media screen and (max-width: 768px) {
-    width: 70%; // Adjust size for smaller screens if needed
-  }
-
-  @media screen and (max-width: 480px) {
-    display: none; // Hide on very small screens
-  }
-
-  @media screen and (max-width: 480px) {
-    display: none; // Hide on very small screens
-  }
 `;
 

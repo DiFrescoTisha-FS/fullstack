@@ -1,24 +1,30 @@
 import styled from "styled-components";
 import { FaArrowAltCircleDown, FaBusAlt } from 'react-icons/fa';
+import { MusicWrapper } from "../music/MusicElements";
 // import { SectionContainer } from "../SectionContainer";
 // import MobileImg from "../../images/mobileplanets.png"
 // import backgroundImage from "../../images/bio.jpg"
 
+const tabletBreakpoint = '768px'; 
+
+
 export const ArtistInfoContainer = styled.div`
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0px;
-  min-height: 860px;
-  position: relative;
+  padding: 0;
+  min-height: 860px; // Adjust as needed
   z-index: 1;
 
   @media screen and (max-width: 768px) {
-    min-height: auto;
-    padding: 50px 0;
+    padding: 50px 0; // Adjust padding as needed
+    flex-direction: column;
+    justify-content: center; // Centers content vertically in the column
+    align-items: center; // Centers content horizontally in the column
+    min-height: auto; // Remove fixed height to allow content to determine height
   }
 `;
-
 
 export const ArtistBg = styled.div`
   position: absolute;
@@ -28,22 +34,21 @@ export const ArtistBg = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
-  background: #000 url(${require("../../images/bio20.png")}) no-repeat center center;
-  z-index: -1;
+  background: url(${props => props.backgroundImageDesktop}) no-repeat center center;
+  background-size: cover;
+  z-index: 2; // Above the TwinklingBackground
 
-@media screen and (max-width: 768px) {
-  background: #000 url(${require("../../images/cluster.png")}) no-repeat center center;
-  background-size: cover; 
-}
+  @media screen and (max-width: 768px) {
+    background: url(${props => props.backgroundImageTablet}) no-repeat center center;
+    /* background: red; */
+  }
 
-@media screen and (max-width: 480px) {
-  background: #000 url(${require("../../images/smnep.png")}) no-repeat center center;
-  background-size: cover; 
-}
+  @media screen and (max-width: 480px) {
+    background: url(${props => props.backgroundImageMobile}) no-repeat center center;
+  }
 `;
 
-export const ArtistInfoWrapper = styled.div`
+export const ArtistInfoWrapper = styled(MusicWrapper)`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -56,21 +61,26 @@ export const ArtistInfoWrapper = styled.div`
 
   @media screen and (max-width: 768px) {
     flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
   }
 `;
 
 
 export const ArtistInfoRow = styled.div`
-display: flex;
-align-items: center;
-gap: 50px;
-width: 100%;
+  display: flex;
+  align-items: center;
+  width: 100%;
 
-@media screen and (max-width: 768px) {
-flex-direction: column;
-}
+  @media screen and (max-width: ${tabletBreakpoint}) {
+    flex-direction: column;
+    justify-content: center; // Centers content vertically
+    align-items: center; // Centers content horizontally
+  }
+
+  @media screen and (max-width: 480px) {
+    flex-direction: column; /* Stack them on top of each other on mobile */
+  }
 `;
 
 export const ImgWrap = styled.div`
@@ -80,29 +90,31 @@ export const ImgWrap = styled.div`
   z-index: 1;
   margin-bottom: 16px;
 
-  @media screen and (max-width: 1024px) {
-    max-width: 100%; // Full width for smaller screens
+  @media screen and (max-width: ${tabletBreakpoint}) {
+    width: 100%; // To make the image take the full width of the container
+    margin-bottom: 16px; // Add some space between the image and the next element
   }
 
-  @media screen and (max-width: 768px) {
-    order: 2;
+  @media screen and (max-width: 480px) {
+    order: 2; /* Image on top for mobile */
   }
 `;
 
 export const TextWrapper = styled.div`
   max-width: 100%; /* Default max-width */
   position: relative;
+  margin-right: 28px; /* Adjust the value as needed */
 
-  @media screen and (max-width: 1024px) {
-    max-width: 100%; /* Increased width for medium screens */
-    padding: 0 24px;
+  @media screen and (max-width: ${tabletBreakpoint}) {
+    width: 100%; // To make the text take the full width of the container
+    margin-bottom: 50px;
   }
 
-  @media screen and (max-width: 768px) {
-    max-width: 100%; /* Full width for smaller screens */
-    padding: 0 32px;
-    text-align: center; 
+  @media screen and (max-width: 480px) {
+    order: 2; /* Text below the image for mobile */
+    margin-right: 0; 
   }
+
 `;
 
 
@@ -146,18 +158,18 @@ export const Heading = styled.h1`
 `;
 
 export const Subtitle = styled.p`
-margin-top: 30px;
+  margin-top: 30px;
   max-width: 440px;
   margin-bottom: 25px;
   font-size: 18px;
   line-height: 26px;
   color: #fff;
   text-align: left;
-  font-family: "Open Sans", sans-serif;
+  /* font-family: "Open Sans", sans-serif; */
 
 
   @media screen and (max-width: 768px) {
-    font-size: 18px;
+    font-size: 20px;
   }
 
   @media screen and (max-width: 480px) {
@@ -170,37 +182,6 @@ export const BtnWrap = styled.div`
   justify-content: flex-start;
   text-decoration: none;
 `;
-
-export const SingleImage = styled.img`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 3;
-  max-width: 100%;
-  height: auto;
-  width: 80%; // Use a percentage of the width to make it responsive  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 3;
-  max-width: 100%;
-  height: auto;
-  width: 80%; // Use a percentage of the width to make it responsive
-
-  @media screen and (max-width: 768px) {
-    width: 70%; // Adjust size for smaller screens if needed
-  }
-
-  @media screen and (max-width: 480px) {
-    display: none; // Hide on very small screens
-  }
-
-  @media screen and (max-width: 480px) {
-    display: none; // Hide on very small screens
-  }
-`;
-
 
 export const ArrowFilled = styled(FaBusAlt)`
   margin-left: 8px;

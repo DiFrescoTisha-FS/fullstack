@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import Rating from "react-rating-stars-component";
 import axios from "axios";
+import commentsDesktopImage from '../../images/commentsDesktop1.png';
+import commentsTabletImage from '../../images/commentsTablet.png';
+import commentsMobileImage from '../../images/commentsMobile.png'; 
 import Comments from "../../images/placeholder1.jpg";
 import TwinklingBackground from '../twinklingbackground/TwinklingBackground'
 import { BsSendFill } from "react-icons/bs";
@@ -23,7 +26,7 @@ import {
 // import StarBackground2 from '../starbackground2/StarBackground2';
 // import CommentsTwinkling from "./CommentsTwinkling"
 
-const CommentSection = ({ backgroundImage }) => {
+const CommentSection = () => {
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
 
@@ -53,13 +56,18 @@ const CommentSection = ({ backgroundImage }) => {
     }
   };
 
+  // const backgroundImage = commentsDesktop;
+
+
   return (
     <CommentSectionContainer id="comments">
-      <CommentsBg>     
-        <TwinklingBackground
-          commentsImage="https://i.imgur.com/OD9Uj72.png"
-         />
-      </CommentsBg>
+      <TwinklingBackground />
+      <CommentsBg
+        backgroundImageDesktop={commentsDesktopImage}
+        backgroundImageTablet={commentsTabletImage}
+        backgroundImageMobile={commentsMobileImage}
+      />
+
       <CommentWrapper onSubmit={handleCommentSubmit}>
         <CommentRow>
         <ImgWrap>

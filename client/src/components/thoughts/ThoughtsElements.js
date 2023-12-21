@@ -2,22 +2,24 @@ import styled from "styled-components";
 import { FaArrowAltCircleUp } from 'react-icons/fa';
 import { MdFrontHand } from 'react-icons/md';
 import { Link } from 'react-scroll';
-// import backgroundImage from "../../images/lassothoughts.png"
-import { SectionContainer } from '../SectionContainer'; 
-import { MusicRow } from "../music/MusicElements";
 
-export const ThoughtsContainer = styled(SectionContainer)`
+const tabletBreakpoint = '768px'; 
+
+export const ThoughtsContainer = styled.div`
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0px;
-  min-height: 860px;
-  position: relative;
+  padding: 0;
+  min-height: 860px; // Adjust as needed
   z-index: 1;
 
   @media screen and (max-width: 768px) {
-    min-height: auto;
-    padding: 50px 0;
+    padding: 50px 0; // Adjust padding as needed
+    flex-direction: column;
+    justify-content: center; // Centers content vertically in the column
+    align-items: center; // Centers content horizontally in the column
+    min-height: auto; // Remove fixed height to allow content to determine height
   }
 `;
 
@@ -29,45 +31,52 @@ export const ThoughtsBg = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
-  background: #000 url(${require("../../images/alteredthoughts.png")}) no-repeat center center;
-  z-index: -1;
+  background: url(${props => props.backgroundImageDesktop}) no-repeat center center;
+  background-size: cover;
+  z-index: 2; // Above the TwinklingBackground
 
-@media screen and (max-width: 768px) {
-  background: #000 url(${require("../../images/mediumthoughts.png")}) no-repeat center center;
-  background-size: cover; 
-}
+  @media screen and (max-width: 768px) {
+    background: url(${props => props.backgroundImageTablet}) no-repeat center center;
+    /* background: red; */
+  }
 
-@media screen and (max-width: 480px) {
-  background: #000 url(${require("../../images/mobileplanets.png")}) no-repeat center center;
-  background-size: cover; 
-}
+  @media screen and (max-width: 480px) {
+    background: url(${props => props.backgroundImageMobile}) no-repeat center center;
+  }
 `;
 
 export const ThoughtsWrapper = styled.div`
-display: flex;
-align-items: center;
-justify-content: space-between;
-height: auto;
-max-width: 1100px;
-margin: 0 auto;
-padding: 0 24px;
-
-@media screen and (max-width: 768px) {
-flex-direction: column;
-align-items: center;
-justify-content: center;
-}
-`;
-
-export const ThoughtsRow = styled(MusicRow)`
   display: flex;
   align-items: center;
-  gap: 50px;
-  width: 100%;
+  justify-content: space-between;
+  height: auto;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 2; // Above the planet image
 
   @media screen and (max-width: 768px) {
-  flex-direction: column;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+`;
+
+
+export const ThoughtsRow = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  @media screen and (max-width: ${tabletBreakpoint}) {
+    flex-direction: column;
+    justify-content: center; // Centers content vertically
+    align-items: center; // Centers content horizontally
+  }
+
+  @media screen and (max-width: 480px) {
+    flex-direction: column; /* Stack them on top of each other on mobile */
   }
 `;
 
@@ -86,14 +95,36 @@ export const ImgWrap = styled.div`
   z-index: 1;
   margin-bottom: 16px;
 
-  @media screen and (max-width: 1024px) {
-    max-width: 100%; // Full width for smaller screens
+  @media screen and (max-width: ${tabletBreakpoint}) {
+    width: 100%; // To make the image take the full width of the container
+    margin-bottom: 16px; 
+    order: 1;// Add some space between the image and the next element
+  }
+
+  @media screen and (max-width: 480px) {
+    order: 1; /* Image on top for mobile */
+  }
+`;
+
+export const TextWrapper = styled.div`
+  max-width: 529px; // Explicitly setting the max-width
+  width: 100%; // Ensures it takes the full width of the parent
+  position: relative;
+
+  @media screen and (max-width: 768px) {
+    max-width: 50%; // Adjust the max-width to fit the other half of the container
+    order: 1;
+    margin-bottom: 50px; // Moves the text to the left side
   }
 
   @media screen and (max-width: 768px) {
-    order: 2;
+    max-width: 100%; /* Full width for smaller screens */
+    padding: 0 32px;
+    text-align: center; 
+    margin-right: 16px;
   }
 `;
+
 
 export const Img = styled.img`
   width: 455px; // Fixed width of 455px
@@ -104,31 +135,6 @@ export const Img = styled.img`
   z-index: 10;
 `;
 
-export const TextWrapper = styled.div`
-  max-width: 100%; // Allows it to fill the container on larger screens
-  position: relative;
-
-  @media screen and (max-width: 1024px) {
-    max-width: 100%; // Full width on medium screens
-  }
-
-  @media screen and (max-width: 768px) {
-    max-width: 100%; // Full width on smaller medium screens
-    order: 1;
-    padding: 0 24px; // Add padding to maintain some space around the text
-  }
-`;
-
-export const BtnWrap = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  text-decoration: none;
-`;
-
-export const Button = styled(Link)`
-    margin-top: 10px;
-`
-
 export const TopLine = styled.p`
     color: #fff;
     font-size: 18px;
@@ -138,6 +144,7 @@ export const TopLine = styled.p`
     letter-spacing: 1.4px;
     text-transform: uppercase;
     margin-bottom: 16px;
+    margin-top: 16px;
     text-align: left;
 `;
 
@@ -159,14 +166,14 @@ export const Heading = styled.h1`
 `;
 
 export const Subtitle = styled.p`
-margin-top: 30px;
+  margin-top: 30px;
   max-width: 440px;
   margin-bottom: 25px;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 26px;
   color: #fff;
   text-align: left;
-  font-family: "Open Sans", sans-serif;
+  /* font-family: "Open Sans", sans-serif; */
 
 
   @media screen and (max-width: 768px) {
@@ -178,25 +185,15 @@ margin-top: 30px;
   }
 `;
 
-export const ThoughtsImage = styled.img`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 3;
-  max-width: 100%;
-  height: auto;
-  width: 80%; // Use a percentage of the width to make it responsive
+export const BtnWrap = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  text-decoration: none;
+`;
 
-  @media screen and (max-width: 768px) {
-    width: 70%; // Adjust size for smaller screens if needed
-  }
-
-  @media screen and (max-width: 480px) {
-    display: none; // Hide on very small screens
-  }
-`
-
+export const Button = styled(Link)`
+    margin-top: 10px;
+`;
 
 export const ArrowFilled = styled(MdFrontHand)`
     margin-left: 8px;

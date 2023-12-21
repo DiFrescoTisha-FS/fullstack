@@ -2,6 +2,9 @@ import React from "react";
 // import MusicImage from '../../images/music.jpg';
 import { Button } from "../ButtonElements";
 import { FaArrowAltCircleDown } from "react-icons/fa";
+import musicDesktopImage from '../../images/musicDesktop.png';
+import musicTabletImage from '../../images/musicTablet.png'; // Replace with actual tablet image path
+import musicMobileImage from '../../images/musicMobile1.png'; 
 import TwinklingBackground from "../twinklingbackground/TwinklingBackground";
 import {
   MusicContainer,
@@ -19,18 +22,20 @@ import {
 
 const MusicSection = ({
   // lightBg,
-  backgroundImage,
+  // backgroundImage,
   id,
   imgStart,
 }) => {
+
   return (
     <>
       <MusicContainer id="music">
-        <MusicBg>
-          <TwinklingBackground
-            musicImage = "https://i.imgur.com/ilyfAPQ.png"           
-          />       
-        </MusicBg>
+        <TwinklingBackground />       
+        <MusicBg 
+          backgroundImageDesktop={musicDesktopImage}
+          backgroundImageTablet={musicTabletImage}
+          backgroundImageMobile={musicMobileImage}
+        />
         <MusicWrapper>
           <MusicRow>
             <TextWrapper>
@@ -66,7 +71,8 @@ const MusicSection = ({
                   sandbox="allow-scripts allow-same-origin allow-presentation"
                   className="embed-responsive-item"
                   src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1469353666%3Fsecret_token%3Ds-kPkEQeIKEYX&color=%23e1affd&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
-                ></iframe>
+                >
+                </iframe>
               </Music>
             </MusicDiv>
           </MusicRow>

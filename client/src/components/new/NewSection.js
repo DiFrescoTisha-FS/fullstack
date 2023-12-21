@@ -1,6 +1,11 @@
 import { useState } from "react";
 import ReactPlayer from "react-player";
 import { Button } from "../ButtonElements";
+import newDesktopImage from '../../images/newDesktop1.png';
+import newTabletImage from '../../images/newTablet1.png'; // Replace with actual tablet image path
+import newMobileImage from '../../images/newMobile7.png';
+
+// import youTubeImage from "../../images/newDesktopView.png"
 import TwinklingBackground from "../twinklingbackground/TwinklingBackground";
 
 import {
@@ -17,6 +22,7 @@ import {
   StyledReactPlayer,
   BtnWrap,
   ArrowFilled,
+  // YouTubeImage,
   ArrowCircle, // Include BtnWrap here
 } from "./NewElements.js";
 
@@ -32,22 +38,22 @@ export const NewSection = ({
   primary,
   dark,
   dark2,
-  backgroundImage, // Uncomment this line
 }) => {
   const [hover, setHover] = useState(false);
 
   const onHover = () => {
     setHover(!hover);
   };
+
   return (
     <>
       <NewContainer id="new">
-        <NewBg>
-          <TwinklingBackground
-            youTubeImage="https://i.imgur.com/J6WMyNn.png"
-
-          />
-        </NewBg>
+        <TwinklingBackground />
+        <NewBg 
+          backgroundImageDesktop={newDesktopImage}
+          backgroundImageTablet={newTabletImage}
+          backgroundImageMobile={newMobileImage}
+        />
         <NewWrapper>
           <TopLine>New Release</TopLine>
           <Heading>Fear God</Heading>
@@ -57,7 +63,7 @@ export const NewSection = ({
                 <StyledReactPlayer
                   width="100%"
                   height="100%"
-                  controls
+                  controls={true}
                   url="https://youtu.be/CDTw8AjSUVg?si=OUmwmVIFCWzLlphV"
                 />
               </PlayerWrapper>

@@ -2,9 +2,11 @@ import React from "react";
 import galaxy from "../../images/galaxy.jpg";
 import { Button } from "../ButtonElements";
 import { FaArrowAltCircleDown } from "react-icons/fa";
-import TwinklingBackground from "../twinklingbackground/TwinklingBackground";
+import artistDesktopImage from '../../images/artistDesktop.png';
+import artistTabletImage from '../../images/artistTablet.png'; // Replace with actual tablet image path
+import artistMobileImage from '../../images/artistMobile10.png'; // Replace with actual mobile image path
 
-// import { Twinkling, Stars, Clouds } from '../twinkling/TwinklingNightSkyElements';
+import TwinklingBackground from "../twinklingbackground/TwinklingBackground";
 
 import {
   ArtistInfoContainer,
@@ -21,7 +23,7 @@ import {
 } from "./ArtistElements";
 
 const ArtistInfo = ({
-  backgroundImage,
+  // backgroundImage,
   id,
   imgStart,
   topline,
@@ -38,12 +40,13 @@ const ArtistInfo = ({
   return (
     <>
       <ArtistInfoContainer id="bio">
-      {/* <ArtistInfoContainer  id="bio"> */}
-        <ArtistBg>
-          <TwinklingBackground
-            singleImage="https://i.imgur.com/jltuOqF.png"  
-          />
-        </ArtistBg>
+        <TwinklingBackground />
+        <ArtistBg
+          backgroundImageDesktop={artistDesktopImage}
+          backgroundImageTablet={artistTabletImage}
+          backgroundImageMobile={artistMobileImage}
+        />
+
         <ArtistInfoWrapper>
           <ArtistInfoRow>
             <TextWrapper>
