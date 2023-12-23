@@ -40,11 +40,11 @@ const Footer = () => {
                 <SocialMediaIcon src={logo} alt="logo" />
               </SocialMediaLogo>
 
-             <ContactInfo />
+
               <WebsiteRights>
                 Trapstar Bam © {new Date().getFullYear()} All rights reserved
               </WebsiteRights>
-
+              <ContactInfo />
               {/* Social icons on the right */}
               <SocialIcons>
                 <SocialIconLink

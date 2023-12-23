@@ -20,6 +20,8 @@ import {
   Music,
 } from "./MusicElements.js";
 
+import { Clouds } from "../twinklingbackground/TwinklingBackground";
+
 const MusicSection = ({
   // lightBg,
   // backgroundImage,
@@ -30,13 +32,14 @@ const MusicSection = ({
   return (
     <>
       <MusicContainer id="music">
-        <TwinklingBackground />       
+        <TwinklingBackground />   
+        <Clouds style={{zIndex: '10'}} />
         <MusicBg 
           backgroundImageDesktop={musicDesktopImage}
           backgroundImageTablet={musicTabletImage}
           backgroundImageMobile={musicMobileImage}
         />
-        <MusicWrapper>
+        <MusicWrapper style={{zIndex: '20'}}>
           <MusicRow>
             <TextWrapper>
               <TopLine>Bam Beats</TopLine>

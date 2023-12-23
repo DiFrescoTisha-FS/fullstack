@@ -87,7 +87,7 @@ const UserComponent = ({ currentUser, onSignIn, onSignOut }) => {
         </div>
       ) : (
         <button
-          className="flex items-center bg-black text-[#e1affd] border-2 border-[#e1affd] space-x-2 mt-5 opacity-90 hover:opacity-80 cursor-pointer rounded-full p-2 pr-2"
+          className="flex items-center bg-black text-[#e1affd] border-1 mb-1 border-[#e1affd] space-x-2 mt-5 opacity-90 hover:opacity-80 cursor-pointer rounded-full p-2 pr-2"
           onClick={handleLogin}
         >
           <FaGoogle size={24} />

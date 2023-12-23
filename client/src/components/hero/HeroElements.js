@@ -86,7 +86,7 @@ export const SaturnImage = styled.img`
   position: absolute;
   top: 300px;
   right: 300px;
-  z-index: 2;
+  z-index: 3;
   width: 50px;
   height: auto;
 
@@ -110,7 +110,11 @@ export const NeptuneImage = styled.img`
   }
 
   @media screen and (max-width: 480px) {
-    display: none;
+    width: 250px; // Reduced width for smaller screens
+    left: 50%; // Center it horizontally
+    top: 10px; // Adjust the top position as needed
+    transform: translateX(-50%); // Ensure it stays centered
+    // Optionally, adjust the z-index if needed
   }
 `;
 
@@ -118,7 +122,7 @@ export const EarthImage = styled.img`
   position: absolute;
   top: 500px;
   right: 400px;
-  z-index: 2;
+  z-index: 3;
   width: 150px;
   height: auto;
 

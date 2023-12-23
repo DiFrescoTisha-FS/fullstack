@@ -4,12 +4,6 @@ import starsImage from '../../images/stars.png';
 import twinklingImage from '../../images/twinkling.png';
 import cloudsImage from "../../images/clouds.png";
 import { SaturnImage, NeptuneImage, EarthImage } from '../hero/HeroElements';
-// import { SingleImage } from '../artistInfo/ArtistElements';
-// import { MusicImage } from '../music/MusicElements';
-// import { YouTubeImage } from '../new/NewElements';
-// import { ThoughtsImage } from '../thoughts/ThoughtsElements';
-// import { CommentsImage } from '../commentsection/CommentSectionElements';
-
 
 const moveTwinkBack = keyframes`
   from {
@@ -23,12 +17,12 @@ const moveTwinkBack = keyframes`
 const moveClouds = keyframes`
   from { background-position: 0 0; }
   to { background-position: 10000px 0;}
-  /* from {
+  from {
     background-position: 0 0;
   }
   to {
     background-position: 10000px 0;
-  } */
+  }
 `;
 
 const BackgroundContainer = styled.div`
@@ -69,11 +63,7 @@ const Twinkling = styled.div`
   animation: ${moveTwinkBack} 300s linear infinite;
 `;
 
-const Clouds = styled.div`
-display: none; // By default, clouds are not displayed
-
-@media screen and (max-width: 768px) {
-  display: block; // Clouds will display on screens 768px or less
+export const Clouds = styled.div`
   position: absolute;
   top: 0;
   left: 0;
@@ -82,11 +72,12 @@ display: none; // By default, clouds are not displayed
   width: 100%;
   height: 100%;
   background: transparent url(${cloudsImage}) repeat top center;
-  z-index: 20;
-  opacity: 0.4;
+  z-index: 99; 
+  opacity: 1;
   animation: ${moveClouds} 200s linear infinite;
-}
+  filter: brightness(1.2) contrast(1.1); // Adjust as needed
 `;
+
 
 // The main component
 const TwinklingBackground = ({ saturnImage, neptuneImage, earthImage }) => (
@@ -99,8 +90,6 @@ const TwinklingBackground = ({ saturnImage, neptuneImage, earthImage }) => (
     {earthImage && <EarthImage src={earthImage} alt="Earth" />}
   </BackgroundContainer>
 );
-
-
 
 export default TwinklingBackground;
 

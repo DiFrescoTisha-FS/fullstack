@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { FaArrowAltCircleDown, FaBusAlt } from 'react-icons/fa';
 import { MusicWrapper } from "../music/MusicElements";
+import { Link } from 'react-scroll';
 // import { SectionContainer } from "../SectionContainer";
 // import MobileImg from "../../images/mobileplanets.png"
 // import backgroundImage from "../../images/bio.jpg"
@@ -36,7 +37,7 @@ export const ArtistBg = styled.div`
   height: 100%;
   background: url(${props => props.backgroundImageDesktop}) no-repeat center center;
   background-size: cover;
-  z-index: 2; // Above the TwinklingBackground
+  z-index: 1; // Above the TwinklingBackground
 
   @media screen and (max-width: 768px) {
     background: url(${props => props.backgroundImageTablet}) no-repeat center center;
@@ -89,42 +90,55 @@ export const ImgWrap = styled.div`
   position: relative;
   z-index: 1;
   margin-bottom: 16px;
+  margin-left: 20px;
 
   @media screen and (max-width: ${tabletBreakpoint}) {
     width: 100%; // To make the image take the full width of the container
-    margin-bottom: 16px; // Add some space between the image and the next element
+    margin-bottom: 16px; 
+    order: 1;
+    margin-left: 0; /* Reset for smaller screens if needed */
+    margin-top: 20px;
   }
 
   @media screen and (max-width: 480px) {
-    order: 2; /* Image on top for mobile */
+    order: 1; /* Image on top for mobile */
   }
 `;
 
 export const TextWrapper = styled.div`
-  max-width: 100%; /* Default max-width */
+  max-width: 529px; // Explicitly setting the max-width
+  width: 100%; // Ensures it takes the full width of the parent
   position: relative;
-  margin-right: 28px; /* Adjust the value as needed */
+  margin-right: 40px;
 
-  @media screen and (max-width: ${tabletBreakpoint}) {
-    width: 100%; // To make the text take the full width of the container
-    margin-bottom: 50px;
+  @media screen and (max-width: 768px) {
+    max-width: 50%; // Adjust the max-width to fit the other half of the container
+    order: 1;
+    margin-bottom: 50px; // Moves the text to the left side
   }
 
-  @media screen and (max-width: 480px) {
-    order: 2; /* Text below the image for mobile */
-    margin-right: 0; 
+  @media screen and (max-width: 768px) {
+    max-width: 100%; /* Full width for smaller screens */
+    padding: 0 32px;
+    text-align: center; 
+    margin-right: 16px;
   }
-
 `;
 
 
 export const Img = styled.img`
   width: 455px; // Fixed width of 455px
+  min-width: 455px; // Ensure it doesn't scale down
   height: auto; // Maintain aspect ratio
   position: relative;
   border-radius: 10px;
   border: 2px solid #e1affd;
   z-index: 10;
+
+  @media screen and (max-width: 480px) {
+    width: 100%; // On smaller screens, take up full container width
+    min-width: 0; // Override min-width for small screens if needed
+  }
 `;
 
 export const TopLine = styled.p`
@@ -181,6 +195,10 @@ export const BtnWrap = styled.div`
   display: flex;
   justify-content: flex-start;
   text-decoration: none;
+`;
+
+export const Button = styled(Link)`
+    margin-top: 10px;
 `;
 
 export const ArrowFilled = styled(FaBusAlt)`

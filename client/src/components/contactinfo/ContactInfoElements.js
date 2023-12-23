@@ -41,7 +41,7 @@ export const CustomButton = styled.button`
   ${ButtonBaseStyles} // Apply base styles
   background-color: #010606; // Custom background color
   color: #e1affd;
-  border: 2px solid #e1affd;
+  border: 1px solid #e1affd;
 
   &:hover {
     background-color: #e1affd; // Custom hover background color

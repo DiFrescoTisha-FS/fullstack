@@ -47,7 +47,7 @@ export const MusicBg = styled.div`
 export const MusicWrapper = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   height: auto;
   max-width: 1100px;
   margin: 0 auto;
@@ -57,8 +57,8 @@ export const MusicWrapper = styled.div`
 
   @media screen and (max-width: 768px) {
     flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
   }
 `;
 
@@ -82,20 +82,21 @@ export const MusicRow = styled.div`
 export const TextWrapper = styled.div`
   max-width: 100%; /* Default max-width */
   position: relative;
-  margin-right: 28px; /* Adjust the value as needed */
+  margin-left: 40px;
+  order: 2;
 
   @media screen and (max-width: ${tabletBreakpoint}) {
     width: 100%; // To make the text take the full width of the container
     margin-bottom: 50px;
+    order: 1;
   }
 
   @media screen and (max-width: 480px) {
-    order: 2; /* Text below the image for mobile */
+    order: 1; /* Text below the image for mobile */
     margin-right: 0; 
   }
 `;
-
-
+    
 export const TopLine = styled.p`
   font-size: 18px;
   color: #fff;
@@ -156,10 +157,12 @@ export const MusicDiv = styled.div`
   position: relative;
   z-index: 1;
   margin-bottom: 16px;
+  order: 1;
 
   @media screen and (max-width: ${tabletBreakpoint}) {
     width: 100%; // To make the image take the full width of the container
-    margin-bottom: 16px; // Add some space between the image and the next element
+    margin-bottom: 16px;
+    order: 2; // Add some space between the image and the next element
   }
 
   @media screen and (max-width: 480px) {
@@ -169,16 +172,15 @@ export const MusicDiv = styled.div`
 
 
 export const Music = styled.div`
-  width: 100%;
-  height: auto;
-  margin: 0;
-  padding-right: 0;
+  width: 455px; // Fixed width of 455px
+  height: auto; // Maintain aspect ratio
+  position: relative;
   border-radius: 10px;
   border: 2px solid #e1affd;
+  z-index: 10;
 
   @media screen and (max-width: 768px) {
-    max-width: 100%; /* Full width for smaller screens */
-    /* padding: 0 24px; */
-    text-align: center; 
+    width: 100%;
+    /* margin-right: 5px; */
   }
 `;

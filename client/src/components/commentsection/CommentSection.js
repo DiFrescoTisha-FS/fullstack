@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Rating from "react-rating-stars-component";
 import axios from "axios";
+import { Clouds } from "../twinklingbackground/TwinklingBackground";
 import commentsDesktopImage from '../../images/commentsDesktop1.png';
 import commentsTabletImage from '../../images/commentsTablet.png';
 import commentsMobileImage from '../../images/commentsMobile.png'; 
@@ -62,13 +63,14 @@ const CommentSection = () => {
   return (
     <CommentSectionContainer id="comments">
       <TwinklingBackground />
+      <Clouds style={{zIndex: '10'}} />
       <CommentsBg
         backgroundImageDesktop={commentsDesktopImage}
         backgroundImageTablet={commentsTabletImage}
         backgroundImageMobile={commentsMobileImage}
       />
 
-      <CommentWrapper onSubmit={handleCommentSubmit}>
+      <CommentWrapper style={{zIndex: '20'}} onSubmit={handleCommentSubmit}>
         <CommentRow>
         <ImgWrap>
             <Img src={Comments} alt="Artist wearing no shirt" />

@@ -173,8 +173,6 @@ export const Subtitle = styled.p`
   line-height: 26px;
   color: #fff;
   text-align: left;
-  /* font-family: "Open Sans", sans-serif; */
-
 
   @media screen and (max-width: 768px) {
     font-size: 20px;

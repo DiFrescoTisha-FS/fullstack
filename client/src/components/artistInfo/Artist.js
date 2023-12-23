@@ -7,7 +7,7 @@ import artistTabletImage from '../../images/artistTablet.png'; // Replace with a
 import artistMobileImage from '../../images/artistMobile10.png'; // Replace with actual mobile image path
 
 import TwinklingBackground from "../twinklingbackground/TwinklingBackground";
-
+import { Clouds } from "../twinklingbackground/TwinklingBackground";
 import {
   ArtistInfoContainer,
   ArtistBg,
@@ -41,13 +41,14 @@ const ArtistInfo = ({
     <>
       <ArtistInfoContainer id="bio">
         <TwinklingBackground />
+        <Clouds style={{zIndex: '10'}} />
         <ArtistBg
           backgroundImageDesktop={artistDesktopImage}
           backgroundImageTablet={artistTabletImage}
           backgroundImageMobile={artistMobileImage}
         />
 
-        <ArtistInfoWrapper>
+        <ArtistInfoWrapper style={{zIndex: '20'}}>
           <ArtistInfoRow>
             <TextWrapper>
               <TopLine>Approved Bam Bio</TopLine>

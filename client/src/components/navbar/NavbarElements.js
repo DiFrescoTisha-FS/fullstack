@@ -45,7 +45,7 @@ export const NavIcon = styled.img`
     max-height: 65px; // Set max height to prevent stretching
     position: relative;
     border-radius: 100%;
-    border: 2px solid #e1affd;
+    border: 1px solid #e1affd;
 `;
 
 

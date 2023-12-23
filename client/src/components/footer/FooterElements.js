@@ -103,13 +103,12 @@ export const SocialMediaLogo = styled(Link)`
 export const SocialMediaIcon = styled.img`
     max-width: 65px;
     max-height: 65px;
-    margin-bottom: 15px;
+    /* margin-bottom: 15px; */
     border-radius: 100%;
-    border: 2px solid #e1affd;
+    border: 1px solid #e1affd;
 
-    @media screen and (max-width: 480px) {
+      @media screen and (max-width: 820px) {
     flex-direction: column;
-    max-width: 55px;
   }
 `;
 

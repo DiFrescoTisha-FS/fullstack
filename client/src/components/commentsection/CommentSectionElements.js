@@ -113,6 +113,7 @@ export const Img = styled.img`
 export const TextWrapper = styled.div`
   max-width: 100%; /* Default max-width */
   position: relative;
+  margin-left: 40px;
 
   @media screen and (max-width: ${tabletBreakpoint}) {
     width: 100%; // To make the text take the full width of the container
@@ -204,4 +205,3 @@ export const CommentBtnWrapper = styled.button`
   justify-content: flex-start;
   margin-bottom: 28px;
 `;
-
