@@ -5,7 +5,6 @@ import { Link as LinkS } from 'react-scroll';
 export const Nav = styled.nav`
     background: #000;
     height: 80px;
-    /* margin-top: -80px; */
     display: flex;
     position: relative;
     justify-content: center;
@@ -14,10 +13,12 @@ export const Nav = styled.nav`
     position: sticky;
     top: 0;
     z-index: 10;
+
     @media screen and (max-width: 960px) {
-        transitiion: 0.8s all ease;
+        transition: 0.8s all ease; // Corrected the spelling here
     }
 `;
+
 
 export const NavbarContainer = styled.div`
     display: flex;
@@ -102,19 +103,16 @@ export const NavLinks = styled(LinkS)`
     cursor: pointer;
 
     &.active {
-        border-bottom: 3px solid #e1affd;
-        border-bottom: 3px solid #e1affd; // or other styles for the line
+        border-bottom: 3px solid #e1affd; // Keep this line and remove the duplicate
 
     @media screen and (max-width: 768px) {
-      border-bottom-width: 2px; // Make the line thinner on smaller screens
-      width: 50%; // Adjust width to desired length on smaller screens
-      margin-left: auto; // Center the line under the text
-      margin-right: auto; // Center the line under the text
+        padding: 0 1rem; // Combine both media query adjustments here
+        border-bottom-width: 2px; // Adjustments for smaller screens
+        width: 50%; // Make the line narrower
+        margin-left: auto; // Center the line
+        margin-right: auto; // Center the line
     }
-
-    @media screen and (max-width: 768px) {
-        padding: 0 1rem; // Reduce padding for smaller screens
-    }
+  }
 `;
 
 
@@ -125,17 +123,18 @@ export const NavGoogleBtn = styled.div`
   display: flex;
   align-items: center;
   margin-left: 24px;
-  font-weight: 500; // Corrected from 'medium' to '500'
+  font-weight: 500; // This is fine, '500' is equivalent to 'font-weight: normal;'
   text-decoration: none;
   margin-bottom: 16px;
 
   @media screen and (max-width: 768px) {
-    display: ${({ $isOpen }) => ($isOpen ? 'flex' : 'none')};
+    display: ${({ $isOpen }) => ($isOpen ? 'flex' : 'none')}; // Correct use of prop for conditional CSS
     width: 100%;
     justify-content: center;
-    padding: 1rem 0; // Add padding for spacing
+    padding: 1rem 0; // Adds padding for spacing
   }
 `;
+
 
 
 

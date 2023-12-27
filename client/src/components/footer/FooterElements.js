@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Link } from 'react-router-dom';
 
+
 export const FooterContainer = styled.footer`
     background-color: #010606;
 `;
@@ -83,47 +84,93 @@ export const SocialMediaWrap = styled.div`
   align-items: center;
   max-width: 1100px;
   margin: 40px auto;
-
+  
   @media screen and (max-width: 820px) {
     flex-direction: column;
   }
+
+  @media screen and (max-width: 480px) {
+    flex-direction: column; // Keep the column direction
+    align-items: center; // Center-align the items
+    /* justify-content: space-between; */
+  }
 `;
 
-
 export const SocialMediaLogo = styled(Link)`
-    justify-self: flex-start;
-    cursor: pointer;
-    font-size: 1.5rem;
-    display: flex;
-    align-items: center;
-    font-weight: bold;
-    text-decoration: none;
+  cursor: pointer;
+  text-decoration: none;
+
+  @media screen and (max-width: 480px) {
+    order: 0; // Logo will be second-to-last item
+    align-self: center; // Center logo
+  }
 `;
 
 export const SocialMediaIcon = styled.img`
-    max-width: 65px;
-    max-height: 65px;
-    /* margin-bottom: 15px; */
-    border-radius: 100%;
-    border: 1px solid #e1affd;
+  max-width: 65px;
+  max-height: 65px;
+  border-radius: 100%;
+  border: 1px solid #e1affd;
 
-      @media screen and (max-width: 820px) {
-    flex-direction: column;
+  @media screen and (max-width: 480px) {
+    max-width: 45px; // Adjust the logo size for mobile view
+    order: 1; // Keep the logo with its wrapper
+    margin-left: 20px;
   }
 `;
 
 export const WebsiteRights = styled.small`
-    color: #fff;
-    margin: 16px 0;
-    text-align: center;
-    display: block; // This will ensure it centers in its own line
+  color: #fff;
+  text-align: center;
+  display: block;
+
+  @media screen and (max-width: 480px) {
+    order: 1; // Rights text will be last item
+    width: 100%; // Take up full width
+  }
 `;
+
 export const SocialIcons = styled.div`
-    display: flex;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 240px;
+
+  @media screen and (max-width: 480px) {
+    width: 100%; // Take up full width on mobile
+    justify-content: center; // Center icons
+    margin-top: 20px; // Space between contact info and icons
+    gap: 12px;
+  }
+`;
+
+// Adjust SocialMediaLogo and WebsiteRights to be in the same container for mobile view
+export const LogoRightsContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; // Take full width to separate logo and text
+
+  @media screen and (max-width: 480px) {
+    flex-direction: row; // Ensure they are in a row
+    justify-content: space-between; // Spread logo and text on opposite ends
+    margin-top: 20px; // Space between icons and this container
+    padding: 0 20px; // Padding on the sides
     justify-content: space-between;
-    align-items: center;
-    width: 240px;
-    color: #e1affd;
+  }
+`;
+
+// Now wrap the SocialMediaLogo and WebsiteRights inside LogoRightsContainer
+// Assuming that CustomButton is used within SocialMediaWrap and is styled separately
+
+// Apply these styles to the CustomButton or its wrapper
+export const CustomButtonWrapper = styled.div`
+  @media screen and (max-width: 480px) {
+    width: 100%; // Take up full width
+    display: flex; // Use flex to center the button
+    justify-content: center; // Center the button
+    margin-top: 20px; // Space at the top
+  }
 `;
 
 export const SocialIconLink = styled.a`

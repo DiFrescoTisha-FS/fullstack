@@ -101,7 +101,7 @@ const Navbar = ({ toggle, onSignIn, onSignOut }) => {
               <FaBars onClick={() => console.log("test click")} />
             </MobileIcon>
 
-            <NavMenu $isOpen={isOpen}>
+            <NavMenu $isOpen={isOpen} onClick={closeMobileMenu}>
               {["home", "bio", "music", "new", "thoughts", "comments"].map(
                 (item, index) => (
                   <NavItem key={index}>
@@ -121,12 +121,11 @@ const Navbar = ({ toggle, onSignIn, onSignOut }) => {
               )}
               {/* Add the sign-in icon and text as a list item */}
               {isOpen && (
-                <NavItem onClick={closeMobileMenu}>
-                  <GoogleSignInIcon onClick={handleSignIn}>
-                    <FcGoogle size="24" />
-                    Sign in with Google
-                  </GoogleSignInIcon>
-                </NavItem>
+                <UserComponent
+                  currentUser={currentUser}
+                  onSignIn={handleSignIn}
+                  onSignOut={handleSignOut}
+                />
               )}
             </NavMenu>
 

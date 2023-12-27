@@ -37,16 +37,27 @@ export const ArtistBg = styled.div`
   height: 100%;
   background: url(${props => props.backgroundImageDesktop}) no-repeat center center;
   background-size: cover;
-  z-index: 1; // Above the TwinklingBackground
+  z-index: 2; // Above the TwinklingBackground
+  /* background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000 100%), url(${props => props.backgroundImageMobile}); */
+
 
   @media screen and (max-width: 768px) {
     background: url(${props => props.backgroundImageTablet}) no-repeat center center;
-    /* background: red; */
+    background-size: cover;
+    background-position: center -1px; // Shift background up by 1px
+
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000 100%), url(${props => props.backgroundImageMobile});
+
   }
 
   @media screen and (max-width: 480px) {
     background: url(${props => props.backgroundImageMobile}) no-repeat center center;
+    background-size: cover;
+    background-position: center; // Adjust this value if needed
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000 100%), url(${props => props.backgroundImageMobile});
+
   }
+
 `;
 
 export const ArtistInfoWrapper = styled(MusicWrapper)`

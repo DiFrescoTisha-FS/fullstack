@@ -32,10 +32,14 @@ export const NewBg = styled.div`
   @media screen and (max-width: 768px) {
     background: url(${props => props.backgroundImageTablet}) no-repeat center center;
     /* background: red; */
+    background-size: cover;
+    background-position: center; // Adjust this value if needed
   }
 
   @media screen and (max-width: 480px) {
     background: url(${props => props.backgroundImageMobile}) no-repeat center center;
+    background-size: cover;
+    background-position: center; // Adjust this value if needed
   }
 `;
 
@@ -115,8 +119,8 @@ export const CenterVideo = styled.div`
   align-items: center;
   width: 80%;
   height: 100%;
-  border: 2px solid #e1affd; /* Ensure the border is visible */
-  border-radius: 10px;
+  border: 1px solid #e1affd; /* Ensure the border is visible */
+  border-radius: 20px;
   margin-top: 16px;
   margin-bottom: 16px;
 `;
@@ -147,7 +151,7 @@ export const StyledReactPlayer = styled(ReactPlayer)`
   bottom: 0;
   width: 100%;
   height: 100%;
-  border: 2px solid #e1affd; /* Add your desired border style here */
+  border: 1px solid #e1affd; /* Add your desired border style here */
 `;
 
 

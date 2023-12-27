@@ -25,7 +25,6 @@ export const HeroContainer = styled.div`
   }
 `;
 
-// Hero Background
 export const HeroBg = styled.div`
   position: absolute;
   top: 0;
@@ -40,9 +39,15 @@ export const HeroBg = styled.div`
   z-index: -1;
 
   @media screen and (max-width: 768px) {
-    background-size: contain;
+    background-size: contain; // Or keep it as 'cover' depending on your design
+  }
+
+  @media screen and (max-width: 480px) {
+    background: url(${props => props.backgroundImageMobile}) no-repeat center center;
+    background-size: cover;
   }
 `;
+
 
 // Hero Content
 export const HeroContent = styled.div`
@@ -81,7 +86,6 @@ export const HeroP = styled.p`
   }
 `;
 
-// Styled images for Saturn, Neptune, Earth
 export const SaturnImage = styled.img`
   position: absolute;
   top: 300px;
@@ -90,6 +94,7 @@ export const SaturnImage = styled.img`
   width: 50px;
   height: auto;
 
+  // Hide Saturn on tablet and mobile views
   @media screen and (max-width: 768px) {
     display: none;
   }
@@ -103,19 +108,24 @@ export const NeptuneImage = styled.img`
   width: 500px;
   height: auto;
 
+  // Adjust Neptune size on tablet view
   @media screen and (max-width: 768px) {
     width: 350px;
     left: 50%;
     transform: translateX(-50%);
   }
 
+  /* // Change Neptune image on mobile view
   @media screen and (max-width: 480px) {
-    width: 250px; // Reduced width for smaller screens
-    left: 50%; // Center it horizontally
-    top: 10px; // Adjust the top position as needed
-    transform: translateX(-50%); // Ensure it stays centered
-    // Optionally, adjust the z-index if needed
-  }
+    content: url(${props => props.mobileImage}); // This will change the image source
+    width: 100%; // Adjust width as needed
+    top: auto; // Adjust positioning as needed
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: none;
+    z-index: 3;
+  } */
 `;
 
 export const EarthImage = styled.img`
@@ -126,6 +136,7 @@ export const EarthImage = styled.img`
   width: 150px;
   height: auto;
 
+  // Hide Earth on tablet and mobile views
   @media screen and (max-width: 768px) {
     display: none;
   }

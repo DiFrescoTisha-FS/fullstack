@@ -34,12 +34,15 @@ export const CommentsBg = styled.div`
   z-index: 2; // Above the TwinklingBackground
 
   @media screen and (max-width: 768px) {
-    background: url(${props => props.backgroundImageTablet}) no-repeat center center;
-    /* background: red; */
+   background: url(${props => props.backgroundImageMobile}) no-repeat center center;
+    background-size: cover;
+    background-position: center; // Adjust this value if needed
   }
 
   @media screen and (max-width: 480px) {
     background: url(${props => props.backgroundImageMobile}) no-repeat center center;
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000 100%), url(${props => props.backgroundImageMobile});
+
   }
 `;
 
@@ -184,6 +187,10 @@ export const FormWrap = styled.form`
     order: 1;
   }
 `;
+
+// export const StarRating = styled.div`
+//   color: #e1affd;
+// `
 
 export const TextArea = styled.textarea`
 margin-top: 15px;

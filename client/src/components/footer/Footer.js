@@ -21,6 +21,7 @@ import {
   WebsiteRights,
   SocialIcons,
   SocialIconLink,
+  LogoRightsContainer,
 } from "./FooterElements";
 import ContactInfo from "../contactinfo/ContactInfo";
 
@@ -36,15 +37,9 @@ const Footer = () => {
           <SocialMedia id="social media">
             <SocialMediaWrap>
               {/* Logo on the left */}
-              <SocialMediaLogo to="/" onClick={toggleHome}>
-                <SocialMediaIcon src={logo} alt="logo" />
-              </SocialMediaLogo>
 
-
-              <WebsiteRights>
-                Trapstar Bam © {new Date().getFullYear()} All rights reserved
-              </WebsiteRights>
               <ContactInfo />
+
               {/* Social icons on the right */}
               <SocialIcons>
                 <SocialIconLink
@@ -104,6 +99,14 @@ const Footer = () => {
                   <MdEmail />
                 </SocialIconLink>
               </SocialIcons>
+              <LogoRightsContainer>
+                <SocialMediaLogo to="/" onClick={toggleHome}>
+                  <SocialMediaIcon src={logo} alt="logo" />
+                </SocialMediaLogo>
+                <WebsiteRights>
+                  Trapstar Bam © {new Date().getFullYear()} All rights reserved
+                </WebsiteRights>
+              </LogoRightsContainer>
             </SocialMediaWrap>
           </SocialMedia>
         </FooterWrap>
