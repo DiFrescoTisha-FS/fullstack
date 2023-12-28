@@ -69,7 +69,7 @@ export const TopLine = styled.h2`
 `;
 
 export const Heading = styled.h1`
-  color: #e1affd;
+  color: #ac94f4;
   font-size: 44px;
   font-weight: 600;
   text-align: center;
@@ -119,7 +119,7 @@ export const CenterVideo = styled.div`
   align-items: center;
   width: 80%;
   height: 100%;
-  border: 1px solid #e1affd; /* Ensure the border is visible */
+  border: 1px solid #ac94f4; /* Ensure the border is visible */
   border-radius: 20px;
   margin-top: 16px;
   margin-bottom: 16px;
@@ -151,7 +151,7 @@ export const StyledReactPlayer = styled(ReactPlayer)`
   bottom: 0;
   width: 100%;
   height: 100%;
-  border: 1px solid #e1affd; /* Add your desired border style here */
+  border: 1px solid #ac94f4; /* Add your desired border style here */
 `;
 
 
@@ -163,8 +163,8 @@ export const New = styled.div`
   padding-right: 0;
   /* margin-left: 5%; */
   border-radius: 10px;
-  border: 1px solid #e1affd;
-  box-shadow: 10px 35px 30px -25px #e1affd;
+  border: 1px solid #ac94f4;
+  box-shadow: 10px 35px 30px -25px #ac94f4;
   /* margin-top: 100px; */
 `;
 
@@ -176,5 +176,5 @@ export const ArrowCircle = styled(FaArrowAltCircleDown)`
 export const ArrowFilled = styled(FaRocket)`
   margin-left: 8px;
   font-size: 20px;
-  color: #e1affd;
+  color: #ac94f4;
 `;

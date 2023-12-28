@@ -46,7 +46,7 @@ export const NavIcon = styled.img`
     max-height: 65px; // Set max height to prevent stretching
     position: relative;
     border-radius: 100%;
-    border: 1px solid #e1affd;
+    border: 1px solid #ac94f4;
 `;
 
 
@@ -103,7 +103,7 @@ export const NavLinks = styled(LinkS)`
     cursor: pointer;
 
     &.active {
-        border-bottom: 3px solid #e1affd; // Keep this line and remove the duplicate
+        border-bottom: 3px solid #ac94f4; // Keep this line and remove the duplicate
 
     @media screen and (max-width: 768px) {
         padding: 0 1rem; // Combine both media query adjustments here
@@ -135,13 +135,9 @@ export const NavGoogleBtn = styled.div`
   }
 `;
 
-
-
-
-
 export const NavBtnLink = styled(LinkR)`
     /* border-radius: 50px; */
-    /* background: #e1affd; */
+    /* background: #ac94f4; */
     /* white-space: nowrap; */
     /* padding: 10px 22px;
     color: #010606;
@@ -155,9 +151,9 @@ export const NavBtnLink = styled(LinkR)`
     &:hover {
         transition: all 0.2s ease-in-out;
         background: #010606;
-        color: #e1affd;
-        border: 1px solid #e1affd;
-        outline: 1px solid #e1affd;
+        color: #ac94f4;
+        border: 1px solid #ac94f4;
+        outline: 1px solid #ac94f4;
 }
 `;
 

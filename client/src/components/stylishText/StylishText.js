@@ -21,7 +21,7 @@ const StylishText = styled.h1`
   }
 
   @media screen and (max-width: 480px) {
-    max-width: 550px;
+    max-width: 850px;
   }
 `;
 
@@ -29,7 +29,7 @@ const StylishText = styled.h1`
 const YourComponent = () => {
   return (
     <StylishText>
-      <img src="https://i.imgur.com/qw5jeyL.png" alt="Trapstar Bam" />
+      <img src="https://i.imgur.com/h0rzr0Y.png" alt="Trapstar Bam" />
     </StylishText>
   );
 }

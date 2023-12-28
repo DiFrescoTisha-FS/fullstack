@@ -20,12 +20,12 @@ body {
   font-family: 'Encode Sans Expanded', sans-serif;
   background-color: #fcfcfc;
   scrollbar-width: thin; /* can be "auto", "thin", or "none" */
-  scrollbar-color: #e1affd white; /* thumb and track color */
+  scrollbar-color: #ac94f4 white; /* thumb and track color */
 }
 
 /* Style the scrollbar itself (thumb) */
 ::-webkit-scrollbar-thumb {
-  background-color: #e1affd; /* Thumb color */
+  background-color: #ac94f4; /* Thumb color */
   border-radius: 10px; /* Roundness of the thumb */
 }
 

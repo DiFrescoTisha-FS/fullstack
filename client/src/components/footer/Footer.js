@@ -21,7 +21,6 @@ import {
   WebsiteRights,
   SocialIcons,
   SocialIconLink,
-  LogoRightsContainer,
 } from "./FooterElements";
 import ContactInfo from "../contactinfo/ContactInfo";
 
@@ -31,14 +30,20 @@ const Footer = () => {
   };
 
   return (
-    <IconContext.Provider value={{ color: "#e1affd" }}>
+    <IconContext.Provider value={{ color: "#ac94f4" }}>
       <FooterContainer>
         <FooterWrap>
           <SocialMedia id="social media">
             <SocialMediaWrap>
               {/* Logo on the left */}
+              <SocialMediaLogo to="/" onClick={toggleHome}>
+                <SocialMediaIcon src={logo} alt="logo" />
+              </SocialMediaLogo>
 
-              <ContactInfo />
+             <ContactInfo />
+              <WebsiteRights>
+                Trapstar Bam © {new Date().getFullYear()} All rights reserved
+              </WebsiteRights>
 
               {/* Social icons on the right */}
               <SocialIcons>
@@ -99,14 +104,6 @@ const Footer = () => {
                   <MdEmail />
                 </SocialIconLink>
               </SocialIcons>
-              <LogoRightsContainer>
-                <SocialMediaLogo to="/" onClick={toggleHome}>
-                  <SocialMediaIcon src={logo} alt="logo" />
-                </SocialMediaLogo>
-                <WebsiteRights>
-                  Trapstar Bam © {new Date().getFullYear()} All rights reserved
-                </WebsiteRights>
-              </LogoRightsContainer>
             </SocialMediaWrap>
           </SocialMedia>
         </FooterWrap>

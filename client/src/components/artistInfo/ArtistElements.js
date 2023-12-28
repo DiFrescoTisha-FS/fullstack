@@ -143,7 +143,7 @@ export const Img = styled.img`
   height: auto; // Maintain aspect ratio
   position: relative;
   border-radius: 10px;
-  border: 2px solid #e1affd;
+  border: 2px solid #ac94f4;
   z-index: 10;
 
   @media screen and (max-width: 480px) {
@@ -167,7 +167,7 @@ export const TopLine = styled.p`
 
 export const Heading = styled.h1`
     margin-bottom: 24px;
-    color: #e1affd;
+    color: #ac94f4;
     font-size: 44px;
     line-height: 1.1;
     font-weight: 600;

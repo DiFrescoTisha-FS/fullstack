@@ -88,7 +88,7 @@ const Navbar = ({ toggle, onSignIn, onSignOut }) => {
 
   return (
     <>
-      <IconContext.Provider value={{ color: "#e1affd" }}>
+      <IconContext.Provider value={{ color: "#ac94f4" }}>
         <Nav>
           <NavbarContainer>
             <NavLogo to="/" onClick={toggleHome}>
