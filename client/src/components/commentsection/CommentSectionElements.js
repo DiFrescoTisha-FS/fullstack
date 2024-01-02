@@ -13,7 +13,7 @@ export const CommentSectionContainer = styled.div`
   z-index: 1;
 
   @media screen and (max-width: 768px) {
-    padding: 50px 0; // Adjust padding as needed
+    /* padding: 50px 0; */
     flex-direction: column;
     justify-content: center; // Centers content vertically in the column
     align-items: center; // Centers content horizontally in the column
@@ -34,15 +34,15 @@ export const CommentsBg = styled.div`
   z-index: 2; // Above the TwinklingBackground
 
   @media screen and (max-width: 768px) {
-   background: url(${props => props.backgroundImageMobile}) no-repeat center center;
+   background: url(${props => props.backgroundImageTablet}) no-repeat center center;
     background-size: cover;
     background-position: center; // Adjust this value if needed
   }
 
   @media screen and (max-width: 480px) {
     background: url(${props => props.backgroundImageMobile}) no-repeat center center;
-    background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000 100%), url(${props => props.backgroundImageMobile});
-
+    background-size: contain;
+    background-position: center; // Adjust this value if needed
   }
 `;
 

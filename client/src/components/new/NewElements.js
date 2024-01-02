@@ -31,15 +31,33 @@ export const NewBg = styled.div`
 
   @media screen and (max-width: 768px) {
     background: url(${props => props.backgroundImageTablet}) no-repeat center center;
-    /* background: red; */
-    background-size: cover;
-    background-position: center; // Adjust this value if needed
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.5) 100%);
+      z-index: 3; // Above the background image but below the content
+    }
   }
 
   @media screen and (max-width: 480px) {
     background: url(${props => props.backgroundImageMobile}) no-repeat center center;
     background-size: cover;
-    background-position: center; // Adjust this value if needed
+    background-position: center 1px;
+    
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.5) 75%, rgba(0,0,0,0.8) 100%);
+      z-index: 3; // Above the background image but below the content
+    }
   }
 `;
 
@@ -58,6 +76,10 @@ export const TextWrapper = styled.div`
   /* padding-top: 20px; */
   align-self: center; /* Center align the content vertically */
   text-align: center; /* Center align the text horizontally */
+
+  @media screen and (max-width: 480px) {
+    width: 90%;
+  }
 `;
 
 export const TopLine = styled.h2`
@@ -94,7 +116,7 @@ export const Subtitle = styled.p`
   }
 
   @media screen and (max-width: 480px) {
-    font-size: 16px;
+    font-size: 18px;
   }
 `;
 
@@ -123,6 +145,10 @@ export const CenterVideo = styled.div`
   border-radius: 20px;
   margin-top: 16px;
   margin-bottom: 16px;
+
+  @media screen and (max-width: 480px) {
+    width: 98%;
+  }
 `;
 
 
@@ -152,6 +178,8 @@ export const StyledReactPlayer = styled(ReactPlayer)`
   width: 100%;
   height: 100%;
   border: 1px solid #ac94f4; /* Add your desired border style here */
+
+
 `;
 
 
@@ -165,7 +193,11 @@ export const New = styled.div`
   border-radius: 10px;
   border: 1px solid #ac94f4;
   box-shadow: 10px 35px 30px -25px #ac94f4;
-  /* margin-top: 100px; */
+
+  @media screen and (max-width: 480px) {
+    /* min-width: 382px; */
+    width: 100%;
+  }
 `;
 
 export const ArrowCircle = styled(FaArrowAltCircleDown)`

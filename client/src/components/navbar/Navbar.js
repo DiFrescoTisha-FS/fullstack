@@ -4,7 +4,7 @@ import { FcGoogle } from "react-icons/fc";
 import { IconContext } from "react-icons/lib";
 import { animateScroll as scroll } from "react-scroll";
 import { motion } from "framer-motion";
-import logo from "../../images/FINAL_LOGO.png";
+import logo from "../../images/purple_logo.png";
 import UserComponent from "../UserComponent";
 import { GoogleSignInIcon } from "../GoogleSignInIcon";
 

@@ -2,12 +2,8 @@ import styled from "styled-components";
 import { FaArrowAltCircleDown, FaBusAlt } from 'react-icons/fa';
 import { MusicWrapper } from "../music/MusicElements";
 import { Link } from 'react-scroll';
-// import { SectionContainer } from "../SectionContainer";
-// import MobileImg from "../../images/mobileplanets.png"
-// import backgroundImage from "../../images/bio.jpg"
 
 const tabletBreakpoint = '768px'; 
-
 
 export const ArtistInfoContainer = styled.div`
   position: relative;
@@ -23,7 +19,7 @@ export const ArtistInfoContainer = styled.div`
     flex-direction: column;
     justify-content: center; // Centers content vertically in the column
     align-items: center; // Centers content horizontally in the column
-    min-height: auto; // Remove fixed height to allow content to determine height
+    height: 100%; // Remove fixed height to allow content to determine height
   }
 `;
 
@@ -38,24 +34,41 @@ export const ArtistBg = styled.div`
   background: url(${props => props.backgroundImageDesktop}) no-repeat center center;
   background-size: cover;
   z-index: 2; // Above the TwinklingBackground
-  /* background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000 100%), url(${props => props.backgroundImageMobile}); */
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000 100%), url(${props => props.backgroundImageMobile});
 
 
   @media screen and (max-width: 768px) {
     background: url(${props => props.backgroundImageTablet}) no-repeat center center;
     background-size: cover;
-    background-position: center -1px; // Shift background up by 1px
+    background-position: center 1px; // Adjust this to shift the background slightly
 
-    background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000 100%), url(${props => props.backgroundImageMobile});
-
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.5) 100%);
+      z-index: 3; // Above the background image but below the content
+    }
   }
 
   @media screen and (max-width: 480px) {
     background: url(${props => props.backgroundImageMobile}) no-repeat center center;
     background-size: cover;
-    background-position: center; // Adjust this value if needed
-    background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000 100%), url(${props => props.backgroundImageMobile});
-
+    background-position: center 1px;
+    
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.5) 100%);
+      z-index: 3; // Above the background image but below the content
+    }// Adjust this to shift the background slightly
   }
 
 `;
@@ -72,6 +85,12 @@ export const ArtistInfoWrapper = styled(MusicWrapper)`
   z-index: 2; // Above the planet image
 
   @media screen and (max-width: 768px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media screen and (max-width: 480px) {
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -186,7 +205,7 @@ export const Subtitle = styled.p`
   margin-top: 30px;
   max-width: 440px;
   margin-bottom: 25px;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 26px;
   color: #fff;
   text-align: left;

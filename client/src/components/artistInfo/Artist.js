@@ -2,9 +2,9 @@ import React from "react";
 import galaxy from "../../images/galaxy.jpg";
 import { Button } from "../ButtonElements";
 import { FaArrowAltCircleDown } from "react-icons/fa";
-import artistDesktopImage from '../../images/artistDesktop.png';
-import artistTabletImage from '../../images/artistTablet.png'; // Replace with actual tablet image path
-import artistMobileImage from '../../images/artistMobile.png'; // Replace with actual mobile image path
+import artistDesktopImage from '../../images/artistDesktop40.png';
+import artistTabletImage from '../../images/artistTablet50.png';
+import artistMobileImage from '../../images/artistMobile51.png'; // Replace with actual mobile image path
 
 import TwinklingBackground from "../twinklingbackground/TwinklingBackground";
 import { Clouds } from "../twinklingbackground/TwinklingBackground";

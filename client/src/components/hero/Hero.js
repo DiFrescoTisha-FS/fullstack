@@ -28,7 +28,7 @@ const HeroSection = () => {
           // title="Your Title Here"
           saturnImage="https://i.imgur.com/yM3SlcH.png"
           neptuneImage="https://i.imgur.com/XyBATJD.png"
-          // neptuneImageMobile="https://i.imgur.com/3j1DsIu.png"
+          cometImage="https://i.imgur.com/QhHdHWb.png"
           earthImage="https://i.imgur.com/qTwsepd.png"
         />
         <Clouds style={{zIndex: '10'}} />

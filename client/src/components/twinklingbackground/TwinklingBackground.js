@@ -3,8 +3,9 @@ import styled, { keyframes } from 'styled-components';
 import starsImage from '../../images/stars.png';
 import twinklingImage from '../../images/twinkling.png';
 import cloudsImage from "../../images/clouds.png";
+// import CometImage from "../../images/cometImage.png";
 // import neptuneImageMobile from "../../images/heroMobile.png";
-import { SaturnImage, NeptuneImage, EarthImage } from '../hero/HeroElements';
+import { SaturnImage, NeptuneImage, EarthImage, CometImage } from '../hero/HeroElements';
 
 const moveTwinkBack = keyframes`
   from {
@@ -70,12 +71,19 @@ export const Clouds = styled.div`
   z-index: 10; 
   opacity: 1;
   animation: ${moveClouds} 600s linear infinite;
-  filter: brightness(1.2) contrast(1.1); // Adjust as needed
+  filter: brightness(1.2) contrast(1.1);
+
+  /* @media screen and (max-width: 768px) {
+    display: none;
+  }
+
+  @media screen and (max-width: 480px) {
+    display: none;
+  } */
 `;
 
-
 // The main component
-const TwinklingBackground = ({ saturnImage, neptuneImage, earthImage, neptuneImageMobile }) => (
+const TwinklingBackground = ({ saturnImage, neptuneImage, earthImage, neptuneImageMobile, cometImage }) => (
   <BackgroundContainer>
     <Stars />
     <Twinkling />
@@ -89,9 +97,8 @@ const TwinklingBackground = ({ saturnImage, neptuneImage, earthImage, neptuneIma
   />
 )}
     {earthImage && <EarthImage src={earthImage} alt="Earth" />}
+    {cometImage && <CometImage src={cometImage} alt="Comet" />}
   </BackgroundContainer>
 );
 
 export default TwinklingBackground;
-
-

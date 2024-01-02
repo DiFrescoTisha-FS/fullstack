@@ -2,8 +2,8 @@ import { useState } from "react";
 import ReactPlayer from "react-player";
 import { Button } from "../ButtonElements";
 import newDesktopImage from '../../images/newDesktop1.png';
-import newTabletImage from '../../images/newTablet1.png'; // Replace with actual tablet image path
-import newMobileImage from '../../images/newMobile10.png';
+import newTabletImage from '../../images/newTablet60.png'; // Replace with actual tablet image path
+import newMobileImage from '../../images/newMobile40.png';
 
 import { Clouds } from "../twinklingbackground/TwinklingBackground"
 

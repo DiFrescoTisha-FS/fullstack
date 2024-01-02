@@ -5,23 +5,29 @@ const maxWidth = '700px'; // Common max-width for various components
 
 // Hero Container
 export const HeroContainer = styled.div`
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
-  width: 100%;
-  min-height: 860px;
   padding: 0;
+  min-height: 860px; // Adjust as needed
   z-index: 1;
 
   @media screen and (max-width: 768px) {
-    min-height: 600px;
+    padding: 50px 0; // Adjust padding as needed
+    flex-direction: column;
+    justify-content: center; // Centers content vertically in the column
+    align-items: center; // Centers content horizontally in the column
+    height: 100%; // Remove fixed height to allow content to determine height
   }
 
-  @media screen and (max-width: 480px) {
-    min-height: 400px;
-    /* background: #000 url(${require("../../images/mobileplanets.png")}) no-repeat center center; */
-    background-size: cover;
+  @media screen and (max-width: 768px) {
+    margin-top: 100px;
+    padding: 50px 0; // Adjust padding as needed
+    flex-direction: column;
+    justify-content: center; // Centers content vertically in the column
+    align-items: center; // Centers content horizontally in the column
+    height: 100%; // Remove fixed height to allow content to determine height
   }
 `;
 
@@ -39,16 +45,39 @@ export const HeroBg = styled.div`
   z-index: -1;
 
   @media screen and (max-width: 768px) {
-    background-size: contain; // Or keep it as 'cover' depending on your design
-  }
+    background: url(${props => props.backgroundImageMobile}) no-repeat center center;
+    background-size: cover;
+    background-position: center 1px;
+    
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.5) 100%);
+      z-index: 3; // Above the background image but below the content
+    } // Missing closing brace for &:after
+  } // Missing closing brace for @media
 
   @media screen and (max-width: 480px) {
     background: url(${props => props.backgroundImageMobile}) no-repeat center center;
     background-size: cover;
-  }
+    background-position: center 1px;
+    
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.5) 100%);
+      z-index: 3; // Above the background image but below the content
+    } // Missing closing brace for &:after
+  } // Missing closing brace for @media
 `;
-
-
 // Hero Content
 export const HeroContent = styled.div`
   z-index: 22;
@@ -96,13 +125,16 @@ export const SaturnImage = styled.img`
 
   // Hide Saturn on tablet and mobile views
   @media screen and (max-width: 768px) {
-    display: none;
+    width: 65px;
+    top: 70%;
+    left: 15%;
+    transform: translateX(-50%);
   }
 `;
 
 export const NeptuneImage = styled.img`
   position: absolute;
-  top: 50px;
+  /* top: 50px; */
   left: 100px;
   z-index: 3;
   width: 500px;
@@ -114,18 +146,6 @@ export const NeptuneImage = styled.img`
     left: 50%;
     transform: translateX(-50%);
   }
-
-  /* // Change Neptune image on mobile view
-  @media screen and (max-width: 480px) {
-    content: url(${props => props.mobileImage}); // This will change the image source
-    width: 100%; // Adjust width as needed
-    top: auto; // Adjust positioning as needed
-    left: 0;
-    right: 0;
-    bottom: 0;
-    transform: none;
-    z-index: 3;
-  } */
 `;
 
 export const EarthImage = styled.img`
@@ -138,7 +158,27 @@ export const EarthImage = styled.img`
 
   // Hide Earth on tablet and mobile views
   @media screen and (max-width: 768px) {
-    display: none;
+    width: 50px;
+    left: 80%;
+    transform: translateX(-50%);
+  }
+`;
+
+export const CometImage = styled.img`
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 100px; // Adjust size for tablet as needed
+  height: auto; // Maintain aspect ratio
+  z-index: 3; // Ensure it's above the background layers but below content
+  display: none; // Hide by default
+
+  @media screen and (max-width: 768px) {
+    display: block; // Show on tablet
+  }
+
+  @media screen and (max-width: 480px) {
+    display: block; // Show on mobile
   }
 `;
 

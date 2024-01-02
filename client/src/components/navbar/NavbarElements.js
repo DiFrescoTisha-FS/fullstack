@@ -47,6 +47,20 @@ export const NavIcon = styled.img`
     position: relative;
     border-radius: 100%;
     border: 1px solid #ac94f4;
+
+    @media screen and (max-width: 768px) {
+      margin-top: 15px;
+      width: auto; // Adjust to maintain aspect ratio
+      max-width: 75px; // Set max width to prevent stretching
+      max-height: 75px; // Set max height to prevent stretching
+
+  }
+
+  @media screen and (max-width: 480px) {
+    max-width: 65px; // Set max width to prevent stretching
+    max-height: 65px; // Set max height to prevent stretching
+    border: 2px solid #ac94f4;
+  }
 `;
 
 

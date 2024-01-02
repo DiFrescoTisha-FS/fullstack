@@ -3,8 +3,8 @@ import React from "react";
 import { Button } from "../ButtonElements";
 import { FaArrowAltCircleDown } from "react-icons/fa";
 import musicDesktopImage from '../../images/musicDesktop.png';
-import musicTabletImage from '../../images/musicTablet.png'; // Replace with actual tablet image path
-import musicMobileImage from '../../images/musicMobile1.png'; 
+import musicTabletImage from '../../images/musicTablet52.png'; // Replace with actual tablet image path
+import musicMobileImage from '../../images/musicMobile51.png'; 
 import TwinklingBackground from "../twinklingbackground/TwinklingBackground";
 import {
   MusicContainer,

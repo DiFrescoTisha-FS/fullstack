@@ -18,7 +18,7 @@ export const MusicContainer = styled.div`
     flex-direction: column;
     justify-content: center; // Centers content vertically in the column
     align-items: center; // Centers content horizontally in the column
-    min-height: auto; // Remove fixed height to allow content to determine height
+    height: 100%; // Remove fixed height to allow content to determine height
   }
 `;
 
@@ -36,13 +36,39 @@ export const MusicBg = styled.div`
 
   @media screen and (max-width: 768px) {
     background: url(${props => props.backgroundImageTablet}) no-repeat center center;
-    /* background: red; */
+    background-size: cover;
+    background-position: center 1px;
+    
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.5) 100%);
+      z-index: 3; // Above the background image but below the content
+    } // Missing closing brace added here
   }
 
   @media screen and (max-width: 480px) {
     background: url(${props => props.backgroundImageMobile}) no-repeat center center;
+    background-size: cover;
+    background-position: center 1px;
+    
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.5) 100%);
+      z-index: 3; // Above the background image but below the content
+    } // Missing closing brace added here
   }
 `;
+
 
 export const MusicWrapper = styled.div`
   display: flex;
@@ -80,20 +106,22 @@ export const MusicRow = styled.div`
 
 
 export const TextWrapper = styled.div`
-  max-width: 100%; /* Default max-width */
+  max-width: 529px; // Explicitly setting the max-width
+  width: 100%; // Ensures it takes the full width of the parent
   position: relative;
-  margin-left: 40px;
-  order: 2;
+  margin-right: 40px;
 
-  @media screen and (max-width: ${tabletBreakpoint}) {
-    width: 100%; // To make the text take the full width of the container
-    margin-bottom: 50px;
+  @media screen and (max-width: 768px) {
+    max-width: 50%; // Adjust the max-width to fit the other half of the container
     order: 1;
+    margin-bottom: 50px; // Moves the text to the left side
   }
 
   @media screen and (max-width: 480px) {
-    order: 1; /* Text below the image for mobile */
-    margin-right: 0; 
+    max-width: 100%; /* Full width for smaller screens */
+    padding: 0 32px;
+    text-align: center; 
+    margin-right: 16px;
   }
 `;
     
@@ -148,7 +176,7 @@ export const Subtitle = styled.p`
 export const BtnWrap = styled.div`
   display: flex;
   justify-content: flex-start;
-  margin-bottom: 28px;
+  /* margin-bottom: 28px; */
 `;
 
 export const MusicDiv = styled.div`

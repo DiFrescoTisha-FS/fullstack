@@ -9,7 +9,7 @@ import { BsSnapchat, BsSpotify } from "react-icons/bs";
 import { MdEmail } from "react-icons/md";
 import { animateScroll as scroll } from "react-scroll/modules";
 import { IconContext } from "react-icons/lib";
-import logo from "../../images/FINAL_LOGO.png";
+import logo from "../../images/purple_logo.png";
 
 import {
   FooterContainer,
