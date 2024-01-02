@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import logo from "../../images/purple_logo.png";
 import UserComponent from "../UserComponent";
 import { GoogleSignInIcon } from "../GoogleSignInIcon";
+import useWindowSize from "../../hooks/useWindowSize";
 
 import {
   Nav,
@@ -23,6 +24,9 @@ import {
 const Navbar = ({ toggle, onSignIn, onSignOut }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
+  const size = useWindowSize(); // Use the hook
+
+  const isMobile = window.innerWidth <= 768;
 
   const handleToggle = () => {
     setIsOpen(!isOpen);
@@ -119,17 +123,8 @@ const Navbar = ({ toggle, onSignIn, onSignOut }) => {
                   </NavItem>
                 )
               )}
-              {/* Add the sign-in icon and text as a list item */}
-              {isOpen && (
-                <UserComponent
-                  currentUser={currentUser}
-                  onSignIn={handleSignIn}
-                  onSignOut={handleSignOut}
-                />
-              )}
             </NavMenu>
-
-            <NavGoogleBtn $isOpen={isOpen}>
+            {(!isMobile || isOpen) && (
               <motion.div {...navItemsAnimation}>
                 <UserComponent
                   currentUser={currentUser}
@@ -137,7 +132,7 @@ const Navbar = ({ toggle, onSignIn, onSignOut }) => {
                   onSignOut={handleSignOut}
                 />
               </motion.div>
-            </NavGoogleBtn>
+            )}
           </NavbarContainer>
         </Nav>
       </IconContext.Provider>

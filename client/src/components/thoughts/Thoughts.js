@@ -1,8 +1,8 @@
 import React from "react";
 import { Button } from "../ButtonElements";
 import tattooFingers from "../../images/tattoofingers.JPG";
-import thoughtsDesktopImage from "../../images/thoughtsDesktop1.png"
-import thoughtsTabletImage from "../../images/thoughtsTablet40.png"
+import thoughtsDesktopImage from "../../images/thoughtsDesktop.png"
+import thoughtsTabletImage from "../../images/thoughtsTablet.png"
 import thoughtsMobileImage from "../../images/thoughtsMobile.png"
 import { Clouds } from "../twinklingbackground/TwinklingBackground";
 import TwinklingBackground from "../twinklingbackground/TwinklingBackground";

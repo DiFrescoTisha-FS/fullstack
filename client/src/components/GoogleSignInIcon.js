@@ -11,7 +11,7 @@ export const GoogleSignInIcon = styled.button`
   font-size: 16px;
 
   svg {
-    margin-right: 10px; // This adds 10px space between the icon and the text
+    margin-right: 10px;
   }
 
   &:hover {

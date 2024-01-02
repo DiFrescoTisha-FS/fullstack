@@ -170,6 +170,3 @@ export const NavBtnLink = styled(LinkR)`
         outline: 1px solid #ac94f4;
 }
 `;
-
-
-

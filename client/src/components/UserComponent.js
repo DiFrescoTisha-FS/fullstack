@@ -2,10 +2,44 @@ import { useState, useEffect, useRef } from "react";
 import { FaGoogle, FaChevronDown } from 'react-icons/fa';
 import axios from 'axios';
 
+function useWindowSize() {
+  // Initialize state with undefined width/height so server and client renders match
+  // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
+  const [windowSize, setWindowSize] = useState({
+    width: undefined,
+    height: undefined,
+  });
+
+  useEffect(() => {
+    // Handler to call on window resize
+    function handleResize() {
+      // Set window width/height to state
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    }
+    
+    // Add event listener
+    window.addEventListener('resize', handleResize);
+    
+    // Call handler right away so state gets updated with initial window size
+    handleResize();
+    
+    // Remove event listener on cleanup
+    return () => window.removeEventListener('resize', handleResize);
+  }, []); // Empty array ensures that effect is only run on mount and unmount
+
+  return windowSize;
+}
+
 const UserComponent = ({ currentUser, onSignIn, onSignOut }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(!!currentUser);
   const [user, setUser] = useState(currentUser);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const size = useWindowSize(); // Use the hook
+  const isMobile = size.width <= 768; // Mobile breakpoint
 
     // Ref for the dropdown to check for outside clicks
     const dropdownRef = useRef(null);
@@ -87,7 +121,7 @@ const UserComponent = ({ currentUser, onSignIn, onSignOut }) => {
         </div>
       ) : (
         <button
-          className="flex items-center bg-black text-[#ac94f4] border-1 mb-1 border-[#ac94f4] space-x-2 mt-5 opacity-90 hover:opacity-80 cursor-pointer rounded-full p-2 pr-2"
+          className="flex items-center bg-black text-[#ac94f4] border-solid border-2 mb-1 border-[#ac94f4] space-x-2 mt-5 opacity-90 hover:opacity-80 cursor-pointer rounded-full p-2 pr-2"
           onClick={handleLogin}
         >
           <FaGoogle size={24} />

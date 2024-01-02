@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import Rating from "react-rating-stars-component";
 import axios from "axios";
 import { Clouds } from "../twinklingbackground/TwinklingBackground";
-import commentsDesktopImage from '../../images/commentsDesktop1.png';
-import commentsTabletImage from '../../images/commentsTablet40.png';
-import commentsMobileImage from '../../images/commentsMobile40.png'; 
+import commentsDesktopImage from '../../images/commentsDesktop.png';
+import commentsTabletImage from '../../images/commentsTablet.png';
+import commentsMobileImage from '../../images/commentsMobile.png'; 
 import Comments from "../../images/placeholder1.jpg";
 import TwinklingBackground from '../twinklingbackground/TwinklingBackground'
 import { BsSendFill } from "react-icons/bs";
