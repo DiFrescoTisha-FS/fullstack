@@ -34,7 +34,7 @@ export const ArtistBg = styled.div`
   background: url(${props => props.backgroundImageDesktop}) no-repeat center center;
   background-size: cover;
   z-index: 2; // Above the TwinklingBackground
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000 100%), url(${props => props.backgroundImageMobile});
+  /* background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000 100%), url(${props => props.backgroundImageMobile}); */
 
 
   @media screen and (max-width: 768px) {
@@ -70,7 +70,6 @@ export const ArtistBg = styled.div`
       z-index: 3; // Above the background image but below the content
     }// Adjust this to shift the background slightly
   }
-
 `;
 
 export const ArtistInfoWrapper = styled(MusicWrapper)`

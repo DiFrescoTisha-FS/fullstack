@@ -70,9 +70,10 @@ export const MobileIcon = styled.div`
   @media screen and (max-width: 768px) {
     display: block;
     position: absolute;
-    top: 20px;
-    right: 40px;
-    font-size: 2.5rem;
+    top: 1px;
+    right: 1px;
+    transform: translate(-100%, 60%);
+    font-size: 2.8rem;
     cursor: pointer;
     z-index: 21;
   }
@@ -105,7 +106,6 @@ export const NavItem = styled.li`
   }
 `;
 
-
 export const NavLinks = styled(LinkS)`
     color: #fff;
     display: flex;
@@ -117,50 +117,68 @@ export const NavLinks = styled(LinkS)`
     cursor: pointer;
 
     &.active {
-        border-bottom: 3px solid #ac94f4; // Keep this line and remove the duplicate
+        border-bottom: 3px solid #ac94f4; // Your purple bottom border
+        width: 60%; // Adjust this value to your preference
+        margin-left: auto; // This will center the border
+        margin-right: auto; // This will center the border
+    }
 
     @media screen and (max-width: 768px) {
         padding: 0 1rem; // Combine both media query adjustments here
-        border-bottom-width: 2px; // Adjustments for smaller screens
-        width: 50%; // Make the line narrower
         margin-left: auto; // Center the line
         margin-right: auto; // Center the line
+
+        &.active {
+        border-bottom: 3px solid #ac94f4;
+        width: 10%; // Make the line narrower
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+        padding: 0 1rem; // Combine both media query adjustments here
+        width: 10%; // Make the line narrower
+        margin-left: auto; // Center the line
+        margin-right: auto; // Center the line
+
+        &.active {
+        border-bottom: 3px solid #ac94f4;
+        width: 20%; // Make the line narrower
     }
   }
 `;
 
-
 export const NavGoogleBtn = styled.div`
   justify-self: flex-end;
   cursor: pointer;
-  font-size: 16px;
-  display: flex;
+  display: none; // By default, it's not displayed
   align-items: center;
   margin-left: 24px;
-  font-weight: 500; // This is fine, '500' is equivalent to 'font-weight: normal;'
+  font-weight: 500;
   text-decoration: none;
   margin-bottom: 16px;
 
+  @media screen and (min-width: 769px) {
+    display: flex; // It shows only in desktop view
+  }
+
   @media screen and (max-width: 768px) {
-    display: ${({ $isOpen }) => ($isOpen ? 'flex' : 'none')}; // Correct use of prop for conditional CSS
-    width: 100%;
-    justify-content: center;
-    padding: 1rem 0; // Adds padding for spacing
+    display: none; // Ensures it's hidden in mobile view
   }
 `;
 
+
 export const NavBtnLink = styled(LinkR)`
-    /* border-radius: 50px; */
-    /* background: #ac94f4; */
-    /* white-space: nowrap; */
-    /* padding: 10px 22px;
+    border-radius: 50px;
+    background: #ac94f4;
+    white-space: nowrap;
+    padding: 10px 22px;
     color: #010606;
     font-size: 16px;
     outline: none;
     border: none;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
-    text-decoration: none; */
+    text-decoration: none;
 
     &:hover {
         transition: all 0.2s ease-in-out;
