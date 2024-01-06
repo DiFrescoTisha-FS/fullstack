@@ -104,7 +104,17 @@ export const NavItem = styled.li`
     width: 100%; // Make sure the item takes full width
     margin-bottom: 10px; // Adjust spacing between menu items
   }
+
+  &.mobile-sign-in {
+    display: none; // Hide by default
+
+    @media screen and (max-width: 768px) {
+      display: block; // Show only in mobile view
+      width: 100%; // Take full width
+    }
+  }
 `;
+
 
 export const NavLinks = styled(LinkS)`
     color: #fff;
@@ -156,6 +166,12 @@ export const NavGoogleBtn = styled.div`
   font-weight: 500;
   text-decoration: none;
   margin-bottom: 16px;
+  color: white;
+  margin-left: 4px;
+  margin-top: 9px;
+  border: 1px solid #ac94f4;
+  padding-rignt: 10px;
+  padding-rignt: 2px;
 
   @media screen and (min-width: 769px) {
     display: flex; // It shows only in desktop view

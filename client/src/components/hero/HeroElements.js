@@ -102,7 +102,7 @@ export const HeroP = styled.p`
   text-align: center;
   max-width: ${maxWidth};
   width: 100%;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Encode Sans Expanded", serif;
 
   @media screen and (max-width: 768px) {
     font-size: 20px;
