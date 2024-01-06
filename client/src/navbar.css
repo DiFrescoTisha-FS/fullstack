@@ -13,7 +13,7 @@ body {
   padding: 0 15px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: center; /* Vertically center the content */
   height: 100%;
 }
 
@@ -21,9 +21,12 @@ body {
   height: 60px;
   background-color: #fef7e5;
   position: relative;
+  display: flex; /* Use flexbox */
+  align-items: center; /* Vertically center the content */
 }
 
 .nav-elements {
+  z-index: 1; /* Ensure menu items are displayed above other elements */
 }
 
 .nav-elements ul {
