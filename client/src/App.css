@@ -1,16 +1,1 @@
 
-/* This will change the scrollbar track (background) */
-::-webkit-scrollbar {
-    width: 12px; /* for vertical scrollbars */
-    height: 12px; /* for horizontal scrollbars */
-}
-
-/* This will change the scrollbar thumb (the moving part) */
-::-webkit-scrollbar-thumb {
-    background: #e1affd; /* scrollbar color */
-}
-
-/* This will change the scrollbar thumb when it's hovered over */
-::-webkit-scrollbar-thumb:hover {
-    background: darkblue; /* scrollbar color on hover */
-}

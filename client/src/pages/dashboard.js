@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import TwinklingBackground from "../components/twinklingbackground/TwinklingBackground";
 
 const Dashboard = () => {
   return (
-    <div>Dashboard</div>
-  )
-}
+    <div>
+      <TwinklingBackground title="Trapstar Bam" />
+    </div>
+  );
+};
 
-export default Dashboard
+export default Dashboard;

@@ -1,9 +1,17 @@
 import React, { useState } from "react";
 import Rating from "react-rating-stars-component";
 import axios from "axios";
-import Shirtless from "../../images/shirtless.png"; // Adjust based on the package you choose
+import { Clouds } from "../twinklingbackground/TwinklingBackground";
+import commentsDesktopImage from '../../images/commentsDesktop.png';
+import commentsTabletImage from '../../images/commentsTablet.png';
+import commentsMobileImage from '../../images/commentsMobile.png'; 
+import Comments from "../../images/placeholder1.jpg";
+import TwinklingBackground from '../twinklingbackground/TwinklingBackground'
+import { BsSendFill } from "react-icons/bs";
+import { Button } from "../ButtonElements"; // Adjust based on the package you choose
 import {
   CommentSectionContainer,
+  CommentsBg,
   CommentWrapper,
   CommentRow,
   ImgWrap,
@@ -14,10 +22,12 @@ import {
   Heading,
   Subtitle,
   TextArea,
-  SubmitButton,
+  CommentBtnWrapper,
 } from "./CommentSectionElements"; // You'll need to define these styled components
+// import StarBackground2 from '../starbackground2/StarBackground2';
+// import CommentsTwinkling from "./CommentsTwinkling"
 
-const CommentSection = ({ backgroundImage, lightText }) => {
+const CommentSection = () => {
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
 
@@ -47,17 +57,35 @@ const CommentSection = ({ backgroundImage, lightText }) => {
     }
   };
 
+  // const backgroundImage = commentsDesktop;
+
+
   return (
-    <CommentSectionContainer backgroundImage="backgroundImage">
-      <CommentWrapper onSubmit={handleCommentSubmit}>
+    <CommentSectionContainer id="comments">
+      <TwinklingBackground />
+      <Clouds style={{zIndex: '10'}} />
+      <CommentsBg
+        backgroundImageDesktop={commentsDesktopImage}
+        backgroundImageTablet={commentsTabletImage}
+        backgroundImageMobile={commentsMobileImage}
+      />
+
+      <CommentWrapper style={{zIndex: '20'}} onSubmit={handleCommentSubmit}>
         <CommentRow>
-          <ImgWrap>
-            <Img src={Shirtless} alt="Artist wearing no shirt" />
+        <ImgWrap>
+            <Img src={Comments} alt="Artist wearing no shirt" />
           </ImgWrap>
-          <TextWrapper>
+        <TextWrapper>
             <TopLine>Bam Fans</TopLine>
             <Heading>Before you go...</Heading>
-            <Subtitle>Bam fans can now leave a comment for Trapstar Bam.<br/>And don't forget to rate your galaxy tour!<br/>Thanks for stopping by.<br/>(You must me signed in to leave a comment.)</Subtitle>
+            <Subtitle>
+              Leave a comment for Trapstar Bam, and
+              <br /> rate your galaxy tour!
+              <br />
+              Thanks for stopping by.
+              <br />
+              (You must me signed in to leave a comment.)
+            </Subtitle>
             <FormWrap onSubmit={handleCommentSubmit}>
               <Rating
                 value={rating}
@@ -68,9 +96,24 @@ const CommentSection = ({ backgroundImage, lightText }) => {
                 value={comment}
                 onChange={handleCommentChange}
               />
-              <SubmitButton type="submit">Submit</SubmitButton>
+              <CommentBtnWrapper>
+                <Button
+                  to=""
+                type="submit"
+                $primary="true"
+                $dark="true"
+                smooth={true}
+                duration={500}
+                spy={true}
+                exact="true"
+                offset={-80}
+              >
+                  {"Send"}&nbsp;&nbsp;{<BsSendFill size={20} />} 
+              </Button>
+              </CommentBtnWrapper>
             </FormWrap>
           </TextWrapper>
+
         </CommentRow>
       </CommentWrapper>
     </CommentSectionContainer>

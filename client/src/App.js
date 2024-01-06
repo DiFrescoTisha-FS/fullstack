@@ -5,19 +5,16 @@ import "./App.css";
 import Home from "./pages/home";
 import { Routes, Route } from "react-router-dom";
 import Dashboard from "./pages/dashboard";
-import "./App.css"
-// import Twinkling from "./components/twinkling/Twinkling";
+import "./App.css";
 
 function App() {
-
   return (
     <>
-      {/* <Twinkling /> */}
-      {/* <Navbar /> */}
-      <Routes>
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/" element={<Home />} />
-      </Routes>
+        {/* <Navbar /> */}
+        <Routes>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/" element={<Home />} />
+        </Routes>
     </>
   );
 }

@@ -1,127 +1,214 @@
 import styled from 'styled-components';
+import { MusicWrapper } from "../music/MusicElements";
 
-// ... other components ...
+const tabletBreakpoint = '768px'; 
 
 export const CommentSectionContainer = styled.div`
-    position: : relative;
-    z-index: 5;
-    color: ${({ lightText }) => (lightText ? '#fff' : '#010606')};
-    background: ${({ backgroundImage }) => (backgroundImage ? `url(${backgroundImage})` : '#010606')};
-    background-size: cover; /* Adjust the background size as needed */
-    background-position: center; /* Adjust the background position as needed */
-    padding: 100px 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  min-height: 860px; // Adjust as needed
+  z-index: 1;
+
+  @media screen and (max-width: 768px) {
+    /* padding: 50px 0; */
+    flex-direction: column;
+    justify-content: center; // Centers content vertically in the column
+    align-items: center; // Centers content horizontally in the column
+    min-height: auto; // Remove fixed height to allow content to determine height
+  }
 `;
 
-export const CommentWrapper = styled.div`
+export const CommentsBg = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(${props => props.backgroundImageDesktop}) no-repeat center center;
+  background-size: cover;
+  z-index: 2; // Above the TwinklingBackground
+
+  @media screen and (max-width: 768px) {
+   background: url(${props => props.backgroundImageTablet}) no-repeat center center;
+    background-size: cover;
+    background-position: center; // Adjust this value if needed
+  }
+
+  @media screen and (max-width: 480px) {
+    background: url(${props => props.backgroundImageMobile}) no-repeat center center;
+    background-size: contain;
+    background-position: center; // Adjust this value if needed
+  }
+`;
+
+export const CommentWrapper = styled(MusicWrapper)`
   display: flex;
   align-items: center;
-  justify-content: space-between; // Use space-between to place children on opposite ends of the container
-  height: 860px;
+  justify-content: space-between;
+  height: auto;
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 24px;
-  
+  position: relative;
+  z-index: 2; // Above the planet image
+
   @media screen and (max-width: 768px) {
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    height: auto; // Allow the height to grow as needed on smaller screens
+    align-items: center;
   }
 `;
 
 export const CommentRow = styled.div`
   display: flex;
   align-items: center;
-  gap: 50px;
   width: 100%;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: ${tabletBreakpoint}) {
     flex-direction: column;
+    justify-content: center; // Centers content vertically
+    align-items: center; // Centers content horizontally
   }
-`
+
+  @media screen and (max-width: 480px) {
+    flex-direction: column; /* Stack them on top of each other on mobile */
+  }
+`;
 
 export const ImgWrap = styled.div`
-  max-width: 555px; // Adjust the width as necessary
+  max-width: 455px; // Set max-width to at least 455px
   height: auto;
-  @media screen and (max-width: 768px) {
-    max-width: 100%;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 16px;
+
+  @media screen and (max-width: ${tabletBreakpoint}) {
+    width: 100%; // To make the image take the full width of the container
+    margin-bottom: 16px;
+    order: 2; // Add some space between the image and the next element
+  }
+
+  @media screen and (max-width: 480px) {
+    order: 2; /* Image on top for mobile */
   }
 `;
 
 export const Img = styled.img`
-    max-width: 100%;
-    height: auto;
-    position: relative;
-    /* margin: 0 0 10px 0; */
-    padding-right: 0;
-    border-radius: 10px;
-    border: 2px solid #e1affd;
-    z-index: 10;
-`;
-
-export const TextWrapper = styled.div`
-  max-width: 540px;
+  width: 455px; // Fixed width of 455px
+  height: auto; // Maintain aspect ratio
   position: relative;
+  border-radius: 10px;
+  border: 2px solid #ac94f4;
+  z-index: 10;
+
   @media screen and (max-width: 768px) {
-    max-width: 100%;
+    width: 100%;
+    /* margin-right: 5px; */
   }
 `;
 
+
+export const TextWrapper = styled.div`
+  max-width: 100%; /* Default max-width */
+  position: relative;
+  margin-left: 40px;
+
+  @media screen and (max-width: ${tabletBreakpoint}) {
+    width: 100%; // To make the text take the full width of the container
+    margin-bottom: 50px;
+    order: 1;
+  }
+
+  @media screen and (max-width: 480px) {
+    order: 1; /* Text below the image for mobile */
+    margin-right: 0; 
+  }
+`;
+
+
 export const TopLine = styled.p`
-    color: #fff;
-    font-size: 18px;
-    position: relative;
-    line-height: 16px;
-    font-weight: 700;
-    letter-spacing: 1.4px;
-    text-transform: uppercase;
-    margin-bottom: 16px;
-    text-align: left; /* Add text-align property here */
+  font-size: 18px;
+  color: #fff;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  text-align: left;
 `;
 
 export const Heading = styled.h1`
-    margin-bottom: 24px;
-    color: #e1affd;
-    font-size: 44px;
-    line-height: 1.1;
-    font-weight: 600;
-    text-align: left; /* Add text-align property here */
+  /* margin-bottom: 20px; */
+  color: #ac94f4;
+  font-size: 44px;
+  line-height: 1.1;
+  font-weight: 600;
+  text-align: left;
+
+  @media screen and (max-width: 768px) {
+    font-size: 40px;
+  }
+
+  @media screen and (max-width: 480px) {
+    font-size: 32px;
+  }
 `;
 
 export const Subtitle = styled.p`
-    max-width: 440px;
-    margin-bottom: 35px;
-    font-size: 14px;
-    line-height: 26px;
-    color: #fff;
-    /* color: ${({ lightText }) => (lightText ? '#fff' : '#010606')}; */
-    text-align: left; /* Add text-align property here */
+  margin-top: 20px;
+  max-width: 440px;
+  margin-bottom: 25px;
+
+  font-size: 20px;
+  line-height: 26px;
+  color: #fff;
+  text-align: left;
+
+
+  @media screen and (max-width: 768px) {
+    font-size: 20px;
+  }
+
+  @media screen and (max-width: 480px) {
+    font-size: 16px;
+  }
 `;
 
 export const FormWrap = styled.form`
-    position: relative;
-    /* border: 2px solid red; */
-    /* background: lightblue; */
-    z-index: 10;
+  position: relative;
+  z-index: 10;
+
+  @media screen and (max-width: 768px) {
+    order: 1;
+  }
 `;
 
+// export const StarRating = styled.div`
+//   color: #ac94f4;
+// `
+
 export const TextArea = styled.textarea`
+margin-top: 15px;
   width: 100%;
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
   margin-bottom: 10px;
-  resize: vertical; // Allows the user to resize the textarea vertically
+  resize: vertical;
+
+  @media screen and (max-width: 768px) {
+    width: 90%;
+    margin-right: 35px;
+  }
 `;
 
-export const SubmitButton = styled.button`
-  padding: 10px 20px;
-  border-radius: 5px;
-  border: none;
-  background-color: #e1affd;
-  color: white;
-  cursor: pointer;
-  // add more styling as needed
+export const CommentBtnWrapper = styled.button`
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 28px;
 `;
-
-// ... other components ...
