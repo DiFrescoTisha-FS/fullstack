@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Rating from "react-rating-stars-component";
 import axios from "axios";
 import { Clouds } from "../twinklingbackground/TwinklingBackground";
-import commentsDesktopImage from '../../images/commentsDesktop.png';
+import commentsDesktopImage from '../../images/commentsTablet.png';
 import commentsTabletImage from '../../images/commentsTablet.png';
 import commentsMobileImage from '../../images/commentsMobile.png'; 
 import Comments from "../../images/placeholder1.jpg";

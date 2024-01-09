@@ -4,7 +4,8 @@ import { Button } from "../ButtonElements";
 import { FaArrowAltCircleDown } from "react-icons/fa";
 import artistDesktopImage from '../../images/artistDesktop.png';
 import artistTabletImage from '../../images/artistTablet.png';
-import artistMobileImage from '../../images/artistMobile.png'; // Replace with actual mobile image path
+import artistMobileImage from '../../images/artistMobile.png';
+// import cometImageSrc from '../../images/cometImage.png';
 
 import TwinklingBackground from "../twinklingbackground/TwinklingBackground";
 import { Clouds } from "../twinklingbackground/TwinklingBackground";
@@ -40,7 +41,7 @@ const ArtistInfo = ({
   return (
     <>
       <ArtistInfoContainer id="bio">
-        <TwinklingBackground />
+        <TwinklingBackground  />
         <Clouds style={{zIndex: '10'}} />
         <ArtistBg
           backgroundImageDesktop={artistDesktopImage}

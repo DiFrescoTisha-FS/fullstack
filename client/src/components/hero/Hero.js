@@ -21,14 +21,14 @@ const HeroSection = () => {
   const onHover = () => {
     setHover(!hover);
   };
+
   return (
     <HeroContainer id="home">
       <HeroBg>
         <TwinklingBackground
-          // title="Your Title Here"
           saturnImage="https://i.imgur.com/yM3SlcH.png"
           neptuneImage="https://i.imgur.com/XyBATJD.png"
-          cometImage="https://i.imgur.com/QhHdHWb.png"
+          cometImage="https://i.imgur.com/kpEWyJS.png"
           earthImage="https://i.imgur.com/qTwsepd.png"
         />
         <Clouds style={{zIndex: '10'}} />

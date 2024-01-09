@@ -102,7 +102,7 @@ export const HeroP = styled.p`
   text-align: center;
   max-width: ${maxWidth};
   width: 100%;
-  font-family: "Open Sans", sans-serif;
+
 
   @media screen and (max-width: 768px) {
     font-size: 20px;
@@ -134,7 +134,7 @@ export const SaturnImage = styled.img`
 
 export const NeptuneImage = styled.img`
   position: absolute;
-  /* top: 50px; */
+  top: 60px;
   left: 100px;
   z-index: 3;
   width: 500px;
@@ -168,19 +168,56 @@ export const CometImage = styled.img`
   position: absolute;
   right: 0;
   bottom: 0;
-  width: 100px; // Adjust size for tablet as needed
-  height: auto; // Maintain aspect ratio
-  z-index: 3; // Ensure it's above the background layers but below content
-  display: none; // Hide by default
+  width: 100px;
+  height: auto;
+  z-index: 60; 
+
 
   @media screen and (max-width: 768px) {
-    display: block; // Show on tablet
+    display: block;
   }
 
   @media screen and (max-width: 480px) {
     display: block; // Show on mobile
   }
 `;
+
+export const CometImage2 = styled.img`
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 150px;
+  height: auto;
+  z-index: 60; 
+
+
+  @media screen and (max-width: 768px) {
+    display: block;
+  }
+
+  @media screen and (max-width: 480px) {
+    display: block; // Show on mobile
+  }
+`;
+
+export const CometImage3 = styled.img`
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 200px;
+  height: auto;
+  z-index: 60; 
+
+
+  @media screen and (max-width: 768px) {
+    display: block;
+  }
+
+  @media screen and (max-width: 480px) {
+    display: block; // Show on mobile
+  }
+`;
+
 
 // Hero Button Wrapper
 export const HeroBtnWrapper = styled.div`

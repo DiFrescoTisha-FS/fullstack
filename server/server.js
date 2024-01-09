@@ -14,7 +14,15 @@ const CommentRating = require('./api/models/commentRating');
 
 const app = express();
 
-app.use(cors());
+const corsOptions = {
+  origin: 'http://localhost:3000', // or the specific origin you want to allow
+  credentials: true, // this is important for cookies/session to be sent and received
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  allowedHeaders: 'Content-Type,Authorization',
+};
+
+app.use(cors(corsOptions));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(morgan('combined'));

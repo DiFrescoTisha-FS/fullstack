@@ -5,20 +5,18 @@ import { Link as LinkS } from 'react-scroll';
 export const Nav = styled.nav`
     background: #000;
     height: 80px;
+    margin-top: -80px;
     display: flex;
-    position: relative;
     justify-content: center;
     align-items: center;
     font-size: 1rem;
     position: sticky;
     top: 0;
     z-index: 10;
-
     @media screen and (max-width: 960px) {
-        transition: 0.8s all ease; // Corrected the spelling here
+        transitiion: 0.8s all ease;
     }
 `;
-
 
 export const NavbarContainer = styled.div`
     display: flex;
@@ -36,75 +34,44 @@ export const NavLogo = styled(LinkR)`
     font-size: 1.5rem;
     display: flex;
     align-items: center;
+    margin-left: 24px;
     font-weight: bold;
     text-decoration: none;
 `;
 
 export const NavIcon = styled.img`
-    width: auto; // Adjust to maintain aspect ratio
-    max-width: 65px; // Set max width to prevent stretching
-    max-height: 65px; // Set max height to prevent stretching
-    position: relative;
-    border-radius: 100%;
-    border: 1px solid #ac94f4;
-
-    @media screen and (max-width: 768px) {
-      margin-top: 15px;
-      width: auto; // Adjust to maintain aspect ratio
-      max-width: 75px; // Set max width to prevent stretching
-      max-height: 75px; // Set max height to prevent stretching
-
-  }
-
-  @media screen and (max-width: 480px) {
-    max-width: 65px; // Set max width to prevent stretching
-    max-height: 65px; // Set max height to prevent stretching
-    border: 2px solid #ac94f4;
-  }
+    width: 75px;
+    height: 75px;
 `;
-
 
 export const MobileIcon = styled.div`
-  display: none;
+    display: none;
 
-  @media screen and (max-width: 768px) {
-    display: block;
-    position: absolute;
-    top: 20px;
-    right: 40px;
-    font-size: 2.5rem;
-    cursor: pointer;
-    z-index: 21;
-  }
+    @media screen and (max-width: 768px) {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(-100%, 60%);
+        font-size: 1.8rem;
+        cursor: pointer;
+    }
 `;
 
-
 export const NavMenu = styled.ul`
-  display: flex;
-  align-items: center;
-  list-style: none;
-  text-align: center;
+    display: flex;
+    align-items: center;
+    list-style: none;
+    text-align: center;
 
-  @media screen and (max-width: 768px) {
-    display: ${({ $isOpen }) => ($isOpen ? 'flex' : 'none')};
-    flex-direction: column;
-    width: 100%;
-    position: absolute;
-    top: 80px; // Adjust if needed
-    left: 0;
-    background: #000;
-    z-index: 10;
-    padding-top: 20px; // Add padding to prevent sticking to the top
-  }
+    @media screen and (max-width: 768px) {
+        display: none;
+    }
 `;
 
 export const NavItem = styled.li`
-  @media screen and (max-width: 768px) {
-    width: 100%; // Make sure the item takes full width
-    margin-bottom: 10px; // Adjust spacing between menu items
-  }
+    height: 80px;
 `;
-
 
 export const NavLinks = styled(LinkS)`
     color: #fff;
@@ -112,55 +79,51 @@ export const NavLinks = styled(LinkS)`
     align-items: center;
     justify-content: space-evenly;
     text-decoration:none;
-    padding: 0 2rem; // Adjust padding for larger screens
+    padding: 0 2rem;
     height: 100%;
     cursor: pointer;
+    position: relative; // Required for absolute positioning of the pseudo-element
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%); // Center the border
+    width: 60%; // Adjust this value to control the border's length
+    height: 2px; // Border thickness
+    background-color: #e1affd; // Border color
+    opacity: 0;
+    transition: opacity 0.3s;
+    margin-bottom: -4px;
+  }
 
-    &.active {
-        border-bottom: 3px solid #ac94f4; // Keep this line and remove the duplicate
-
-    @media screen and (max-width: 768px) {
-        padding: 0 1rem; // Combine both media query adjustments here
-        border-bottom-width: 2px; // Adjustments for smaller screens
-        width: 50%; // Make the line narrower
-        margin-left: auto; // Center the line
-        margin-right: auto; // Center the line
-    }
+  &:hover::after,
+  &.active::after {
+    opacity: 1; // Show the border on hover and when active
   }
 `;
 
+export const NavBtn = styled.nav`
+    display: flex;
+    align-items: center;
 
-export const NavGoogleBtn = styled.div`
-  justify-self: flex-end;
-  cursor: pointer;
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  margin-left: 24px;
-  font-weight: 500; // This is fine, '500' is equivalent to 'font-weight: normal;'
-  text-decoration: none;
-  margin-bottom: 16px;
-
-  @media screen and (max-width: 768px) {
-    display: ${({ $isOpen }) => ($isOpen ? 'flex' : 'none')}; // Correct use of prop for conditional CSS
-    width: 100%;
-    justify-content: center;
-    padding: 1rem 0; // Adds padding for spacing
-  }
+    @media screen and (max-width: 768px) {
+        display: none;
+    }
 `;
 
 export const NavBtnLink = styled(LinkR)`
-    /* border-radius: 50px; */
-    /* background: #ac94f4; */
-    /* white-space: nowrap; */
-    /* padding: 10px 22px;
+    border-radius: 50px;
+    background: #ac94f4;
+    white-space: nowrap;
+    padding: 10px 22px;
     color: #010606;
     font-size: 16px;
     outline: none;
     border: none;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
-    text-decoration: none; */
+    text-decoration: none;
 
     &:hover {
         transition: all 0.2s ease-in-out;
@@ -169,4 +132,33 @@ export const NavBtnLink = styled(LinkR)`
         border: 1px solid #ac94f4;
         outline: 1px solid #ac94f4;
 }
+`;
+
+export const GoogleSignInButton = styled.button`
+  // Shared styles for all views
+  display: inline-flex;
+  align-items: center;
+  background: #ac94f4;
+  color: white;
+  border: none;
+  text-align: center;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-bottom: 3px solid transparent; // To match other nav items
+  &:hover {
+    color: #010606;
+    background: white;
+    // Other hover styles
+  }
+
+  // Hide on desktop by default
+  /* display: none; */
+
+  // Display button in mobile nav menu
+  @media screen and (max-width: 768px) {
+    display: block;
+    width: 100%;
+    margin-top: auto; // Pushes the button to the bottom of the nav menu
+    border-bottom: 3px solid #ac94f4; // Active style
+  }
 `;
