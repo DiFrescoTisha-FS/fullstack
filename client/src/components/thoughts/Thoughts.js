@@ -4,7 +4,7 @@ import tattooFingers from "../../images/tattoofingers.JPG";
 import thoughtsDesktopImage from "../../images/thoughtsDesktop.png"
 import thoughtsTabletImage from "../../images/thoughtsTablet.png"
 import thoughtsMobileImage from "../../images/thoughtsMobile.png"
-import { Clouds } from "../twinklingbackground/TwinklingBackground";
+// import { Clouds } from "../twinklingbackground/TwinklingBackground";
 import TwinklingBackground from "../twinklingbackground/TwinklingBackground";
 import {
   ThoughtsContainer,
@@ -35,7 +35,7 @@ const Thoughts = ({
   return (
     <ThoughtsContainer id="thoughts">
       <TwinklingBackground />
-      <Clouds style={{zIndex: '10'}} />
+      {/* <Clouds style={{zIndex: '10'}} /> */}
         <ThoughtsBg
           backgroundImageDesktop={thoughtsDesktopImage}
           backgroundImageTablet={thoughtsTabletImage}

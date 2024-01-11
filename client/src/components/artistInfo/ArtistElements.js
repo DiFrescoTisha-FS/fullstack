@@ -1,9 +1,18 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { FaArrowAltCircleDown, FaBusAlt } from 'react-icons/fa';
 import { MusicWrapper } from "../music/MusicElements";
 import { Link } from 'react-scroll';
 
 const tabletBreakpoint = '768px'; 
+
+const moveCloud = keyframes`
+  from {
+    transform: translateX(1500px);
+  }
+  to {
+    transform: translateX(-1100px);
+  }
+`;
 
 export const ArtistInfoContainer = styled.div`
   position: relative;
@@ -239,4 +248,71 @@ export const ArrowFilled = styled(FaBusAlt)`
 export const ArrowCircle = styled(FaArrowAltCircleDown)`
   margin-left: 8px;
   font-size: 20px;
+`;
+
+export const ArtistCloud1 = styled.div`
+  background: url("https://i.imgur.com/1ZY7lOo.png");
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-repeat: no-repeat;
+  animation: ${moveCloud} 120s infinite;
+  filter: brightness(0.1) blur(3px);
+`;
+
+export const ArtistCloud2 = styled.div`
+  background: url("http://pngimg.com/uploads/cloud/cloud_PNG24.png");
+  width: 100%;
+  height: 100%;
+  top: 200px;
+  position: absolute;
+  background-repeat: no-repeat;
+  animation: ${moveCloud} 150s infinite;
+  animation-delay: 2s; 
+  filter: brightness(0.2) blur(3px);
+`;
+
+export const ArtistCloud3 = styled.div`
+  background: url("https://i.imgur.com/LMZ2p87.png");
+  width: 100%;
+  height: 100%;
+  top: 300px;
+  position: absolute;
+  background-repeat: no-repeat;
+  animation: ${moveCloud} 160s infinite;
+  filter: brightness(0.1) blur(3px);
+`;
+
+export const ArtistCloud4 = styled.div`
+  background: url("https://i.imgur.com/Ex2kygq.png");
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 75px;
+  background-repeat: no-repeat;
+  animation: ${moveCloud} 300s infinite;
+  filter: blur(3px);
+  filter: brightness(0.3) blur(3px);
+`;
+
+export const ArtistCloud5 = styled.div`
+  background: url("https://i.imgur.com/874Clt6.png");
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 400px;
+  background-repeat: no-repeat;
+  animation: ${moveCloud} 150s infinite;
+  filter: brightness(0.1) blur(3px);
+`;
+
+export const ArtistCloud6 = styled.div`
+  background: url("https://i.imgur.com/MSGrJ9r.png");
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 200px;
+  background-repeat: no-repeat;
+  animation: ${moveCloud} 140s infinite;
+  filter: brightness(0.1) blur(3px);
 `;

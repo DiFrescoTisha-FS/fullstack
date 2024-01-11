@@ -106,7 +106,7 @@ export const SocialMediaIcon = styled.img`
     max-height: 65px;
     margin-bottom: 15px;
     border-radius: 100%;
-    border: 2px solid #ac94f4;
+    /* border: 2px solid #ac94f4; */
 
     @media screen and (max-width: 480px) {
     flex-direction: column;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import avatarIcon from '../../images/tsbam.png';
+import avatarIcon from '../../images/purple_logo.png';
 
 import {
   CustomButton, // Use CustomButton here

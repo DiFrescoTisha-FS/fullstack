@@ -1,6 +1,13 @@
-import styled from "styled-components";
-// import backgroundImage from "../../images/single.png";
-// import { SectionContainer } from '../SectionContainer'; 
+import styled, { keyframes } from "styled-components";
+
+const moveCloud = keyframes`
+  from {
+    transform: translateX(1500px);
+  }
+  to {
+    transform: translateX(-1100px);
+  }
+`;
 
 const tabletBreakpoint = '768px'; 
 
@@ -198,7 +205,6 @@ export const MusicDiv = styled.div`
   }
 `;
 
-
 export const Music = styled.div`
   width: 455px; // Fixed width of 455px
   height: auto; // Maintain aspect ratio
@@ -211,4 +217,73 @@ export const Music = styled.div`
     width: 100%;
     /* margin-right: 5px; */
   }
+`;
+
+export const MusicCloud1 = styled.div`
+  background: url("https://i.imgur.com/1ZY7lOo.png");
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-repeat: no-repeat;
+  animation: ${moveCloud} 120s infinite;
+  filter: brightness(0.15) blur(3px);
+`;
+
+export const MusicCloud2 = styled.div`
+  background: url("http://pngimg.com/uploads/cloud/cloud_PNG24.png");
+  width: 100%;
+  height: 100%;
+  top: 200px;
+  position: absolute;
+  background-repeat: no-repeat;
+  animation: ${moveCloud} 150s infinite;
+  animation-delay: 2s; 
+  filter: brightness(0.2) blur(3px);
+`;
+
+export const MusicCloud3 = styled.div`
+  background: url("https://i.imgur.com/LMZ2p87.png");
+  width: 100%;
+  height: 100%;
+  top: 300px;
+  position: absolute;
+  background-repeat: no-repeat;
+  animation: ${moveCloud} 160s infinite;
+  filter: brightness(0.15) blur(3px);
+`;
+
+export const MusicCloud4 = styled.div`
+  background: url("https://i.imgur.com/Ex2kygq.png");
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 75px;
+  background-repeat: no-repeat;
+  animation: ${moveCloud} 300s infinite;
+  filter: blur(3px);
+  filter: brightness(0.2) blur(3px);
+`;
+
+export const MusicCloud5 = styled.div`
+  background: url("https://i.imgur.com/874Clt6.png");
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 200px;
+  background-repeat: no-repeat;
+  animation: ${moveCloud} 150s infinite;
+  filter: brightness(0.15) blur(3px);
+  animation-delay: 2s; 
+`;
+
+export const MusicCloud6 = styled.div`
+  background: url("https://i.imgur.com/MSGrJ9r.png");
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 100px;
+  background-repeat: no-repeat;
+  animation: ${moveCloud} 140s infinite;
+  filter: brightness(0.2) blur(3px);
+  animation-delay: 3s; 
 `;

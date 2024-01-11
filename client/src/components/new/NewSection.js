@@ -5,7 +5,7 @@ import newDesktopImage from '../../images/newDesktop.png';
 import newTabletImage from '../../images/newTablet.png'; // Replace with actual tablet image path
 import newMobileImage from '../../images/newMobile.png';
 
-import { Clouds } from "../twinklingbackground/TwinklingBackground"
+// import { Clouds } from "../twinklingbackground/TwinklingBackground"
 
 // import youTubeImage from "../../images/newDesktopView.png"
 import TwinklingBackground from "../twinklingbackground/TwinklingBackground";
@@ -51,7 +51,7 @@ export const NewSection = ({
     <>
       <NewContainer id="new">
         <TwinklingBackground />
-        <Clouds style={{zIndex: '10'}} />
+        {/* <Clouds style={{zIndex: '10'}} /> */}
         <NewBg 
           backgroundImageDesktop={newDesktopImage}
           backgroundImageTablet={newTabletImage}
