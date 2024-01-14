@@ -98,30 +98,26 @@ export const MusicWrapper = styled.div`
 export const MusicRow = styled.div`
   display: flex;
   align-items: center;
+  flex-direction: row; // Ensure the direction is row by default
   width: 100%;
 
   @media screen and (max-width: ${tabletBreakpoint}) {
-    flex-direction: column;
+    flex-direction: column-reverse; // Stack them on top of each other, text first
     justify-content: center; // Centers content vertically
     align-items: center; // Centers content horizontally
   }
-
-  @media screen and (max-width: 480px) {
-    flex-direction: column; /* Stack them on top of each other on mobile */
-  }
 `;
 
-
 export const TextWrapper = styled.div`
-  max-width: 529px; // Explicitly setting the max-width
-  width: 100%; // Ensures it takes the full width of the parent
+  max-width: 529px;
+  width: 100%;
   position: relative;
-  margin-right: 40px;
+  margin-right: 40px; // This ensures there is space between the text and the music player
 
-  @media screen and (max-width: 768px) {
-    max-width: 50%; // Adjust the max-width to fit the other half of the container
-    order: 1;
-    margin-bottom: 50px; // Moves the text to the left side
+  @media screen and (max-width: ${tabletBreakpoint}) {
+    order: 1; // Ensure the text content appears before the music player on smaller screens
+    margin-right: 0; // Reset margin since it will be full width
+    margin-bottom: 50px; // Add some space below the text content
   }
 
   @media screen and (max-width: 480px) {
@@ -187,17 +183,16 @@ export const BtnWrap = styled.div`
 `;
 
 export const MusicDiv = styled.div`
-  max-width: 455px; // Set max-width to at least 455px
+  max-width: 455px;
   height: auto;
   position: relative;
   z-index: 1;
   margin-bottom: 16px;
-  order: 1;
+  margin-right: 40px;
 
   @media screen and (max-width: ${tabletBreakpoint}) {
-    width: 100%; // To make the image take the full width of the container
-    margin-bottom: 16px;
-    order: 2; // Add some space between the image and the next element
+    width: 100%; // Full width on smaller screens
+    order: 2; // Ensure the music player appears after the text content
   }
 
   @media screen and (max-width: 480px) {
@@ -233,12 +228,12 @@ export const MusicCloud2 = styled.div`
   background: url("http://pngimg.com/uploads/cloud/cloud_PNG24.png");
   width: 100%;
   height: 100%;
-  top: 200px;
+  top: 100px;
   position: absolute;
   background-repeat: no-repeat;
   animation: ${moveCloud} 150s infinite;
-  animation-delay: 2s; 
-  filter: brightness(0.2) blur(3px);
+  animation-delay: 1s; 
+  filter: brightness(0.15) blur(3px);
 `;
 
 export const MusicCloud3 = styled.div`
@@ -248,8 +243,9 @@ export const MusicCloud3 = styled.div`
   top: 300px;
   position: absolute;
   background-repeat: no-repeat;
-  animation: ${moveCloud} 160s infinite;
+  animation: ${moveCloud} 210s infinite;
   filter: brightness(0.15) blur(3px);
+  animation-delay: 3s; 
 `;
 
 export const MusicCloud4 = styled.div`
@@ -260,8 +256,8 @@ export const MusicCloud4 = styled.div`
   top: 75px;
   background-repeat: no-repeat;
   animation: ${moveCloud} 300s infinite;
-  filter: blur(3px);
   filter: brightness(0.2) blur(3px);
+  animation-delay: 3s; 
 `;
 
 export const MusicCloud5 = styled.div`
@@ -271,19 +267,19 @@ export const MusicCloud5 = styled.div`
   position: absolute;
   top: 200px;
   background-repeat: no-repeat;
-  animation: ${moveCloud} 150s infinite;
-  filter: brightness(0.15) blur(3px);
+  animation: ${moveCloud} 140s infinite;
+  filter: brightness(0.1) blur(3px);
   animation-delay: 2s; 
 `;
 
 export const MusicCloud6 = styled.div`
-  background: url("https://i.imgur.com/MSGrJ9r.png");
+  background: url("https://i.imgur.com/vOSGaAF.png");
   width: 100%;
   height: 100%;
   position: absolute;
-  top: 100px;
+  top:200px;
   background-repeat: no-repeat;
-  animation: ${moveCloud} 140s infinite;
+  animation: ${moveCloud} 160s infinite;
   filter: brightness(0.2) blur(3px);
   animation-delay: 3s; 
 `;

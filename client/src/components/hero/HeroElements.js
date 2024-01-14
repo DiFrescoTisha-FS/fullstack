@@ -268,7 +268,7 @@ export const HeroCloud2 = styled.div`
   background: url("http://pngimg.com/uploads/cloud/cloud_PNG24.png");
   width: 100%;
   height: 100%;
-  top: 400px;
+  top: 350px;
   position: absolute;
   background-repeat: no-repeat;
   transform: translateX(4px); /* Adjust as necessary to position on screen */
@@ -286,7 +286,7 @@ export const HeroCloud3 = styled.div`
   position: absolute;
   background-repeat: no-repeat;
   transform: translateX(90px); /* Adjust as necessary to position on screen */
-  animation: ${moveCloud} 90s infinite;
+  animation: ${moveCloud} 110s infinite;
   animation-fill-mode: both;
   animation-delay: 3s; 
   filter: brightness(0.15) blur(3px);
@@ -317,7 +317,7 @@ export const HeroCloud5 = styled.div`
 `;
 
 export const HeroCloud6 = styled.div`
-  background: url("https://i.imgur.com/MSGrJ9r.png");
+  background: url("https://i.imgur.com/vOSGaAF.png");
   width: 100%;
   height: 100%;
   position: absolute;

@@ -307,7 +307,7 @@ export const ArtistCloud5 = styled.div`
 `;
 
 export const ArtistCloud6 = styled.div`
-  background: url("https://i.imgur.com/MSGrJ9r.png");
+  background: url("https://i.imgur.com/vOSGaAF.png");
   width: 100%;
   height: 100%;
   position: absolute;

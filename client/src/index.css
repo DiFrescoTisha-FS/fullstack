@@ -19,26 +19,27 @@ body, html {
   font-family: 'Encode Sans Expanded', sans-serif;
   overflow-x: hidden;
   background-color: #010606;
-  scrollbar-width: thin; /* can be "auto", "thin", or "none" */
+  scrollbar-width: auto; /* can be "auto", "thin", or "none" */
   scrollbar-color: #ac94f4 #010606; /* thumb and track color */
+
 }
 
 /* Style the scrollbar itself (thumb) */
 ::-webkit-scrollbar-thumb {
-  background-color: #ac94f4; /* Thumb color */
-  border-radius: 10px; /* Roundness of the thumb */
+  /* background-color: #ac94f4; */
+  /* border-radius: 10px; / */
 }
 
 /* Style the scrollbar track */
 ::-webkit-scrollbar-track {
-  background: #010606; /* Track color */
+  background: #010606;
 }
 
 /* Optional: Style the scrollbar width */
 ::-webkit-scrollbar {
-  width: 8px; /* Width of the scrollbar */
+  width: 2px; /* Width of the scrollbar */
 }
 
-/* img {
-  border: 2px solid red;
+/* * {
+  border: 1px solid red;
 } */

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 export const FooterContainer = styled.footer`
     background-color: #010606;
+    height:80px;
 `;
 
 export const FooterWrap =  styled.div`
@@ -19,7 +20,7 @@ export const FooterLinksContainer = styled.div`
     display: flex;
     flex: 2;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 
     @media screen and (max-width: 768px) {
         padding-top: 32px;

@@ -147,24 +147,24 @@ const Twinkling = styled.div`
 //   filter: brightness(1.2) contrast(1.1);
 // `;
 
-export const FallingComet = styled(CometImage)`
-animation: ${fallComet} 5s linear infinite; // Adjust the timing as needed
-position: fixed; // Use fixed or absolute depending on how you want it positioned
-top: 0;
-left: 50%; // Start at the middle of the screen
-transform: translateX(-50%); // Adjust this to control the starting horizontal position
-`;
+// export const FallingComet = styled(CometImage)`
+// animation: ${fallComet} 5s linear infinite; // Adjust the timing as needed
+// position: fixed; // Use fixed or absolute depending on how you want it positioned
+// top: 0;
+// left: 50%; // Start at the middle of the screen
+// transform: translateX(-50%); // Adjust this to control the starting horizontal position
+// `;
 
-export const SecondComet = styled(CometImage)`
-animation: ${fallComet} 2s linear infinite; // Adjust the timing as needed
-position: fixed; // Use fixed or absolute depending on how you want it positioned
-top: 0;
-left: 20%; // Start at the middle of the screen
-transform: translateX(-40%); // Adjust this to control the starting horizontal position
-`;
+// export const SecondComet = styled(CometImage)`
+// animation: ${fallComet} 2s linear infinite; // Adjust the timing as needed
+// position: fixed; // Use fixed or absolute depending on how you want it positioned
+// top: 0;
+// left: 20%; // Start at the middle of the screen
+// transform: translateX(-40%); // Adjust this to control the starting horizontal position
+// `;
 
 // The main component
-const TwinklingBackground = ({ saturnImage, neptuneImage, earthImage, neptuneImageMobile, cometImage }) => {
+const TwinklingBackground = ({ saturnImage, neptuneImage, earthImage, neptuneImageMobile }) => {
 
   return (
   <BackgroundContainer>
@@ -185,8 +185,8 @@ const TwinklingBackground = ({ saturnImage, neptuneImage, earthImage, neptuneIma
   />
 )}
     {earthImage && <EarthImage src={earthImage} alt="Earth" />}
-    {cometImage && <FallingComet src={cometImage} alt="Comet" />}
-    {cometImage && <SecondComet src={cometImage} alt="Comet" />}
+    {/* {cometImage && <FallingComet src={cometImage} alt="Comet" />}
+    {cometImage && <SecondComet src={cometImage} alt="Comet" />} */}
   </BackgroundContainer>
   );
   }

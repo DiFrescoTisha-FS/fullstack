@@ -6,7 +6,7 @@ import logo from "../../images/purple_logo.png";
 import { FaBars } from "react-icons/fa";
 import { IconContext } from "react-icons/lib";
 import { animateScroll as scroll } from "react-scroll";
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 import {
   Nav,
   NavbarContainer,
@@ -101,21 +101,57 @@ const Navbar1 = ({ toggle }) => {
     checkAuthStatus();
   }, []);
 
+  // Animation for the logo
+  const logoAnimation = {
+    initial: {
+      x: -500,
+      opacity: 0,
+      scale: 0.5,
+    },
+    animate: {
+      x: 0,
+      opacity: 1,
+      scale: 1,
+    },
+    transition: {
+      duration: 1.5,
+    },
+  };
+
+  const navItemsAnimation = {
+    initial: {
+      x: 500,
+      opacity: 0,
+      scale: 0.5,
+    },
+    animate: {
+      x: 0,
+      opacity: 1,
+      scale: 1,
+    },
+    transition: {
+      duration: 1.5,
+    },
+  };
+
   return (
     <>
       <IconContext.Provider value={{ color: "#ac94f4" }}>
         <Nav scrollNav={scrollNav}>
           <NavbarContainer>
             <NavLogo to="/">
-              <NavIcon src={logo} onClick={toggleHome} />
+              <motion.div {...logoAnimation}>
+                <NavIcon src={logo} onClick={toggleHome} />
+              </motion.div>
             </NavLogo>
             <MobileIcon onClick={isMobile ? toggle : undefined}>
               <FaBars />
             </MobileIcon>
 
             <NavMenu isOpen={isOpen} onClick={closeMobileMenu}>
-            {['home', 'bio', 'music', 'new', 'thoughts', 'comments'].map((item, index) => (
-                <motion.li key={index}>
+              {["home", "bio", "music", "new", "thoughts", "comments"].map(
+                (item, index) => (
+                  <motion.li key={index} {...navItemsAnimation}>
                   <NavLinks
                     to={item}
                     smooth={true}
@@ -127,26 +163,31 @@ const Navbar1 = ({ toggle }) => {
                     {item.charAt(0).toUpperCase() + item.slice(1)}
                   </NavLinks>
                 </motion.li>
-              ))}
+                )
+              )}
               {isOpen && !currentUser && (
                 <NavItem className="mt-auto">
-                  <GoogleSignInButton
-                    onClick={(event) => handleSignIn(event)}
-                    className="..."
-                  >
-                    <FcGoogle size={26} className="mr-2" />
-                    Sign in with Google
-                  </GoogleSignInButton>
+                <motion.div {...navItemsAnimation}>
+                    <GoogleSignInButton
+                      onClick={(event) => handleSignIn(event)}
+                      className="..."
+                    >
+                      <FcGoogle size={26} className="mr-2" />
+                      Sign in with Google
+                    </GoogleSignInButton>
+                  </motion.div>
                 </NavItem>
               )}
             </NavMenu>
             <NavBtn>
+            <motion.div {...navItemsAnimation}>
               <UserComponent
                 currentUser={currentUser}
                 onSignIn={(user) => setCurrentUser(user)}
                 onSignOut={() => setCurrentUser(null)}
                 isMobile={isMobile}
-              />
+                />
+            </motion.div>
             </NavBtn>
           </NavbarContainer>
         </Nav>

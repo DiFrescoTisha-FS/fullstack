@@ -41,7 +41,7 @@ const HeroSection = () => {
         <HeroCloud1 style={{ zIndex: '10' }} />
         <HeroCloud2 style={{ zIndex: '10' }} />
         <HeroCloud3 style={{ zIndex: '10' }} />
-        {/* <HeroCloud4 style={{ zIndex: '10' }} /> */}
+        <HeroCloud4 style={{ zIndex: '10' }} />
         <HeroCloud5 style={{ zIndex: '10' }} />
         <HeroCloud6 style={{ zIndex: '10' }} />
         {/* <Clouds style={{zIndex: '10'}} /> */}

@@ -40,8 +40,8 @@ export const NavLogo = styled(LinkR)`
 `;
 
 export const NavIcon = styled.img`
-    width: 75px;
-    height: 75px;
+    width: 80px;
+    height: 80px;
 `;
 
 export const MobileIcon = styled.div`
@@ -144,7 +144,7 @@ export const GoogleSignInButton = styled.button`
   text-align: center;
   padding: 10px 20px;
   cursor: pointer;
-  border-bottom: 3px solid transparent; // To match other nav items
+  margin-bottom: 40px;
   &:hover {
     color: #010606;
     background: white;

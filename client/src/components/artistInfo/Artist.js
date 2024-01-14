@@ -2,7 +2,7 @@ import React from "react";
 import galaxy from "../../images/galaxy.jpg";
 import { Button } from "../ButtonElements";
 import { FaArrowAltCircleDown } from "react-icons/fa";
-import artistDesktopImage from '../../images/artistDesktop.png';
+import artistDesktopImage from '../../images/artistDesktop4.png';
 import artistTabletImage from '../../images/artistTablet.png';
 import artistMobileImage from '../../images/artistMobile.png';
 
