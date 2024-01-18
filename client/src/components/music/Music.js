@@ -36,12 +36,13 @@ const MusicSection = ({
     <>
       <MusicContainer id="music">
         <TwinklingBackground />   
-        <MusicCloud1 style={{ zIndex: '10' }} />
+        {/* <MusicCloud1 style={{ zIndex: '10' }} /> */}
         <MusicCloud2 style={{ zIndex: '10' }} />
-        {/* <MusicCloud3 style={{ zIndex: '10' }} /> */}
-        <MusicCloud4 style={{ zIndex: '10' }} />
-        <MusicCloud5 style={{ zIndex: '10' }} />
-        <MusicCloud6 style={{ zIndex: '10' }} />
+        <MusicCloud3 style={{ zIndex: '20' }} />
+        {/* <MusicCloud4 style={{ zIndex: '10' }} /> */}
+        {/* <MusicCloud5 style={{ zIndex: '10' }} /> */}
+        {/* <MusicCloud6 style={{ zIndex: '10' }} /> */}
+
         <MusicBg 
           backgroundImageDesktop={musicDesktopImage}
           backgroundImageTablet={musicTabletImage}

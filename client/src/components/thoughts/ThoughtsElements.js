@@ -99,7 +99,8 @@ text-align: left;
 
 export const ImgWrap = styled.div`
   max-width: 455px; // Set max-width to at least 455px
-  height: auto;
+  width: 100%;
+  height: 455px;
   position: relative;
   z-index: 1;
   margin-bottom: 16px;
@@ -111,7 +112,7 @@ export const ImgWrap = styled.div`
   }
 
   @media screen and (max-width: 480px) {
-    order: 1; /* Image on top for mobile */
+    order: 2; /* Image on top for mobile */
   }
 `;
 
@@ -119,6 +120,7 @@ export const TextWrapper = styled.div`
   max-width: 529px; // Explicitly setting the max-width
   width: 100%; // Ensures it takes the full width of the parent
   position: relative;
+  margin-right: 18px;
 
   @media screen and (max-width: 768px) {
     max-width: 50%; // Adjust the max-width to fit the other half of the container
@@ -188,7 +190,7 @@ export const Subtitle = styled.p`
   }
 
   @media screen and (max-width: 480px) {
-    font-size: 16px;
+    font-size: 18px;
   }
 `;
 

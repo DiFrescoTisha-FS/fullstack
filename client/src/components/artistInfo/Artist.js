@@ -22,37 +22,27 @@ import {
   Img,
   ArtistCloud1,
   ArtistCloud2,
-  ArtistCloud3,
+  // ArtistCloud3,
   ArtistCloud4,
   ArtistCloud5,
   ArtistCloud6,
 } from "./ArtistElements";
 
 const ArtistInfo = ({
-  // backgroundImage,
-  id,
-  imgStart,
-  topline,
-  // lightText,
-  headline,
   darkText,
-  description,
-  img,
   alt,
-  primary,
-  dark,
-  dark2,
 }) => {
   return (
     <>
       <ArtistInfoContainer id="bio">
         <TwinklingBackground />
-        <ArtistCloud5 style={{ zIndex: '10' }} />
-        <ArtistCloud4 style={{ zIndex: '10' }} />
-        <ArtistCloud3 style={{ zIndex: '10' }} />
-        <ArtistCloud1 style={{ zIndex: '10' }} />
-        <ArtistCloud2 style={{ zIndex: '10' }} />
-        <ArtistCloud6 style={{ zIndex: '10' }} />
+        {/* <ArtistCloud1 style={{ zIndex: '10' }} />
+        <ArtistCloud2 style={{ zIndex: '10' }} /> */}
+        {/* <ArtistCloud4 style={{ zIndex: '10' }} /> */}
+
+        {/* <ArtistCloud5 style={{ zIndex: '10' }} /> */}
+        
+        {/* <ArtistCloud6 style={{ zIndex: '10' }} /> */}
         <ArtistBg
           backgroundImageDesktop={artistDesktopImage}
           backgroundImageTablet={artistTabletImage}

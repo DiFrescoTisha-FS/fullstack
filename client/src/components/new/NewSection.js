@@ -27,8 +27,8 @@ import {
   ArrowCircle, 
   NewCloud1,
   NewCloud2,
-  NewCloud3,
-  NewCloud4,
+
+
   NewCloud5,
   NewCloud6,
 } from "./NewElements.js";
@@ -63,9 +63,6 @@ export const NewSection = ({
           backgroundImageMobile={newMobileImage}
         />
         <NewCloud5 style={{ zIndex: '10' }} />
-        <NewCloud4 style={{ zIndex: '10' }} />
-        <NewCloud3 style={{ zIndex: '10' }} />
-        <NewCloud1 style={{ zIndex: '10' }} />
         <NewCloud2 style={{ zIndex: '10' }} />
         <NewCloud6 style={{ zIndex: '10' }} />
         <NewWrapper style={{zIndex: '20'}}>

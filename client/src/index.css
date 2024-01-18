@@ -26,8 +26,8 @@ body, html {
 
 /* Style the scrollbar itself (thumb) */
 ::-webkit-scrollbar-thumb {
-  /* background-color: #ac94f4; */
-  /* border-radius: 10px; / */
+  /* background-color: #ac94f4;
+  border-radius: 10px; */
 }
 
 /* Style the scrollbar track */

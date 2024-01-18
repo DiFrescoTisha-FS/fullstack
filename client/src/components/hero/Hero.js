@@ -19,7 +19,6 @@ import {
   HeroCloud4,
   HeroCloud5,
   HeroCloud6,
-
 } from "./HeroElements";
 
 const HeroSection = () => {
@@ -38,20 +37,18 @@ const HeroSection = () => {
           cometImage="https://i.imgur.com/kW59Usj.png"
           earthImage="https://i.imgur.com/qTwsepd.png"
         />
-        <HeroCloud1 style={{ zIndex: '10' }} />
-        <HeroCloud2 style={{ zIndex: '10' }} />
-        <HeroCloud3 style={{ zIndex: '10' }} />
-        <HeroCloud4 style={{ zIndex: '10' }} />
+        {/* <HeroCloud1 style={{ zIndex: '10' }} />
+        <HeroCloud2 style={{ zIndex: '10' }} /> */}
+        {/* <HeroCloud4 style={{ zIndex: '10' }} />
         <HeroCloud5 style={{ zIndex: '10' }} />
-        <HeroCloud6 style={{ zIndex: '10' }} />
-        {/* <Clouds style={{zIndex: '10'}} /> */}
+        <HeroCloud6 style={{ zIndex: '10' }} /> */}
       </HeroBg>
       <HeroContent style={{zIndex: '20'}}>
         <StylishText />
         {/* <HeroH1>Trapstar Bam</HeroH1> */}
         <HeroP>
-          'Witnessing Trapstar Bam's evolution as an artist has been truly
-          inspiring. Since we first collaborated back in 2020, his unwavering
+          'Witnessing Trapstar Bam's growth as an artist has been truly
+          inspiring. Since we first collaborated back in 2020, his
           dedication and love for music have propelled his growth tremendously.
           It's a privilege to watch him not just meet, but far exceed, every
           expectation.'

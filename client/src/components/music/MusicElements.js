@@ -1,15 +1,17 @@
 import styled, { keyframes } from "styled-components";
+// import backgroundImage from "../../images/single.png";
+// import { SectionContainer } from '../SectionContainer'; 
+
+const tabletBreakpoint = '768px'; 
 
 const moveCloud = keyframes`
   from {
-    transform: translateX(1500px);
+    transform: translateX(calc(100% + 200px)); // Start from the right, off-screen (100% of the viewport width plus the cloud's width)
   }
   to {
-    transform: translateX(-1100px);
+    transform: translateX(-100%); // Move to the left, off-screen
   }
 `;
-
-const tabletBreakpoint = '768px'; 
 
 export const MusicContainer = styled.div`
   position: relative;
@@ -64,14 +66,15 @@ export const MusicBg = styled.div`
     background-position: center 1px;
     
     &:after {
-      content: '';
+      /* content: '';
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
       background: linear-gradient(to bottom, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.5) 100%);
-      z-index: 3; // Above the background image but below the content
+      z-index: 3; */
+      
     } // Missing closing brace added here
   }
 `;
@@ -98,26 +101,31 @@ export const MusicWrapper = styled.div`
 export const MusicRow = styled.div`
   display: flex;
   align-items: center;
-  flex-direction: row; // Ensure the direction is row by default
   width: 100%;
 
   @media screen and (max-width: ${tabletBreakpoint}) {
-    flex-direction: column-reverse; // Stack them on top of each other, text first
+    flex-direction: column;
     justify-content: center; // Centers content vertically
     align-items: center; // Centers content horizontally
   }
+
+  @media screen and (max-width: 480px) {
+    flex-direction: column; /* Stack them on top of each other on mobile */
+  }
 `;
 
-export const TextWrapper = styled.div`
-  max-width: 529px;
-  width: 100%;
-  position: relative;
-  margin-right: 40px; // This ensures there is space between the text and the music player
 
-  @media screen and (max-width: ${tabletBreakpoint}) {
-    order: 1; // Ensure the text content appears before the music player on smaller screens
-    margin-right: 0; // Reset margin since it will be full width
-    margin-bottom: 50px; // Add some space below the text content
+export const TextWrapper = styled.div`
+  max-width: 529px; // Explicitly setting the max-width
+  width: 100%; // Ensures it takes the full width of the parent
+  position: relative;
+  margin-left: 40px;
+
+  @media screen and (max-width: 768px) {
+    max-width: 50%; // Adjust the max-width to fit the other half of the container
+    order: 1;
+    margin-bottom: 50px; // Moves the text to the left side
+    margin-left: 0;
   }
 
   @media screen and (max-width: 480px) {
@@ -160,7 +168,6 @@ export const Subtitle = styled.p`
   margin-top: 30px;
   max-width: 440px;
   margin-bottom: 25px;
-
   font-size: 20px;
   line-height: 26px;
   color: #fff;
@@ -172,7 +179,7 @@ export const Subtitle = styled.p`
   }
 
   @media screen and (max-width: 480px) {
-    font-size: 16px;
+    font-size: 18px;
   }
 `;
 
@@ -183,22 +190,25 @@ export const BtnWrap = styled.div`
 `;
 
 export const MusicDiv = styled.div`
-  max-width: 455px;
+  max-width: 455px; // Set max-width to at least 455px
   height: auto;
   position: relative;
   z-index: 1;
   margin-bottom: 16px;
-  margin-right: 40px;
+  /* order: 1; */
 
   @media screen and (max-width: ${tabletBreakpoint}) {
-    width: 100%; // Full width on smaller screens
-    order: 2; // Ensure the music player appears after the text content
+    width: 100%;
+    height: 440px; // To make the image take the full width of the container
+    margin-bottom: 16px;
+    order: 2; // Add some space between the image and the next element
   }
 
   @media screen and (max-width: 480px) {
     order: 2; /* Image on top for mobile */
   }
 `;
+
 
 export const Music = styled.div`
   width: 455px; // Fixed width of 455px
@@ -208,78 +218,97 @@ export const Music = styled.div`
   border: 2px solid #ac94f4;
   z-index: 10;
 
-  @media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
     width: 100%;
-    /* margin-right: 5px; */
   }
 `;
 
 export const MusicCloud1 = styled.div`
-  background: url("https://i.imgur.com/1ZY7lOo.png");
-  width: 100%;
-  height: 100%;
+  background: url("https://i.imgur.com/os3kDfx.png") no-repeat;
+  background-size: contain;
+  max-width: 600px;
+  height: 50%;
   position: absolute;
+  top: 5%;
+  left: 0;
+  animation: ${moveCloud} 10s linear infinite;
   background-repeat: no-repeat;
-  animation: ${moveCloud} 120s infinite;
-  filter: brightness(0.15) blur(3px);
+  /* animation-delay: 2s; */
+  filter: brightness(0.2) blur(3px);
 `;
 
 export const MusicCloud2 = styled.div`
-  background: url("http://pngimg.com/uploads/cloud/cloud_PNG24.png");
-  width: 100%;
-  height: 100%;
-  top: 100px;
+  background: url("https://i.imgur.com/os3kDfx.png") no-repeat;
   position: absolute;
-  background-repeat: no-repeat;
-  animation: ${moveCloud} 150s infinite;
-  animation-delay: 1s; 
+  top: 10%;
+  left: 0;
+  background-size: contain;
+  width:50%;
+  height: 50%;
+  animation: ${moveCloud} 90s linear infinite;
+  animation-delay: 2s;
   filter: brightness(0.15) blur(3px);
 `;
 
 export const MusicCloud3 = styled.div`
-  background: url("https://i.imgur.com/LMZ2p87.png");
-  width: 100%;
-  height: 100%;
-  top: 300px;
+  background: url("https://i.imgur.com/os3kDfx.png") no-repeat;
   position: absolute;
-  background-repeat: no-repeat;
-  animation: ${moveCloud} 210s infinite;
-  filter: brightness(0.15) blur(3px);
-  animation-delay: 3s; 
+  top: 10%;
+  left: 0;
+  background-size: contain;
+  width:100%;
+  height:100%;
+  animation: ${moveCloud} 75s linear infinite;
+  animation-delay: 3s;
+  filter: brightness(0.2) blur(3px);
+  z-index: 200;
+
+  @media screen and (max-width: 480px) {
+    display: none;
+  }
 `;
 
 export const MusicCloud4 = styled.div`
-  background: url("https://i.imgur.com/Ex2kygq.png");
-  width: 100%;
-  height: 100%;
+  background: url("https://i.imgur.com/vOSGaAF.png") no-repeat;
+  background-size: contain;
+  width: 800px;
+  height: 50%;
   position: absolute;
-  top: 75px;
+  top: 20%;
+  left: 0;
+  animation: ${moveCloud} 50s linear infinite;
   background-repeat: no-repeat;
-  animation: ${moveCloud} 300s infinite;
+  animation-delay: 2s;
   filter: brightness(0.2) blur(3px);
-  animation-delay: 3s; 
 `;
 
 export const MusicCloud5 = styled.div`
-  background: url("https://i.imgur.com/874Clt6.png");
-  width: 100%;
-  height: 100%;
+  background: url("https://i.imgur.com/FRbxCcc.png") no-repeat;
   position: absolute;
-  top: 200px;
-  background-repeat: no-repeat;
-  animation: ${moveCloud} 140s infinite;
-  filter: brightness(0.1) blur(3px);
-  animation-delay: 2s; 
+  top: 10%;
+  left: 0;
+  background-size: contain;
+  width: 100%;
+  height: 50%;
+  animation: ${moveCloud} 100s linear infinite;
+  animation-delay: 2s;
+  filter: brightness(0.2) blur(3px);
 `;
 
 export const MusicCloud6 = styled.div`
-  background: url("https://i.imgur.com/vOSGaAF.png");
-  width: 100%;
-  height: 100%;
+  background: url("https://i.imgur.com/os3kDfx.png") no-repeat;
   position: absolute;
-  top:200px;
-  background-repeat: no-repeat;
-  animation: ${moveCloud} 160s infinite;
+  /* top: 15%; */
+  top: 10%;
+  left: 0;
+  background-size: contain;
+  width:100%;
+  height:50%;
+  animation: ${moveCloud} 75s linear infinite;
+  animation-delay: 3s;
   filter: brightness(0.2) blur(3px);
-  animation-delay: 3s; 
+
+  @media screen and (max-width: 480px) {
+    display: none;
+  }
 `;

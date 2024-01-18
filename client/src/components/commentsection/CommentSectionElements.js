@@ -92,7 +92,7 @@ export const CommentRow = styled.div`
 
 export const ImgWrap = styled.div`
   max-width: 455px; // Set max-width to at least 455px
-  height: auto;
+  height: 455px;
   position: relative;
   z-index: 1;
   margin-bottom: 16px;
@@ -100,7 +100,7 @@ export const ImgWrap = styled.div`
   @media screen and (max-width: ${tabletBreakpoint}) {
     width: 100%; // To make the image take the full width of the container
     margin-bottom: 16px;
-    order: 2; // Add some space between the image and the next element
+    order: 1; // Add some space between the image and the next element
   }
 
   @media screen and (max-width: 480px) {
@@ -131,6 +131,7 @@ export const TextWrapper = styled.div`
   @media screen and (max-width: ${tabletBreakpoint}) {
     width: 100%; // To make the text take the full width of the container
     margin-bottom: 50px;
+    margin-left: 0;
     order: 1;
   }
 
@@ -291,9 +292,9 @@ export const CommentCloud6 = styled.div`
   width: 100%;
   height: 100%;
   position: absolute;
-  top: 160px;
+  top: 360px;
   background-repeat: no-repeat;
-  animation: ${moveCloud} 190s infinite;
+  animation: ${moveCloud} 200s infinite;
   filter: brightness(0.15) blur(3px);
   animation-delay: 3s; 
 `;

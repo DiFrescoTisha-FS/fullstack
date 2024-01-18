@@ -222,11 +222,11 @@ export const ArrowFilled = styled(FaRocket)`
 export const NewCloud1 = styled.div`
   background: url("https://i.imgur.com/1ZY7lOo.png");
   width: 100%;
-  height: 100%;
+  height: 75%;
   position: absolute;
   background-repeat: no-repeat;
-  animation: ${moveCloud} 120s infinite;
-  filter: brightness(0.1) blur(3px);
+  animation: ${moveCloud} 90s infinite;
+  filter: brightness(0.15) blur(3px);
 `;
 
 export const NewCloud2 = styled.div`
@@ -238,7 +238,7 @@ export const NewCloud2 = styled.div`
   background-repeat: no-repeat;
   animation: ${moveCloud} 150s infinite;
   animation-delay: 2s; 
-  filter: brightness(0.2) blur(3px);
+  filter: brightness(0.1) blur(3px);
 `;
 
 export const NewCloud3 = styled.div`
@@ -249,7 +249,7 @@ export const NewCloud3 = styled.div`
   position: absolute;
   background-repeat: no-repeat;
   animation: ${moveCloud} 160s infinite;
-  filter: brightness(0.1) blur(3px);
+  filter: brightness(0.15) blur(3px);
 `;
 
 export const NewCloud4 = styled.div`
@@ -265,13 +265,13 @@ export const NewCloud4 = styled.div`
 `;
 
 export const NewCloud5 = styled.div`
-  background: url("https://i.imgur.com/874Clt6.png");
+  background: url("https://i.imgur.com/vOSGaAF.png");
   width: 100%;
   height: 100%;
   position: absolute;
-  top: 400px;
+  /* top: 100px; */
   background-repeat: no-repeat;
-  animation: ${moveCloud} 150s infinite;
+  animation: ${moveCloud} 70s infinite;
   filter: brightness(0.1) blur(3px);
 `;
 

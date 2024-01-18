@@ -47,11 +47,11 @@ const Thoughts = ({
           backgroundImageTablet={thoughtsTabletImage}
           backgroundImageMobile={thoughtsMobileImage}
       />
-        <ThoughtsCloud1 style={{ zIndex: '10' }} />
+        {/* <ThoughtsCloud1 style={{ zIndex: '10' }} />
         <ThoughtsCloud2 style={{ zIndex: '10' }} />
         <ThoughtsCloud3 style={{ zIndex: '10' }} />
         <ThoughtsCloud4 style={{ zIndex: '10' }} />
-        <ThoughtsCloud5 style={{ zIndex: '10' }} />
+        <ThoughtsCloud5 style={{ zIndex: '10' }} /> */}
         {/* <ThoughtsCloud6 style={{ zIndex: '10' }} /> */}
       <ThoughtsWrapper style={{zIndex: '20'}}>
         <ThoughtsRow imgStart={imgStart}>

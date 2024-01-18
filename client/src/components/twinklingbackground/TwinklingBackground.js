@@ -25,17 +25,6 @@ const moveCloud = keyframes`
   }
 `;
 
-const fallComet = keyframes`
-  0% {
-    transform: translateX(0) translateY(-100%);
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(50vw) translateY(100vh); // Adjust the translation values to control the starting and ending position
-    opacity: 0;
-  }
-`;
-
 const Cloud1 = styled.div`
   background: url("http://pngimg.com/uploads/cloud/cloud_PNG24.png");
   width: 100%;
@@ -145,22 +134,6 @@ const Twinkling = styled.div`
 //   opacity: 1;
 //   animation: ${moveClouds} 600s linear infinite;
 //   filter: brightness(1.2) contrast(1.1);
-// `;
-
-// export const FallingComet = styled(CometImage)`
-// animation: ${fallComet} 5s linear infinite; // Adjust the timing as needed
-// position: fixed; // Use fixed or absolute depending on how you want it positioned
-// top: 0;
-// left: 50%; // Start at the middle of the screen
-// transform: translateX(-50%); // Adjust this to control the starting horizontal position
-// `;
-
-// export const SecondComet = styled(CometImage)`
-// animation: ${fallComet} 2s linear infinite; // Adjust the timing as needed
-// position: fixed; // Use fixed or absolute depending on how you want it positioned
-// top: 0;
-// left: 20%; // Start at the middle of the screen
-// transform: translateX(-40%); // Adjust this to control the starting horizontal position
 // `;
 
 // The main component

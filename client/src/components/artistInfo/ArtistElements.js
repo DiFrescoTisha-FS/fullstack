@@ -226,7 +226,7 @@ export const Subtitle = styled.p`
   }
 
   @media screen and (max-width: 480px) {
-    font-size: 16px;
+    font-size: 18px;
   }
 `;
 
@@ -251,68 +251,89 @@ export const ArrowCircle = styled(FaArrowAltCircleDown)`
 `;
 
 export const ArtistCloud1 = styled.div`
-  background: url("https://i.imgur.com/1ZY7lOo.png");
-  width: 100%;
-  height: 100%;
+  background: url("https://i.imgur.com/vOSGaAF.png") no-repeat;
+  background-size: contain;
+  max-width: 600px;
   position: absolute;
+  top: 5%;
+  left: 0;
+  animation: ${moveCloud} 10s linear infinite;
   background-repeat: no-repeat;
-  animation: ${moveCloud} 120s infinite;
+  animation-delay: 2s;
   filter: brightness(0.1) blur(3px);
 `;
 
 export const ArtistCloud2 = styled.div`
-  background: url("http://pngimg.com/uploads/cloud/cloud_PNG24.png");
+  background: url("https://i.imgur.com/FRbxCcc.png") no-repeat;
+  position: absolute;
+  top: 10%;
+  left: 0;
+  background-size: contain;
   width: 100%;
   height: 100%;
-  top: 200px;
-  position: absolute;
-  background-repeat: no-repeat;
-  animation: ${moveCloud} 150s infinite;
-  animation-delay: 2s; 
-  filter: brightness(0.2) blur(3px);
-`;
-
-export const ArtistCloud3 = styled.div`
-  background: url("https://i.imgur.com/LMZ2p87.png");
-  width: 100%;
-  height: 100%;
-  top: 300px;
-  position: absolute;
-  background-repeat: no-repeat;
-  animation: ${moveCloud} 160s infinite;
+  animation: ${moveCloud} 100s linear infinite;
+  animation-delay: 2s;
   filter: brightness(0.1) blur(3px);
 `;
 
-export const ArtistCloud4 = styled.div`
-  background: url("https://i.imgur.com/Ex2kygq.png");
-  width: 100%;
-  height: 100%;
+export const ArtistCloud3 = styled.div`
+  background: url("https://i.imgur.com/os3kDfx.png") no-repeat;
   position: absolute;
-  top: 75px;
+  top: 30%;
+  left: 0;
+  background-size: contain;
+  width:100%;
+  height:100%;
+  animation: ${moveCloud} 75s linear infinite;
+  animation-delay: 3s;
+  filter: brightness(0.1) blur(3px);
+
+  @media screen and (max-width: 480px) {
+    display: none;
+  }
+`;
+
+export const ArtistCloud4 = styled.div`
+  background: url("https://i.imgur.com/vOSGaAF.png") no-repeat;
+  background-size: contain;
+  width: 800px;
+  height: 50%px;
+  position: absolute;
+  top: 20%;
+  left: 0;
+  animation: ${moveCloud} 50s linear infinite;
   background-repeat: no-repeat;
-  animation: ${moveCloud} 300s infinite;
-  filter: blur(3px);
-  filter: brightness(0.3) blur(3px);
+  animation-delay: 2s;
+  filter: brightness(0.1) blur(3px);
 `;
 
 export const ArtistCloud5 = styled.div`
-  background: url("https://i.imgur.com/874Clt6.png");
-  width: 100%;
-  height: 100%;
+  background: url("https://i.imgur.com/FRbxCcc.png") no-repeat;
   position: absolute;
-  top: 400px;
-  background-repeat: no-repeat;
-  animation: ${moveCloud} 150s infinite;
+  top: 10%;
+  left: 0;
+  background-size: contain;
+  width: 100%;
+  height: 50%;
+  animation: ${moveCloud} 100s linear infinite;
+  animation-delay: 2s;
   filter: brightness(0.1) blur(3px);
 `;
 
 export const ArtistCloud6 = styled.div`
-  background: url("https://i.imgur.com/vOSGaAF.png");
-  width: 100%;
-  height: 100%;
+  background: url("https://i.imgur.com/os3kDfx.png") no-repeat;
   position: absolute;
-  top: 200px;
-  background-repeat: no-repeat;
-  animation: ${moveCloud} 140s infinite;
-  filter: brightness(0.1) blur(3px);
+  /* top: 15%; */
+  top: 10%;
+  left: 0;
+  background-size: contain;
+  width:100%;
+  height:50%;
+  animation: ${moveCloud} 75s linear infinite;
+  animation-delay: 3s;
+  filter: brightness(0.15) blur(3px);
+
+  @media screen and (max-width: 480px) {
+    display: none;
+  }
 `;
