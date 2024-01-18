@@ -121,8 +121,7 @@ export const TextWrapper = styled.div`
   position: relative;
   margin-left: 40px;
 
-  @media screen and (max-width: 768px) {
-    max-width: 50%; // Adjust the max-width to fit the other half of the container
+  @media screen and (max-width: 768px) { // Adjust the max-width to fit the other half of the container
     order: 1;
     margin-bottom: 50px; // Moves the text to the left side
     margin-left: 0;

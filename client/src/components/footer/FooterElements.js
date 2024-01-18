@@ -84,13 +84,12 @@ export const SocialMediaWrap = styled.div`
   align-items: center;
   max-width: 1100px;
   margin: 40px auto;
+  flex-direction: row; /* keep as row for desktop */
 
   @media screen and (max-width: 820px) {
     flex-direction: column;
-    margin-bottom: 10px;
   }
 `;
-
 
 export const SocialMediaLogo = styled(Link)`
     justify-self: flex-start;
@@ -119,7 +118,11 @@ export const WebsiteRights = styled.small`
     color: #fff;
     margin: 16px 0;
     text-align: center;
-    display: block; // This will ensure it centers in its own line
+    display: block;
+
+    @media screen and (max-width: 820px) {
+    order: 3; /* WebsiteRights at the bottom on mobile */
+  }
 `;
 export const SocialIcons = styled.div`
     display: flex;
@@ -127,7 +130,11 @@ export const SocialIcons = styled.div`
     align-items: center;
     width: 240px;
     color: #ac94f4;
-    /* margin-bottom: 15px; */
+
+    @media screen and (max-width: 820px) {
+    order: 2;
+    margin-top:16px;
+  }
 `;
 
 export const SocialIconLink = styled.a`

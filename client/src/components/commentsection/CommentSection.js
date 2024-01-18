@@ -3,7 +3,7 @@ import Rating from "react-rating-stars-component";
 import axios from "axios";
 // import { Clouds } from "../twinklingbackground/TwinklingBackground";
 import commentsDesktopImage from '../../images/commentsDesktop5.png';
-// import commentsTabletImage from '../../images/commentsTablet.png';
+import commentsTabletImage from '../../images/commentsTablet.png';
 import commentsMobileImage from '../../images/commentsMobile1.png'; 
 import Comments from "../../images/placeholder2.jpg";
 import TwinklingBackground from '../twinklingbackground/TwinklingBackground'
@@ -72,7 +72,7 @@ const CommentSection = () => {
       {/* <Clouds style={{zIndex: '10'}} /> */}
       <CommentsBg
         backgroundImageDesktop={commentsDesktopImage}
-        // backgroundImageTablet={commentsTabletImage}
+        backgroundImageTablet={commentsTabletImage}
         backgroundImageMobile={commentsMobileImage}
       />
         {/* <CommentCloud1 style={{ zIndex: '10' }} />

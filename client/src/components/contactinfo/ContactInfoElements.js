@@ -49,10 +49,11 @@ export const CustomButton = styled.button`
   }
 
     // Media query for mobile devices
-    @media screen and (max-width: 480px) {
-    font-size: 12px; // Smaller font size on mobile
-    padding: 2px 2px; // Smaller padding on mobile
+    @media screen and (max-width: 820px) {
+    font-size: 14px; // Smaller font size on mobile
+    padding: 1px 1px; // Smaller padding on mobile
     border: 1px solid #ac94f4;
+    order: 1;
     // Adjust min-width if necessary
   }
 `;

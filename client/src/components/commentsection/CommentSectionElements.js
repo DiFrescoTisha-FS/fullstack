@@ -100,7 +100,7 @@ export const ImgWrap = styled.div`
   @media screen and (max-width: ${tabletBreakpoint}) {
     width: 100%; // To make the image take the full width of the container
     margin-bottom: 16px;
-    order: 1; // Add some space between the image and the next element
+    order: 2; // Add some space between the image and the next element
   }
 
   @media screen and (max-width: 480px) {
