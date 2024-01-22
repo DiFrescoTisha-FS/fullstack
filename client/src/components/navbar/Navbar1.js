@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import UserComponent from "../UserComponent";
+import Sidebar from "../sidebar/Sidebar";
 import { FcGoogle } from "react-icons/fc";
 import logo from "../../images/purple_logo.png";
 import { FaBars } from "react-icons/fa";
@@ -21,11 +22,15 @@ import {
   GoogleSignInButton,
 } from "./NavbarElements";
 
-const Navbar1 = ({ toggle }) => {
+const Navbar1 = () => {
   const [scrollNav, setScrollNav] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  const toggle = () => {
+    setIsOpen(!isOpen);
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -55,7 +60,7 @@ const Navbar1 = ({ toggle }) => {
   useEffect(() => {
     window.addEventListener("scroll", changeNav);
   }, []);
-
+  
   const toggleHome = () => {
     scroll.scrollToTop();
   };
@@ -144,7 +149,7 @@ const Navbar1 = ({ toggle }) => {
                 <NavIcon src={logo} onClick={toggleHome} />
               </motion.div>
             </NavLogo>
-            <MobileIcon onClick={isMobile ? toggle : undefined}>
+            <MobileIcon onClick={toggle}>
               <FaBars />
             </MobileIcon>
 
@@ -192,6 +197,13 @@ const Navbar1 = ({ toggle }) => {
           </NavbarContainer>
         </Nav>
       </IconContext.Provider>
+      <Sidebar
+        toggle={toggle}
+        isOpen={isOpen}
+        currentUser={currentUser}
+        handleSignOut={handleSignOut}
+        handleSignIn={handleSignIn}
+      />
     </>
   );
 };
