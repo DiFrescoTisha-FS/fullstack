@@ -1,9 +1,18 @@
-import styled from "styled-components";
+import styled, { keyframes }  from "styled-components";
 import { FaArrowAltCircleUp } from 'react-icons/fa';
 import { MdFrontHand } from 'react-icons/md';
 import { Link } from 'react-scroll';
 
 const tabletBreakpoint = '768px'; 
+
+const moveCloud = keyframes`
+  from {
+    transform: translateX(calc(100% + 200px)); // Start from the right, off-screen (100% of the viewport width plus the cloud's width)
+  }
+  to {
+    transform: translateX(-100%); // Move to the left, off-screen
+  }
+`;
 
 export const ThoughtsContainer = styled.div`
   position: relative;
@@ -90,7 +99,8 @@ text-align: left;
 
 export const ImgWrap = styled.div`
   max-width: 455px; // Set max-width to at least 455px
-  height: auto;
+  width: 100%;
+  height: 455px;
   position: relative;
   z-index: 1;
   margin-bottom: 16px;
@@ -102,7 +112,7 @@ export const ImgWrap = styled.div`
   }
 
   @media screen and (max-width: 480px) {
-    order: 1; /* Image on top for mobile */
+    order: 2; /* Image on top for mobile */
   }
 `;
 
@@ -110,6 +120,7 @@ export const TextWrapper = styled.div`
   max-width: 529px; // Explicitly setting the max-width
   width: 100%; // Ensures it takes the full width of the parent
   position: relative;
+  margin-right: 18px;
 
   @media screen and (max-width: 768px) {
     max-width: 50%; // Adjust the max-width to fit the other half of the container
@@ -179,7 +190,7 @@ export const Subtitle = styled.p`
   }
 
   @media screen and (max-width: 480px) {
-    font-size: 16px;
+    font-size: 18px;
   }
 `;
 
@@ -201,4 +212,79 @@ export const ArrowFilled = styled(MdFrontHand)`
 export const ArrowCircle = styled(FaArrowAltCircleUp)`
     margin-left: 8px;
     font-size: 20px;
+`;
+
+export const ThoughtsCloud1 = styled.div`
+  background: url("https://i.imgur.com/vOSGaAF.png") no-repeat;
+  background-size: contain;
+  width: 800px;
+  height: 1300px;
+  position: absolute;
+  top: 5%;
+  animation: ${moveCloud} 250s linear infinite; // Adjust time as needed for a complete cycle
+  filter: brightness(0.1) blur(3px);
+`;
+
+export const ThoughtsCloud2 = styled.div`
+  background: url("http://pngimg.com/uploads/cloud/cloud_PNG24.png");
+  width: 100%;
+  height: 100%;
+  top: 350px;
+  position: absolute;
+  background-repeat: no-repeat;
+  transform: translateX(4px); /* Adjust as necessary to position on screen */
+  animation: ${moveCloud} 210s infinite;
+  animation-fill-mode: both;
+  animation-delay: 2s; 
+  filter: brightness(0.15) blur(3px);
+`;
+
+export const ThoughtsCloud3 = styled.div`
+  background: url("https://i.imgur.com/ouYtyE1.png");
+  width: 100%;
+  height: 100%;
+  top: 300px;
+  position: absolute;
+  background-repeat: no-repeat;
+  transform: translateX(90px); /* Adjust as necessary to position on screen */
+  animation: ${moveCloud} 240s infinite;
+  animation-fill-mode: both;
+  animation-delay: 3s; 
+  filter: brightness(0.15) blur(3px);
+`;
+
+export const ThoughtsCloud4 = styled.div`
+  background: url("https://i.imgur.com/Ex2kygq.png");
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 75px;
+  background-repeat: no-repeat;
+  animation: ${moveCloud} 200s infinite;
+  filter: brightness(0.1) blur(3px);
+  animation-delay: 4s; 
+`;
+
+export const ThoughtsCloud5 = styled.div`
+  background: url("https://i.imgur.com/874Clt6.png");
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 400px;
+  background-repeat: no-repeat;
+  animation: ${moveCloud} 150s infinite;
+  filter: brightness(0.15) blur(3px);
+  animation-delay: 2s; 
+`;
+
+export const ThoughtsCloud6 = styled.div`
+  background: url("https://i.imgur.com/vOSGaAF.png");
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 200px;
+  background-repeat: no-repeat;
+  animation: ${moveCloud} 170s infinite;
+  filter: brightness(0.2) blur(3px);
+  animation-delay: 1s; 
 `;

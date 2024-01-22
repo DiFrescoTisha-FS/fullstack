@@ -5,10 +5,9 @@ import { FaArrowAltCircleDown } from "react-icons/fa";
 import artistDesktopImage from '../../images/artistDesktop.png';
 import artistTabletImage from '../../images/artistTablet.png';
 import artistMobileImage from '../../images/artistMobile.png';
-// import cometImageSrc from '../../images/cometImage.png';
 
 import TwinklingBackground from "../twinklingbackground/TwinklingBackground";
-import { Clouds } from "../twinklingbackground/TwinklingBackground";
+
 import {
   ArtistInfoContainer,
   ArtistBg,
@@ -21,28 +20,29 @@ import {
   BtnWrap,
   ImgWrap,
   Img,
+  ArtistCloud1,
+  ArtistCloud2,
+  // ArtistCloud3,
+  ArtistCloud4,
+  ArtistCloud5,
+  ArtistCloud6,
 } from "./ArtistElements";
 
 const ArtistInfo = ({
-  // backgroundImage,
-  id,
-  imgStart,
-  topline,
-  // lightText,
-  headline,
   darkText,
-  description,
-  img,
   alt,
-  primary,
-  dark,
-  dark2,
 }) => {
   return (
     <>
       <ArtistInfoContainer id="bio">
-        <TwinklingBackground  />
-        <Clouds style={{zIndex: '10'}} />
+        <TwinklingBackground />
+        <ArtistCloud1 style={{ zIndex: '10' }} />
+        <ArtistCloud2 style={{ zIndex: '10' }} />
+        <ArtistCloud4 style={{ zIndex: '10' }} />
+
+        <ArtistCloud5 style={{ zIndex: '10' }} />
+        
+        <ArtistCloud6 style={{ zIndex: '10' }} />
         <ArtistBg
           backgroundImageDesktop={artistDesktopImage}
           backgroundImageTablet={artistTabletImage}

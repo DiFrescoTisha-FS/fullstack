@@ -36,15 +36,14 @@ const Footer = () => {
           <SocialMedia id="social media">
             <SocialMediaWrap>
               {/* Logo on the left */}
-              <SocialMediaLogo to="/" onClick={toggleHome}>
+              {/* <SocialMediaLogo to="/" onClick={toggleHome}>
                 <SocialMediaIcon src={logo} alt="logo" />
-              </SocialMediaLogo>
+              </SocialMediaLogo> */}
 
-             <ContactInfo />
+              <ContactInfo />
               <WebsiteRights>
                 Trapstar Bam © {new Date().getFullYear()} All rights reserved
               </WebsiteRights>
-
               {/* Social icons on the right */}
               <SocialIcons>
                 <SocialIconLink

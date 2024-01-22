@@ -1,10 +1,10 @@
 import React from "react";
 import { Button } from "../ButtonElements";
 import tattooFingers from "../../images/tattoofingers.JPG";
-import thoughtsDesktopImage from "../../images/thoughtsDesktop.png"
+import thoughtsDesktopImage from "../../images/thoughtsDesktop100.png"
 import thoughtsTabletImage from "../../images/thoughtsTablet.png"
 import thoughtsMobileImage from "../../images/thoughtsMobile.png"
-import { Clouds } from "../twinklingbackground/TwinklingBackground";
+// import { Clouds } from "../twinklingbackground/TwinklingBackground";
 import TwinklingBackground from "../twinklingbackground/TwinklingBackground";
 import {
   ThoughtsContainer,
@@ -19,7 +19,13 @@ import {
   TopLine,
   Heading,
   Subtitle,
-  TrapstarText, // Import TrapstarText if needed
+  TrapstarText,
+  ThoughtsCloud1,
+  ThoughtsCloud2,
+  ThoughtsCloud3,
+  ThoughtsCloud4,
+  ThoughtsCloud5,
+  ThoughtsCloud6,
 } from "./ThoughtsElements"; // Adjust the path as needed
 
 const Thoughts = ({
@@ -35,12 +41,18 @@ const Thoughts = ({
   return (
     <ThoughtsContainer id="thoughts">
       <TwinklingBackground />
-      <Clouds style={{zIndex: '10'}} />
+      {/* <Clouds style={{zIndex: '10'}} /> */}
         <ThoughtsBg
           backgroundImageDesktop={thoughtsDesktopImage}
           backgroundImageTablet={thoughtsTabletImage}
           backgroundImageMobile={thoughtsMobileImage}
-        />
+      />
+        {/* <ThoughtsCloud1 style={{ zIndex: '10' }} />
+        <ThoughtsCloud2 style={{ zIndex: '10' }} />
+        <ThoughtsCloud3 style={{ zIndex: '10' }} />
+        <ThoughtsCloud4 style={{ zIndex: '10' }} />
+        <ThoughtsCloud5 style={{ zIndex: '10' }} /> */}
+        {/* <ThoughtsCloud6 style={{ zIndex: '10' }} /> */}
       <ThoughtsWrapper style={{zIndex: '20'}}>
         <ThoughtsRow imgStart={imgStart}>
           <TextWrapper>

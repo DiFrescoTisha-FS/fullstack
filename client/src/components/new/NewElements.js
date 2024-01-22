@@ -1,9 +1,16 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import ReactPlayer from "react-player";
 import { FaRocket } from "react-icons/fa";
 import { FaArrowAltCircleDown } from "react-icons/fa";
 
-// import youTubeImage from "../../images/newDesktopView.png"
+const moveCloud = keyframes`
+  from {
+    transform: translateX(1500px);
+  }
+  to {
+    transform: translateX(-1100px);
+  }
+`;
 
 export const NewContainer = styled.div`
   display: flex;
@@ -132,6 +139,7 @@ export const NewDiv = styled.div`
   justify-content: center;
   align-items: center;
   height: auto;
+  /* width: 560x; */
   /* margin-top: 20px; */
 `;
 
@@ -210,3 +218,71 @@ export const ArrowFilled = styled(FaRocket)`
   font-size: 20px;
   color: #ac94f4;
 `;
+
+export const NewCloud1 = styled.div`
+  background: url("https://i.imgur.com/1ZY7lOo.png");
+  width: 100%;
+  height: 75%;
+  position: absolute;
+  background-repeat: no-repeat;
+  animation: ${moveCloud} 90s infinite;
+  filter: brightness(0.15) blur(3px);
+`;
+
+export const NewCloud2 = styled.div`
+  background: url("http://pngimg.com/uploads/cloud/cloud_PNG24.png");
+  width: 100%;
+  height: 100%;
+  top: 200px;
+  position: absolute;
+  background-repeat: no-repeat;
+  animation: ${moveCloud} 150s infinite;
+  animation-delay: 2s; 
+  filter: brightness(0.1) blur(3px);
+`;
+
+export const NewCloud3 = styled.div`
+  background: url("https://i.imgur.com/LMZ2p87.png");
+  width: 100%;
+  height: 100%;
+  top: 300px;
+  position: absolute;
+  background-repeat: no-repeat;
+  animation: ${moveCloud} 160s infinite;
+  filter: brightness(0.15) blur(3px);
+`;
+
+export const NewCloud4 = styled.div`
+  background: url("https://i.imgur.com/Ex2kygq.png");
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 75px;
+  background-repeat: no-repeat;
+  animation: ${moveCloud} 300s infinite;
+  filter: blur(3px);
+  filter: brightness(0.3) blur(3px);
+`;
+
+export const NewCloud5 = styled.div`
+  background: url("https://i.imgur.com/vOSGaAF.png");
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  /* top: 100px; */
+  background-repeat: no-repeat;
+  animation: ${moveCloud} 70s infinite;
+  filter: brightness(0.1) blur(3px);
+`;
+
+export const NewCloud6 = styled.div`
+  background: url("https://i.imgur.com/vOSGaAF.png");
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 200px;
+  background-repeat: no-repeat;
+  animation: ${moveCloud} 140s infinite;
+  filter: brightness(0.1) blur(3px);
+`;
+

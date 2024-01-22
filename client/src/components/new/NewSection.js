@@ -1,11 +1,11 @@
 import { useState } from "react";
 import ReactPlayer from "react-player";
 import { Button } from "../ButtonElements";
-import newDesktopImage from '../../images/newDesktop.png';
+import newDesktopImage from '../../images/newDesktop32.png';
 import newTabletImage from '../../images/newTablet.png'; // Replace with actual tablet image path
 import newMobileImage from '../../images/newMobile.png';
 
-import { Clouds } from "../twinklingbackground/TwinklingBackground"
+// import { Clouds } from "../twinklingbackground/TwinklingBackground"
 
 // import youTubeImage from "../../images/newDesktopView.png"
 import TwinklingBackground from "../twinklingbackground/TwinklingBackground";
@@ -24,8 +24,13 @@ import {
   StyledReactPlayer,
   BtnWrap,
   ArrowFilled,
-  // YouTubeImage,
-  ArrowCircle, // Include BtnWrap here
+  ArrowCircle, 
+  NewCloud1,
+  NewCloud2,
+
+
+  NewCloud5,
+  NewCloud6,
 } from "./NewElements.js";
 
 export const NewSection = ({
@@ -51,15 +56,18 @@ export const NewSection = ({
     <>
       <NewContainer id="new">
         <TwinklingBackground />
-        <Clouds style={{zIndex: '10'}} />
+        {/* <Clouds style={{zIndex: '10'}} /> */}
         <NewBg 
           backgroundImageDesktop={newDesktopImage}
           backgroundImageTablet={newTabletImage}
           backgroundImageMobile={newMobileImage}
         />
+        {/* <NewCloud5 style={{ zIndex: '10' }} /> */}
+        <NewCloud2 style={{ zIndex: '10' }} />
+        <NewCloud6 style={{ zIndex: '10' }} />
         <NewWrapper style={{zIndex: '20'}}>
           <TopLine>New Release</TopLine>
-          <Heading>Fear God</Heading>
+          <Heading>Message to God</Heading>
           <CenterVideo>
             <VideoContainer>
               <PlayerWrapper>
@@ -67,13 +75,13 @@ export const NewSection = ({
                   width="100%"
                   height="100%"
                   controls={true}
-                  url="https://youtu.be/CDTw8AjSUVg?si=OUmwmVIFCWzLlphV"
+                  url="https://youtu.be/Tm6fOYWJD-I?si=k5oso2krZpCpm495"
                 />
               </PlayerWrapper>
             </VideoContainer>
           </CenterVideo>
           <TextWrapper>
-            <Subtitle>The official Music video for Fear God, a collaboration of Lil' Vel and Trapstar Bam, is now available on YouTube.</Subtitle>
+            <Subtitle>The official Music video, "Message to God", is now available on YouTube.</Subtitle>
           </TextWrapper>
           <BtnWrap>
             <Button

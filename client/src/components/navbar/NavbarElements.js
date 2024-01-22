@@ -40,8 +40,8 @@ export const NavLogo = styled(LinkR)`
 `;
 
 export const NavIcon = styled.img`
-    width: 75px;
-    height: 75px;
+    width: 80px;
+    height: 80px;
 `;
 
 export const MobileIcon = styled.div`
@@ -91,7 +91,7 @@ export const NavLinks = styled(LinkS)`
     transform: translateX(-50%); // Center the border
     width: 60%; // Adjust this value to control the border's length
     height: 2px; // Border thickness
-    background-color: #e1affd; // Border color
+    background-color: #ac94f4; // Border color
     opacity: 0;
     transition: opacity 0.3s;
     margin-bottom: -4px;
@@ -144,7 +144,7 @@ export const GoogleSignInButton = styled.button`
   text-align: center;
   padding: 10px 20px;
   cursor: pointer;
-  border-bottom: 3px solid transparent; // To match other nav items
+  margin-bottom: 40px;
   &:hover {
     color: #010606;
     background: white;
