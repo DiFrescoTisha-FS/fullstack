@@ -36,13 +36,13 @@ const ArtistInfo = ({
     <>
       <ArtistInfoContainer id="bio">
         <TwinklingBackground />
-        {/* <ArtistCloud1 style={{ zIndex: '10' }} />
-        <ArtistCloud2 style={{ zIndex: '10' }} /> */}
-        {/* <ArtistCloud4 style={{ zIndex: '10' }} /> */}
+        <ArtistCloud1 style={{ zIndex: '10' }} />
+        <ArtistCloud2 style={{ zIndex: '10' }} />
+        <ArtistCloud4 style={{ zIndex: '10' }} />
 
-        {/* <ArtistCloud5 style={{ zIndex: '10' }} /> */}
+        <ArtistCloud5 style={{ zIndex: '10' }} />
         
-        {/* <ArtistCloud6 style={{ zIndex: '10' }} /> */}
+        <ArtistCloud6 style={{ zIndex: '10' }} />
         <ArtistBg
           backgroundImageDesktop={artistDesktopImage}
           backgroundImageTablet={artistTabletImage}

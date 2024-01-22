@@ -263,7 +263,7 @@ export const HeroCloud2 = styled.div`
   height: 100%;
   animation: ${moveCloud} 100s linear infinite;
   animation-delay: 2s;
-  filter: brightness(0.1) blur(3px);
+  filter: brightness(0.2) blur(3px);
 `;
 
 export const HeroCloud3 = styled.div`
@@ -276,7 +276,7 @@ export const HeroCloud3 = styled.div`
   height:100%;
   animation: ${moveCloud} 75s linear infinite;
   animation-delay: 3s;
-  filter: brightness(0.1) blur(3px);
+  filter: brightness(0.2) blur(3px);
 
   @media screen and (max-width: 480px) {
     display: none;
@@ -294,7 +294,7 @@ export const HeroCloud4 = styled.div`
   animation: ${moveCloud} 50s linear infinite;
   background-repeat: no-repeat;
   animation-delay: 2s;
-  filter: brightness(0.1) blur(3px);
+  filter: brightness(0.2) blur(3px);
 `;
 
 export const HeroCloud5 = styled.div`
@@ -321,7 +321,7 @@ export const HeroCloud6 = styled.div`
   height:50%;
   animation: ${moveCloud} 75s linear infinite;
   animation-delay: 3s;
-  filter: brightness(0.15) blur(3px);
+  filter: brightness(0.2) blur(3px);
 
   @media screen and (max-width: 480px) {
     display: none;

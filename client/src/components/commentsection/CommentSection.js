@@ -5,7 +5,7 @@ import axios from "axios";
 import commentsDesktopImage from '../../images/commentsDesktop5.png';
 import commentsTabletImage from '../../images/commentsTablet.png';
 import commentsMobileImage from '../../images/commentsMobile1.png'; 
-import Comments from "../../images/placeholder2.jpg";
+import Comments from "../../images/placeholder3.png";
 import TwinklingBackground from '../twinklingbackground/TwinklingBackground'
 import { BsSendFill } from "react-icons/bs";
 import { Button } from "../ButtonElements"; // Adjust based on the package you choose

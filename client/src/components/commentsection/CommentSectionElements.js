@@ -110,7 +110,7 @@ export const ImgWrap = styled.div`
 
 export const Img = styled.img`
   width: 455px; // Fixed width of 455px
-  height: auto; // Maintain aspect ratio
+  height: 455px; // Maintain aspect ratio
   position: relative;
   border-radius: 10px;
   border: 2px solid #ac94f4;

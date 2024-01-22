@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 export const ButtonBaseStyles = css`
   border-radius: 50px;
   background: #ac94f4; // Default background
-  padding: 5px 5px;
+  padding: 2px 2px;
   color: #010606;
   font-size: 16px;
   outline: none;
@@ -15,7 +15,7 @@ export const ButtonBaseStyles = css`
   align-items: center;
   transition: all 0.2s ease-in-out;
   gap: 10px;
-  min-width: 200px;
+  min-width: 175px;
 
   &:hover {
     background: #010606; // Hover background
