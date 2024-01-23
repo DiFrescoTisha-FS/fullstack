@@ -4,32 +4,24 @@ import { FcGoogle } from "react-icons/fc";
 import axios from 'axios';
 
 function useWindowSize() {
-  // Initialize state with undefined width/height so server and client renders match
-  // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
   const [windowSize, setWindowSize] = useState({
     width: undefined,
     height: undefined,
   });
 
   useEffect(() => {
-    // Handler to call on window resize
     function handleResize() {
-      // Set window width/height to state
       setWindowSize({
         width: window.innerWidth,
         height: window.innerHeight,
       });
     }
-    
-    // Add event listener
+
     window.addEventListener('resize', handleResize);
-    
-    // Call handler right away so state gets updated with initial window size
     handleResize();
     
-    // Remove event listener on cleanup
     return () => window.removeEventListener('resize', handleResize);
-  }, []); // Empty array ensures that effect is only run on mount and unmount
+  }, []);
 
   return windowSize;
 }
@@ -38,43 +30,29 @@ const UserComponent = ({ currentUser, onSignIn, onSignOut }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(!!currentUser);
   const [user, setUser] = useState(currentUser);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-
-  const size = useWindowSize(); // Use the hook
-
-  
-  const isMobile = size.width <= 768; // Mobile breakpoin
-  
-
-    // Ref for the dropdown to check for outside clicks
-    const dropdownRef = useRef(null);
+  const size = useWindowSize();
+  const isMobile = size.width <= 768;
+  const dropdownRef = useRef(null);
 
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
   };
 
   const handleDropdownClick = (event) => {
-    console.log("Dropdown clicked");
-    event.stopPropagation(); // Prevent click from propagating to parent elements
+    event.stopPropagation();
     toggleDropdown();
   };
 
-    // Close the dropdown if clicked outside
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setDropdownOpen(false);
-      }
-    };
-  
-    useEffect(() => {
-    // Attach the listener to the window on mount
+  const handleClickOutside = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setDropdownOpen(false);
+    }
+  };
+
+  useEffect(() => {
     window.addEventListener('mousedown', handleClickOutside);
-    // Remove the listener on cleanup
     return () => window.removeEventListener('mousedown', handleClickOutside);
   }, []);
-
-  const handleLogin = () => {
-    window.location.href = `${process.env.REACT_APP_BACKEND_URL}/auth/google`;
-  };
 
   const handleLogout = async () => {
     try {
@@ -96,9 +74,7 @@ const UserComponent = ({ currentUser, onSignIn, onSignOut }) => {
         if (response.data.isAuthenticated) {
           setIsLoggedIn(true);
           setUser(response.data.user);
-          if (onSignIn) {
-            onSignIn(response.data.user);
-          }
+          // Do not call onSignIn here. Just update the state.
         } else {
           setIsLoggedIn(false);
         }
@@ -131,8 +107,8 @@ const UserComponent = ({ currentUser, onSignIn, onSignOut }) => {
         </div>
       ) : (
         <button
-          className="flex items-center bg-black text-[#ac94f4] border-solid border-2 mb-5 border-[#ac94f4] space-x-2 mt-5 opacity-90 hover:opacity-80 cursor-pointer rounded-full p-2 pr-2"
-          onClick={(event) => handleLogin(event)}
+          className="flex items-center bg-black text-[#ac94f4] border-solid border-2 mb           border-[#ac94f4] space-x-2 mt-5 opacity-90 hover:opacity-80 cursor-pointer rounded-full p-2 pr-2"
+          onClick={onSignIn} // Here, we use onSignIn passed down from the parent component
         >
           <FcGoogle size={24} className="large:block" />
           <span className="lg:block text-[#ac94f4]">Sign in with Google</span>

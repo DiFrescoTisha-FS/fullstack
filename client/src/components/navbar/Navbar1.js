@@ -60,7 +60,7 @@ const Navbar1 = () => {
   useEffect(() => {
     window.addEventListener("scroll", changeNav);
   }, []);
-  
+
   const toggleHome = () => {
     scroll.scrollToTop();
   };
@@ -157,22 +157,22 @@ const Navbar1 = () => {
               {["home", "bio", "music", "new", "thoughts", "comments"].map(
                 (item, index) => (
                   <motion.li key={index} {...navItemsAnimation}>
-                  <NavLinks
-                    to={item}
-                    smooth={true}
-                    duration={500}
-                    spy={true}
-                    exact='true'
-                    offset={-80}
-                  >
-                    {item.charAt(0).toUpperCase() + item.slice(1)}
-                  </NavLinks>
-                </motion.li>
+                    <NavLinks
+                      to={item}
+                      smooth={true}
+                      duration={500}
+                      spy={true}
+                      exact="true"
+                      offset={-80}
+                    >
+                      {item.charAt(0).toUpperCase() + item.slice(1)}
+                    </NavLinks>
+                  </motion.li>
                 )
               )}
               {isOpen && !currentUser && (
                 <NavItem className="mt-auto">
-                <motion.div {...navItemsAnimation}>
+                  <motion.div {...navItemsAnimation}>
                     <GoogleSignInButton
                       onClick={(event) => handleSignIn(event)}
                       className="..."
@@ -185,14 +185,14 @@ const Navbar1 = () => {
               )}
             </NavMenu>
             <NavBtn>
-            <motion.div {...navItemsAnimation}>
-              <UserComponent
-                currentUser={currentUser}
-                onSignIn={(user) => setCurrentUser(user)}
-                onSignOut={() => setCurrentUser(null)}
-                isMobile={isMobile}
+              <motion.div {...navItemsAnimation}>
+                <UserComponent
+                  currentUser={currentUser}
+                  onSignIn={handleSignIn}
+                  onSignOut={handleSignOut}
+                  isMobile={isMobile}
                 />
-            </motion.div>
+              </motion.div>
             </NavBtn>
           </NavbarContainer>
         </Nav>
