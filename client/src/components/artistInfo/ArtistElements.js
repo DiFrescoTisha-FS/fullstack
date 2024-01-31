@@ -22,6 +22,7 @@ export const ArtistInfoContainer = styled.div`
   padding: 0;
   min-height: 860px; // Adjust as needed
   z-index: 1;
+  overflow: hidden;
 
   @media screen and (max-width: 768px) {
     padding: 50px 0; // Adjust padding as needed
@@ -251,16 +252,17 @@ export const ArrowCircle = styled(FaArrowAltCircleDown)`
 `;
 
 export const ArtistCloud1 = styled.div`
-  background: url("https://i.imgur.com/vOSGaAF.png") no-repeat;
+  background: url("https://i.imgur.com/cb5t3Eh.png") no-repeat;
   background-size: contain;
-  max-width: 600px;
+  width: 1100px;
+  height: 500px;
   position: absolute;
   top: 5%;
   left: 0;
   animation: ${moveCloud} 10s linear infinite;
   background-repeat: no-repeat;
   animation-delay: 2s;
-  filter: brightness(0.1) blur(3px);
+  filter: brightness(0.2) blur(3px);
 `;
 
 export const ArtistCloud2 = styled.div`

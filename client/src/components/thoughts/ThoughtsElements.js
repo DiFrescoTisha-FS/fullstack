@@ -215,65 +215,65 @@ export const ArrowCircle = styled(FaArrowAltCircleUp)`
 `;
 
 export const ThoughtsCloud1 = styled.div`
-  background: url("https://i.imgur.com/vOSGaAF.png") no-repeat;
+  background: url("https://i.imgur.com/U4ZUbjQ.png") no-repeat;
   background-size: contain;
   width: 800px;
   height: 1300px;
   position: absolute;
-  top: 5%;
-  animation: ${moveCloud} 250s linear infinite; // Adjust time as needed for a complete cycle
-  filter: brightness(0.1) blur(3px);
+  /* top: 5%; */
+  animation: ${moveCloud} 100s linear infinite; // Adjust time as needed for a complete cycle
+  filter: brightness(0.2) blur(3px);
 `;
 
 export const ThoughtsCloud2 = styled.div`
-  background: url("http://pngimg.com/uploads/cloud/cloud_PNG24.png");
+  background: url("https://i.imgur.com/JGwcZH7.png");
   width: 100%;
   height: 100%;
   top: 350px;
   position: absolute;
   background-repeat: no-repeat;
   transform: translateX(4px); /* Adjust as necessary to position on screen */
-  animation: ${moveCloud} 210s infinite;
+  animation: ${moveCloud} 180s infinite;
   animation-fill-mode: both;
-  animation-delay: 2s; 
+  animation-delay: 1s; 
   filter: brightness(0.15) blur(3px);
 `;
 
 export const ThoughtsCloud3 = styled.div`
-  background: url("https://i.imgur.com/ouYtyE1.png");
+  background: url("https://i.imgur.com/os3kDfx.png");
   width: 100%;
   height: 100%;
-  top: 300px;
+  top: 100px;
   position: absolute;
   background-repeat: no-repeat;
   transform: translateX(90px); /* Adjust as necessary to position on screen */
-  animation: ${moveCloud} 240s infinite;
+  animation: ${moveCloud} 120s infinite;
   animation-fill-mode: both;
-  animation-delay: 3s; 
-  filter: brightness(0.15) blur(3px);
+  /* animation-delay: 3s;  */
+  filter: brightness(0.2) blur(3px);
 `;
 
 export const ThoughtsCloud4 = styled.div`
-  background: url("https://i.imgur.com/Ex2kygq.png");
+  background: url("https://i.imgur.com/FRbxCcc.png");
   width: 100%;
   height: 100%;
   position: absolute;
-  top: 75px;
+  top: 300px;
   background-repeat: no-repeat;
-  animation: ${moveCloud} 200s infinite;
-  filter: brightness(0.1) blur(3px);
-  animation-delay: 4s; 
+  animation: ${moveCloud} 190s infinite;
+  filter: brightness(0.15) blur(3px);
+  animation-delay: 2s; 
 `;
 
 export const ThoughtsCloud5 = styled.div`
-  background: url("https://i.imgur.com/874Clt6.png");
+  background: url("https://i.imgur.com/os3kDfx.png");
   width: 100%;
   height: 100%;
   position: absolute;
-  top: 400px;
+  top: 50px;
   background-repeat: no-repeat;
-  animation: ${moveCloud} 150s infinite;
-  filter: brightness(0.15) blur(3px);
+  animation: ${moveCloud} 100s infinite;
+  filter: brightness(0.2) blur(3px);
   animation-delay: 2s; 
 `;
 

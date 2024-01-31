@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Button } from "../ButtonElements";
 import TwinklingBackground from "../twinklingbackground/TwinklingBackground";
 import StylishText from "../stylishText/StylishText";
-// import HeroTwinkling from '../hero/HeroTwinkling';
 
 // import { Clouds } from "../twinklingbackground/TwinklingBackground";
 import {
@@ -19,6 +18,7 @@ import {
   HeroCloud4,
   HeroCloud5,
   HeroCloud6,
+  // HeroCloud7,
 } from "./HeroElements";
 
 const HeroSection = () => {
@@ -31,6 +31,7 @@ const HeroSection = () => {
   return (
     <HeroContainer id="home">
       <HeroBg>
+
         <TwinklingBackground
           saturnImage="https://i.imgur.com/yM3SlcH.png"
           neptuneImage="https://i.imgur.com/XyBATJD.png"
@@ -39,9 +40,11 @@ const HeroSection = () => {
         />
         <HeroCloud1 style={{ zIndex: '10' }} />
         <HeroCloud2 style={{ zIndex: '10' }} />
+        <HeroCloud3 style={{ zIndex: '10' }} />
         <HeroCloud4 style={{ zIndex: '10' }} />
         <HeroCloud5 style={{ zIndex: '10' }} />
         <HeroCloud6 style={{ zIndex: '10' }} />
+        {/* <HeroCloud7 style={{ zIndex: '10' }} /> */}
       </HeroBg>
       <HeroContent style={{zIndex: '20'}}>
         <StylishText />

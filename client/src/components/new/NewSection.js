@@ -63,8 +63,8 @@ export const NewSection = ({
           backgroundImageMobile={newMobileImage}
         />
         {/* <NewCloud5 style={{ zIndex: '10' }} /> */}
-        <NewCloud2 style={{ zIndex: '10' }} />
-        <NewCloud6 style={{ zIndex: '10' }} />
+        {/* <NewCloud2 style={{ zIndex: '10' }} />
+        <NewCloud6 style={{ zIndex: '10' }} /> */}
         <NewWrapper style={{zIndex: '20'}}>
           <TopLine>New Release</TopLine>
           <Heading>Message to God</Heading>

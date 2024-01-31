@@ -173,13 +173,13 @@ const Navbar1 = () => {
               {isOpen && !currentUser && (
                 <NavItem className="mt-auto">
                   <motion.div {...navItemsAnimation}>
-                    <GoogleSignInButton
+                    {/* <GoogleSignInButton
                       onClick={(event) => handleSignIn(event)}
-                      className="..."
+                      // className="mb-8"
                     >
                       <FcGoogle size={26} className="mr-2" />
                       Sign in with Google
-                    </GoogleSignInButton>
+                    </GoogleSignInButton> */}
                   </motion.div>
                 </NavItem>
               )}

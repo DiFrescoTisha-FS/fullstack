@@ -40,8 +40,11 @@ export const NavLogo = styled(LinkR)`
 `;
 
 export const NavIcon = styled.img`
-    width: 80px;
-    height: 80px;
+  width: 60px; // You may adjust this as necessary
+  height: 60px; // Or keep it auto if you want to maintain the aspect ratio
+  box-shadow: 0 0 20px white; // This adds a glow effect
+  border: 3px solid #ac94f4; // A white border for contrast
+  border-radius: 50%; // To maintain the circular shape
 `;
 
 export const MobileIcon = styled.div`
@@ -106,6 +109,8 @@ export const NavLinks = styled(LinkS)`
 export const NavBtn = styled.nav`
     display: flex;
     align-items: center;
+    margin-bottom: 14px;
+    
 
     @media screen and (max-width: 768px) {
         display: none;
@@ -113,52 +118,53 @@ export const NavBtn = styled.nav`
 `;
 
 export const NavBtnLink = styled(LinkR)`
-    border-radius: 50px;
-    background: #ac94f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; // Space between text and icon
+    border-radius: 4px; // Google buttons usually have less rounded corners
+    background: #ffffff; // White background
     white-space: nowrap;
     padding: 10px 22px;
-    color: #010606;
+    color: #5F6368; // Google's text color
     font-size: 16px;
+    font-weight: 500; // Google font weight
     outline: none;
-    border: none;
+    border: 1px solid #DADCE0; // Light grey border
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.25); // Subtle shadow
     cursor: pointer;
-    transition: all 0.2s ease-in-out;
+    transition: background-color 0.2s ease-in-out;
     text-decoration: none;
-
     &:hover {
-        transition: all 0.2s ease-in-out;
-        background: #010606;
-        color: #ac94f4;
-        border: 1px solid #ac94f4;
-        outline: 1px solid #ac94f4;
-}
+        background-color: #F8F9FA; // Light grey background on hover
+        border-color: #C6C6C6; // A slightly darker border on hover
+        box-shadow: 0 0 3px 3px rgba(66,133,244,0.3); // Blue shadow on hover
+        color: #5F6368; // Text color remains the same
+    }
 `;
 
 export const GoogleSignInButton = styled.button`
-  // Shared styles for all views
-  display: inline-flex;
-  align-items: center;
-  background: #ac94f4;
-  color: white;
-  border: none;
-  text-align: center;
-  padding: 10px 20px;
-  cursor: pointer;
-  margin-bottom: 40px;
-  &:hover {
-    color: #010606;
-    background: white;
-    // Other hover styles
-  }
-
-  // Hide on desktop by default
-  /* display: none; */
-
-  // Display button in mobile nav menu
-  @media screen and (max-width: 768px) {
-    display: block;
-    width: 100%;
-    margin-top: auto; // Pushes the button to the bottom of the nav menu
-    border-bottom: 3px solid #ac94f4; // Active style
-  }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; // Space between text and icon
+    border-radius: 4px; // Google buttons usually have less rounded corners
+    background: #ffffff; // White background
+    white-space: nowrap;
+    padding: 10px 22px;
+    color: #5F6368; // Google's text color
+    font-size: 16px;
+    font-weight: 500; // Google font weight
+    outline: none;
+    border: 1px solid #DADCE0; // Light grey border
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.25); // Subtle shadow
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    text-decoration: none;
+    &:hover {
+        background-color: #F8F9FA; // Light grey background on hover
+        border-color: #C6C6C6; // A slightly darker border on hover
+        box-shadow: 0 0 3px 3px rgba(66,133,244,0.3); // Blue shadow on hover
+        color: #5F6368; // Text color remains the same
+    }
 `;

@@ -1,5 +1,11 @@
 import styled, { keyframes } from "styled-components";
 import { FaRocket, FaArrowAltCircleDown } from "react-icons/fa";
+import heroCloud1 from "../../images/heroCloud1.png";
+import heroCloud2 from "../../images/heroCloud2.png";
+import heroCloud3 from "../../images/heroCloud3.png";
+import Clouds from "../../images/clouds2.png";
+import Clouds2 from "../../images/clouds2reverse.png";
+
 
 const maxWidth = "700px"; // Common max-width for various components
 
@@ -19,10 +25,10 @@ const moveCloud = keyframes`
   }  */
   
   from {
-    transform: translateX(1500px);
+    left: 100%; /* Start off-screen from the right */
   }
   to {
-    transform: translateX(-1100px);
+    left: -100%; /* End off-screen on the left */
   }
 `;
 
@@ -232,51 +238,41 @@ export const ArrowCircle = styled(FaArrowAltCircleDown)`
 `;
 
 export const HeroCloud1 = styled.div`
-  background: url("https://i.imgur.com/vOSGaAF.png") no-repeat;
+  background: url(${Clouds}) center center;
   background-size: contain;
-  max-width: 600px;
+  width: 80%;
+  height: 80%;
   position: absolute;
-  top: 5%;
-  left: 0;
-  animation: ${moveCloud} 10s linear infinite;
+  top: 3%;
+  left: 100%;
+  animation: ${moveCloud} 60s linear infinite;
   background-repeat: no-repeat;
-  animation-delay: 2s;
-  filter: brightness(0.1) blur(3px);
-
-  /* background: url("https://i.imgur.com/vOSGaAF.png") no-repeat;
-  background-size: contain;
-  width: 800px;
-  height: 600px;
-  position: absolute;
-  top: 20%;
-  animation: ${moveCloud} 90s linear infinite;
-  filter: brightness(0.15) blur(3px); */
+  /* filter: brightness(0.5) blur(3px); */
 `;
 
 export const HeroCloud2 = styled.div`
-  background: url("https://i.imgur.com/FRbxCcc.png") no-repeat;
+  background: url(${Clouds2}) no-repeat;
   position: absolute;
-  top: 10%;
-  left: 0;
+  width: 700px;
+  height: 700px;
+  top: 20%;
+  left: -100%;
   background-size: contain;
-  width: 100%;
-  height: 100%;
-  animation: ${moveCloud} 100s linear infinite;
-  animation-delay: 2s;
-  filter: brightness(0.2) blur(3px);
+  animation: ${moveCloud} 50s linear infinite;
+  /* animation-delay: 2s; */
+  /* filter: brightness(0.2) blur(3px); */
 `;
 
 export const HeroCloud3 = styled.div`
-  background: url("https://i.imgur.com/os3kDfx.png") no-repeat;
+  background: url(${Clouds}) no-repeat;
   position: absolute;
   top: 30%;
   left: 0;
   background-size: contain;
-  width:100%;
-  height:100%;
-  animation: ${moveCloud} 75s linear infinite;
-  animation-delay: 3s;
-  filter: brightness(0.2) blur(3px);
+  width: 80%;
+  height: 80%;
+  animation: ${moveCloud} 120s linear infinite;
+  /* animation-delay: 3s; */
 
   @media screen and (max-width: 480px) {
     display: none;
@@ -284,46 +280,61 @@ export const HeroCloud3 = styled.div`
 `;
 
 export const HeroCloud4 = styled.div`
-  background: url("https://i.imgur.com/vOSGaAF.png") no-repeat;
+  background: url(${Clouds}) no-repeat;
   background-size: contain;
-  width: 800px;
-  height: 50%px;
+  width: 50%;
+  height: 50%;
   position: absolute;
-  top: 20%;
+  top: 300px;
   left: 0;
-  animation: ${moveCloud} 50s linear infinite;
+  animation: ${moveCloud} 70s linear infinite;
   background-repeat: no-repeat;
-  animation-delay: 2s;
-  filter: brightness(0.2) blur(3px);
+  animation-delay: -20s;
 `;
 
 export const HeroCloud5 = styled.div`
-  background: url("https://i.imgur.com/FRbxCcc.png") no-repeat;
+  background: url(${Clouds2}) no-repeat;
   position: absolute;
-  top: 10%;
+  top: 150px;
   left: 0;
   background-size: contain;
-  width: 100%;
-  height: 50%;
-  animation: ${moveCloud} 100s linear infinite;
-  animation-delay: 2s;
-  filter: brightness(0.1) blur(3px);
+  width: 60%;
+  height: 60%;
+  animation: ${moveCloud} 90s linear infinite;
+  animation-delay: -5s;
 `;
 
 export const HeroCloud6 = styled.div`
-  background: url("https://i.imgur.com/os3kDfx.png") no-repeat;
+  background: url(${Clouds}) no-repeat;
   position: absolute;
   /* top: 15%; */
-  top: 10%;
+  top: 75px;
   left: 0;
   background-size: contain;
-  width:100%;
-  height:50%;
-  animation: ${moveCloud} 75s linear infinite;
-  animation-delay: 3s;
-  filter: brightness(0.2) blur(3px);
+  width: 900px;
+  height: 350px;
+  animation: ${moveCloud} 90s linear infinite;
+  animation-delay: -10s;
 
   @media screen and (max-width: 480px) {
     display: none;
   }
 `;
+
+// export const HeroCloud7 = styled.div`
+//   background: url(${heroCloud7}) no-repeat;
+//   position: absolute;
+//   /* top: 15%; */
+//   top: 75px;
+//   left: 0;
+//   background-size: contain;
+//   width: 400px;
+//   height: 350px;
+//   animation: ${moveCloud} 90s linear infinite;
+//   animation-delay: -10s;
+//   filter: brightness(0.25) blur(3px);
+
+//   @media screen and (max-width: 480px) {
+//     display: none;
+//   }
+// `;

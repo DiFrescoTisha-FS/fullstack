@@ -107,10 +107,10 @@ const UserComponent = ({ currentUser, onSignIn, onSignOut }) => {
         </div>
       ) : (
         <button
-          className="flex items-center bg-black text-[#ac94f4] border-solid border-2 mb           border-[#ac94f4] space-x-2 mt-5 opacity-90 hover:opacity-80 cursor-pointer rounded-full p-2 pr-2"
+          className="flex items-center justify-center gap-2 rounded-full bg-[#010606] p-1 mt-2 text-sm font-medium text-[#ac94f4] border-2 border-[#ac94f4] shadow-md cursor-pointer transition-colors hover:bg-gray-100 hover:border-gray-400 hover:shadow-md"
           onClick={onSignIn} // Here, we use onSignIn passed down from the parent component
         >
-          <FcGoogle size={24} className="large:block" />
+          <FcGoogle size={28} className="large:block rounded-full p-[4px] bg-white" />
           <span className="lg:block text-[#ac94f4]">Sign in with Google</span>
         </button>
       )}

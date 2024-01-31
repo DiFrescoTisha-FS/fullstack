@@ -37,8 +37,8 @@ const MusicSection = ({
       <MusicContainer id="music">
         <TwinklingBackground />   
         {/* <MusicCloud1 style={{ zIndex: '10' }} /> */}
-        <MusicCloud2 style={{ zIndex: '10' }} />
-        <MusicCloud3 style={{ zIndex: '20' }} />
+        {/* <MusicCloud2 style={{ zIndex: '10' }} />
+        <MusicCloud3 style={{ zIndex: '20' }} /> */}
         {/* <MusicCloud4 style={{ zIndex: '10' }} /> */}
         {/* <MusicCloud5 style={{ zIndex: '10' }} /> */}
         {/* <MusicCloud6 style={{ zIndex: '10' }} /> */}
@@ -60,7 +60,7 @@ const MusicSection = ({
                   allow="autoplay"
                   sandbox="allow-scripts allow-same-origin allow-presentation"
                   className="embed-responsive-item"
-                  src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1469353666%3Fsecret_token%3Ds-kPkEQeIKEYX&color=%23e1affd&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+                  src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1761927219&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
                 >
                 </iframe>
               </Music>

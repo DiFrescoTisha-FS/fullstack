@@ -76,15 +76,15 @@ const CommentSection = () => {
         backgroundImageMobile={commentsMobileImage}
       />
         {/* <CommentCloud1 style={{ zIndex: '10' }} />
-        <CommentCloud2 style={{ zIndex: '10' }} />
-        <CommentCloud3 style={{ zIndex: '10' }} />
-        <CommentCloud4 style={{ zIndex: '10' }} />
-        <CommentCloud5 style={{ zIndex: '10' }} />
-        <CommentCloud6 style={{ zIndex: '10' }} /> */}
+        <CommentCloud2 style={{ zIndex: '10' }} /> */}
+        {/* <CommentCloud3 style={{ zIndex: '10' }} /> */}
+        {/* <CommentCloud4 style={{ zIndex: '10' }} /> */}
+        {/* <CommentCloud5 style={{ zIndex: '10' }} /> */}
+        {/* <CommentCloud6 style={{ zIndex: '10' }} /> */}
       <CommentWrapper style={{zIndex: '20'}} onSubmit={handleCommentSubmit}>
         <CommentRow>
         <ImgWrap>
-            <Img src={Comments} alt="Artist wearing no shirt" />
+            <Img src={Comments} alt="Artist singing in studio" />
           </ImgWrap>
         <TextWrapper>
             <TopLine>Bam Fans</TopLine>

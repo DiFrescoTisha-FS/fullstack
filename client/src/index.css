@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@100;200;300;900&family=Open+Sans:wght@300&family=Roboto:wght@300;500;700&display=swap');
 
 *,
@@ -13,33 +12,30 @@
   box-sizing: border-box;
 }
 
-body, html {
+body {
   margin: 0;
   padding: 0;
   font-family: 'Encode Sans Expanded', sans-serif;
-  overflow-x: hidden;
   background-color: #010606;
-  scrollbar-width: auto; /* can be "auto", "thin", or "none" */
-  scrollbar-color: #ac94f4 #010606; /* thumb and track color */
-
+  scrollbar-width: thin; /* can be "auto", "thin", or "none" */
+  scrollbar-color: #ac94f4 white; /* thumb and track color */
 }
 
 /* Style the scrollbar itself (thumb) */
 ::-webkit-scrollbar-thumb {
-  /* background-color: #ac94f4;
-  border-radius: 10px; */
+  background-color: #ac94f4; /* Thumb color */
+  border-radius: 10px; /* Roundness of the thumb */
 }
 
 /* Style the scrollbar track */
 ::-webkit-scrollbar-track {
-  background: #010606;
+  background: #010606; /* Track color */
 }
 
 /* Optional: Style the scrollbar width */
 ::-webkit-scrollbar {
-  width: 2px; /* Width of the scrollbar */
+  width: 8px; /* Width of the scrollbar */
 }
-
 /* * {
   border: 1px solid red;
 } */
