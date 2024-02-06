@@ -2,8 +2,7 @@ import React, { useState } from 'react'
 import ArtistInfo from '../components/artistInfo/Artist'
 import CommentSection from '../components/commentsection/CommentSection'
 import HeroSection from '../components/hero/Hero'
-// import Navbar from '../components/navbar/Navbar'
-import Navbar1 from '../components/navbar/Navbar1'
+import Navbar from '../components/navbar/Navbar'
 import Thoughts from '../components/thoughts/Thoughts'
 import Music from '../components/music/Music'
 import NewSection from '../components/new/NewSection'
@@ -48,7 +47,7 @@ const Home = () => {
         onSignIn={handleSignIn}
         onSignOut={handleSignOut}
       />
-      <Navbar1 toggle={toggle} />
+      <Navbar toggle={toggle} />
       <HeroSection />
       <ArtistInfo />
       <Music />

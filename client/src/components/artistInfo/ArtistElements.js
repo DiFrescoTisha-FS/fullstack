@@ -1,18 +1,9 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { FaArrowAltCircleDown, FaBusAlt } from 'react-icons/fa';
 import { MusicWrapper } from "../music/MusicElements";
 import { Link } from 'react-scroll';
 
 const tabletBreakpoint = '768px'; 
-
-const moveCloud = keyframes`
-  from {
-    transform: translateX(1500px);
-  }
-  to {
-    transform: translateX(-1100px);
-  }
-`;
 
 export const ArtistInfoContainer = styled.div`
   position: relative;
@@ -22,6 +13,7 @@ export const ArtistInfoContainer = styled.div`
   padding: 0;
   min-height: 860px; // Adjust as needed
   z-index: 1;
+  overflow: hidden;
 
   @media screen and (max-width: 768px) {
     padding: 50px 0; // Adjust padding as needed
@@ -248,92 +240,4 @@ export const ArrowFilled = styled(FaBusAlt)`
 export const ArrowCircle = styled(FaArrowAltCircleDown)`
   margin-left: 8px;
   font-size: 20px;
-`;
-
-export const ArtistCloud1 = styled.div`
-  background: url("https://i.imgur.com/vOSGaAF.png") no-repeat;
-  background-size: contain;
-  max-width: 600px;
-  position: absolute;
-  top: 5%;
-  left: 0;
-  animation: ${moveCloud} 10s linear infinite;
-  background-repeat: no-repeat;
-  animation-delay: 2s;
-  filter: brightness(0.1) blur(3px);
-`;
-
-export const ArtistCloud2 = styled.div`
-  background: url("https://i.imgur.com/FRbxCcc.png") no-repeat;
-  position: absolute;
-  top: 10%;
-  left: 0;
-  background-size: contain;
-  width: 100%;
-  height: 100%;
-  animation: ${moveCloud} 100s linear infinite;
-  animation-delay: 2s;
-  filter: brightness(0.1) blur(3px);
-`;
-
-export const ArtistCloud3 = styled.div`
-  background: url("https://i.imgur.com/os3kDfx.png") no-repeat;
-  position: absolute;
-  top: 30%;
-  left: 0;
-  background-size: contain;
-  width:100%;
-  height:100%;
-  animation: ${moveCloud} 75s linear infinite;
-  animation-delay: 3s;
-  filter: brightness(0.1) blur(3px);
-
-  @media screen and (max-width: 480px) {
-    display: none;
-  }
-`;
-
-export const ArtistCloud4 = styled.div`
-  background: url("https://i.imgur.com/vOSGaAF.png") no-repeat;
-  background-size: contain;
-  width: 800px;
-  height: 50%px;
-  position: absolute;
-  top: 20%;
-  left: 0;
-  animation: ${moveCloud} 50s linear infinite;
-  background-repeat: no-repeat;
-  animation-delay: 2s;
-  filter: brightness(0.1) blur(3px);
-`;
-
-export const ArtistCloud5 = styled.div`
-  background: url("https://i.imgur.com/FRbxCcc.png") no-repeat;
-  position: absolute;
-  top: 10%;
-  left: 0;
-  background-size: contain;
-  width: 100%;
-  height: 50%;
-  animation: ${moveCloud} 100s linear infinite;
-  animation-delay: 2s;
-  filter: brightness(0.1) blur(3px);
-`;
-
-export const ArtistCloud6 = styled.div`
-  background: url("https://i.imgur.com/os3kDfx.png") no-repeat;
-  position: absolute;
-  /* top: 15%; */
-  top: 10%;
-  left: 0;
-  background-size: contain;
-  width:100%;
-  height:50%;
-  animation: ${moveCloud} 75s linear infinite;
-  animation-delay: 3s;
-  filter: brightness(0.15) blur(3px);
-
-  @media screen and (max-width: 480px) {
-    display: none;
-  }
 `;

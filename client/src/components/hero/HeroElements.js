@@ -1,30 +1,8 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { FaRocket, FaArrowAltCircleDown } from "react-icons/fa";
 
-const maxWidth = "700px"; // Common max-width for various components
 
-const moveCloud = keyframes`
-  /* 0%
-  {
-    opacity:0;
-    transform: translateY(0);
-  } 
-  10%, 90% 
-  {
-    opacity: 1;
-  }
-  {
-    opacity: 100%;
-    transform: translateY(-100px);
-  }  */
-  
-  from {
-    transform: translateX(1500px);
-  }
-  to {
-    transform: translateX(-1100px);
-  }
-`;
+const maxWidth = "700px"; // Common max-width for various components
 
 // Hero Container
 export const HeroContainer = styled.div`
@@ -229,101 +207,4 @@ export const ArrowFilled = styled(FaRocket)`
 export const ArrowCircle = styled(FaArrowAltCircleDown)`
   margin-left: 8px;
   font-size: 20px;
-`;
-
-export const HeroCloud1 = styled.div`
-  background: url("https://i.imgur.com/vOSGaAF.png") no-repeat;
-  background-size: contain;
-  max-width: 600px;
-  position: absolute;
-  top: 5%;
-  left: 0;
-  animation: ${moveCloud} 10s linear infinite;
-  background-repeat: no-repeat;
-  animation-delay: 2s;
-  filter: brightness(0.1) blur(3px);
-
-  /* background: url("https://i.imgur.com/vOSGaAF.png") no-repeat;
-  background-size: contain;
-  width: 800px;
-  height: 600px;
-  position: absolute;
-  top: 20%;
-  animation: ${moveCloud} 90s linear infinite;
-  filter: brightness(0.15) blur(3px); */
-`;
-
-export const HeroCloud2 = styled.div`
-  background: url("https://i.imgur.com/FRbxCcc.png") no-repeat;
-  position: absolute;
-  top: 10%;
-  left: 0;
-  background-size: contain;
-  width: 100%;
-  height: 100%;
-  animation: ${moveCloud} 100s linear infinite;
-  animation-delay: 2s;
-  filter: brightness(0.2) blur(3px);
-`;
-
-export const HeroCloud3 = styled.div`
-  background: url("https://i.imgur.com/os3kDfx.png") no-repeat;
-  position: absolute;
-  top: 30%;
-  left: 0;
-  background-size: contain;
-  width:100%;
-  height:100%;
-  animation: ${moveCloud} 75s linear infinite;
-  animation-delay: 3s;
-  filter: brightness(0.2) blur(3px);
-
-  @media screen and (max-width: 480px) {
-    display: none;
-  }
-`;
-
-export const HeroCloud4 = styled.div`
-  background: url("https://i.imgur.com/vOSGaAF.png") no-repeat;
-  background-size: contain;
-  width: 800px;
-  height: 50%px;
-  position: absolute;
-  top: 20%;
-  left: 0;
-  animation: ${moveCloud} 50s linear infinite;
-  background-repeat: no-repeat;
-  animation-delay: 2s;
-  filter: brightness(0.2) blur(3px);
-`;
-
-export const HeroCloud5 = styled.div`
-  background: url("https://i.imgur.com/FRbxCcc.png") no-repeat;
-  position: absolute;
-  top: 10%;
-  left: 0;
-  background-size: contain;
-  width: 100%;
-  height: 50%;
-  animation: ${moveCloud} 100s linear infinite;
-  animation-delay: 2s;
-  filter: brightness(0.1) blur(3px);
-`;
-
-export const HeroCloud6 = styled.div`
-  background: url("https://i.imgur.com/os3kDfx.png") no-repeat;
-  position: absolute;
-  /* top: 15%; */
-  top: 10%;
-  left: 0;
-  background-size: contain;
-  width:100%;
-  height:50%;
-  animation: ${moveCloud} 75s linear infinite;
-  animation-delay: 3s;
-  filter: brightness(0.2) blur(3px);
-
-  @media screen and (max-width: 480px) {
-    display: none;
-  }
 `;

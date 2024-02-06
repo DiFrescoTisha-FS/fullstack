@@ -1,13 +1,10 @@
 import { useState } from "react";
 import ReactPlayer from "react-player";
 import { Button } from "../ButtonElements";
-import newDesktopImage from '../../images/newDesktop32.png';
+import newDesktopImage from '../../images/newDesktop.png';
 import newTabletImage from '../../images/newTablet.png'; // Replace with actual tablet image path
 import newMobileImage from '../../images/newMobile.png';
 
-// import { Clouds } from "../twinklingbackground/TwinklingBackground"
-
-// import youTubeImage from "../../images/newDesktopView.png"
 import TwinklingBackground from "../twinklingbackground/TwinklingBackground";
 
 import {
@@ -25,12 +22,6 @@ import {
   BtnWrap,
   ArrowFilled,
   ArrowCircle, 
-  NewCloud1,
-  NewCloud2,
-
-
-  NewCloud5,
-  NewCloud6,
 } from "./NewElements.js";
 
 export const NewSection = ({
@@ -56,15 +47,11 @@ export const NewSection = ({
     <>
       <NewContainer id="new">
         <TwinklingBackground />
-        {/* <Clouds style={{zIndex: '10'}} /> */}
         <NewBg 
           backgroundImageDesktop={newDesktopImage}
           backgroundImageTablet={newTabletImage}
           backgroundImageMobile={newMobileImage}
         />
-        {/* <NewCloud5 style={{ zIndex: '10' }} /> */}
-        <NewCloud2 style={{ zIndex: '10' }} />
-        <NewCloud6 style={{ zIndex: '10' }} />
         <NewWrapper style={{zIndex: '20'}}>
           <TopLine>New Release</TopLine>
           <Heading>Message to God</Heading>

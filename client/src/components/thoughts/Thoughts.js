@@ -20,20 +20,12 @@ import {
   Heading,
   Subtitle,
   TrapstarText,
-  ThoughtsCloud1,
-  ThoughtsCloud2,
-  ThoughtsCloud3,
-  ThoughtsCloud4,
-  ThoughtsCloud5,
-  ThoughtsCloud6,
 } from "./ThoughtsElements"; // Adjust the path as needed
 
 const Thoughts = ({
   id,
   imgStart,
   img,
-  // backgroundImage,
-  lightText, // Add the lightText prop
 }) => {
 
   // const backgroundImage = thoughtsDesktop;
@@ -41,18 +33,11 @@ const Thoughts = ({
   return (
     <ThoughtsContainer id="thoughts">
       <TwinklingBackground />
-      {/* <Clouds style={{zIndex: '10'}} /> */}
         <ThoughtsBg
           backgroundImageDesktop={thoughtsDesktopImage}
           backgroundImageTablet={thoughtsTabletImage}
           backgroundImageMobile={thoughtsMobileImage}
       />
-        {/* <ThoughtsCloud1 style={{ zIndex: '10' }} />
-        <ThoughtsCloud2 style={{ zIndex: '10' }} />
-        <ThoughtsCloud3 style={{ zIndex: '10' }} />
-        <ThoughtsCloud4 style={{ zIndex: '10' }} />
-        <ThoughtsCloud5 style={{ zIndex: '10' }} /> */}
-        {/* <ThoughtsCloud6 style={{ zIndex: '10' }} /> */}
       <ThoughtsWrapper style={{zIndex: '20'}}>
         <ThoughtsRow imgStart={imgStart}>
           <TextWrapper>

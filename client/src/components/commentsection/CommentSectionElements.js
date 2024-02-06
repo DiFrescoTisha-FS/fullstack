@@ -199,10 +199,6 @@ export const FormWrap = styled.form`
   }
 `;
 
-// export const StarRating = styled.div`
-//   color: #ac94f4;
-// `
-
 export const TextArea = styled.textarea`
 margin-top: 15px;
   width: 100%;
@@ -222,79 +218,4 @@ export const CommentBtnWrapper = styled.button`
   display: flex;
   justify-content: flex-start;
   margin-bottom: 28px;
-`;
-
-export const CommentCloud1 = styled.div`
-  background: url("https://i.imgur.com/vOSGaAF.png") no-repeat;
-  background-size: contain;
-  width: 800px;
-  height: 1100px;
-  position: absolute;
-  top: 10%;
-  animation: ${moveCloud} 200s linear infinite; // Adjust time as needed for a complete cycle
-  filter: brightness(0.15) blur(3px);
-`;
-
-export const CommentCloud2 = styled.div`
-  background: url("http://pngimg.com/uploads/cloud/cloud_PNG24.png");
-  width: 100%;
-  height: 100%;
-  top: 30%;
-  position: absolute;
-  background-repeat: no-repeat;
-  transform: translateX(4px); /* Adjust as necessary to position on screen */
-  animation: ${moveCloud} 210s infinite;
-  animation-fill-mode: both;
-  animation-delay: 4s; 
-  filter: brightness(0.15) blur(3px);
-`;
-
-export const CommentCloud3 = styled.div`
-  background: url("https://i.imgur.com/ouYtyE1.png");
-  width: 100%;
-  height: 100%;
-  top:60%;
-  position: absolute;
-  background-repeat: no-repeat;
-  transform: translateX(90px); /* Adjust as necessary to position on screen */
-  animation: ${moveCloud} 290s infinite;
-  animation-fill-mode: both;
-  animation-delay: 2s; 
-  filter: brightness(0.15) blur(3px);
-`;
-
-export const CommentCloud4 = styled.div`
-  background: url("https://i.imgur.com/Ex2kygq.png");
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 50%;
-  background-repeat: no-repeat;
-  animation: ${moveCloud} 300s infinite;
-  filter: brightness(0.15) blur(3px);
-  animation-delay: 2s; 
-`;
-
-export const CommentCloud5 = styled.div`
-  background: url("https://i.imgur.com/874Clt6.png");
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 5px;
-  background-repeat: no-repeat;
-  animation: ${moveCloud} 180s infinite;
-  filter: brightness(0.15) blur(3px);
-  animation-delay: 1s; 
-`;
-
-export const CommentCloud6 = styled.div`
-  background: url("https://i.imgur.com/vOSGaAF.png");
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 360px;
-  background-repeat: no-repeat;
-  animation: ${moveCloud} 200s infinite;
-  filter: brightness(0.15) blur(3px);
-  animation-delay: 3s; 
 `;

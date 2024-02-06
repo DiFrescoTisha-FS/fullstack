@@ -97,20 +97,20 @@ export const SocialMediaLogo = styled(Link)`
     font-size: 1.5rem;
     display: flex;
     align-items: center;
+    margin-left: 24px;
     font-weight: bold;
     text-decoration: none;
 `;
 
 export const SocialMediaIcon = styled.img`
-    max-width: 65px;
-    max-height: 65px;
-    margin-bottom: 15px;
-    border-radius: 100%;
-    /* border: 2px solid #ac94f4; */
+  width: 60px; // You may adjust this as necessary
+  height: 60px; // Or keep it auto if you want to maintain the aspect ratio
+  box-shadow: 0 0 20px white; // This adds a glow effect
+  border: 3px solid #ac94f4; // A white border for contrast
+  border-radius: 50%;
 
-    @media screen and (max-width: 480px) {
-    flex-direction: column;
-    max-width: 55px;
+    @media screen and (max-width: 768px) {
+        display: none;
   }
 `;
 

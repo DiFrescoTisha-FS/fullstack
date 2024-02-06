@@ -20,12 +20,6 @@ import {
   BtnWrap,
   ImgWrap,
   Img,
-  ArtistCloud1,
-  ArtistCloud2,
-  // ArtistCloud3,
-  ArtistCloud4,
-  ArtistCloud5,
-  ArtistCloud6,
 } from "./ArtistElements";
 
 const ArtistInfo = ({
@@ -36,19 +30,11 @@ const ArtistInfo = ({
     <>
       <ArtistInfoContainer id="bio">
         <TwinklingBackground />
-        <ArtistCloud1 style={{ zIndex: '10' }} />
-        <ArtistCloud2 style={{ zIndex: '10' }} />
-        <ArtistCloud4 style={{ zIndex: '10' }} />
-
-        <ArtistCloud5 style={{ zIndex: '10' }} />
-        
-        <ArtistCloud6 style={{ zIndex: '10' }} />
         <ArtistBg
           backgroundImageDesktop={artistDesktopImage}
           backgroundImageTablet={artistTabletImage}
           backgroundImageMobile={artistMobileImage}
         />
-
         <ArtistInfoWrapper style={{zIndex: '20'}}>
           <ArtistInfoRow>
             <TextWrapper>

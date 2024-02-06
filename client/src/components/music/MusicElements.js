@@ -1,17 +1,6 @@
-import styled, { keyframes } from "styled-components";
-// import backgroundImage from "../../images/single.png";
-// import { SectionContainer } from '../SectionContainer'; 
+import styled from "styled-components";
 
 const tabletBreakpoint = '768px'; 
-
-const moveCloud = keyframes`
-  from {
-    transform: translateX(calc(100% + 200px)); // Start from the right, off-screen (100% of the viewport width plus the cloud's width)
-  }
-  to {
-    transform: translateX(-100%); // Move to the left, off-screen
-  }
-`;
 
 export const MusicContainer = styled.div`
   position: relative;
@@ -64,21 +53,8 @@ export const MusicBg = styled.div`
     background: url(${props => props.backgroundImageMobile}) no-repeat center center;
     background-size: cover;
     background-position: center 1px;
-    
-    &:after {
-      /* content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.5) 100%);
-      z-index: 3; */
-      
-    } // Missing closing brace added here
   }
 `;
-
 
 export const MusicWrapper = styled.div`
   display: flex;
@@ -113,7 +89,6 @@ export const MusicRow = styled.div`
     flex-direction: column; /* Stack them on top of each other on mobile */
   }
 `;
-
 
 export const TextWrapper = styled.div`
   max-width: 529px; // Explicitly setting the max-width
@@ -208,7 +183,6 @@ export const MusicDiv = styled.div`
   }
 `;
 
-
 export const Music = styled.div`
   width: 455px; // Fixed width of 455px
   height: auto; // Maintain aspect ratio
@@ -219,95 +193,5 @@ export const Music = styled.div`
 
 @media screen and (max-width: 768px) {
     width: 100%;
-  }
-`;
-
-export const MusicCloud1 = styled.div`
-  background: url("https://i.imgur.com/os3kDfx.png") no-repeat;
-  background-size: contain;
-  max-width: 600px;
-  height: 50%;
-  position: absolute;
-  top: 5%;
-  left: 0;
-  animation: ${moveCloud} 10s linear infinite;
-  background-repeat: no-repeat;
-  /* animation-delay: 2s; */
-  filter: brightness(0.2) blur(3px);
-`;
-
-export const MusicCloud2 = styled.div`
-  background: url("https://i.imgur.com/os3kDfx.png") no-repeat;
-  position: absolute;
-  top: 10%;
-  left: 0;
-  background-size: contain;
-  width:50%;
-  height: 50%;
-  animation: ${moveCloud} 90s linear infinite;
-  animation-delay: 2s;
-  filter: brightness(0.15) blur(3px);
-`;
-
-export const MusicCloud3 = styled.div`
-  background: url("https://i.imgur.com/os3kDfx.png") no-repeat;
-  position: absolute;
-  top: 10%;
-  left: 0;
-  background-size: contain;
-  width:100%;
-  height:100%;
-  animation: ${moveCloud} 75s linear infinite;
-  animation-delay: 3s;
-  filter: brightness(0.2) blur(3px);
-  z-index: 200;
-
-  @media screen and (max-width: 480px) {
-    display: none;
-  }
-`;
-
-export const MusicCloud4 = styled.div`
-  background: url("https://i.imgur.com/vOSGaAF.png") no-repeat;
-  background-size: contain;
-  width: 800px;
-  height: 50%;
-  position: absolute;
-  top: 20%;
-  left: 0;
-  animation: ${moveCloud} 50s linear infinite;
-  background-repeat: no-repeat;
-  animation-delay: 2s;
-  filter: brightness(0.2) blur(3px);
-`;
-
-export const MusicCloud5 = styled.div`
-  background: url("https://i.imgur.com/FRbxCcc.png") no-repeat;
-  position: absolute;
-  top: 10%;
-  left: 0;
-  background-size: contain;
-  width: 100%;
-  height: 50%;
-  animation: ${moveCloud} 100s linear infinite;
-  animation-delay: 2s;
-  filter: brightness(0.2) blur(3px);
-`;
-
-export const MusicCloud6 = styled.div`
-  background: url("https://i.imgur.com/os3kDfx.png") no-repeat;
-  position: absolute;
-  /* top: 15%; */
-  top: 10%;
-  left: 0;
-  background-size: contain;
-  width:100%;
-  height:50%;
-  animation: ${moveCloud} 75s linear infinite;
-  animation-delay: 3s;
-  filter: brightness(0.2) blur(3px);
-
-  @media screen and (max-width: 480px) {
-    display: none;
   }
 `;
