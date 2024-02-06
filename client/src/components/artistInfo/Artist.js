@@ -2,7 +2,7 @@ import React from "react";
 import galaxy from "../../images/galaxy.jpg";
 import { Button } from "../ButtonElements";
 import { FaArrowAltCircleDown } from "react-icons/fa";
-import artistDesktopImage from '../../images/artistDesktop1.png';
+import artistDesktopImage from '../../images/artistDesktop.png';
 import artistTabletImage from '../../images/artistTablet.png';
 import artistMobileImage from '../../images/artistMobile.png';
 
@@ -20,12 +20,6 @@ import {
   BtnWrap,
   ImgWrap,
   Img,
-  ArtistCloud1,
-  ArtistCloud2,
-  // ArtistCloud3,
-  ArtistCloud4,
-  ArtistCloud5,
-  ArtistCloud6,
 } from "./ArtistElements";
 
 const ArtistInfo = ({
@@ -36,20 +30,11 @@ const ArtistInfo = ({
     <>
       <ArtistInfoContainer id="bio">
         <TwinklingBackground />
-        {/* <CloudsAnimation /> */}
-        {/* <ArtistCloud1 style={{ zIndex: '10' }} /> */}
-        {/* <ArtistCloud2 style={{ zIndex: '10' }} />
-        <ArtistCloud4 style={{ zIndex: '10' }} />
-
-        <ArtistCloud5 style={{ zIndex: '10' }} />
-        
-        <ArtistCloud6 style={{ zIndex: '10' }} /> */}
         <ArtistBg
           backgroundImageDesktop={artistDesktopImage}
           backgroundImageTablet={artistTabletImage}
           backgroundImageMobile={artistMobileImage}
         />
-
         <ArtistInfoWrapper style={{zIndex: '20'}}>
           <ArtistInfoRow>
             <TextWrapper>

@@ -67,7 +67,6 @@ border-radius: 50%; // Circular shape
     font-size: 12px; // Smaller font size on mobile
     width: 30px; // Adjust size as needed
     height: 30px;
-    /* padding: 8px 16px; // Smaller padding on mobile */
   }
 `;
 

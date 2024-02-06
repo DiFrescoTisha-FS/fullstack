@@ -18,13 +18,6 @@ import {
   BtnWrap,
   MusicDiv,
   Music,
-  MusicCloud1,
-  MusicCloud2,
-  MusicCloud3,
-  MusicCloud4,
-  MusicCloud5,
-  MusicCloud6,
-
 } from "./MusicElements.js";
 
 const MusicSection = ({
@@ -36,13 +29,6 @@ const MusicSection = ({
     <>
       <MusicContainer id="music">
         <TwinklingBackground />   
-        {/* <MusicCloud1 style={{ zIndex: '10' }} /> */}
-        {/* <MusicCloud2 style={{ zIndex: '10' }} />
-        <MusicCloud3 style={{ zIndex: '20' }} /> */}
-        {/* <MusicCloud4 style={{ zIndex: '10' }} /> */}
-        {/* <MusicCloud5 style={{ zIndex: '10' }} /> */}
-        {/* <MusicCloud6 style={{ zIndex: '10' }} /> */}
-
         <MusicBg 
           backgroundImageDesktop={musicDesktopImage}
           backgroundImageTablet={musicTabletImage}
@@ -50,7 +36,6 @@ const MusicSection = ({
         />
         <MusicWrapper style={{zIndex: '20'}}>
           <MusicRow>
-
             <MusicDiv>
               <Music>
                 <iframe
