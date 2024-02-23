@@ -187,8 +187,8 @@ export const Cloud4 = styled.div`
   width: 50%;
   height: 50%;
   position: absolute;
-  top: 450px; // Adjust the position as needed
-  left: 0; // Adjust the position as needed
+  top: 450px;
+  left: 0;
   animation: ${moveCloud} 70s linear infinite;
   background-repeat: no-repeat;
   animation-delay: -20s; // Adjust the delay as needed
