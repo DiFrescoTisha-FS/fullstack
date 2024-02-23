@@ -203,7 +203,7 @@ export const Cloud5 = styled.div`
   width: 60%;
   height: 60%;
   animation: ${moveCloud} 90s linear infinite;
-  animation-delay: -5s; // Adjust the delay as needed
+  animation-delay: -5s; // Delay
 `;
 
 export const Cloud6 = styled.div`
