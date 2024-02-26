@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Button } from "../ButtonElements";
 import TwinklingBackground from "../twinklingbackground/TwinklingBackground";
 import StylishText from "../stylishText/StylishText";
+import JupiterCanvas from '../canvas/JupiterCanvas';
 
 // import { Clouds } from "../twinklingbackground/TwinklingBackground";
 import {
@@ -12,6 +13,7 @@ import {
   HeroBtnWrapper,
   ArrowFilled,
   ArrowCircle,
+  JupiterCanvasContainer
 } from "./HeroElements";
 
 const HeroSection = () => {
@@ -27,20 +29,24 @@ const HeroSection = () => {
 
         <TwinklingBackground
           saturnImage="https://i.imgur.com/yM3SlcH.png"
-          neptuneImage="https://i.imgur.com/XyBATJD.png"
           cometImage="https://i.imgur.com/kW59Usj.png"
           earthImage="https://i.imgur.com/qTwsepd.png"
         />
       </HeroBg>
+      <JupiterCanvasContainer>
+        <JupiterCanvas />
+      </JupiterCanvasContainer>
       <HeroContent style={{zIndex: '20'}}>
         <StylishText />
         {/* <HeroH1>Trapstar Bam</HeroH1> */}
         <HeroP>
-          'Witnessing Trapstar Bam's evolution as an artist has been truly
+          {
+          `Witnessing Trapstar Bam's evolution as an artist has been truly
           inspiring. Since we first collaborated back in 2020, his
           dedication and love for music have propelled his growth tremendously.
           It's a privilege to watch him not just meet, but far exceed, every
-          expectation.'
+          expectation.`
+          }
         </HeroP>
         <HeroP style={{ marginTop: "20px" }}>~Bray Kaizen</HeroP>
         <HeroBtnWrapper>
@@ -60,7 +66,7 @@ const HeroSection = () => {
               // Other click handling logic
             }}
           >
-            Bam's Galaxy {hover ? <ArrowFilled /> : <ArrowCircle />}
+            {`Bam's Galaxy`} {hover ? <ArrowFilled /> : <ArrowCircle />}
           </Button>
         </HeroBtnWrapper>
       </HeroContent>

@@ -152,20 +152,14 @@ export const SaturnImage = styled.img`
   }
 `;
 
-export const NeptuneImage = styled.img`
-  position: absolute;
-  top: 60px;
-  left: 100px;
-  z-index: 3;
-  width: 500px;
-  height: auto;
-
-  // Adjust Neptune size on tablet view
-  @media screen and (max-width: 768px) {
-    width: 350px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
+// Add this style for the JupiterCanvas container
+export const JupiterCanvasContainer = styled.div`
+  position: absolute; // Absolute position relative to the next relative parent
+  top: 15%; // Adjust as needed
+  left: 2%; // Adjust as needed
+  width: 500px; // Set a fixed width
+  height: 500px; // Set a fixed height
+  z-index: 8; // Make sure it's above other content, adjust as needed
 `;
 
 export const EarthImage = styled.img`

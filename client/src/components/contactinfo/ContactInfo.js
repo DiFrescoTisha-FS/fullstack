@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import avatarIcon from '../../images/purple_logo.png';
-
+// import avatarIcon from '../../images/purple_logo.png';
+import { BiSolidContact } from "react-icons/bi";
 import {
   CustomButton, // Use CustomButton here
-  Icon,
   ContactInfoContainer
 } from "../contactinfo/ContactInfoElements";
 
@@ -48,8 +47,8 @@ const ContactInfo = () => {
 
   return (
     <div ref={contactInfoRef}>
-      <CustomButton onClick={handleContactInfoToggle}>
-        <Icon src={avatarIcon} alt="User/Placeholder Icon" />
+      <CustomButton className="bg-[#ac94f4] text-[#010606]" onClick={handleContactInfoToggle}>
+        <BiSolidContact className="bg-[#010606]" size="24" />
         {showContactInfo ? 'Hide Contact Info' : 'Contact Info'}
       </CustomButton>
       {showContactInfo && isAuthenticated && (
