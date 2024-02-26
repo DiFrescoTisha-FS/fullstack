@@ -3,10 +3,8 @@ import starsImage from '../../images/stars.png';
 import twinklingImage from '../../images/twinkling.png';
 import cloudImage1 from '../../images/clouds.png';
 import cloudImage2 from '../../images/clouds2.png';
-import cloudImage3 from '../../images/cloudcheck.png';
-import cloudImage4 from '../../images/clouds4.png';
 
-import { SaturnImage, NeptuneImage, EarthImage } from '../hero/HeroElements';
+import { SaturnImage, EarthImage } from '../hero/HeroElements';
 
 const moveTwinkBack = keyframes`
   from {
@@ -37,11 +35,11 @@ const meteorAnimation = keyframes`
 `;
 
 const moveCloud = keyframes`
-    from {
-    left: 100%; /* Start off-screen from the right */
+  from {
+    transform: translateX(100%);
   }
   to {
-    left: -100%; /* End off-screen on the left */
+    transform: translateX(-100%);
   }
 `;
 
@@ -153,7 +151,7 @@ export const Cloud1 = styled.div`
   position: absolute;
   top: 3%;
   left: 100%;
-  animation: ${moveCloud} 60s linear infinite;
+  animation: ${moveCloud} 60s ease-in-out infinite;
   background-repeat: no-repeat;
 `;
 
@@ -170,7 +168,7 @@ export const Cloud2 = styled.div`
 
 // Define the remaining cloud components similarly
 export const Cloud3 = styled.div`
-  background: url(${cloudImage3}) center center;
+  background: url(${cloudImage1}) center center;
   background-size: contain;
   width: 80%;
   height: 80%;
@@ -182,12 +180,12 @@ export const Cloud3 = styled.div`
 `;
 
 export const Cloud4 = styled.div`
-  background: url(${cloudImage4}) center center;
+  background: url(${cloudImage1}) center center;
   background-size: contain;
   width: 50%;
   height: 50%;
   position: absolute;
-  top: 450px; // Adjust the position as needed
+  top: 300px; // Adjust the position as needed
   left: 0; // Adjust the position as needed
   animation: ${moveCloud} 70s linear infinite;
   background-repeat: no-repeat;
@@ -219,32 +217,26 @@ export const Cloud6 = styled.div`
 `;
 
 // The main component
-const TwinklingBackground = ({ saturnImage, neptuneImage, earthImage, neptuneImageMobile }) => {
+const TwinklingBackground = ({ saturnImage, earthImage, neptuneImageMobile }) => {
+  console.log("TwinklingBackground rendering");
   const starBoxShadow = generateStars(300); // for example 300 stars
   const meteors = createMeteors(5); // for example 25 meteors
 
  return (
   <BackgroundContainer>
-    <Stars />
-     {/* <Twinkling />
-     <Star boxShadow={starBoxShadow} />
-     {meteors} */}
-    {saturnImage && <SaturnImage src={saturnImage} alt="Saturn" />}
-    {neptuneImage && (
-  <NeptuneImage
-    src={neptuneImage}
-    mobileImage={neptuneImageMobile} // Pass the mobile image as a prop
-    alt="Neptune"
-  />
-)}
-     {earthImage && <EarthImage src={earthImage} alt="Earth" />}
-     
-  {/* <Cloud1 style={{ zIndex: '10' }} />
+      <Stars />
+      <Twinkling />
+      <Star boxShadow={starBoxShadow} />
+      {meteors}
+      {saturnImage && <SaturnImage src={saturnImage} alt="Saturn" />}
+      {earthImage && <EarthImage src={earthImage} alt="Earth" />}
+
+  <Cloud1 style={{ zIndex: '10' }} />
   <Cloud2 style={{ zIndex: '10' }} />
   <Cloud3 style={{ zIndex: '10' }} />
   <Cloud4 style={{ zIndex: '10' }} />
-  <Cloud5 style={{ zIndex: '10' }} /> */}
-  {/* <Cloud6 style={{ zIndex: '10' }} /> */}
+  <Cloud5 style={{ zIndex: '10' }} />
+  <Cloud6 style={{ zIndex: '10' }} />
   </BackgroundContainer>
   );
   }
