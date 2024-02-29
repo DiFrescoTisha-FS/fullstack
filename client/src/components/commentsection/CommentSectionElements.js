@@ -1,16 +1,7 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import { MusicWrapper } from "../music/MusicElements";
 
 const tabletBreakpoint = '768px'; 
-
-const moveCloud = keyframes`
-  from {
-    transform: translateX(calc(100% + 200px)); // Start from the right, off-screen (100% of the viewport width plus the cloud's width)
-  }
-  to {
-    transform: translateX(-100%); // Move to the left, off-screen
-  }
-`;
 
 export const CommentSectionContainer = styled.div`
   position: relative;

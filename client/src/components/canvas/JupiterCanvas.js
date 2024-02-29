@@ -2,10 +2,14 @@ import React, { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 
 const JupiterCanvas = () => {
-  const mountRef = useRef(null);
+  const mountRef = useRef(null); // Ensure you define mountRef
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   useEffect(() => {
+    const mount = mountRef.current;
+
+    if (!mount) return; // Make sure mount is not null
+
     // Scene setup
     const scene = new THREE.Scene();
 
@@ -41,7 +45,7 @@ const JupiterCanvas = () => {
     const sphere = new THREE.Mesh(new THREE.SphereGeometry(1, 32, 32), material);
 
     // Scale the sphere based on screen size
-    const scaleFactor = isMobile ? 2 : 5;
+    const scaleFactor = isMobile ? 1 : 3.5;
     sphere.scale.set(scaleFactor, scaleFactor, scaleFactor);
 
     scene.add(sphere);
@@ -73,9 +77,13 @@ const JupiterCanvas = () => {
     // Cleanup
     return () => {
       window.removeEventListener('resize', handleResize);
-      mountRef.current.removeChild(renderer.domElement);
+      if (mount) {
+        mount.removeChild(renderer.domElement);
+      }
     };
   }, []);
+
+  
 
   return <div ref={mountRef} style={{ width: '100%', height: '100%', zIndex: 10 }} />;
 };

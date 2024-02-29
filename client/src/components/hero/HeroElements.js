@@ -12,7 +12,7 @@ export const HeroContainer = styled.div`
   align-items: center;
   padding: 0;
   min-height: 860px; // Adjust as needed
-  z-index: 1;
+  z-index: 0;
 
   @media screen and (max-width: 768px) {
     padding: 50px 0; // Adjust padding as needed
@@ -43,11 +43,10 @@ export const HeroBg = styled.div`
   overflow: hidden;
   background: url(${(props) => props.backgroundImage}) no-repeat center center;
   background-size: cover;
-  z-index: -1;
+  z-index: 1;
 
   @media screen and (max-width: 768px) {
-    background: url(${(props) => props.backgroundImageMobile}) no-repeat center
-      center;
+    background: url(${(props) => props.backgroundImageMobile}) no-repeat center center;
     background-size: cover;
     background-position: center 1px;
 
@@ -60,8 +59,8 @@ export const HeroBg = styled.div`
       bottom: 0;
       /* background: linear-gradient(to bottom, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.5) 100%); */
       z-index: 3;
-    } // Missing closing brace for &:after
-  } // Missing closing brace for @media
+    }
+  }
 
   @media screen and (max-width: 768px) {
     background: url(${(props) => props.backgroundImageTablet}) no-repeat center
@@ -142,6 +141,7 @@ export const SaturnImage = styled.img`
   z-index: 3;
   width: 50px;
   height: auto;
+  z-index: 4;
 
   // Hide Saturn on tablet and mobile views
   @media screen and (max-width: 768px) {
@@ -159,7 +159,7 @@ export const JupiterCanvasContainer = styled.div`
   left: 2%; // Adjust as needed
   width: 500px; // Set a fixed width
   height: 500px; // Set a fixed height
-  z-index: 8; // Make sure it's above other content, adjust as needed
+  z-index: 3; // Make sure it's above other content, adjust as needed
 `;
 
 export const EarthImage = styled.img`

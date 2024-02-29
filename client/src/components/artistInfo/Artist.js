@@ -35,7 +35,7 @@ const ArtistInfo = ({
           backgroundImageTablet={artistTabletImage}
           backgroundImageMobile={artistMobileImage}
         />
-        <ArtistInfoWrapper style={{zIndex: '20'}}>
+        <ArtistInfoWrapper style={{zIndex: '10'}}>
           <ArtistInfoRow>
             <TextWrapper>
               <TopLine>Approved Bam Bio</TopLine>

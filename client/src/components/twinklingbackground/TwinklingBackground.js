@@ -35,11 +35,11 @@ const meteorAnimation = keyframes`
 `;
 
 const moveCloud = keyframes`
-  from {
-    transform: translateX(100%);
+    from {
+    left: 100%; /* Start off-screen from the right */
   }
   to {
-    transform: translateX(-100%);
+    left: -100%; /* End off-screen on the left */
   }
 `;
 
@@ -50,7 +50,6 @@ const BackgroundContainer = styled.div`
   width: 100%;
   height: 100%;
   overflow: hidden;
-  z-index: 1; /* Ensure this is below the ArtistBg */
 `;
 
 const Stars = styled.div`
@@ -144,15 +143,17 @@ const createMeteors = (count) => {
 
 // Define the cloud components with animations
 export const Cloud1 = styled.div`
-  background: url(${cloudImage1}) center center;
+  background: url(${cloudImage2}) center center;
   background-size: contain;
-  width: 80%;
-  height: 80%;
+  width: 60%;
+  height: 50%;
   position: absolute;
   top: 3%;
   left: 100%;
-  animation: ${moveCloud} 60s ease-in-out infinite;
+  animation: ${moveCloud} 60s linear infinite;
   background-repeat: no-repeat;
+  filter: brightness(1);
+  z-index: 10;
 `;
 
 export const Cloud2 = styled.div`
@@ -160,36 +161,39 @@ export const Cloud2 = styled.div`
   position: absolute;
   width: 700px;
   height: 700px;
-  top: 20%;
+  top: 3%;
   left: -100%;
   background-size: contain;
   animation: ${moveCloud} 50s linear infinite;
+  z-index: 10;
 `;
 
 // Define the remaining cloud components similarly
 export const Cloud3 = styled.div`
-  background: url(${cloudImage1}) center center;
+  background: url(${cloudImage2}) center center;
   background-size: contain;
-  width: 80%;
-  height: 80%;
+  width: 50%;
+  height: 60%;
   position: absolute;
-  top: 30%; // Adjust the position as needed
+  top: 40%; // Adjust the position as needed
   left: 0; // Adjust the position as needed
   animation: ${moveCloud} 120s linear infinite;
   background-repeat: no-repeat;
+  z-index: 10;
 `;
 
 export const Cloud4 = styled.div`
-  background: url(${cloudImage1}) center center;
+  background: url(${cloudImage2}) center center;
   background-size: contain;
   width: 50%;
   height: 50%;
   position: absolute;
-  top: 300px; // Adjust the position as needed
+  top: 5%; // Adjust the position as needed
   left: 0; // Adjust the position as needed
   animation: ${moveCloud} 70s linear infinite;
   background-repeat: no-repeat;
   animation-delay: -20s; // Adjust the delay as needed
+  z-index: 10;
 `;
 
 export const Cloud5 = styled.div`
@@ -202,19 +206,20 @@ export const Cloud5 = styled.div`
   height: 60%;
   animation: ${moveCloud} 90s linear infinite;
   animation-delay: -5s; // Adjust the delay as needed
+  z-index: 10;
 `;
 
-export const Cloud6 = styled.div`
-  background: url(${cloudImage1}) center center;
-  background-size: contain;
-  width: 900px;
-  height: 350px;
-  position: absolute;
-  top: 75px; // Adjust the position as needed
-  left: 0; // Adjust the position as needed
-  animation: ${moveCloud} 90s linear infinite;
-  animation-delay: -10s; // Adjust the delay as needed
-`;
+// export const Cloud6 = styled.div`
+//   background: url(${cloudImage1}) center center;
+//   background-size: contain;
+//   width: 900px;
+//   height: 350px;
+//   position: absolute;
+//   top: 75px; // Adjust the position as needed
+//   left: 0; // Adjust the position as needed
+//   animation: ${moveCloud} 90s linear infinite;
+//   animation-delay: -10s; // Adjust the delay as needed
+// `;
 
 // The main component
 const TwinklingBackground = ({ saturnImage, earthImage, neptuneImageMobile }) => {
@@ -236,7 +241,6 @@ const TwinklingBackground = ({ saturnImage, earthImage, neptuneImageMobile }) =>
   <Cloud3 style={{ zIndex: '10' }} />
   <Cloud4 style={{ zIndex: '10' }} />
   <Cloud5 style={{ zIndex: '10' }} />
-  <Cloud6 style={{ zIndex: '10' }} />
   </BackgroundContainer>
   );
   }

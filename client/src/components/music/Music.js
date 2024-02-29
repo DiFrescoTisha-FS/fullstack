@@ -2,7 +2,7 @@ import React from "react";
 // import MusicImage from '../../images/music.jpg';
 import { Button } from "../ButtonElements";
 import { FaArrowAltCircleDown } from "react-icons/fa";
-import musicDesktopImage from '../../images/musicDesktop.png';
+import musicDesktopImage from '../../images/musicDesktop1.png';
 import musicTabletImage from '../../images/musicTablet.png'; // Replace with actual tablet image path
 import musicMobileImage from '../../images/musicMobile.png'; 
 import TwinklingBackground from "../twinklingbackground/TwinklingBackground";
